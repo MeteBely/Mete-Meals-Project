@@ -5,7 +5,7 @@ const BlueApronCommentBox = () => {
       <div className=" w-[900px] m-auto">
         <div className="fontChronicle text-[20px] min-[900px]:text-[30px] text-[#002c9b] mb-[20px]">“Blue Apron has changed my life for the better. I am a working mom, and getting dinner on the table is convenient and delicious.”</div>
         <DividerIcon />
-        <p className="fontCera text-[12px] min-[900px]:text-[14px] tracking-[2px] text-[#002c9b] mt-[30px] font-semibold">— @MABDACUMA</p>
+        <p className="fontCera text-[12px] min-[900px]:text-[14px] tracking-[2px] text-[#002c9b] mt-[30px] font-semibold">— @MABDACUMAN</p>
       </div>
     </section>
   );
