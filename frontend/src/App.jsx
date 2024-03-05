@@ -14,6 +14,7 @@ import LogIn from './pages/LogIn';
 import ForgotPassword from './pages/ForgotPassword';
 import SignUp from './pages/SignUp';
 import OnTheMenu from './pages/OnTheMenu';
+import MealDetail from './pages/MealDetail';
 
 function App() {
   return (
@@ -21,7 +22,10 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/on-the-menu" element={<OnTheMenu />} />
+        <Route path="/on-the-menu">
+          <Route index={true} element={<OnTheMenu />} />
+          <Route path="meal/:id" element={<MealDetail />} />
+        </Route>
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/market">
           <Route index={true} element={<Market />} />
