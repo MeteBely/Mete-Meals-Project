@@ -13,18 +13,18 @@ const OnTheMenuSecondSection = ({ activeMenusFirstWeek }) => {
             return (
               <React.Fragment key={index}>
                 <BuildYourPlan />
-                <MonthlyMenuItem menuImg={item.img} menuType={item.type} menuName={item.name} menuDetail={item.detail} menuTime={item.time} key={index} isVegetarian={item.isVegetarian} />
+                <MonthlyMenuItem menuId={item._id} menuImg={item.img} menuType={item.frontFeature} menuName={item.name} menuDetail={item.subTxt} menuTime={item.time} key={index} isVegetarian={item.isVegetarian} />
               </React.Fragment>
             );
           } else if (activeMenusFirstWeek.length < 6 && (index == 4 || index == 3 || index == 5)) {
             return (
               <React.Fragment key={index}>
-                <MonthlyMenuItem menuImg={item.img} menuType={item.type} menuName={item.name} menuDetail={item.detail} menuTime={item.time} key={index} isVegetarian={item.isVegetarian} />
+                <MonthlyMenuItem menuId={item._id} menuImg={item.img} menuType={item.frontFeature} menuName={item.name} menuDetail={item.subTxt} menuTime={item.time} key={index} isVegetarian={item.isVegetarian} />
                 <BuildYourPlan />
               </React.Fragment>
             );
           } else {
-            return <MonthlyMenuItem menuImg={item.img} menuType={item.type} menuName={item.name} menuDetail={item.detail} menuTime={item.time} isVegetarian={item.isVegetarian} key={index} />;
+            return <MonthlyMenuItem menuId={item._id} menuImg={item.img} menuType={item.frontFeature} menuName={item.name} menuDetail={item.subTxt} menuTime={item.time} isVegetarian={item.isVegetarian} key={index} />;
           }
         })}
       </div>

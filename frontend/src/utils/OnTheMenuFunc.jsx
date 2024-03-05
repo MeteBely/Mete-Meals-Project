@@ -1,35 +1,24 @@
-import { SignatureTwoServingFirstWeek, SignatureTwoServingSecondWeek, SignatureTwoServingThirdWeek, SignatureTwoServingFourthWeek } from '../data/onTheMenuDatas/SignatureTwoServing';
-import { SignatureFourServingFirstWeek, SignatureFourServingSecondWeek, SignatureFourServingThirdWeek, SignatureFourServingFourthWeek } from '../data/onTheMenuDatas/SignatureForHourFourServing';
-import { AddOnsWeeklyOptionsFirstWeek, AddOnsWeeklyOptionsSecondWeek, AddOnsWeeklyOptionsThirdWeek, AddOnsWeeklyOptionsFourthWeek } from '../data/onTheMenuDatas/Add-OnsWeeklyOptions';
-import { VegetarianTwoServingFirstWeek, VegetarianTwoServingSecondWeek, VegetarianTwoServingThirdWeek, VegetarianTwoServingFourthWeek } from '../data/onTheMenuDatas/VegetarianTwoServing';
-import { WellnessTwoServingFirstWeek, WellnessTwoServingSecondWeek, WellnessTwoServingThirdWeek, WellnessTwoServingfourthWeek } from '../data/onTheMenuDatas/WellnessTwoServing';
-
-const OnTheMenuFunc = (activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondWeek, setActiveMenusThirdWeek, setActiveMenusFourthWeek) => {
+const OnTheMenuFunc = (activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondWeek, setActiveMenusThirdWeek, setActiveMenusFourthWeek, twoServingFirstMeals, twoServingSecondMeals, twoServingThirdMeals, twoServingFourthMeals, fourServingFirstMeals, fourServingSecondMeals, fourServingThirdMeals, fourServingFourthMeals, fastServingFirstMeals, fastServingSecondMeals, fastServingThirdMeals, fastServingFourthMeals, flexServingFirstMeals, flexServingSecondMeals, flexServingThirdMeals, flexServingFourthMeals) => {
   if (activeBtn === 'btnOne') {
-    setActiveMenusFirstWeek(SignatureTwoServingFirstWeek);
-    setActiveMenusSecondWeek(SignatureTwoServingSecondWeek);
-    setActiveMenusThirdWeek(SignatureTwoServingThirdWeek);
-    setActiveMenusFourthWeek(SignatureTwoServingFourthWeek);
+    setActiveMenusFirstWeek(twoServingFirstMeals);
+    setActiveMenusSecondWeek(twoServingSecondMeals);
+    setActiveMenusThirdWeek(twoServingThirdMeals);
+    setActiveMenusFourthWeek(twoServingFourthMeals);
   } else if (activeBtn === 'btnTwo') {
-    setActiveMenusFirstWeek(VegetarianTwoServingFirstWeek);
-    setActiveMenusSecondWeek(VegetarianTwoServingSecondWeek);
-    setActiveMenusThirdWeek(VegetarianTwoServingThirdWeek);
-    setActiveMenusFourthWeek(VegetarianTwoServingFourthWeek);
+    setActiveMenusFirstWeek(fourServingFirstMeals);
+    setActiveMenusSecondWeek(fourServingSecondMeals);
+    setActiveMenusThirdWeek(fourServingThirdMeals);
+    setActiveMenusFourthWeek(fourServingFourthMeals);
   } else if (activeBtn === 'btnThree') {
-    setActiveMenusFirstWeek(WellnessTwoServingFirstWeek);
-    setActiveMenusSecondWeek(WellnessTwoServingSecondWeek);
-    setActiveMenusThirdWeek(WellnessTwoServingThirdWeek);
-    setActiveMenusFourthWeek(WellnessTwoServingfourthWeek);
+    setActiveMenusFirstWeek(fastServingFirstMeals);
+    setActiveMenusSecondWeek(fastServingSecondMeals);
+    setActiveMenusThirdWeek(fastServingThirdMeals);
+    setActiveMenusFourthWeek(fastServingFourthMeals);
   } else if (activeBtn === 'btnFour') {
-    setActiveMenusFirstWeek(SignatureFourServingFirstWeek);
-    setActiveMenusSecondWeek(SignatureFourServingSecondWeek);
-    setActiveMenusThirdWeek(SignatureFourServingThirdWeek);
-    setActiveMenusFourthWeek(SignatureFourServingFourthWeek);
-  } else if (activeBtn === 'btnFive') {
-    setActiveMenusFirstWeek(AddOnsWeeklyOptionsFirstWeek);
-    setActiveMenusSecondWeek(AddOnsWeeklyOptionsSecondWeek);
-    setActiveMenusThirdWeek(AddOnsWeeklyOptionsThirdWeek);
-    setActiveMenusFourthWeek(AddOnsWeeklyOptionsFourthWeek);
+    setActiveMenusFirstWeek(flexServingFirstMeals);
+    setActiveMenusSecondWeek(flexServingSecondMeals);
+    setActiveMenusThirdWeek(flexServingThirdMeals);
+    setActiveMenusFourthWeek(flexServingFourthMeals);
   }
 };
 

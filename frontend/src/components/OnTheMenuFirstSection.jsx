@@ -31,29 +31,19 @@ const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
           <button
             onClick={() => {
               setActiveBtn('btnThree');
-              setSubTxt('Balanced, nutritionist-approved recipes designed for your holistic health.');
-            }}
-            className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnThree' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
-          >
-            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">2 SERVING</span>
-            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Wellness</span>
-          </button>
-          <button
-            onClick={() => {
-              setActiveBtn('btnFour');
               setSubTxt('Recipes for families, get-togethers, or left-overs, with a variety of options that change weekly, including meat, fish and other health-conscious offerings.');
             }}
-            className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnFour' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
+            className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnThree' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >
             <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">4 SERVING</span>
             <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Signature for Hour</span>
           </button>
           <button
             onClick={() => {
-              setActiveBtn('btnFive');
+              setActiveBtn('btnFour');
               setSubTxt('Complete your meal with appetizers and sides or add even more Blue Apron to your day with breakfast and dessert options.');
             }}
-            className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnFive' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
+            className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnFour' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >
             <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">WEEKLY OPTIONS</span>
             <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Add-Ons</span>
