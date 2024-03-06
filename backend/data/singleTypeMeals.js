@@ -1,6 +1,5 @@
 const singleTypeMeals = [
   {
-    _id: 1,
     name: 'Bacon & Gouda Cheeseburgers',
     subTxt: 'with BBQ Mayo & Arugula Salad',
     img: 'https://media.blueapron.com/recipes/44142/centered_main_dish_images/1706638326-46-0036-2474/0410_FP11_BBQ-Bacon-Burger_175_Web.jpg?quality=80&width=800',
@@ -50,7 +49,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 2,
     name: 'Tomatillo Chorizo & Rice',
     subTxt: 'with Tomatoes & Golden Raisins',
     img: 'https://media.blueapron.com/recipes/44206/square_newsletter_images/1706635313-48-0039-6448/1205_2P11_Smoky-Chorio-Rice_263_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -87,7 +85,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 3,
     name: 'Cheesy Tomato Gnocchi',
     subTxt: 'with Calabrian Chile & Spinach',
     img: 'https://media.blueapron.com/recipes/44208/square_newsletter_images/1706640612-47-0036-6988/0829_2PV2_Calabrian-Gnocchi__309_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -124,7 +121,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 4,
     name: 'Seared Steaks & Creamy Dijon Pan Sauce',
     subTxt: 'with Mashed Potatoes & Hot Honey Carrots',
     img: 'https://media.blueapron.com/recipes/45660/square_newsletter_images/1706632465-48-0006-8792/0304_2PM_Steaks-Creamy-Dijon-Pan-Sauce_973_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -175,7 +171,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 5,
     name: 'Cheesy Chicken & Pinto Bean Tacos',
     subTxt: 'with Sweet Potato Wedges & Creamy Cilantro Sauce',
     img: 'https://media.blueapron.com/recipes/45669/square_newsletter_images/1706635246-48-0035-2713/0304_2P10_Chicken-Ancho-Pinto-Tacos_992_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -224,7 +219,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 6,
     name: 'Seared Scallops & Garlic-Herb Risotto',
     subTxt: 'with Asparagus & Artichokes',
     img: 'https://media.blueapron.com/recipes/45740/square_newsletter_images/1706638063-46-0031-7035/0508_2P12_Scallops-Garlic-Herb-Risotto_376_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -273,7 +267,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 7,
     name: 'Calabrian Shrimp & Orzo',
     subTxt: 'with Tomatoes & Parmesan',
     img: 'https://media.blueapron.com/recipes/45771/square_newsletter_images/1706632162-47-0003-8443/1102_2PF_Shrimp_0480_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -316,7 +309,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 8,
     name: 'Turkey Meatballs & Lemon-Caper Sauce',
     subTxt: 'with Zucchini, Tomatoes & Orzo',
     img: 'https://media.blueapron.com/recipes/45772/square_newsletter_images/1706633237-46-0017-0924/0813_2PRE07_Chicken-Meatballs_14216_WEB_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -367,7 +359,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 9,
     name: 'Sheet Pan Miso Butter & Panko-Crusted Cod',
     subTxt: 'with Ponzu Mayo, Broccoli & Potatoes',
     img: 'https://media.blueapron.com/recipes/45773/square_newsletter_images/1706633659-47-0019-0524/0304_2P9_Sheet-Pan-Miso-Butter-Cod_985_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -417,7 +408,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 10,
     name: 'Sheet Pan Panko Chicken',
     subTxt: 'with Vegetables & Maple-Mustard Sauce',
     img: 'https://media.blueapron.com/recipes/45775/square_newsletter_images/1706631958-47-0001-6161/0304_2PP_Sheet-Pan-Panko-Chicken_984_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -461,7 +451,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 11,
     name: 'Romesco Beef & Ditali Pasta',
     subTxt: 'with Carrots & Poblano Pepper',
     img: 'https://media.blueapron.com/recipes/45776/square_newsletter_images/1706638558-47-0055-8674/0502_2PM_Romesco-Beef-Ditali-Pasta239_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -510,7 +499,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 12,
     name: 'Roasted Cauliflower & Farro Salad',
     subTxt: 'with Tahini-Yogurt Sauce',
     img: 'https://media.blueapron.com/recipes/45777/square_newsletter_images/1706640129-47-0040-9071/0323_2PV3_Cauliflower-Steaks-Farro_656_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -565,7 +553,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 13,
     name: 'Pork Chops & Savory Pan Sauce',
     subTxt: 'with Roasted Pepper & Mushroom Farrotto',
     img: 'https://media.blueapron.com/recipes/45778/square_newsletter_images/1706639475-47-0007-7386/0304_2P21_Pork-Chops-Pan-Sauce_979_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -621,7 +608,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 14,
     name: 'Kung Pao Tofu',
     subTxt: 'with Rice & Vegetables',
     img: 'https://media.blueapron.com/recipes/45782/square_newsletter_images/1706641583-48-0043-6686/1211_2PV3_Kung-Pao-Tofu_14990304_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -678,7 +664,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 15,
     name: 'Curry & Soy-Glazed Chicken',
     subTxt: 'with Zucchini & Cashews',
     img: 'https://media.blueapron.com/recipes/45813/square_newsletter_images/1706632630-47-0007-0960/0314_2P7_Curry-Soy-Glazed-Chicken_030_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -722,7 +707,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 16,
     name: 'Olive & Fontina Cheese Pizza',
     subTxt: 'with Spicy Tomato Sauce',
     img: 'https://media.blueapron.com/recipes/46800/square_newsletter_images/1706639753-48-0020-2633/0102_2PV1_Olive-Feta-Pizza_215_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -771,7 +755,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 17,
     name: 'Chicken Ramen',
     subTxt: 'with Kimchi, Mushrooms & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/44157/square_newsletter_images/1707328963-47-0064-4016/0311_2P19_Chicken-Ramen_11521158_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -817,7 +800,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 18,
     name: 'Chicken & Chickpea Curry',
     subTxt: 'with Garlic Butter Naan',
     img: 'https://media.blueapron.com/recipes/44210/square_newsletter_images/1707256631-47-0009-4202/0904_2P11_oven-Baked-Chicken-Curry_400_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -854,7 +836,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 19,
     name: 'Gnocchi & Feta Bake',
     subTxt: 'with Romesco Sauce, Tomatoes & Spinach',
     img: 'https://media.blueapron.com/recipes/44220/square_newsletter_images/1707328391-47-0039-7028/1128_2PV2_Romesco-Feta-Gnocchi_284_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -885,7 +866,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 20,
     name: 'Crab Cakes & Tartar Sauce',
     subTxt: 'with Dijon Potato & Asparagus Salad',
     img: 'https://media.blueapron.com/recipes/44236/square_newsletter_images/1707164268-47-0002-8582/0311_2P12_Crab-Cakes-Tartar-Sauce_1144_2_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -935,7 +915,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 21,
     name: 'Tamarind-Honey Chicken Breasts',
     subTxt: 'with Roasted Carrots & Mashed Potatoes',
     img: 'https://media.blueapron.com/recipes/44694/square_newsletter_images/1707248708-47-0059-9076/1213_2PP_Seared-Chicken_150_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -985,7 +964,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 22,
     name: 'Spicy Shrimp Lo Mein',
     subTxt: 'with Carrots & Green Beans',
     img: 'https://media.blueapron.com/recipes/45814/square_newsletter_images/1707248567-47-0070-5719/0926_2P20_Shrimp-Lo-Mein-Veg_140_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1028,7 +1006,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 23,
     name: 'Pan-Seared Steaks & Hot Honey Biscuits',
     subTxt: 'with Glazed Shallot & Roasted Asparagus',
     img: 'https://media.blueapron.com/recipes/45815/square_newsletter_images/1707247233-47-0041-6041/0311_2PM_Pan-Seared-Steaks-Biscuits_1073_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1083,7 +1060,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 24,
     name: 'Sheet Pan Chorizo Meatloaf',
     subTxt: 'with Roasted Potatoes & Green Beans',
     img: 'https://media.blueapron.com/recipes/45818/square_newsletter_images/1707255580-49-0006-8026/0925_2P10_Chorizo-Meatloaf_107_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1127,7 +1103,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 25,
     name: 'Lemon-Caper Salmon & Orzo',
     subTxt: 'with Zucchini & Bell Pepper',
     img: 'https://media.blueapron.com/recipes/45819/square_newsletter_images/1707255810-47-0015-9112/0329_2P9_Trout-Piccata_491_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1182,7 +1157,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 26,
     name: 'Greek-Style Chickpea & Couscous Bowl',
     subTxt: 'with Tzatziki & Feta',
     img: 'https://media.blueapron.com/recipes/45820/square_newsletter_images/1707328638-47-0055-5414/0904_2PV3_Greek-Couscous-Salad_565_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1233,7 +1207,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 27,
     name: 'Honey Mustard Chicken & Farro Salad',
     subTxt: 'with Arugula, Asparagus & Goat Cheese',
     img: 'https://media.blueapron.com/recipes/45833/square_newsletter_images/1707255726-46-0010-7698/0311_2P10_Honey-Mustard-Chicken_1064_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1282,7 +1255,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 28,
     name: 'Pinto Bean Tostadas',
     subTxt: 'with Tomatoes, Bell Pepper & Guacamole',
     img: 'https://media.blueapron.com/recipes/45864/square_newsletter_images/1709327187-46-0002-9151/0417_2P17_Pinto-Bean-Tosadas_220_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1333,7 +1305,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 29,
     name: 'Shawarma Chicken & Currant Rice',
     subTxt: 'with Zucchini & Lemon Yogurt',
     img: 'https://media.blueapron.com/recipes/45877/square_newsletter_images/1707254428-47-0001-2661/0712_2P21_Persian-Style-Chicken-Rice_421346_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1388,7 +1359,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 30,
     name: 'Roasted Red Pepper Pasta',
     subTxt: 'with Cauliflower & Ricotta Cheese',
     img: 'https://media.blueapron.com/recipes/45879/square_newsletter_images/1707305597-47-0031-5417/0311_2P22_Roasted-Red-Pepper_Pasta_1057_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1439,7 +1409,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 31,
     name: 'Beef & Pepper Rice Bowls',
     subTxt: 'with Chipotle-Peanut Sauce & Toasted Pepitas',
     img: 'https://media.blueapron.com/recipes/45882/square_newsletter_images/1707256788-47-0012-6465/0417_2PM_Chipotle-Beef-Pepper-Rice_060_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1484,7 +1453,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 32,
     name: 'Sheet Pan Pork & Romesco Mayo',
     subTxt: 'with Roasted Potatoes, Onion & Brussels Sprouts',
     img: 'https://media.blueapron.com/recipes/45963/square_newsletter_images/1707245750-47-0036-8642/0311_2P21_Sheet-Pan-Pork-Romesco-Mayo_1066_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1528,7 +1496,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 33,
     name: 'Ribeye Steak & Gochujang Pan Sauce',
     subTxt: 'with Sushi Rice, Romanesco & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/42131/square_newsletter_images/1707746740-144890-0015-9179/0307_FP12_Ribeye_450_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1546,7 +1513,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 34,
     name: 'Five Cheese Ravioli & Crispy Pancetta',
     subTxt: 'with Brown Butter Sauce & Arugula-Pear Salad',
     img: 'https://media.blueapron.com/recipes/44162/square_newsletter_images/1707746842-80621-0018-5870/1031_FP5_5-Cheese-Raviioli-Butter-Sauce__588_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1564,7 +1530,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 35,
     name: 'Pesto Gnocchi & Hot Italian Sausage',
     subTxt: 'with Mushrooms & Mozzarella',
     img: 'https://media.blueapron.com/recipes/44214/square_newsletter_images/1707938040-46-0031-0432/0918_2P11_Oven-Baked-Pesto-Gnocchi-Sausage_989_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1582,7 +1547,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 36,
     name: 'Italian Chicken & Garlic-Caper Pan Sauce',
     subTxt: 'with Mashed Potatoes & Asparagus',
     img: 'https://media.blueapron.com/recipes/44695/square_newsletter_images/1707857378-45-0012-9133/0318_2PP_Italian-Chicken-Pepper-Pan-Sauce_1202_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1600,7 +1564,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 37,
     name: 'Cilantro Paneer & Chickpea Curry',
     subTxt: 'with Naan & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/45404/square_newsletter_images/1707747532-80621-0032-5871/0318_2PV2_Cilantro-Paneer-Curry-1198_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1618,7 +1581,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 38,
     name: 'Miso-Maple Glazed Salmon',
     subTxt: 'with Fried Rice & Spicy Mayo',
     img: 'https://media.blueapron.com/recipes/45901/square_newsletter_images/1707857241-45-0008-9687/0318_2PF_Miso-Maple-Salmon_1227_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1636,7 +1598,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 39,
     name: 'Seared Trout & Spicy Sesame Sauce',
     subTxt: 'with Bok Choy & Mushrooms',
     img: 'https://media.blueapron.com/recipes/45902/square_newsletter_images/1707937903-46-0028-1051/0624_2PF_Salmon_1456_Square_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1654,7 +1615,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 40,
     name: 'Mafalda Pasta & Pancetta Breadcrumbs',
     subTxt: 'with Creamy Tomato Sauce & Mushrooms',
     img: 'https://media.blueapron.com/recipes/45902/square_newsletter_images/1707937903-46-0028-1051/0624_2PF_Salmon_1456_Square_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1672,7 +1632,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 41,
     name: 'Za’atar White Bean & Farro Bowls',
     subTxt: 'with Carrots, Tomatoes & Marinated Feta',
     img: 'https://media.blueapron.com/recipes/45905/square_newsletter_images/1707750717-144890-0049-4280/0501_2P22_Zaatar-White-Beans-Farro-Bowls_301_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1690,7 +1649,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 42,
     name: 'Black Bean & Caramelized Onion Tacos',
     subTxt: 'with Roasted Zucchini',
     img: 'https://media.blueapron.com/recipes/45906/square_newsletter_images/1707747918-80621-0036-2920/0910_2PV3_Black-Bean-Tacos_1108_WEB_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -1708,7 +1666,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 43,
     name: 'Pan-Seared Steaks & Aioli',
     subTxt: 'with Crispy Gnocchi & Sautéed Zucchini',
     img: 'https://media.blueapron.com/recipes/45911/square_newsletter_images/1707932046-50-0003-3956/1204_2PM_Steaks-Aioli_1002_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1726,7 +1683,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 44,
     name: 'Thai-Style Chicken Curry Noodles',
     subTxt: 'with Carrots, Poblano & Peanuts',
     img: 'https://media.blueapron.com/recipes/45912/square_newsletter_images/1707937219-47-0021-5752/0703_2P7_Thai-Chicken-Curry-Peanut-Noodles_404_SQ_Web_NoLime.jpg?quality=80&width=850&format=pjpg',
@@ -1744,7 +1700,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 45,
     name: 'Balsamic Glazed Pork Meatloaf',
     subTxt: 'with Garlic-Herb Cauliflower & Potatoes',
     img: 'https://media.blueapron.com/recipes/45913/square_newsletter_images/1707857572-45-0014-3469/0318_2P8_Balsamic-Glazed-Meatloaf_1239_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1762,7 +1717,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 46,
     name: 'Sheet Pan Rosemary-Walnut Crusted Cod',
     subTxt: 'with Roasted Potatoes & Asparagus',
     img: 'https://media.blueapron.com/recipes/45914/square_newsletter_images/1707858313-47-0010-7253/0318_2P9_Rosemary-Walnut-Cod_1208_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1780,7 +1734,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 47,
     name: 'Mushroom & Onion White Pizza',
     subTxt: 'with Hot Honey',
     img: 'https://media.blueapron.com/recipes/45915/square_newsletter_images/1707747175-144890-0024-8547/1113_2PV1_Mushroom-Bechamel-Pizza_1289_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1798,7 +1751,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 48,
     name: 'Mexican-Style Beef & Rice Bowls',
     subTxt: 'with Fresh Tomato Salsa & Lemon Mayo',
     img: 'https://media.blueapron.com/recipes/45918/square_newsletter_images/1707748594-144890-0039-2952/0610_2PRE08_Mexican-Beef-Bowls__011_Square_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1816,7 +1768,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 49,
     name: 'Sweet & Spicy Fried Chicken Sandwich',
     subTxt: 'with Kimchi & Roasted Potatoes',
     img: 'https://media.blueapron.com/recipes/44102/square_newsletter_images/1708379107-84734-0029-6024/0325_2P19_Spicy-Korean-Chicken-Sandwich_1334_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1834,7 +1785,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 50,
     name: 'Mexican-Spiced Chicken Thighs',
     subTxt: 'with Rice, Black Beans & Tomatillo Sauce',
     img: 'https://media.blueapron.com/recipes/44218/square_newsletter_images/1708448951-46-0009-8474/0325_2P11_Mexican-Spiced-Chicken-Thighs_1308_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1852,7 +1802,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 51,
     name: 'White Bean Shakshuka',
     subTxt: 'with Garlic Pitas',
     img: 'https://media.blueapron.com/recipes/45965/square_newsletter_images/1708445248-48-0003-5659/0206_2PV2_White-Bean-Shakshuka_565_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1870,7 +1819,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 52,
     name: 'Steak Tips over Creamy Cavatelli',
     subTxt: 'with Asparagus & Arugula Salad',
     img: 'https://media.blueapron.com/recipes/46005/square_newsletter_images/1708378719-84734-0019-8349/0325_2P12_Steak-Tips-Cheesy-Cavatelli-Pasta_1356_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1888,7 +1836,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 53,
     name: 'Smoky Butter Shrimp & Orzo',
     subTxt: 'with Zucchini & Tomatoes',
     img: 'https://media.blueapron.com/recipes/46096/square_newsletter_images/1708450432-46-0026-5313/0626_2P9_Tomato-Chipotle-Butter-Shrimp_358_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1906,7 +1853,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 54,
     name: 'Seared Steaks & Soy Glaze',
     subTxt: 'with Mashed Potatoes & Togarashi Vegetables',
     img: 'https://media.blueapron.com/recipes/46097/square_newsletter_images/1708451834-46-0036-4609/1225_2PM_Steak-Togarashi-Vegetables_1311_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1924,7 +1870,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 55,
     name: 'Tomatillo Chicken & Barley Bowls',
     subTxt: 'with Roasted Vegetables & Orange Salsa',
     img: 'https://media.blueapron.com/recipes/46102/square_newsletter_images/1708460671-47-0001-9774/1213_2P7_Tomatillo-Chicken-Rice-Bowl__234_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1942,7 +1887,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 56,
     name: 'Hoisin Pork & Spicy Rice',
     subTxt: 'with Mushrooms & Marinated Radishes',
     img: 'https://media.blueapron.com/recipes/46103/square_newsletter_images/1708462922-48-0006-3840/0411_2P8_Hoisin-Pork-Gochujang-Rice-Bowl_226_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1960,7 +1904,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 57,
     name: 'Vietnamese-Style Turkey Meatballs',
     subTxt: 'with Sweet Chili Mayo & Lemongrass Rice',
     img: 'https://media.blueapron.com/recipes/46183/square_newsletter_images/1708463494-47-0010-8137/0530_2P11_Vietnamese-Style-Turkey-Meatballs_323_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1978,7 +1921,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 58,
     name: 'Sheet Pan Pesto Salmon',
     subTxt: 'with Roasted Vegetables',
     img: 'https://media.blueapron.com/recipes/46184/square_newsletter_images/1708463245-47-0014-6843/0904_2PF_Sheet-Pan-Pesto-Salmon_569_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -1996,7 +1938,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 59,
     name: 'Roasted Cauliflower & Lemon Pasta',
     subTxt: 'with Garlic Breadcrumbs',
     img: 'https://media.blueapron.com/recipes/46185/square_newsletter_images/1708382691-148880-0046-8418/1008_2PV2_Cauliflower_Pasta_0010_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -2014,7 +1955,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 60,
     name: 'Smoked Gouda & Mushroom Quiche',
     subTxt: 'with Arugula & Tomato Salad',
     img: 'https://media.blueapron.com/recipes/46186/square_newsletter_images/1708381645-84734-0043-5092/0325_2P22_Smoked-Gouda-Quiche_1280_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2032,7 +1972,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 61,
     name: 'Crispy Tofu Katsu & Soy Mayo',
     subTxt: 'with Marinated Vegetables & Sautéed Bok Choy',
     img: 'https://media.blueapron.com/recipes/46188/square_newsletter_images/1708445429-48-0008-8355/0325_2PV3_Tofu-Katsu-Soy-Mayo_1277_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2050,7 +1989,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 62,
     name: 'One-Pan Beef & Udon Noodle Stir-Fry',
     subTxt: 'with Bok Choy & Bell Pepper',
     img: 'https://media.blueapron.com/recipes/46189/square_newsletter_images/1708379367-47-0034-2837/0322_2PM_Beef-Noodle-Fry_106_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2068,7 +2006,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 63,
     name: 'Pork Chops & Shallot Pan Sauce',
     subTxt: 'with Warm Farro, Brussels Sprout & Goat Cheese Salad',
     img: 'https://media.blueapron.com/recipes/46190/square_newsletter_images/1708381042-148880-0028-5845/0325_2P21_Pork-Chops-Shallot-Pan-Sauce_1265_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2086,7 +2023,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 64,
     name: 'Balsamic Chicken & Mashed Potatoes',
     subTxt: 'with Roasted Brussels Sprouts',
     img: 'https://media.blueapron.com/recipes/47145/square_newsletter_images/1708449520-47-0018-0730/0926_2PP_Balsamic-Chicken_077_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2104,7 +2040,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 65,
     name: 'Sesame-Honey Chicken Ramen',
     subTxt: 'with Kimchi, Mushrooms & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/44160/square_newsletter_images/1707323465-47-0010-2015/0311_FP11_Chicken-Ramen_1152_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2150,7 +2085,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 66,
     name: 'Chicken & Chickpea Curry',
     subTxt: 'with Garlic Butter Naan',
     img: 'https://media.blueapron.com/recipes/44211/square_newsletter_images/1707322897-47-0001-8662/0911_FP5_Oven-Baked-Chicken-Chickpea-Curry_587_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2187,7 +2121,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 67,
     name: 'Gnocchi & Feta Bake',
     subTxt: 'with Romesco Sauce, Tomatoes & Spinach',
     img: 'https://media.blueapron.com/recipes/44221/square_newsletter_images/1707337698-47-0191-3010/1128_FP6_Romesco-Feta-Gnocchi_273_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2218,7 +2151,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 68,
     name: 'Crab Cakes & Tartar Sauce',
     subTxt: 'with Dijon Potato & Asparagus Salad',
     img: 'https://media.blueapron.com/recipes/44235/square_newsletter_images/1707323094-47-0005-4410/0311_FP7_Crab-Cakes-Tartar-Sauce_1137_2_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2268,7 +2200,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 69,
     name: 'Garlic-Caper Chicken',
     subTxt: 'with Creamy Calabrian Zucchini & Orzo',
     img: 'https://media.blueapron.com/recipes/45821/square_newsletter_images/1707329968-47-0091-2636/1106_FPP_Garlic-Caper-Chicken_270_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2323,7 +2254,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 70,
     name: 'Pistachio-Crusted Salmon',
     subTxt: 'with Lemon-Caper Rice & Roasted Vegetables',
     img: 'https://media.blueapron.com/recipes/45822/square_newsletter_images/1707330516-47-0111-5925/0311_FPF_Pistachio-Crusted-Salmon_1068_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2367,7 +2297,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 71,
     name: 'Chipotle Chicken Fajitas',
     subTxt: 'with Refried Beans, Avocado & Sour Cream',
     img: 'https://media.blueapron.com/recipes/45823/square_newsletter_images/1707331930-47-0116-4540/0814_FP15_Chicken-Fajitas_432_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2417,7 +2346,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 72,
     name: 'Seared Steaks & Mushroom Agrodolce',
     subTxt: 'with Roasted Potatoes & Brussels Sprouts',
     img: 'https://media.blueapron.com/recipes/45824/square_newsletter_images/1707331061-47-0093-3009/0914_FPM_Steak_0490_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2467,7 +2395,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 73,
     name: 'Feta Stuffed Burgers & Oregano Potatoes',
     subTxt: 'with Garlic Mayo & Tzatziki',
     img: 'https://media.blueapron.com/recipes/45865/square_newsletter_images/1707324167-47-0016-1498/0828_FP18_Feta-Onion-Burgers_592_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2522,7 +2449,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 74,
     name: 'Creamy Tomato Cavatappi Pasta',
     subTxt: 'with Mushrooms & Bell Peppers',
     img: 'https://media.blueapron.com/recipes/45867/square_newsletter_images/1707332907-47-0159-4896/0829_FP17_Creamy-Tomato-Pasta_020_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2572,7 +2498,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 75,
     name: 'Curried Cauliflower',
     subTxt: 'with White Rice & Cilantro-Yogurt Sauce',
     img: 'https://media.blueapron.com/recipes/45869/square_newsletter_images/1707333331-47-0171-2684/0527_2PV3_Cauliflower_1084_Square_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2621,7 +2546,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 76,
     name: 'Sheet Pan Maple-Mustard Pork',
     subTxt: 'with Potatoes, Brussels Sprouts & Carrots',
     img: 'https://media.blueapron.com/recipes/45870/square_newsletter_images/1707324714-47-0020-3543/1225_FP18_Sheet-Pan-Maple-Mustard-Pork_1597_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2670,7 +2594,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 77,
     name: 'Soy & Butter-Glazed Chicken',
     subTxt: 'with Sesame Vegetables & White Rice',
     img: 'https://media.blueapron.com/recipes/45873/square_newsletter_images/1707321026-47-0001-9940/0117_FPV_Soy-Butter-Glazed-Chicken_063_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2720,7 +2643,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 78,
     name: 'Chorizo & Poblano Pasta',
     subTxt: 'with Parmesan Cheese',
     img: 'https://media.blueapron.com/recipes/45878/square_newsletter_images/1707324893-47-0013-6164/0311_FP19_Chorizo-Poblano-Pasta_1079_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2769,7 +2691,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 79,
     name: 'Ribeye Steaks & Gochujang Pan Sauce',
     subTxt: 'with Sushi Rice, Romanesco & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/42130/square_newsletter_images/1707936718-46-0023-4545/0307_FP7_Ribeye_443_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2787,7 +2708,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 80,
     name: 'Five Cheese Ravioli & Crispy Pancetta',
     subTxt: 'with Brown Butter Sauce & Arugula-Pear Salad',
     img: 'https://media.blueapron.com/recipes/44163/square_newsletter_images/1707938564-47-0035-3887/1031_FP5_5-Cheese-Raviioli-Butter-Sauce__598_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2805,7 +2725,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 81,
     name: 'Pesto Gnocchi & Hot Italian Sausage',
     subTxt: 'with Mushrooms & Mozzarella',
     img: 'https://media.blueapron.com/recipes/44215/square_newsletter_images/1707938242-47-0031-8244/0918_FP5_Oven-Baked-Pesto-Gnocchi-Sausage_991_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2823,7 +2742,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 82,
     name: 'Cilantro Paneer & Chickpea Curry',
     subTxt: 'with Naan & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/45903/square_newsletter_images/1707755849-46-0026-3584/0318_FP6_Cilantro-Paneer-Curry-1194_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2841,7 +2759,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 83,
     name: 'Fontina & Panko-Crusted Chicken  ',
     subTxt: 'with Roasted Potatoes & Balsamic Tomato Salad',
     img: 'https://media.blueapron.com/recipes/45907/square_newsletter_images/1707753098-46-0001-3962/0206_FPP_Fontina-Panko-Crusted-Chicken_235_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2859,7 +2776,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 84,
     name: 'Shawarma Chicken & Couscous',
     subTxt: 'with Honey-Tahini Sauce & Feta',
     img: 'https://media.blueapron.com/recipes/45908/square_newsletter_images/1707755354-47-0018-5853/0508_FPV_Shawarma-Chicken-Couscous-Bowl_130_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2877,7 +2793,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 85,
     name: 'Crispy Baked Chicken & Ancho-Honey Sauce',
     subTxt: 'with Cilantro Rice & Tomatoes',
     img: 'https://media.blueapron.com/recipes/45909/square_newsletter_images/1707939488-47-0045-7430/0125_FPP_Deviled-Chicken_033_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2895,7 +2810,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 86,
     name: 'Romesco Salmon & Orzo',
     subTxt: 'with Vegetables & Almond Breadcrumbs',
     img: 'https://media.blueapron.com/recipes/45916/square_newsletter_images/1707754011-47-0006-1678/0318_FPF_Romesco-Salmon-Orzo_1259_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2913,7 +2827,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 87,
     name: 'Seared Steaks & Lemon-Caper Butter',
     subTxt: 'with Oven Fries & Asparagus',
     img: 'https://media.blueapron.com/recipes/45917/square_newsletter_images/1707754869-47-0011-2857/0318_FPM_Seared-Steaks-Lemon-Caper-Butter_1243_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2931,7 +2844,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 88,
     name: 'Sheet Pan Meatball Pitas',
     subTxt: 'with Tzatziki & Bell Peppers',
     img: 'https://media.blueapron.com/recipes/45919/square_newsletter_images/1707938812-46-0039-4625/0911_FP18_Sheet-Pan-Meatball_361_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2949,7 +2861,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 89,
     name: 'Hot Italian Sausage Pizza',
     subTxt: 'with Roasted Asparagus',
     img: 'https://media.blueapron.com/recipes/45923/square_newsletter_images/1707931322-47-0001-7047/0318_FP19_Hot-Italian-Sausage-Pizza_1261_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2967,7 +2878,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 90,
     name: 'Cheesy Gnocchi Skillet',
     subTxt: 'with Rosemary Breadcrumbs',
     img: 'https://media.blueapron.com/recipes/45939/square_newsletter_images/1707756324-46-0030-3866/1120_FP17_Cheesy-Gnocchi-Skillet_1353_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -2985,7 +2895,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 91,
     name: 'Goat Cheese & Mushroom Quiche',
     subTxt: 'with Roasted Brussels Sprouts',
     img: 'https://media.blueapron.com/recipes/45940/square_newsletter_images/1707756878-47-0029-0062/0904_FP17_Mushroom-Goat-Cheese-Quiche_340_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3003,7 +2912,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 92,
     name: 'Seared Pork Chops & Cheesy Mashed Potatoes',
     subTxt: 'with Roasted Carrots & Maple-Sage Pan Sauce',
     img: 'https://media.blueapron.com/recipes/45941/square_newsletter_images/1707940118-46-0052-8460/1010_FP18_Pork-Chops-Mashed-Potatoes_222_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3021,7 +2929,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 93,
     name: 'Sweet & Spicy Fried Chicken Sandwich',
     subTxt: 'with Kimchi & Roasted Potatoes',
     img: 'https://media.blueapron.com/recipes/44171/square_newsletter_images/1708467615-47-0001-9001/0325_FP11_Spicy-Korean-Chicken-Sandwich_1320_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3039,7 +2946,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 94,
     name: 'Mexican-Spiced Chicken Thighs',
     subTxt: 'with Rice, Black Beans & Tomatillo Sauce',
     img: 'https://media.blueapron.com/recipes/44219/square_newsletter_images/1708463801-47-0025-9902/0325_FP5_Mexican-Spiced-Chicken-Thighs_1313_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3057,7 +2963,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 95,
     name: 'White Bean Shakshuka',
     subTxt: 'with Garlic Pitas',
     img: 'https://media.blueapron.com/recipes/45966/square_newsletter_images/1708446674-48-0023-6689/0206_FP6_White-Bean-Shakshuka_567_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3075,7 +2980,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 96,
     name: 'Steaks & Tomatillo Sour Cream',
     subTxt: 'with Zucchini, Pepper & Roasted Sweet Potatoes',
     img: 'https://media.blueapron.com/recipes/46074/square_newsletter_images/1708449741-46-0022-4261/0325_FPM_Steaks-Tomatillo-Sour-Cream_1290_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3093,7 +2997,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 97,
     name: 'Balsamic Chicken & Mashed Potatoes',
     subTxt: 'with Roasted Asparagus',
     img: 'https://media.blueapron.com/recipes/46098/square_newsletter_images/1708447881-46-0001-0734/0325_FPP_Balsamic-Chicken-Mashed-Potatoes_1273_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3111,7 +3014,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 98,
     name: 'Lemon-Ginger Salmon',
     subTxt: 'with Orzo, Carrots & Zucchini',
     img: 'https://media.blueapron.com/recipes/46099/square_newsletter_images/1708449223-47-0013-7825/0905_FP18_Lemon-Ginger-Salmon_165_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3129,7 +3031,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 99,
     name: 'Sheet Pan Italian Meatloaf',
     subTxt: 'with Salsa Verde Potatoes & Roasted Carrots',
     img: 'https://media.blueapron.com/recipes/46101/square_newsletter_images/1708467921-48-0004-8274/1016_FPM_Italian-Meatloaf27628_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3147,7 +3048,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 100,
     name: 'Curry & Soy-Glazed Chicken',
     subTxt: 'with Zucchini & Cashews',
     img: 'https://media.blueapron.com/recipes/46104/square_newsletter_images/1708447279-48-0028-1401/0314_FPV_Curry-Soy-Glazed-Chicken_058_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3165,7 +3065,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 101,
     name: 'Chicken Curry & Mustard Seed Rice',
     subTxt: 'with Coconut Chips & Garlic-Butter Naan',
     img: 'https://media.blueapron.com/recipes/46180/square_newsletter_images/1708469322-47-0003-3347/0325_FP20_Creamy-Chicken-Curry-Naan_1297_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3183,7 +3082,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 102,
     name: 'Creamy Mushroom & Spinach Flatbread',
     subTxt: 'with Fontina & Garlic',
     img: 'https://media.blueapron.com/recipes/46181/square_newsletter_images/1708451127-46-0037-9312/0207_FP6_Spinach-Flatbread_330_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3201,7 +3099,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 103,
     name: 'Steak Tips over Creamy Cavatelli',
     subTxt: 'with Asparagus & Arugula Salad',
     img: 'https://media.blueapron.com/recipes/46191/square_newsletter_images/1708463908-48-0015-9271/0325_FP7_Steak-Tips-Cheesy-Cavatelli-Pasta_1347_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3219,7 +3116,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 104,
     name: 'Cherry-BBQ Pork Roast & Cheddar Spoonbread',
     subTxt: 'with Roasted Brussels Sprouts & Parmesan',
     img: 'https://media.blueapron.com/recipes/46192/square_newsletter_images/1708468207-47-0004-7544/1127_FP18_Cherry-BBQ-Pork-Brussel-Sprouts_1431_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3237,7 +3133,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 105,
     name: 'Mexican-Spiced Shrimp Bake',
     subTxt: 'with Zucchini, Peppers & Creamy Tomatillo Sauce',
     img: 'https://media.blueapron.com/recipes/46194/square_newsletter_images/1708468334-47-0022-7546/0425_FPF_Mexican-Spiced-Shrimp-Bake_472_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3255,7 +3150,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 106,
     name: 'One-Pan Peanut Udon Stir-Fry',
     subTxt: 'with Fried Eggs, Sesame Seeds & Crispy Onions',
     img: 'https://media.blueapron.com/recipes/46302/square_newsletter_images/1708455483-47-0003-1524/0626_FP17_Peanut-Udon-Stir-Fry_213_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3273,7 +3167,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 107,
     name: 'Soy-Miso Pork Belly & Kimchi Ramen',
     subTxt: 'with Soft-Boiled Eggs & Furikake',
     img: 'https://media.blueapron.com/recipes/45469/square_newsletter_images/1709063616-48-0003-7769/0417_FP11_Kimchi-Pork-Belly-Ramen_444_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3291,7 +3184,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 108,
     name: 'Hot Italian Sausage & Gnocchi',
     subTxt: 'with Mozzarella & Tomatoes',
     img: 'https://media.blueapron.com/recipes/46200/square_newsletter_images/1709060278-47-0009-3266/1017_FP5_Gnocchi-Hot-Italian-Sausage_304_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3309,7 +3201,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 109,
     name: 'Pesto & Roasted Red Pepper Pan Pizza',
     subTxt: 'with Arugula Salad & Almonds',
     img: 'https://media.blueapron.com/recipes/46203/square_newsletter_images/1708974121-47-0016-0469/0401_FP6_Pesto-Goat-Cheese-Pizza_1433_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3327,7 +3218,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 110,
     name: 'Sheet Pan Panko Chicken',
     subTxt: 'with Vegetables & Maple-Mustard Sauce',
     img: 'https://media.blueapron.com/recipes/46312/square_newsletter_images/1708969562-49-0002-6571/0401_FPP_Sheet-Pan-Panko-Chicken-Maple-Dipping_1384_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3345,7 +3235,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 111,
     name: 'Curry Ranch Chicken',
     subTxt: 'with Sesame Vegetable Rice & Peanuts',
     img: 'https://media.blueapron.com/recipes/46313/square_newsletter_images/1708973729-47-0012-2335/0828_FPV_Curry-Chicken-Ranch__112_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3363,7 +3252,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 112,
     name: 'Pimento Cheeseburgers',
     subTxt: 'with Roasted Potatoes & Creamy Ranch',
     img: 'https://media.blueapron.com/recipes/46316/square_newsletter_images/1709062504-47-0002-5052/0401_FP15_Pimento-Cheeseburgers_1408_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3381,7 +3269,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 113,
     name: 'Steaks & Cheesy Mashed Potatoes',
     subTxt: 'with Steak Sauce & Roasted Vegetables',
     img: 'https://media.blueapron.com/recipes/46326/square_newsletter_images/1708970649-47-0003-2540/0627_FP5_Steaks-Cheesy-Mash_247_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3399,7 +3286,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 114,
     name: 'Chorizo Tacos',
     subTxt: 'with Cheesy Potatoes & Creamy Tomatillo Sauce',
     img: 'https://media.blueapron.com/recipes/46327/square_newsletter_images/1709064186-48-0011-7947/0227_FP19_Chorizo-Tacos_809_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3417,7 +3303,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 115,
     name: 'Chicken & Rosemary Panzanella',
     subTxt: 'with Sweet & Spicy Mascarpone',
     img: 'https://media.blueapron.com/recipes/46328/square_newsletter_images/1709063999-48-0005-5890/0918_FPP_Hot-Honey-Chicken_236_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3435,7 +3320,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 116,
     name: 'Lemon Butter Scallops',
     subTxt: 'with Wild Rice & Spring Vegetables',
     img: 'https://media.blueapron.com/recipes/46393/square_newsletter_images/1709062783-46-0004-2442/0502_FP7_Lime-Butter-Scallops_013_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3453,7 +3337,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 117,
     name: 'Creamy Pesto Gnocchi & Squash Bake',
     subTxt: 'with Spinach & Parmesan Breadcrumbs',
     img: 'https://media.blueapron.com/recipes/46395/square_newsletter_images/1708974703-47-0020-8420/1011_FP6_Butternuts-Squash-Bake__088_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3471,7 +3354,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 118,
     name: 'Cheesy Vegetable Fajitas',
     subTxt: 'with Chipotle Refried Beans & Avocado',
     img: 'https://media.blueapron.com/recipes/46398/square_newsletter_images/1708975114-46-0029-8849/0401_FP17_Cheesy-Vegetable-Fajitas_1416_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3489,7 +3371,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 119,
     name: 'Shrimp Fried Rice',
     subTxt: 'with Spiced Mayo',
     img: 'https://media.blueapron.com/recipes/46422/square_newsletter_images/1708969962-47-0005-1345/1102_FPF_Hibachi-Fried-Rice_064_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3507,7 +3388,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 120,
     name: 'Tomato Achaar Pork Meatloaf',
     subTxt: 'with Mustard Seed Rice, Vegetables & Cilantro Sauce',
     img: 'https://media.blueapron.com/recipes/47666/square_newsletter_images/1709064394-48-0015-0348/0401_FP20_Tomato-Achaar-Meatloaf_1403_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -3525,7 +3405,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 121,
     name: 'Creamy Pesto Chicken',
     subTxt: 'with Riced Broccoli & Asparagus',
     img: 'https://media.blueapron.com/recipes/47015/square_newsletter_images/1707331350-47-0099-5811/Chicken-Keto-Alfredo-Fresh_1630_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3549,7 +3428,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 122,
     name: 'Mediterranean-Style Pork & Vegetables',
     subTxt: 'with Feta Cheese',
     img: 'https://media.blueapron.com/recipes/47016/square_newsletter_images/1707331867-47-0108-0411/Greek-Pork-Fresh_647_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3573,7 +3451,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 123,
     name: 'Chicken & Quinoa Grain Bowl',
     subTxt: 'with Feta & Vegetables',
     img: 'https://media.blueapron.com/recipes/47017/square_newsletter_images/1707331950-47-0094-1011/Greek-Chicken-Grain-Bowl-Fresh_584_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3597,7 +3474,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 124,
     name: 'Cilantro Pesto Chicken',
     subTxt: 'with Brown Rice & Fajita-Style Veggies',
     img: 'https://media.blueapron.com/recipes/47018/square_newsletter_images/1707163871-47-0015-3603/Baja-Chicken-Bowl-Fresh_306_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3621,7 +3497,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 125,
     name: 'Chicken & Yakisoba',
     subTxt: 'with Green Beans & Carrots',
     img: 'https://media.blueapron.com/recipes/47019/square_newsletter_images/1707329254-47-0084-4027/Chicken-Yakisoba-Noodles-Fresh_1703_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3645,7 +3520,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 126,
     name: 'Pulled Pork Rotini & Cheese',
     subTxt: 'with Bacon, Peppers & Corn',
     img: 'https://media.blueapron.com/recipes/47020/square_newsletter_images/1707330084-47-0065-3538/Mac-Cheese-Pulled-Pork-Pepper-Corn-Fresh_1401_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3669,7 +3543,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 127,
     name: 'Cheesy Shredded Beef & Riced Broccoli',
     subTxt: 'with Tomato Pesto',
     img: 'https://media.blueapron.com/recipes/47021/square_newsletter_images/1707411603-47-0185-1597/Sundried-Tomato-Pesto-Beef-Fresh_1158_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3693,7 +3566,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 128,
     name: 'Four-Cheese Ravioli',
     subTxt: 'with Red Pepper Rosa, Pesto & Parmesan',
     img: 'https://media.blueapron.com/recipes/47023/square_newsletter_images/1707329178-47-0047-4342/Ravioli-Rosa-Fresh_1766_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3717,7 +3589,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 129,
     name: 'Harissa Chickpeas & Kale',
     subTxt: 'with Garlic & Herb Farro',
     img: 'https://media.blueapron.com/recipes/47024/square_newsletter_images/1707411387-47-0201-9551/Chickpeas-Harissa-Fresh_521_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3741,7 +3612,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 130,
     name: 'Buffalo-Style Chicken',
     subTxt: 'with Mashed Potatoes & Vegetables',
     img: 'https://media.blueapron.com/recipes/47025/square_newsletter_images/1707245599-47-0042-7890/Creamy-Spicy-Chicken-Fresh_1654_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3765,7 +3635,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 131,
     name: 'Harissa Turkey',
     subTxt: 'with Brown Rice & Kale',
     img: 'https://media.blueapron.com/recipes/47027/square_newsletter_images/1707245024-47-0024-9688/Harissa-Turkey-Carnitas-Fresh_757_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3789,7 +3658,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 132,
     name: 'Lemon Piccata Chicken',
     subTxt: 'with Brown Rice & Vegetables',
     img: 'https://media.blueapron.com/recipes/47028/square_newsletter_images/1707244894-47-0013-4426/Lemon-Chicken-Mambo-Italiano-Fresh_875_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3813,7 +3681,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 133,
     name: 'Coconut Korma Chicken',
     subTxt: 'with Rice & Chickpeas',
     img: 'https://media.blueapron.com/recipes/47029/square_newsletter_images/1707243969-47-0004-0160/Coconut-Korma-Chicken-Chickpeas-Corn-Fresh_1300_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3837,7 +3704,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 134,
     name: 'Salmon & Roasted Sweet Potatoes',
     subTxt: 'with Pesto, Peppers & Almonds',
     img: 'https://media.blueapron.com/recipes/47030/square_newsletter_images/1707159794-47-0006-9811/Salmon-Loaded-Sweet-Potatoes_1116_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3861,7 +3727,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 135,
     name: 'Smoked Pork & Honey BBQ Sauce',
     subTxt: 'with Mac & Cheese',
     img: 'https://media.blueapron.com/recipes/47373/square_newsletter_images/1707329128-47-0071-5311/Smoked-Pork-Mac-Cheese-Fresh_1136_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3885,7 +3750,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 136,
     name: 'Sausage & Four-Cheese Ravioli',
     subTxt: 'with Peppers',
     img: 'https://media.blueapron.com/recipes/47398/square_newsletter_images/1707245419-47-0032-1564/Long-Island-Sausage-Peppers-Fresh_1955_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3909,7 +3773,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 137,
     name: 'Cavatappi Beef Bolognese',
     subTxt: 'with Parmesan & Ricotta Cheese',
     img: 'https://media.blueapron.com/recipes/47413/square_newsletter_images/1707158396-47-0034-4122/Cavatappi-Beef-Bolognese-Fresh_1844_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3933,7 +3796,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 138,
     name: 'Cheesy Truffle Cavatappi',
     subTxt: 'with Mushrooms & Kale',
     img: 'https://media.blueapron.com/recipes/47427/square_newsletter_images/1707159547-46-0008-1037/Cheesy-Truffle-Cavatappi-Fresh_1877_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3957,7 +3819,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 139,
     name: 'Korean-Style Kimchi Rice',
     subTxt: 'with Scrambled Eggs & Veggies',
     img: 'https://media.blueapron.com/recipes/47429/square_newsletter_images/1707157752-47-0009-0103/Kimchi-Fried-Rice-Fresh_819_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -3981,7 +3842,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 140,
     name: 'Spiced Shredded Beef & Rice',
     subTxt: 'with Peas & Raisins',
     img: 'https://media.blueapron.com/recipes/47431/square_newsletter_images/1707157653-47-0018-3523/Spanish-Style-Beef-Rice-Red-Peppers-Peas-Raisins-Fresh_1452_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4005,7 +3865,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 141,
     name: 'Four-Cheese Enchiladas',
     subTxt: 'with Rice & Vegetables',
     img: 'https://media.blueapron.com/recipes/47242/square_newsletter_images/1708536028-44-0007-5681/Four-Cheese-Enchiladas-Rice-Vegetrables-Fresh_1358_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4029,7 +3888,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 142,
     name: 'Korean-Style Kimchi Rice',
     subTxt: 'with Scrambled Eggs & Veggies',
     img: 'https://media.blueapron.com/recipes/47243/square_newsletter_images/1708535648-44-0004-8050/Kimchi-Fried-Rice-Fresh_819_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4053,7 +3911,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 143,
     name: 'Salmon & Roasted Sweet Potatoes',
     subTxt: 'with Pesto, Peppers & Almonds',
     img: 'https://media.blueapron.com/recipes/47030/square_newsletter_images/1707159794-47-0006-9811/Salmon-Loaded-Sweet-Potatoes_1116_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4077,7 +3934,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 144,
     name: 'Smoked Pork & Honey BBQ Sauce',
     subTxt: 'with Mac & Cheese',
     img: 'https://media.blueapron.com/recipes/47373/square_newsletter_images/1707329128-47-0071-5311/Smoked-Pork-Mac-Cheese-Fresh_1136_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4101,7 +3957,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 145,
     name: 'Sausage & Four-Cheese Ravioli',
     subTxt: 'with Peppers',
     img: 'https://media.blueapron.com/recipes/47398/square_newsletter_images/1707245419-47-0032-1564/Long-Island-Sausage-Peppers-Fresh_1955_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4125,7 +3980,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 146,
     name: 'Cavatappi Beef Bolognese',
     subTxt: 'with Parmesan & Ricotta Cheese',
     img: 'https://media.blueapron.com/recipes/47413/square_newsletter_images/1707158396-47-0034-4122/Cavatappi-Beef-Bolognese-Fresh_1844_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4149,7 +4003,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 147,
     name: 'Cheesy Truffle Cavatappi',
     subTxt: 'with Mushrooms & Kale',
     img: 'https://media.blueapron.com/recipes/47427/square_newsletter_images/1707159547-46-0008-1037/Cheesy-Truffle-Cavatappi-Fresh_1877_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4173,7 +4026,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 148,
     name: 'Korean-Style Kimchi Rice',
     subTxt: 'with Scrambled Eggs & Veggies',
     img: 'https://media.blueapron.com/recipes/47429/square_newsletter_images/1707157752-47-0009-0103/Kimchi-Fried-Rice-Fresh_819_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4197,7 +4049,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 149,
     name: 'Creamy Pesto Chicken',
     subTxt: 'with Riced Broccoli & Asparagus',
     img: 'https://media.blueapron.com/recipes/47015/square_newsletter_images/1707331350-47-0099-5811/Chicken-Keto-Alfredo-Fresh_1630_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4221,7 +4072,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 150,
     name: 'Mediterranean-Style Pork & Vegetables',
     subTxt: 'with Feta Cheese',
     img: 'https://media.blueapron.com/recipes/47016/square_newsletter_images/1707331867-47-0108-0411/Greek-Pork-Fresh_647_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4245,7 +4095,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 151,
     name: 'Chicken & Quinoa Grain Bowl',
     subTxt: 'with Feta & Vegetables',
     img: 'https://media.blueapron.com/recipes/47017/square_newsletter_images/1707331950-47-0094-1011/Greek-Chicken-Grain-Bowl-Fresh_584_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4269,7 +4118,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 152,
     name: 'Cilantro Pesto Chicken',
     subTxt: 'with Brown Rice & Fajita-Style Veggies',
     img: 'https://media.blueapron.com/recipes/47018/square_newsletter_images/1707163871-47-0015-3603/Baja-Chicken-Bowl-Fresh_306_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4293,7 +4141,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 153,
     name: 'Chicken & Yakisoba',
     subTxt: 'with Green Beans & Carrots',
     img: 'https://media.blueapron.com/recipes/47019/square_newsletter_images/1707329254-47-0084-4027/Chicken-Yakisoba-Noodles-Fresh_1703_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4317,7 +4164,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 154,
     name: 'Pulled Pork Rotini & Cheese',
     subTxt: 'with Bacon, Peppers & Corn',
     img: 'https://media.blueapron.com/recipes/47020/square_newsletter_images/1707330084-47-0065-3538/Mac-Cheese-Pulled-Pork-Pepper-Corn-Fresh_1401_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4341,7 +4187,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 155,
     name: 'Cheesy Shredded Beef & Riced Broccoli',
     subTxt: 'with Tomato Pesto',
     img: 'https://media.blueapron.com/recipes/47021/square_newsletter_images/1707411603-47-0185-1597/Sundried-Tomato-Pesto-Beef-Fresh_1158_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4365,7 +4210,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 156,
     name: 'Four-Cheese Ravioli',
     subTxt: 'with Red Pepper Rosa, Pesto & Parmesan',
     img: 'https://media.blueapron.com/recipes/47023/square_newsletter_images/1707329178-47-0047-4342/Ravioli-Rosa-Fresh_1766_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4389,7 +4233,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 157,
     name: 'Harissa Chickpeas & Kale',
     subTxt: 'with Garlic & Herb Farro',
     img: 'https://media.blueapron.com/recipes/47024/square_newsletter_images/1707411387-47-0201-9551/Chickpeas-Harissa-Fresh_521_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4413,7 +4256,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 158,
     name: 'Buffalo-Style Chicken',
     subTxt: 'with Mashed Potatoes & Vegetables',
     img: 'https://media.blueapron.com/recipes/47025/square_newsletter_images/1707245599-47-0042-7890/Creamy-Spicy-Chicken-Fresh_1654_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4437,7 +4279,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 159,
     name: 'Harissa Turkey',
     subTxt: 'with Brown Rice & Kale',
     img: 'https://media.blueapron.com/recipes/47027/square_newsletter_images/1707245024-47-0024-9688/Harissa-Turkey-Carnitas-Fresh_757_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4461,7 +4302,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 160,
     name: 'Lemon Piccata Chicken',
     subTxt: 'with Brown Rice & Vegetables',
     img: 'https://media.blueapron.com/recipes/47028/square_newsletter_images/1707244894-47-0013-4426/Lemon-Chicken-Mambo-Italiano-Fresh_875_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4485,7 +4325,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 161,
     name: 'Coconut Korma Chicken',
     subTxt: 'with Rice & Chickpeas',
     img: 'https://media.blueapron.com/recipes/47029/square_newsletter_images/1707243969-47-0004-0160/Coconut-Korma-Chicken-Chickpeas-Corn-Fresh_1300_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4509,7 +4348,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 162,
     name: 'Four-Cheese Ravioli',
     subTxt: 'with Red Pepper Rosa, Pesto & Parmesan',
     img: 'https://media.blueapron.com/recipes/47023/square_newsletter_images/1707329178-47-0047-4342/Ravioli-Rosa-Fresh_1766_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4533,7 +4371,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 163,
     name: 'Harissa Chickpeas & Kale',
     subTxt: 'with Garlic & Herb Farro',
     img: 'https://media.blueapron.com/recipes/47024/square_newsletter_images/1707411387-47-0201-9551/Chickpeas-Harissa-Fresh_521_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4557,7 +4394,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 164,
     name: 'Buffalo-Style Chicken',
     subTxt: 'with Mashed Potatoes & Vegetables',
     img: 'https://media.blueapron.com/recipes/47025/square_newsletter_images/1707245599-47-0042-7890/Creamy-Spicy-Chicken-Fresh_1654_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4581,7 +4417,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 165,
     name: 'Harissa Turkey',
     subTxt: 'with Brown Rice & Kale',
     img: 'https://media.blueapron.com/recipes/47027/square_newsletter_images/1707245024-47-0024-9688/Harissa-Turkey-Carnitas-Fresh_757_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4605,7 +4440,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 166,
     name: 'Lemon Piccata Chicken',
     subTxt: 'with Brown Rice & Vegetables',
     img: 'https://media.blueapron.com/recipes/47028/square_newsletter_images/1707244894-47-0013-4426/Lemon-Chicken-Mambo-Italiano-Fresh_875_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4629,7 +4463,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 167,
     name: 'Coconut Korma Chicken',
     subTxt: 'with Rice & Chickpeas',
     img: 'https://media.blueapron.com/recipes/47029/square_newsletter_images/1707243969-47-0004-0160/Coconut-Korma-Chicken-Chickpeas-Corn-Fresh_1300_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4653,7 +4486,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 168,
     name: 'Salmon & Roasted Sweet Potatoes',
     subTxt: 'with Pesto, Peppers & Almonds',
     img: 'https://media.blueapron.com/recipes/47030/square_newsletter_images/1707159794-47-0006-9811/Salmon-Loaded-Sweet-Potatoes_1116_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4677,7 +4509,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 169,
     name: 'Smoked Pork & Honey BBQ Sauce',
     subTxt: 'with Mac & Cheese',
     img: 'https://media.blueapron.com/recipes/47373/square_newsletter_images/1707329128-47-0071-5311/Smoked-Pork-Mac-Cheese-Fresh_1136_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4701,7 +4532,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 170,
     name: 'Sausage & Four-Cheese Ravioli',
     subTxt: 'with Peppers',
     img: 'https://media.blueapron.com/recipes/47398/square_newsletter_images/1707245419-47-0032-1564/Long-Island-Sausage-Peppers-Fresh_1955_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4725,7 +4555,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 171,
     name: 'Cavatappi Beef Bolognese',
     subTxt: 'with Parmesan & Ricotta Cheese',
     img: 'https://media.blueapron.com/recipes/47413/square_newsletter_images/1707158396-47-0034-4122/Cavatappi-Beef-Bolognese-Fresh_1844_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4749,7 +4578,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 172,
     name: 'Cheesy Truffle Cavatappi',
     subTxt: 'with Mushrooms & Kale',
     img: 'https://media.blueapron.com/recipes/47427/square_newsletter_images/1707159547-46-0008-1037/Cheesy-Truffle-Cavatappi-Fresh_1877_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4773,7 +4601,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 173,
     name: 'Korean-Style Kimchi Rice',
     subTxt: 'with Scrambled Eggs & Veggies',
     img: 'https://media.blueapron.com/recipes/47429/square_newsletter_images/1707157752-47-0009-0103/Kimchi-Fried-Rice-Fresh_819_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4797,7 +4624,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 174,
     name: 'Spiced Shredded Beef & Rice',
     subTxt: 'with Peas & Raisins',
     img: 'https://media.blueapron.com/recipes/47431/square_newsletter_images/1707157653-47-0018-3523/Spanish-Style-Beef-Rice-Red-Peppers-Peas-Raisins-Fresh_1452_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4821,7 +4647,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 175,
     name: 'Four-Cheese Enchiladas',
     subTxt: 'with Rice & Vegetables',
     img: 'https://media.blueapron.com/recipes/47242/square_newsletter_images/1708536028-44-0007-5681/Four-Cheese-Enchiladas-Rice-Vegetrables-Fresh_1358_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4845,7 +4670,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 176,
     name: 'Korean-Style Kimchi Rice',
     subTxt: 'with Scrambled Eggs & Veggies',
     img: 'https://media.blueapron.com/recipes/47243/square_newsletter_images/1708535648-44-0004-8050/Kimchi-Fried-Rice-Fresh_819_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4869,7 +4693,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 177,
     name: 'Salmon & Roasted Sweet Potatoes',
     subTxt: 'with Pesto, Peppers & Almonds',
     img: 'https://media.blueapron.com/recipes/47030/square_newsletter_images/1707159794-47-0006-9811/Salmon-Loaded-Sweet-Potatoes_1116_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4893,7 +4716,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 178,
     name: 'Smoked Pork & Honey BBQ Sauce',
     subTxt: 'with Mac & Cheese',
     img: 'https://media.blueapron.com/recipes/47373/square_newsletter_images/1707329128-47-0071-5311/Smoked-Pork-Mac-Cheese-Fresh_1136_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4917,7 +4739,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 179,
     name: 'Sausage & Four-Cheese Ravioli',
     subTxt: 'with Peppers',
     img: 'https://media.blueapron.com/recipes/47398/square_newsletter_images/1707245419-47-0032-1564/Long-Island-Sausage-Peppers-Fresh_1955_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4941,7 +4762,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 180,
     name: 'Cavatappi Beef Bolognese',
     subTxt: 'with Parmesan & Ricotta Cheese',
     img: 'https://media.blueapron.com/recipes/47413/square_newsletter_images/1707158396-47-0034-4122/Cavatappi-Beef-Bolognese-Fresh_1844_SQ.jpg?quality=80&width=850&format=pjpg',
@@ -4965,7 +4785,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 181,
     name: 'Sweet Potato Loaf Cake',
     subTxt: 'with Cinnamon & Pecans',
     img: 'https://media.blueapron.com/recipes/45967/square_newsletter_images/1707336090-47-0161-6388/0311_ADD03_Sweet-Potato-Loaf-Cake_1165_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5014,7 +4833,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 182,
     name: 'Mexican-Style Bean Soup',
     subTxt: 'with Sweet Potatoes & Three Cheese Quesadillas',
     img: 'https://media.blueapron.com/recipes/46004/square_newsletter_images/1707336042-47-0125-1263/0311_ADD06_Black-Bean-Sweet-Potato-Soup_1128_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5053,7 +4871,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 183,
     name: 'Arugula & Spinach Salad',
     subTxt: 'with Sesame Dressing, Avocado & Bell Pepper',
     img: 'https://media.blueapron.com/recipes/46001/square_newsletter_images/1707335825-47-0121-8726/0311_ADD01_Sesame-Ginger-Salad_1085_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5082,7 +4899,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 184,
     name: 'Asparagus & Tomato Salad',
     subTxt: 'with Pistachios & Balsamic Tahini Dressing',
     img: 'https://media.blueapron.com/recipes/46201/square_newsletter_images/1707335797-47-0153-3928/0311_ADD02_Asparagus-Tomato-Salad_1088_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5116,7 +4932,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 185,
     name: 'Baked Eggs & Grits',
     subTxt: 'with Pancetta, Smoked Gouda & Avocado',
     img: 'https://media.blueapron.com/recipes/46202/square_newsletter_images/1707335952-47-0156-8861/0123_ADD04_Baked-Grits-Pancetta_1633_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5160,7 +4975,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 186,
     name: 'White Cheddar & Scallion Biscuits',
     subTxt: 'with Maple Butter',
     img: 'https://media.blueapron.com/recipes/46205/square_newsletter_images/1707335913-47-0155-6579/1206_ADD01_Scallion-Cheddar-Biscuits_124_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5194,7 +5008,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 187,
     name: 'Boneless Chicken Breast Pieces',
     subTxt: 'A La Carte Proteins (photo as cooked)',
     img: 'https://media.blueapron.com/recipes/46317/square_newsletter_images/1707155408-47-0001-3699/Chicken-Pieces_Cooked_Plate_Protein_Add-on_010_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5218,7 +5031,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 188,
     name: 'Coconut-Vanilla Poke Cake',
     subTxt: 'with Toasted Coconut Chips',
     img: 'https://media.blueapron.com/recipes/45802/square_newsletter_images/1707744077-80621-0006-6109/0318_ADD03_Vanilla-Coconut-Poke-Cke_1250_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5236,7 +5048,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 189,
     name: 'Everything Bagel Garlic Knots',
     subTxt: 'with Parmesan & Chives',
     img: 'https://media.blueapron.com/recipes/46198/square_newsletter_images/1707744553-47-0070-5349/0318_ADD05_Everything-Bagel-Garlic-Knots_1245_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5254,7 +5065,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 190,
     name: 'Rosemary White Bean Soup',
     subTxt: 'with Spinach, Onions & Garlic Bread',
     img: 'https://media.blueapron.com/recipes/46572/square_newsletter_images/1707744235-47-0063-9423/1225_ADD05_Bean-Soup-Garlic-Toast_323_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5272,7 +5082,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 191,
     name: 'Snap Pea & Feta Salad',
     subTxt: 'with Dates & Spicy Lemon Dressing',
     img: 'https://media.blueapron.com/recipes/46717/square_newsletter_images/1708961228-150637-0058-9114/0605_ADD02_Spring-Salad_248_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5290,7 +5099,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 192,
     name: 'Pear & Asparagus Salad',
     subTxt: 'with Maple-Dijon Dressing & Shaved Grand Cru',
     img: 'https://media.blueapron.com/recipes/46690/square_newsletter_images/1708960425-47-0068-6580/0401_ADD02_Asparagus-Pear-Salad_1406_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5308,7 +5116,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 193,
     name: 'Blueberry & Pear Pies',
     subTxt: 'with Cornmeal Crumble',
     img: 'https://media.blueapron.com/recipes/46195/square_newsletter_images/1708961502-150637-0065-5917/1010_ADD03_Blueberry-Pie_270_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5326,7 +5133,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 194,
     name: 'Greek Feta & Orzo Salad',
     subTxt: 'with Cucumber, Tomatoes & Mint',
     img: 'https://media.blueapron.com/recipes/47150/square_newsletter_images/1708446022-48-0015-6842/0522_ADD01_Vegetable-Pasta-Salad_144_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5344,7 +5150,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 195,
     name: 'Pork Chorizo',
     subTxt: 'A La Carte Proteins (photo as cooked)',
     img: 'https://media.blueapron.com/recipes/46318/square_newsletter_images/1707155432-47-0012-6808/Chorizo_Cooked-Pan_Protein_Add-On_166_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5368,7 +5173,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 196,
     name: 'Prosciutto Focaccia Sandwiches',
     subTxt: 'with Mozzarella & Pesto Mayo',
     img: 'https://media.blueapron.com/recipes/46715/square_newsletter_images/1708446278-48-0019-6980/0808_ADD06_Focaccia-Sandwich_180_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5386,7 +5190,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 197,
     name: 'Cooked Pulled Chicken',
     subTxt: 'A La Carte Proteins (photo as prepared)',
     img: 'https://media.blueapron.com/recipes/46686/square_newsletter_images/1707563640-47-0051-5505/Pulled-Chicken_Protein-Add-on_356_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5404,7 +5207,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 198,
     name: 'Asparagus & Goat Cheese Quiche',
     subTxt: 'with Romesco Sauce & Chives',
     img: 'https://media.blueapron.com/recipes/46273/square_newsletter_images/1708446178-48-0016-0033/0325_ADD04_Goat-Cheese-Asparagus-Quiche_1339_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5422,7 +5224,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 199,
     name: 'Brown Butter Pistachio Cookies',
     subTxt: 'with Chocolate Chips & Dried Cherries',
     img: 'https://media.blueapron.com/recipes/46288/square_newsletter_images/1708446054-47-0013-4185/0724_ADD03_Brown-Butter-Cookies_375_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5440,7 +5241,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 200,
     name: 'Smoked Gouda & Egg Biscuits',
     subTxt: 'with Red Peppers & Chives',
     img: 'https://media.blueapron.com/recipes/46718/square_newsletter_images/1708960391-150637-0055-2095/0320_ADD04_Smoked-Gouda-Egg-Biscuit_358_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5458,7 +5258,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 201,
     name: 'Sweet Potato Loaf Cake',
     subTxt: 'with Cinnamon & Pecans',
     img: 'https://media.blueapron.com/recipes/45967/square_newsletter_images/1707336090-47-0161-6388/0311_ADD03_Sweet-Potato-Loaf-Cake_1165_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5507,7 +5306,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 202,
     name: 'Mexican-Style Bean Soup',
     subTxt: 'with Sweet Potatoes & Three Cheese Quesadillas',
     img: 'https://media.blueapron.com/recipes/45967/square_newsletter_images/1707336090-47-0161-6388/0311_ADD03_Sweet-Potato-Loaf-Cake_1165_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5546,7 +5344,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 203,
     name: 'Arugula & Spinach Salad',
     subTxt: 'with Sesame Dressing, Avocado & Bell Pepper',
     img: 'https://media.blueapron.com/recipes/46001/square_newsletter_images/1707335825-47-0121-8726/0311_ADD01_Sesame-Ginger-Salad_1085_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5575,7 +5372,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 204,
     name: 'Asparagus & Tomato Salad',
     subTxt: 'with Pistachios & Balsamic Tahini Dressing',
     img: 'https://media.blueapron.com/recipes/46201/square_newsletter_images/1707335797-47-0153-3928/0311_ADD02_Asparagus-Tomato-Salad_1088_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5609,7 +5405,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 205,
     name: 'Baked Eggs & Grits',
     subTxt: 'with Pancetta, Smoked Gouda & Avocado',
     img: 'https://media.blueapron.com/recipes/46202/square_newsletter_images/1707335952-47-0156-8861/0123_ADD04_Baked-Grits-Pancetta_1633_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5653,7 +5448,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 206,
     name: 'White Cheddar & Scallion Biscuits',
     subTxt: 'with Maple Butter',
     img: 'https://media.blueapron.com/recipes/46205/square_newsletter_images/1707335913-47-0155-6579/1206_ADD01_Scallion-Cheddar-Biscuits_124_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5687,7 +5481,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 207,
     name: 'Boneless Chicken Breast Pieces',
     subTxt: 'A La Carte Proteins (photo as cooked)',
     img: 'https://media.blueapron.com/recipes/46317/square_newsletter_images/1707155408-47-0001-3699/Chicken-Pieces_Cooked_Plate_Protein_Add-on_010_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5711,7 +5504,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 208,
     name: 'Coconut-Vanilla Poke Cake',
     subTxt: 'with Toasted Coconut Chips',
     img: 'https://media.blueapron.com/recipes/45802/square_newsletter_images/1707744077-80621-0006-6109/0318_ADD03_Vanilla-Coconut-Poke-Cke_1250_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5729,7 +5521,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 209,
     name: 'Everything Bagel Garlic Knots',
     subTxt: 'with Parmesan & Chives',
     img: 'https://media.blueapron.com/recipes/46198/square_newsletter_images/1707744553-47-0070-5349/0318_ADD05_Everything-Bagel-Garlic-Knots_1245_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5747,7 +5538,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 210,
     name: 'Rosemary White Bean Soup',
     subTxt: 'with Spinach, Onions & Garlic Bread',
     img: 'https://media.blueapron.com/recipes/46572/square_newsletter_images/1707744235-47-0063-9423/1225_ADD05_Bean-Soup-Garlic-Toast_323_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5765,7 +5555,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 211,
     name: 'Snap Pea & Feta Salad',
     subTxt: 'with Dates & Spicy Lemon Dressing',
     img: 'https://media.blueapron.com/recipes/46717/square_newsletter_images/1708961228-150637-0058-9114/0605_ADD02_Spring-Salad_248_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5783,7 +5572,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 212,
     name: 'Pear & Asparagus Salad',
     subTxt: 'with Maple-Dijon Dressing & Shaved Grand Cru',
     img: 'https://media.blueapron.com/recipes/46690/square_newsletter_images/1708960425-47-0068-6580/0401_ADD02_Asparagus-Pear-Salad_1406_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5801,7 +5589,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 213,
     name: 'Blueberry & Pear Pies',
     subTxt: 'with Cornmeal Crumble',
     img: 'https://media.blueapron.com/recipes/46195/square_newsletter_images/1708961502-150637-0065-5917/1010_ADD03_Blueberry-Pie_270_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5819,7 +5606,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 214,
     name: 'Greek Feta & Orzo Salad',
     subTxt: 'with Cucumber, Tomatoes & Mint',
     img: 'https://media.blueapron.com/recipes/47150/square_newsletter_images/1708446022-48-0015-6842/0522_ADD01_Vegetable-Pasta-Salad_144_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5837,7 +5623,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 215,
     name: 'Pork Chorizo',
     subTxt: 'A La Carte Proteins (photo as cooked)',
     img: 'https://media.blueapron.com/recipes/46318/square_newsletter_images/1707155432-47-0012-6808/Chorizo_Cooked-Pan_Protein_Add-On_166_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5861,7 +5646,6 @@ const singleTypeMeals = [
     ],
   },
   {
-    _id: 216,
     name: 'Prosciutto Focaccia Sandwiches',
     subTxt: 'with Mozzarella & Pesto Mayo',
     img: 'https://media.blueapron.com/recipes/46715/square_newsletter_images/1708446278-48-0019-6980/0808_ADD06_Focaccia-Sandwich_180_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5879,7 +5663,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 217,
     name: 'Cooked Pulled Chicken',
     subTxt: 'A La Carte Proteins (photo as prepared)',
     img: 'https://media.blueapron.com/recipes/46686/square_newsletter_images/1707563640-47-0051-5505/Pulled-Chicken_Protein-Add-on_356_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5897,7 +5680,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 218,
     name: 'Asparagus & Goat Cheese Quiche',
     subTxt: 'with Romesco Sauce & Chives',
     img: 'https://media.blueapron.com/recipes/46273/square_newsletter_images/1708446178-48-0016-0033/0325_ADD04_Goat-Cheese-Asparagus-Quiche_1339_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5915,7 +5697,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 219,
     name: 'Brown Butter Pistachio Cookies',
     subTxt: 'with Chocolate Chips & Dried Cherries',
     img: 'https://media.blueapron.com/recipes/46288/square_newsletter_images/1708446054-47-0013-4185/0724_ADD03_Brown-Butter-Cookies_375_SQ_Web.jpg?quality=80&width=850&format=pjpg',
@@ -5933,7 +5714,6 @@ const singleTypeMeals = [
     recipe: [],
   },
   {
-    _id: 220,
     name: 'Smoked Gouda & Egg Biscuits',
     subTxt: 'with Red Peppers & Chives',
     img: 'https://media.blueapron.com/recipes/46718/square_newsletter_images/1708960391-150637-0055-2095/0320_ADD04_Smoked-Gouda-Egg-Biscuit_358_SQ_Web.jpg?quality=80&width=850&format=pjpg',
