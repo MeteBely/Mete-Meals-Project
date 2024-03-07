@@ -6,6 +6,8 @@ import User from './models/userModel.js';
 import Meal from './models/mealModel.js';
 import Order from './models/orderModel.js';
 import connectMongoDB from './config/db.js';
+import MealKit from './models/mealKitModel.js';
+import mealKits from './data/mealKits.js';
 
 dotenv.config();
 
@@ -16,9 +18,10 @@ const importData = async () => {
     await User.deleteMany();
     await Meal.deleteMany();
     await Order.deleteMany();
+    await MealKit.deleteMany();
 
+    await MealKit.insertMany(mealKits);
     await User.insertMany(users);
-
     await Meal.insertMany(singleTypeMeals);
 
     console.log('Data imported successfully!');
