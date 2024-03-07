@@ -17,10 +17,6 @@ const mealKitSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  img: {
-    type: String,
-    required: true,
-  },
   meals: [
     {
       meal: {
@@ -31,3 +27,7 @@ const mealKitSchema = new mongoose.Schema({
     },
   ],
 });
+
+const MealKit = mongoose.model('MealKit', mealKitSchema);
+
+export default MealKit;

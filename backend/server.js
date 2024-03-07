@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import mealRoutes from './routes/mealRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
+import mealKitsRoutes from './routes/mealKitsRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -15,6 +16,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/meals', mealRoutes);
+app.use('/api/mealKits', mealKitsRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
