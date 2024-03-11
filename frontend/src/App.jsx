@@ -15,6 +15,7 @@ import ForgotPassword from './pages/ForgotPassword';
 import SignUp from './pages/SignUp';
 import OnTheMenu from './pages/OnTheMenu';
 import MealDetail from './pages/MealDetail';
+import MealKitDetail from './pages/MealKitDetail';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/market">
           <Route index={true} element={<Market />} />
+          <Route path="mealKit/:id" element={<MealKitDetail />} />
           <Route path="categories">
             <Route index={true} element={<Outlet />} />
             <Route path="seasonal-boxes" element={<SeasonalBoxes />} />
