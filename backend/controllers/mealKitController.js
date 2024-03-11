@@ -7,4 +7,16 @@ const getMealKits = asyncHandler(async (req, res) => {
   res.json(mealKits);
 });
 
-export { getMealKits };
+//meal kiti çeker, public. /api/mealKits/:id
+const getMealKitById = asyncHandler(async (req, res) => {
+  const mealKit = await MealKit.findById(req.params.id);
+
+  if (mealKit) {
+    return res.json(mealKit);
+  } else {
+    res.status(404);
+    throw new Error('Meal not found with this id');
+  }
+});
+
+export { getMealKits, getMealKitById };
