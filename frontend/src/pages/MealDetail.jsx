@@ -5,11 +5,12 @@ import { FaRegClock } from 'react-icons/fa';
 import { FaLeaf } from 'react-icons/fa';
 import { FaDollarSign } from 'react-icons/fa';
 import { useGetMealDetailsQuery } from '../slices/mealsApiSlice';
+import Loader from './Loader';
 
 const MealDetail = () => {
   const { id: mealId } = useParams();
   // const [meal, setMeal] = useState({});
-  const { data: meal, isLoading, isError } = useGetMealDetailsQuery(mealId);
+  const { data: meal, isLoading } = useGetMealDetailsQuery(mealId);
   // useEffect(() => {
   //   const fetchSingleMail = async () => {
   //     const { data } = await axios.get(`/api/meals/${mealId}`);
@@ -22,7 +23,7 @@ const MealDetail = () => {
   return (
     <>
       {isLoading ? (
-        <isLoading />
+        <Loader />
       ) : (
         <>
           <section>

@@ -1,7 +1,5 @@
-import React from 'react';
-
-const isLoading = () => {
+const Loader = () => {
   return <div>SPİNNER EKLE KANKAAA</div>;
 };
 
-export default isLoading;
+export default Loader;
