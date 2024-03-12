@@ -16,6 +16,7 @@ import SignUp from './pages/SignUp';
 import OnTheMenu from './pages/OnTheMenu';
 import MealDetail from './pages/MealDetail';
 import MealKitDetail from './pages/MealKitDetail';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/on-the-menu">
           <Route index={true} element={<OnTheMenu />} />
           <Route path="meal/:id" element={<MealDetail />} />

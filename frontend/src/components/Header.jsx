@@ -2,8 +2,11 @@ import '../App.css';
 import { useNavigate } from 'react-router-dom';
 import { IoMenu } from 'react-icons/io5';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+  const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
+
   const navigate = useNavigate();
   const [topPos, setTopPos] = useState('top-[-800px]');
   const bringItems = () => {
@@ -52,6 +55,13 @@ const Header = () => {
             <a href="" className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142]">
               SIGN UP
             </a>
+            {cartItems && cartItems.length > 0 ? (
+              <>
+                <div className="p-2 bg-purple-500 text-black">{cartItems.reduce((acc, item) => acc + item.qty, 0)}</div>
+              </>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </nav>
