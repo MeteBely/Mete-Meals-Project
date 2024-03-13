@@ -1,8 +1,9 @@
 import '../App.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { IoMenu } from 'react-icons/io5';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { FaCartShopping } from 'react-icons/fa6';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
@@ -52,12 +53,17 @@ const Header = () => {
             <a href="" onClick={() => navigate('/users/sign_in')} className="font-normal w-[60px] text-xs hover:text-[#0f346c]">
               LOG IN
             </a>
-            <a href="" className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142]">
+            <a href="" className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142] mr-4">
               SIGN UP
             </a>
             {cartItems && cartItems.length > 0 ? (
               <>
-                <div className="p-2 bg-purple-500 text-black">{cartItems.reduce((acc, item) => acc + item.qty, 0)}</div>
+                <div className="flex flex-row items-center justify-center w-[120px]">
+                  <Link to="/cart">
+                    <FaCartShopping color="#06316C" size={34} />
+                  </Link>
+                  <div className={`bg-[#06316C] ${cartItems.reduce((acc, item) => acc + item.qty, 0) > 9 ? 'w-5 h-5 pr-[1.4px]' : 'w-4 h-4 pr-[0px]'} text-white flex items-center justify-center rounded-[50%] text-[14px] tracking-tighter`}>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</div>
+                </div>
               </>
             ) : (
               <></>
