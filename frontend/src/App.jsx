@@ -17,6 +17,9 @@ import OnTheMenu from './pages/OnTheMenu';
 import MealDetail from './pages/MealDetail';
 import MealKitDetail from './pages/MealKitDetail';
 import CartPage from './pages/CartPage';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -48,7 +51,8 @@ function App() {
         <Route path="/users">
           <Route index={true} element={<Outlet />} />
           <Route path="sign_in" element={<LogIn />} />
-          <Route path="sign_up" element={<SignUp />} />
+          <Route path="sign_up" element={<Register />} />
+          {/* <Route path="sign_up" element={<SignUp />} /> */}
           <Route path="password">
             <Route index={true} element={<Outlet />} />
             <Route path="new" element={<ForgotPassword />} />
@@ -56,6 +60,7 @@ function App() {
         </Route>
       </Routes>
       <Footer />
+      <ToastContainer />
     </>
   );
 }
