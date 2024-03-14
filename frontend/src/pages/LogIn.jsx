@@ -3,7 +3,13 @@ import CustomInput from '../components/FormComponents/CustomInput.jsx';
 import { advancedSchema } from '../Schemas/Index.jsx';
 import { FaApple } from 'react-icons/fa6';
 import { FaFacebook } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader from './Loader.jsx';
+import { useEffect, useState } from 'react';
+import { useLoginMutation } from '../slices/usersApiSlice.jsx';
+import { setCredentials } from '../slices/authSlice.jsx';
+import { toast } from 'react-toastify';
 
 const onSubmit = async (values, actions) => {
   await new Promise((resolve) => {
@@ -13,15 +19,44 @@ const onSubmit = async (values, actions) => {
 };
 
 const LogIn = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const [login, { isLoading }] = useLoginMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const { search } = useLocation();
+  const sp = new URLSearchParams(search);
+  const redirect = sp.get('redirect') || '/';
+
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [userInfo, redirect, navigate]);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await login({ email, password }).unwrap(); //promise eder
+      dispatch(setCredentials({ ...res }));
+      navigate(redirect);
+    } catch (err) {
+      toast.error(err?.data?.message || err?.error);
+    }
+  };
   return (
     <section className="bg-[#FAFBFC] mt-[62px] border-t-[1px] border-[#ECEEF2] pb-8">
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Log In</h1>
         <Formik initialValues={{ emailAddress: '', password: '' }} onSubmit={onSubmit} validationSchema={advancedSchema}>
           {({ isSubmitting }) => (
-            <Form className="mb-2">
-              <CustomInput label="EMAIL" name="emailAddress" type="text" placeholder="Kullanici adinizi giriniz" />
-              <CustomInput label="PASSWORD" name="password" type="password" placeholder="Kullanici adinizi giriniz" />
+            <Form className="mb-2" onSubmit={(e) => submitHandler(e)}>
+              <CustomInput onChange={(e) => setEmail(e.target.value)} value={email} label="EMAIL" name="emailAddress" type="text" placeholder="Sign your email" />
+              <CustomInput onChange={(e) => setPassword(e.target.value)} value={password} label="PASSWORD" name="password" type="password" placeholder="Sign your password" />
               <div className="flex flex-row justify-between w-full text-[#b9b9c5]">
                 <div>
                   <input className="align-middle mr-2 cursor-pointer" type="checkbox" name="" id="rememberAcc" />
@@ -33,9 +68,10 @@ const LogIn = () => {
                   Forgot Password?
                 </Link>
               </div>
-              <button type="submit" disabled={isSubmitting} className="text-[14px] w-full h-[47.88px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4">
+              <button type="submit" disabled={isLoading} className="text-[14px] w-full h-[47.88px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4">
                 LOG IN
               </button>
+              {isLoading && <Loader />}
             </Form>
           )}
         </Formik>
@@ -54,7 +90,7 @@ const LogIn = () => {
         </div>
         <div className="text-center text-[14px] fontCera text-[#6a6d75] mt-6">
           Don`t have an account?{' '}
-          <Link to="/users/sign_up" href="" className="text-[#0f346c] underline">
+          <Link to={redirect ? `/users/sign_up?redirect=${redirect}` : '/users/sign_up'} href="" className="text-[#0f346c] underline">
             Sign Up
           </Link>
         </div>
