@@ -2,20 +2,35 @@ import '../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoMenu } from 'react-icons/io5';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
+import { useLogoutMutation } from '../slices/usersApiSlice';
+import { clearCredentials } from '../slices/authSlice.jsx';
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
-
+  const { userInfo } = useSelector((state) => state.auth);
+  const [logout] = useLogoutMutation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [topPos, setTopPos] = useState('top-[-800px]');
+  const [dropDown, setDropDown] = useState(false);
   const bringItems = () => {
     console.log(topPos);
     if (topPos === 'top-[-800px]') {
       setTopPos('top-[58px]');
     } else {
       setTopPos('top-[-800px]');
+    }
+  };
+
+  const logoutHandler = async () => {
+    try {
+      await logout().unwrap();
+      dispatch(clearCredentials());
+      navigate('/');
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -50,12 +65,28 @@ const Header = () => {
           </div>
 
           <div className="navbarItemsTwo flex flex-row gap-4 items-center text-coolGray tracking-widest">
-            <a href="" onClick={() => navigate('/users/sign_in')} className="font-normal w-[60px] text-xs hover:text-[#0f346c]">
-              LOG IN
-            </a>
-            <a href="" className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142] mr-4">
-              SIGN UP
-            </a>
+            {userInfo ? (
+              <div className="relative">
+                <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-32">
+                  {userInfo.name}
+                </div>
+                {dropDown && (
+                  <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-32 text-white fontCera p-2 text-[16px]">
+                    <Link href="">Profile</Link>
+                    <button onClick={logoutHandler}>Logout</button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <>
+                <a href="" onClick={() => navigate('/users/sign_in')} className="font-normal w-[60px] text-xs hover:text-[#0f346c]">
+                  LOG IN
+                </a>
+                <a href="" className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142] mr-4">
+                  SIGN UP
+                </a>
+              </>
+            )}
             {cartItems && cartItems.length > 0 ? (
               <>
                 <div className="flex flex-row items-center justify-center w-[120px]">
