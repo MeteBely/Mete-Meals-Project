@@ -6,7 +6,7 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const checkoutHandler = () => {
-    navigate('/login?redirect=/shipping');
+    navigate('/users/sign_in?redirect=/shipping');
   };
 
   const cart = useSelector((state) => state.cart);
