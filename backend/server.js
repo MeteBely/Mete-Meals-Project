@@ -8,6 +8,7 @@ import mealRoutes from './routes/mealRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import mealKitsRoutes from './routes/mealKitsRoutes.js';
 import userRoutes from './routes/userRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 app.use('/api/meals', mealRoutes);
 app.use('/api/mealKits', mealKitsRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
