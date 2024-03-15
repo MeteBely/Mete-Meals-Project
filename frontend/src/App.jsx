@@ -20,13 +20,22 @@ import CartPage from './pages/CartPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from './pages/Register';
-
+import Shipping from './pages/Shipping';
+import PrivateRoute from './components/PrivateRoute';
+import Payment from './pages/Payment';
+import PlaceOrder from './pages/PlaceOrder';
 function App() {
   return (
     <>
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="" element={<PrivateRoute />}>
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/placeorder" element={<PlaceOrder />} />
+        </Route>
+
         <Route path="/cart" element={<CartPage />} />
         <Route path="/on-the-menu">
           <Route index={true} element={<OnTheMenu />} />
