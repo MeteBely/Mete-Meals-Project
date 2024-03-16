@@ -21,7 +21,11 @@ const orderSchema = new mongoose.Schema(
           type: Number,
           required: true,
         },
-        meal: {
+        meals: {
+          type: Array,
+          required: true,
+        },
+        mealKit: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
           ref: 'Meal',

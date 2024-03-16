@@ -28,6 +28,8 @@ app.use('/api/mealKits', mealKitsRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 
+app.get('/api/config/stripe', (req, res) => res.json(process.env.STRIPE_PUBLISHABLE_KEY));
+
 app.use(notFound);
 app.use(errorHandler);
 
