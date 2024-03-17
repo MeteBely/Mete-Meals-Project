@@ -99,7 +99,27 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
 
 //admin
 const getAllOrders = asyncHandler(async (req, res) => {
-  res.send('getAllOrders');
+  const orders = await Order.find({});
+  res.json(orders);
 });
 
-export { getAllOrders, updateOrderToPaid, updateOrderToDelivered, getOrderById, getMyOrders, createOrder };
+//admin
+const deleteOrder = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+  if (order) {
+    await Order.deleteOne({ _id: order._id });
+    res.status(200).json({ message: 'Order deleted successfully' });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+const getPaymentResults = asyncHandler(async (req, res) => {
+  const events = await stripeInstance.events.list({
+    limit: 3,
+  });
+  res.json(events);
+});
+
+export { getAllOrders, updateOrderToPaid, updateOrderToDelivered, getOrderById, getMyOrders, createOrder, deleteOrder, getPaymentResults };
