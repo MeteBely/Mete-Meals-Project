@@ -30,7 +30,17 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         body: details,
       }),
     }),
+    getMyOrders: builder.query({
+      query: () => ({
+        url: `${ORDERS_URL}/myorders`,
+      }),
+    }),
+    getPaymentResults: builder.query({
+      query: () => ({
+        url: `${ORDERS_URL}/events`,
+      }),
+    }),
   }),
 });
 
-export const { useCreateOrderMutation, useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation } = ordersApiSlice;
+export const { useCreateOrderMutation, useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useGetMyOrdersQuery, useGetPaymentResultsQuery } = ordersApiSlice;
