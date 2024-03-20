@@ -15,7 +15,22 @@ export const mealKitsApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    createMealKit: builder.mutation({
+      query: () => ({
+        url: MEALKITS_URL,
+        method: 'POST',
+      }),
+      invalidatesTags: ['MealKit'],
+    }),
+    updateMealKit: builder.mutation({
+      query: ({ mealKitId, ...data }) => ({
+        url: `${MEALKITS_URL}/${mealKitId}`,
+        method: 'PUT',
+        body: data,
+      }),
+      invalidatesTags: ['MealKit'],
+    }),
   }),
 });
 
-export const { useGetMealKitsQuery, useGetMealKitDetailsQuery } = mealKitsApiSlice;
+export const { useGetMealKitsQuery, useGetMealKitDetailsQuery, useCreateMealKitMutation, useUpdateMealKitMutation } = mealKitsApiSlice;
