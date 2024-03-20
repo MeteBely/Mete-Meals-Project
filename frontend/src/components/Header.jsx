@@ -73,6 +73,13 @@ const Header = () => {
                 {dropDown && (
                   <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-32 text-white fontCera p-2 text-[16px]">
                     <Link to="/profile">Profile</Link>
+                    {userInfo.isAdmin && (
+                      <>
+                        <Link to="/admin/userlist">User List</Link>
+                        <Link to="/admin/orderlist">Order List</Link>
+                        <Link to="/admin/mealKitList">Meal Kit List</Link>
+                      </>
+                    )}
                     <button onClick={logoutHandler}>Logout</button>
                   </div>
                 )}
