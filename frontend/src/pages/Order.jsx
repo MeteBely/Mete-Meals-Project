@@ -1,8 +1,7 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Loader from '../pages/Loader.jsx';
-import { useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation } from '../slices/ordersApiSlice';
+import { useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useDeliveredOrderMutation } from '../slices/ordersApiSlice';
 import { useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-toastify';
 import OrderItem from '../components/OrderItem.jsx';
@@ -12,9 +11,9 @@ const Order = () => {
   const { data: order, refetch, isLoading, error } = useGetOrderByIdQuery(orderId);
   console.log(order);
 
-  //   const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo } = useSelector((state) => state.auth);
   const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
-  //   const [deliverOrder, { isLoading: loadingDeliver }] = useDeliverOrderMutation();
+  const [deliverOrder, { isLoading: loadingDeliver }] = useDeliveredOrderMutation();
   const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
 
   const makePayment = async () => {
@@ -30,15 +29,15 @@ const Order = () => {
     }
   };
 
-  //   const deliverOrderHandler = async () => {
-  //     try {
-  //       await deliverOrder(orderId);
-  //       refetch(); //anlık olarak sonuç almamızı sağlar.
-  //       toast.success('Order delivered!');
-  //     } catch (error) {
-  //       toast.error(error?.message);
-  //     }
-  //   };
+  const deliverOrderHandler = async () => {
+    try {
+      await deliverOrder(orderId);
+      refetch(); //anlık olarak sonuç almamızı sağlar.
+      toast.success('Order delivered!');
+    } catch (error) {
+      toast.error(error?.message);
+    }
+  };
 
   return isLoading ? (
     <Loader />
@@ -95,9 +94,9 @@ const Order = () => {
             <button onClick={makePayment}>TEST ÖDEME YAP</button>
           </div>
         </div>
-        {/* {loadingDeliver && <Loader />} */}
+        {loadingDeliver && <Loader />}
 
-        {/* {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && <button onClick={deliverOrderHandler}>Mark As Delivered</button>} */}
+        {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && <button onClick={deliverOrderHandler}>Mark As Delivered</button>}
       </div>
     </>
   );
