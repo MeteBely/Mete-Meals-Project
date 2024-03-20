@@ -27,6 +27,10 @@ import PlaceOrder from './pages/PlaceOrder';
 import Order from './pages/Order';
 import Success from './pages/Success';
 import Profile from './pages/Profile';
+import AdminRoute from './components/AdminRoute';
+import OrderList from './pages/Admin/OrderList';
+import MealKitList from './pages/Admin/MealKitList';
+import UpdateMealKit from './pages/Admin/UpdateMealKit';
 function App() {
   return (
     <>
@@ -40,6 +44,12 @@ function App() {
           <Route path="/order/:id" element={<Order />} />
           <Route path="/success" element={<Success />} />
           <Route path="/profile" element={<Profile />} />
+        </Route>
+
+        <Route path="" element={<AdminRoute />}>
+          <Route path="/admin/orderlist" element={<OrderList />} />
+          <Route path="/admin/mealKitList" element={<MealKitList />} />
+          <Route path="/admin/mealKit/:id/edit" element={<UpdateMealKit />} />
         </Route>
 
         <Route path="/cart" element={<CartPage />} />
