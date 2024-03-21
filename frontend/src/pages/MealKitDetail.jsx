@@ -2,8 +2,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { addToCart } from '../slices/cartSlice';
-import { useDispatch } from 'react-redux';
-import { useGetMealKitDetailsQuery } from '../slices/mealKitsApiSlice';
+import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { useGetMealKitDetailsQuery, useCreateReviewMutation } from '../slices/mealKitsApiSlice';
 import Loader from './Loader';
 
 const MealKitDetail = () => {
@@ -14,12 +15,17 @@ const MealKitDetail = () => {
   const [qty, setQty] = useState(1);
 
   // const [mealKit, setMealKit] = useState({});
+  const [comment, setComment] = useState('');
+  const [rating, setRating] = useState(0);
   const [singleMeals, setSingleMeals] = useState([]);
   const [activeDesc, setActiveDesc] = useState('itemOne');
   const [activeImage, setActiveImage] = useState('');
 
+  const [createReview, { isLoading: isReviewLoading }] = useCreateReviewMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+
   //İlgili meal kiti url parama göre getirdik.
-  const { data: mealKit, isLoading } = useGetMealKitDetailsQuery(mealKitId);
+  const { data: mealKit, refetch, isLoading } = useGetMealKitDetailsQuery(mealKitId);
 
   //ilgili meal kitteki single mealsleri getirdik.
   useEffect(() => {
@@ -44,6 +50,20 @@ const MealKitDetail = () => {
     navigate('/cart');
   };
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await createReview({ mealKitId, comment, rating }).unwrap();
+      refetch();
+      toast.success('Review submitted successfully!');
+      setRating(0);
+      setComment('');
+    } catch (err) {
+      toast.error(err?.message);
+      console.log(err);
+    }
+  };
+
   return (
     <>
       {isLoading ? (
@@ -61,6 +81,40 @@ const MealKitDetail = () => {
                     <img src={singleMeal.img}></img>
                   </button>
                 ))}
+              </div>
+              <div className="mt-10">
+                <h2>Reviews</h2>
+                {mealKit.reviews && mealKit.reviews.length > 0 ? (
+                  mealKit.reviews.map((review) => (
+                    <div key={review._id}>
+                      <strong>{review.name}</strong>
+                      <span>{review.rating}</span>
+                      <p>{review.createdAt.substring(0, 10)}</p>
+                      <p>{review.comment}</p>
+                    </div>
+                  ))
+                ) : (
+                  <div>no reviews</div>
+                )}
+                <h2>Write customer wreview</h2>
+                {isReviewLoading && <Loader />}
+                {userInfo ? (
+                  <form onSubmit={submitHandler}>
+                    <div className="flex flex-col my-2">
+                      <label htmlFor="rating">rating</label>
+                      <input type="number" value={rating} placeholder="Enter rating" id="rating" onChange={(e) => setRating(e.target.value)} />
+                    </div>
+                    <div className="flex flex-col my-2">
+                      <label htmlFor="comment">comment</label>
+                      <textarea type="text" value={comment} placeholder="Enter comment" id="comment" onChange={(e) => setComment(e.target.value)} />
+                    </div>
+                    <button type="submit" disabled={isReviewLoading}>
+                      Submit
+                    </button>
+                  </form>
+                ) : (
+                  <Link to={`/users/sign_in`}> Please login to write review</Link>
+                )}
               </div>
             </div>
             <div className="w-[570px]">

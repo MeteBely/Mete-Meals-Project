@@ -1,4 +1,4 @@
-import { useGetMealKitsQuery, useCreateMealKitMutation } from '../../slices/mealKitsApiSlice';
+import { useGetMealKitsQuery, useCreateMealKitMutation, useDeleteMealKitMutation } from '../../slices/mealKitsApiSlice';
 import Loader from '../Loader';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -6,19 +6,19 @@ import { toast } from 'react-toastify';
 
 const MealKitList = () => {
   const [createMealKit, { isLoading: loadingCreate }] = useCreateMealKitMutation();
-  //   const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
+  const [deleteMealKit, { isLoading: loadingDelete }] = useDeleteMealKitMutation();
   const { data: mealKits, refetch, isLoading, error } = useGetMealKitsQuery();
 
   const deleteHandler = async (id) => {
-    //     if (window.confirm('Are you sure you want to delete')) {
-    //       try {
-    //         const res = await deleteProduct(id);
-    //         refetch();
-    //         toast.success(res.data.message);
-    //       } catch (err) {
-    //         toast.error(err?.message);
-    //       }
-    //     }
+    if (window.confirm('Are you sure you want to delete')) {
+      try {
+        const res = await deleteMealKit(id);
+        refetch();
+        toast.success(res.data.message);
+      } catch (err) {
+        toast.error(err?.message);
+      }
+    }
   };
 
   const createProductHandler = async () => {
@@ -43,8 +43,8 @@ const MealKitList = () => {
           </button>
         </div>
       </div>
-      {isLoading && <Loader />}
-      {isLoading && <Loader />}
+      {loadingCreate && <Loader />}
+      {loadingDelete && <Loader />}
       {isLoading ? (
         <Loader />
       ) : error ? (

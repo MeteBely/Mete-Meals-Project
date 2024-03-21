@@ -7,6 +7,7 @@ export const mealKitsApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: MEALKITS_URL,
       }),
+      providesTags: ['MealKit'],
       keepUnusedDataFor: 5,
     }),
     getMealKitDetails: builder.query({
@@ -30,7 +31,22 @@ export const mealKitsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['MealKit'],
     }),
+    deleteMealKit: builder.mutation({
+      query: (mealKitId) => ({
+        url: `${MEALKITS_URL}/${mealKitId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['MealKit'],
+    }),
+    createReview: builder.mutation({
+      query: ({ mealKitId, ...data }) => ({
+        url: `${MEALKITS_URL}/${mealKitId}/reviews`,
+        method: 'POST',
+        body: data,
+      }),
+      // invalidatesTags: ['MealKit'],
+    }),
   }),
 });
 
-export const { useGetMealKitsQuery, useGetMealKitDetailsQuery, useCreateMealKitMutation, useUpdateMealKitMutation } = mealKitsApiSlice;
+export const { useGetMealKitsQuery, useGetMealKitDetailsQuery, useCreateMealKitMutation, useUpdateMealKitMutation, useDeleteMealKitMutation, useCreateReviewMutation } = mealKitsApiSlice;

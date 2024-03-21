@@ -52,4 +52,43 @@ const updateMealKit = asyncHandler(async (req, res) => {
   }
 });
 
-export { getMealKits, getMealKitById, createMealKit, updateMealKit };
+const deleteMealKit = asyncHandler(async (req, res) => {
+  const mealKit = await MealKit.findById(req.params.id);
+
+  if (mealKit) {
+    await MealKit.deleteOne({ _id: req.params.id });
+    res.status(201).json({ message: 'MealKit deleted successfully' });
+  } else {
+    res.status(404);
+    throw new Error('Meal kit not found with this id');
+  }
+});
+
+const createMealKitReview = asyncHandler(async (req, res) => {
+  const { rating, comment } = req.body;
+  const mealKit = await MealKit.findById(req.params.id);
+
+  if (mealKit) {
+    const alreadyReviewed = mealKit.reviews.find((review) => review.user.toString() === req.user._id.toString());
+    if (alreadyReviewed) {
+      res.status(400);
+      throw new Error('Meal kit already reviewed!');
+    }
+
+    const review = {
+      user: req.user._id,
+      name: req.user.name,
+      rating: Number(rating),
+      comment: comment,
+    };
+
+    mealKit.reviews.push(review);
+    await mealKit.save();
+    res.status(201).json({ message: 'Meal kit reviewed successfully!' });
+  } else {
+    res.status(404);
+    throw new Error('Meal kit not found with this id');
+  }
+});
+
+export { getMealKits, getMealKitById, createMealKit, updateMealKit, deleteMealKit, createMealKitReview };

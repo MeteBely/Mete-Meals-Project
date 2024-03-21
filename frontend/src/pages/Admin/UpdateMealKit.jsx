@@ -59,7 +59,7 @@ const UpdateMealKit = () => {
   };
   return (
     <>
-      <Link to="/admin/productlist">Go Back</Link>
+      <Link to="/admin/mealKitList">Go Back</Link>
       <h1>Edit Product</h1>
       {loadingUpdate && <Loader />}
       {isLoading ? (
