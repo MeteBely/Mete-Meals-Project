@@ -31,6 +31,8 @@ import AdminRoute from './components/AdminRoute';
 import OrderList from './pages/Admin/OrderList';
 import MealKitList from './pages/Admin/MealKitList';
 import UpdateMealKit from './pages/Admin/UpdateMealKit';
+import UserList from './pages/Admin/UserList';
+import UserEdit from './pages/Admin/UserEdit';
 function App() {
   return (
     <>
@@ -50,6 +52,8 @@ function App() {
           <Route path="/admin/orderlist" element={<OrderList />} />
           <Route path="/admin/mealKitList" element={<MealKitList />} />
           <Route path="/admin/mealKit/:id/edit" element={<UpdateMealKit />} />
+          <Route path="/admin/userlist" element={<UserList />} />
+          <Route path="/admin/user/:id/edit" element={<UserEdit />} />
         </Route>
 
         <Route path="/cart" element={<CartPage />} />
