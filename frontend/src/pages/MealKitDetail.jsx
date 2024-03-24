@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetMealKitDetailsQuery, useCreateReviewMutation } from '../slices/mealKitsApiSlice';
 import Loader from './Loader';
+import Meta from '../components/Meta';
 
 const MealKitDetail = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,7 @@ const MealKitDetail = () => {
         <Loader></Loader>
       ) : (
         <section className="mt-20">
+          <Meta title={mealKit.name} />
           <div className="flex flex-row items-start justify-center gap-8 mb-10">
             <div className="w-[570px]">
               <div className="mb-6">
