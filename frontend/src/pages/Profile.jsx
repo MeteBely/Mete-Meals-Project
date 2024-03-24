@@ -43,37 +43,45 @@ const Profile = () => {
   };
 
   return (
-    <div className="flex flex-row mt-20 justify-around">
-      <div>
+    <div className="flex flex-row mt-20 justify-evenly">
+      <div className="w-[400px] fontCera">
         {/*FİRST COL  */}
         <form onSubmit={submitHandler}>
-          <div className="flex flex-col my-2">
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
+          <div className="flex flex-col mb-4">
+            <label htmlFor="name" className="text-[20px]">
+              Name
+            </label>
+            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="text" id="name" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
           </div>
-          <div className="flex flex-col my-2">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <div className="flex flex-col mb-4">
+            <label htmlFor="email" className="text-[20px]">
+              Email
+            </label>
+            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="email" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
-          <div className="flex flex-col my-2">
-            <label htmlFor="password">Password</label>
-            <input autoComplete="on" type="password" id="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <div className="flex flex-col mb-4">
+            <label className="text-[20px]" htmlFor="password">
+              Password
+            </label>
+            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C] tracking-widest" autoComplete="on" type="password" id="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
           </div>
-          <div className="flex flex-col my-2">
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input autoComplete="on" type="password" id="confirmPassword" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+          <div className="flex flex-col mb-4">
+            <label className="text-[20px]" htmlFor="confirmPassword">
+              Confirm Password
+            </label>
+            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C] tracking-widest" autoComplete="on" type="password" id="confirmPassword" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
           </div>
-          <div className="flex flex-col my-2">
-            <button type="submit" className="bg-[#364256]">
-              Update
+          <div className="flex flex-col mb-2">
+            <button type="submit" className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
+              UPDATE
             </button>
             {loadingUpdateProfile && <Loader />}
           </div>
         </form>
       </div>
-      <div>
+      <div className="fontCera">
         {/*SECOND COL  */}
-        <h2>My Orders</h2>
+        <h2 className="text-[22px] font-bold mb-4">My Orders</h2>
         {loadingMyOrders ? (
           <Loader />
         ) : error ? (
@@ -83,22 +91,22 @@ const Profile = () => {
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th scope="col" className="px-6 py-3 text-center text-[13px] tracking-[0.5px]">
                     ID
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th scope="col" className="px-6 py-3 text-center text-[13px] tracking-[0.5px]">
                     DATE
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th scope="col" className="px-6 py-3 text-center text-[13px] tracking-[0.5px]">
                     TOTAL
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th scope="col" className="px-6 py-3 text-center text-[13px] tracking-[0.5px]">
                     PAID
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center">
+                  <th scope="col" className="px-6 py-3 text-center text-[13px] tracking-[0.5px]">
                     DELIVERED
                   </th>
-                  <th scope="col" className="px-6 py-3 text-center"></th>
+                  <th scope="col" className="px-6 py-3 text-center text-[13px] tracking-[0.5px]"></th>
                 </tr>
               </thead>
               <tbody>
