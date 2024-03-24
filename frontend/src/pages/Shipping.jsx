@@ -20,30 +20,29 @@ const Shipping = () => {
     navigate('/payment');
   };
   return (
-    <div className="flex flex-col justify-center items-center mt-20">
-      <CheckoutSteps step1 step2 />
-      <h1>Shipping</h1>
-      <form action="" onSubmit={(e) => submitHandler(e)}>
-        <div className="my-2 flex flex-col items-start justify-center">
-          <label className="text-[#728285] font-semibold" htmlFor="address">
-            address
+    <div className="flex flex-col justify-center items-center mt-20 fontCera">
+      <CheckoutSteps step1 step2 underline="shipping" />
+      <form action="" onSubmit={(e) => submitHandler(e)} className="my-8">
+        <div className="mb-4 flex flex-col items-start justify-center">
+          <label className="text-[18px] font-semibold  text-[#6B6D75]" htmlFor="address">
+            Address
           </label>
-          <input className="border border-[#B9BCBC] h-[40px] w-[600px] rounded-lg placeholder:text-[#728285] pl-2" type="address" name="" id="address" placeholder="Enter address" value={address} onChange={(e) => setAddress(e.target.value)} />
+          <input className="border border-[#06316C] h-[40px] w-[600px] rounded-md placeholder:text-[#728285] pl-2 focus:outline-[#06316C]" type="address" name="" id="address" placeholder="Type address..." value={address} onChange={(e) => setAddress(e.target.value)} />
         </div>
-        <div className="my-2 flex flex-col items-start justify-center">
-          <label className="text-[#728285] font-semibold" htmlFor="city">
-            city
+        <div className="mb-4 flex flex-col items-start justify-center">
+          <label className=" text-[18px] font-semibold  text-[#6B6D75]" htmlFor="city">
+            City
           </label>
-          <input className="border border-[#B9BCBC] h-[40px] w-[600px] rounded-lg placeholder:text-[#728285] pl-2" type="city" name="" id="city" placeholder="Enter city" value={city} onChange={(e) => setCity(e.target.value)} />
+          <input className="border border-[#06316C] h-[40px] w-[600px] rounded-md placeholder:text-[#728285] pl-2 focus:outline-[#06316C]" type="city" name="" id="city" placeholder="Type city..." value={city} onChange={(e) => setCity(e.target.value)} />
         </div>
-        <div className="my-2 flex flex-col items-start justify-center">
-          <label className="text-[#728285] font-semibold" htmlFor="postalCode">
-            postalCode
+        <div className="mb-4 flex flex-col items-start justify-center">
+          <label className="text-[18px] font-semibold  text-[#6B6D75]" htmlFor="postalCode">
+            Postal Code
           </label>
-          <input className="border border-[#B9BCBC] h-[40px] w-[600px] rounded-lg placeholder:text-[#728285] pl-2" type="postalCode" name="" id="postalCode" placeholder="Enter postalCode" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
+          <input className="border border-[#06316C] h-[40px] w-[600px] rounded-md placeholder:text-[#728285] pl-2 focus:outline-[#06316C]" type="postalCode" name="" id="postalCode" placeholder="Type postal code..." value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
         </div>
         <div>
-          <button className="mt-2 text-white bg-[#354255] px-4 py-2 rounded-md" type="submit">
+          <button type="submit" className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
             Continue
           </button>
         </div>
