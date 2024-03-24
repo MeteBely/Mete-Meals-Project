@@ -23,6 +23,7 @@ const Shipping = () => {
     <div className="flex flex-col justify-center items-center mt-20 fontCera">
       <CheckoutSteps step1 step2 underline="shipping" />
       <form action="" onSubmit={(e) => submitHandler(e)} className="my-8">
+        <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>
         <div className="mb-4 flex flex-col items-start justify-center">
           <label className="text-[18px] font-semibold  text-[#6B6D75]" htmlFor="address">
             Address
