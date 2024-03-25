@@ -10,7 +10,7 @@ const OrderItem = ({ orderItem }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex flex-row items-center justify-between w-[500px] mb-2">
+        <div className="flex flex-row items-center justify-between w-[600px] mb-2">
           <div className="flex flex-row items-center justify-start">
             <img className="w-20 rounded-md mr-4" src={firstMealOfKit.img} alt={orderItem.name} />
             <Link className="fontCera underline" to={`/market/mealKit/${orderItem._id}`}>
