@@ -33,6 +33,7 @@ import MealKitList from './pages/Admin/MealKitList';
 import UpdateMealKit from './pages/Admin/UpdateMealKit';
 import UserList from './pages/Admin/UserList';
 import UserEdit from './pages/Admin/UserEdit';
+import Cancel from './pages/Cancel';
 function App() {
   return (
     <>
@@ -44,7 +45,8 @@ function App() {
           <Route path="/payment" element={<Payment />} />
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/order/:id" element={<Order />} />
-          <Route path="/success" element={<Success />} />
+          <Route path="/success/order/:id" element={<Success />} />
+          <Route path="/cancel/order/:id" element={<Cancel />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
 

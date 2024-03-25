@@ -45,20 +45,34 @@ const getOrderById = asyncHandler(async (req, res) => {
     throw new Error('Not found order');
   }
 });
+//updateOrderToPaid
 
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
-
   if (order) {
     order.isPaid = true;
     order.paidAt = Date.now();
+    const updatedOrder = await order.save();
+    res.status(200).json(updatedOrder);
+  } else {
+    res.status(404);
+    throw new Error('Not found order');
+  }
+});
+
+const PayToOrder = asyncHandler(async (req, res) => {
+  const order = await Order.findById(req.params.id);
+
+  if (order) {
+    // order.isPaid = true;
+    // order.paidAt = Date.now();
     // order.paymentResult = {
     //   id: req.body.id,
     //   status: req.body.status,
     //   update_time: req.body.update_time,
     //   email_address: req.body.email_address,
     // };
-    const updatedOrder = await order.save();
+    // const updatedOrder = await order.save();
 
     const mealKits = req.body;
     try {
@@ -78,8 +92,8 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: 'http://localhost:5173/success',
-        cancel_url: 'http://localhost:5173/cancel',
+        success_url: `http://localhost:5173/success/order/${order._id}`,
+        cancel_url: `http://localhost:5173/cancel/order/${order._id}`,
       });
 
       res.json({ id: session.id });
@@ -131,4 +145,4 @@ const getPaymentResults = asyncHandler(async (req, res) => {
   res.json(events);
 });
 
-export { getAllOrders, updateOrderToPaid, updateOrderToDelivered, getOrderById, getMyOrders, createOrder, deleteOrder, getPaymentResults };
+export { getAllOrders, PayToOrder, updateOrderToDelivered, getOrderById, getMyOrders, createOrder, deleteOrder, getPaymentResults, updateOrderToPaid };
