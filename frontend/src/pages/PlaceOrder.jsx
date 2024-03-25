@@ -41,23 +41,25 @@ const PlaceOrder = () => {
 
   return (
     <div className="w-1/2 mx-auto mt-20">
-      <CheckoutSteps step1 step2 step3 step4 />{' '}
-      <div className="flex flex-row justify-between">
+      <div className="flex justify-center mb-4">
+        <CheckoutSteps step1 step2 step3 step4 underline="placeorder" />
+      </div>
+      <div className="flex flex-row justify-between pt-4">
         <div>
-          <div>
-            <h2>Shipping</h2>
-            <p>
-              <strong>Address:</strong>
+          <div className="mb-4">
+            <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold">Shipping</h2>
+            <p className="fontCera">
+              <strong className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Address:</strong>
               {cart.shippingAddress.address}, {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}, {cart.shippingAddress.country}
             </p>
           </div>
-          <div>
-            <h2>Payment Method</h2>
-            <strong>Method: </strong>
+          <div className="fontCera mb-4">
+            <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold">Payment Method</h2>
+            <strong className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Method:</strong>
             {cart.paymentMethod}
           </div>
           <div className="flex flex-col">
-            <h2>Order Items</h2>
+            <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-2">Order Items</h2>
             {cart.cartItems.length === 0 ? (
               <div>Your cart is empty</div>
             ) : (
@@ -67,20 +69,20 @@ const PlaceOrder = () => {
             )}
           </div>
         </div>
-        <div>
-          <h2>Order Summary</h2>
-          <div className="flex flex-row">
-            <div>Items: ${cart.itemsPrice}</div>
+        <div className="fontCera">
+          <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-2">Order Summary</h2>
+          <div className="mb-2">
+            <span className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Items:</span>${cart.itemsPrice}
           </div>
-          <div className="flex flex-row">
-            <div>Shipping: ${cart.shippingPrice}</div>
+          <div className=" mb-2">
+            <span className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Shipping:</span>${cart.shippingPrice}
           </div>
-          <div className="flex flex-row">
-            <div>total: ${cart.totalPrice}</div>
+          <div className="mb-2">
+            <span className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Total:</span>${cart.totalPrice}
           </div>
           <div>{error && error?.data?.message}</div>
           <div>
-            <button type="button" disabled={cart.cartItems.length === 0} onClick={() => placeOrderHandler()}>
+            <button type="button" disabled={cart.cartItems.length === 0} onClick={() => placeOrderHandler()} className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4">
               Place Order
             </button>
             {isLoading && <Loader />}

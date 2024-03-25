@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-toastify';
 import OrderItem from '../components/OrderItem.jsx';
+import Warning from '../components/Warning.jsx';
 
 const Order = () => {
   const { id: orderId } = useParams();
@@ -45,58 +46,66 @@ const Order = () => {
     <div>HATA</div>
   ) : (
     <>
-      <div className="flex flex-row justify-around mt-20">
+      <div className="flex flex-row justify-evenly mt-20">
         <div>
-          <h1>Order {order._id}</h1>
-          <div>
-            <h2>Shipping</h2>
+          <h1 className="text-[#6B6D75] fontCera mb-1 text-[18px]">Order id: {order._id}</h1>
+          <div className="fontCera mb-4">
+            <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold">Shipping</h2>
             <p>
-              <strong>Name: </strong>
+              <strong className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Name:</strong>
               {order.user.name}
             </p>
             <p>
-              <strong>Email</strong>
+              <strong className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Email:</strong>
               {order.user.email}
             </p>
             <p>
-              <strong>Address </strong>
+              <strong className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Address:</strong>
               {order.shippingAddress.address}, {order.shippingAddress.city}, {order.shippingAddress.postalCode},
             </p>
-            {order.isDelivered ? <div>delivered on {order.deliveredAt}</div> : <div>Not delivered</div>}
+            {order.isDelivered ? <Warning message={`delivered on ${order.deliveredAt.substring(0, 10)}`} /> : <Warning message="Not delivered" negative />}
           </div>
-          <div>
-            <h2>Payment Method</h2>
+          <div className="fontCera mb-4">
+            <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold">Payment Method</h2>
             <p>
-              <strong>Method: </strong>
+              <strong className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Method:</strong>
               {order.paymentMethod}
             </p>
-            {order.isPaid ? <div>paid on {order.paidAt}</div> : <div>Not paid</div>}
-            <h2>Order Items</h2>
+            {order.isPaid ? <Warning message={`paid on ${order.paidAt.substring(0, 10)}`} /> : <Warning message="Not paid" negative />}
+          </div>
+          <div className="fontCera">
+            <h2 className="text-[32px] tracking-wide text-[#0F346C] font-semibold mb-2">Order Items</h2>
             {order.orderItems.map((item) => {
               return <OrderItem orderItem={item} key={item._id} />;
             })}
           </div>
         </div>
-        <div>
-          <div>
-            <h2>Order Summary</h2>
-            <div>Items: ${order.itemsPrice}</div>
+        <div className="fontCera">
+          <h2 className="text-[32px] tracking-wide text-[#0F346C] font-semibold mb-2">Order Summary</h2>
+          <div className="mb-2">
+            <span className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Items:</span>${order.itemsPrice}
+          </div>
+          <div className=" mb-2">
+            <span className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Shipping:</span>${order.shippingPrice}
+          </div>
+          <div className="mb-2">
+            <span className="text-[18px] font-semibold  text-[#6B6D75] mr-2">Total:</span>${order.totalPrice}
           </div>
           <div>
-            <h2>Shipping</h2>
-            <div>${order.shippingPrice}</div>
-          </div>
-          <div>
-            <h2>total</h2>
-            <div>${order.totalPrice}</div>
-          </div>
-          <div>
-            <button onClick={makePayment}>TEST ÖDEME YAP</button>
+            {userInfo && !order.isPaid && (
+              <button className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4" onClick={makePayment}>
+                TEST ÖDEME YAP
+              </button>
+            )}
+            {loadingDeliver && <Loader />}
+
+            {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+              <button className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4" onClick={deliverOrderHandler}>
+                Mark As Delivered
+              </button>
+            )}
           </div>
         </div>
-        {loadingDeliver && <Loader />}
-
-        {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && <button onClick={deliverOrderHandler}>Mark As Delivered</button>}
       </div>
     </>
   );
