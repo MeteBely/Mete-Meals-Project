@@ -7,7 +7,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4, underline }) => {
     <nav className="flex flex-row gap-6">
       <div>
         {step1 ? (
-          <Link to="/users/sign_in" className={`text-[18px] ${underline === 'sign in' ? 'underline underline-offset-4' : 'no-underline'} text-[#0F346C]`}>
+          <Link to="/users/sign_in" className={`text-[18px] ${underline === 'signin' ? 'underline underline-offset-4' : 'no-underline'} text-[#0F346C]`}>
             Sign In
           </Link>
         ) : (
@@ -40,7 +40,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4, underline }) => {
       </div>
       <div>
         {step4 ? (
-          <Link to="/placeorder" className={`text-[18px] ${underline === 'place order' ? 'underline underline-offset-4' : 'no-underline'} text-[#0F346C]`}>
+          <Link to="/placeorder" className={`text-[18px] ${underline === 'placeorder' ? 'underline underline-offset-4' : 'no-underline'} text-[#0F346C]`}>
             Place Order
           </Link>
         ) : (
