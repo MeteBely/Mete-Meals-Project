@@ -155,7 +155,7 @@ const PayToGiftCardOrder = asyncHandler(async (req, res) => {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: `${giftCard.amount}$ Card`,
+              name: `$${giftCard.amount} Gift Card`,
             },
             unit_amount: Math.round(giftCard.amount * 100),
           },

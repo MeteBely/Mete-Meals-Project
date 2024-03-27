@@ -34,6 +34,7 @@ import UpdateMealKit from './pages/Admin/UpdateMealKit';
 import UserList from './pages/Admin/UserList';
 import UserEdit from './pages/Admin/UserEdit';
 import Cancel from './pages/Cancel';
+import SuccessGiftCardPayment from './pages/SuccessGiftCardPayment';
 function App() {
   return (
     <>
@@ -58,6 +59,8 @@ function App() {
           <Route path="/admin/user/:id/edit" element={<UserEdit />} />
         </Route>
 
+        <Route path="/success/giftCardOrder" element={<SuccessGiftCardPayment />} />
+        <Route path="/cancel/giftCardOrder" element={<Cancel />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/on-the-menu">
           <Route index={true} element={<OnTheMenu />} />
