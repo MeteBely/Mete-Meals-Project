@@ -57,7 +57,14 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         method: 'PUT',
       }),
     }),
+    PayToGiftCardOrder: builder.mutation({
+      query: (details) => ({
+        url: `${ORDERS_URL}/giftcard`,
+        method: 'POST',
+        body: details,
+      }),
+    }),
   }),
 });
 
-export const { useCreateOrderMutation, useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useGetMyOrdersQuery, useGetPaymentResultsQuery, useGetOrdersQuery, useDeliveredOrderMutation, useUpdateOrderToPaidMutation } = ordersApiSlice;
+export const { useCreateOrderMutation, useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useGetMyOrdersQuery, useGetPaymentResultsQuery, useGetOrdersQuery, useDeliveredOrderMutation, useUpdateOrderToPaidMutation, usePayToGiftCardOrderMutation } = ordersApiSlice;

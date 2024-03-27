@@ -1,5 +1,12 @@
 /* eslint-disable react/prop-types */
+import { loadStripe } from '@stripe/stripe-js';
+import { useGetStripePublishableKeyQuery, usePayToGiftCardOrderMutation } from '../slices/ordersApiSlice';
+import { toast } from 'react-toastify';
+
 const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
+  const [PayToGiftCardOrder, { isLoading: loadingGiftCard }] = usePayToGiftCardOrderMutation();
+  const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
+
   const handleRemove = (e, itemQuantity, index) => {
     e.preventDefault();
     if (itemQuantity != 1) {
@@ -9,6 +16,21 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
     } else {
       const updatedCart = [...cart];
       setCart(updatedCart.filter((item) => item.quantity != 1));
+    }
+  };
+
+  const makePayment = async () => {
+    if (loadingStripe || loadingGiftCard) {
+      toast.error('error');
+    } else {
+      const stripe = await loadStripe(stripeId);
+      const res = await PayToGiftCardOrder(cart);
+      const result = stripe.redirectToCheckout({
+        sessionId: res.data.id,
+      });
+      if (result.error) {
+        console.log(result.error);
+      }
     }
   };
   return (
@@ -36,6 +58,11 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
                 </div>
               );
             })}
+            {cart.length > 0 && (
+              <button className="mt-2 w-[300px] bg-[#235091] text-white text-center h-12 rounded-sm hover:bg-[#0F346C]" onClick={makePayment}>
+                Proceed To Checkout
+              </button>
+            )}
           </>
         )}
       </div>
