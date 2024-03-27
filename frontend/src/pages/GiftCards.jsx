@@ -4,12 +4,19 @@ import GiftCardsTopPanel from '../components/GiftCardsTopPanel';
 import GiftCardsSecondCol from '../components/GiftCardsSecondCol';
 import GiftCardsThirdCol from '../components/GiftCardsThirdCol';
 import GiftCardsBottomSection from '../components/GiftCardsBottomSection';
+import { clearGiftCardItems } from '../slices/giftCardSlice';
+import { useDispatch } from 'react-redux';
 
 const GiftCards = () => {
+  const dispatch = useDispatch();
   const [amount, setAmount] = useState(140);
   const [quantity, setQuantity] = useState(1);
   const [sumQuantity, setSumQuantity] = useState(0);
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    dispatch(clearGiftCardItems());
+  }, [dispatch]);
 
   useEffect(() => {
     totalQuantity();

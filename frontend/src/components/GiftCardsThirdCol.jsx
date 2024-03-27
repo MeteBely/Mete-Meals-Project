@@ -2,10 +2,14 @@
 import { loadStripe } from '@stripe/stripe-js';
 import { useGetStripePublishableKeyQuery, usePayToGiftCardOrderMutation } from '../slices/ordersApiSlice';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { addToGiftCardItems } from '../slices/giftCardSlice';
 
 const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
   const [PayToGiftCardOrder, { isLoading: loadingGiftCard }] = usePayToGiftCardOrderMutation();
   const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
+
+  const dispatch = useDispatch();
 
   const handleRemove = (e, itemQuantity, index) => {
     e.preventDefault();
@@ -31,6 +35,7 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
       if (result.error) {
         console.log(result.error);
       }
+      dispatch(addToGiftCardItems(cart));
     }
   };
   return (

@@ -1,10 +1,13 @@
 import { useGetPaymentResultsQuery } from '../slices/ordersApiSlice';
 import Loader from './Loader';
 import Warning from '../components/Warning';
+import { useSelector } from 'react-redux';
+import GiftCardItems from '../components/GiftCardItems';
 
 const SuccessGiftCardPayment = () => {
   const { data: paymentResults, isLoading } = useGetPaymentResultsQuery();
-  console.log(paymentResults);
+  const giftCards = useSelector((state) => state.giftCard);
+  console.log(giftCards);
   return (
     <div className="mt-20 m-auto w-[800px]">
       {isLoading ? (
@@ -22,15 +25,20 @@ const SuccessGiftCardPayment = () => {
               <h4 className="text-[#728285] font-semibold text-[15px] mr-1">Email:</h4>
               <span className="">{paymentResults.data[0].data.object.customer_details.email}</span>
             </div>
-            {/* <div className="flex flex-row items-center justify-center">
-          <h4 className="text-[#728285] font-semibold text-[15px] mr-1">Total payment:</h4>
-          <span className="">${paymentResults.data.reduce((acc, item) => acc + item.data.object.amount_total * )}</span>
-        </div> */}
+            <div className="flex flex-row gap-4">
+              {giftCards.map((giftCard, index) => (
+                <GiftCardItems giftCard={giftCard} key={index} />
+              ))}
+            </div>
+            <div className="flex flex-row items-center justify-center">
+              <h4 className="text-[#728285] font-semibold text-[15px] mr-1">Total Price:</h4>
+              <span className="">${giftCards.reduce((acc, item) => acc + item.amount * item.quantity, 0)}</span>
+            </div>
           </div>
         </section>
       )}
     </div>
   );
 };
-//{cartItems.reduce((acc, item) => acc + item.qty, 0)}
+
 export default SuccessGiftCardPayment;
