@@ -145,40 +145,4 @@ const getPaymentResults = asyncHandler(async (req, res) => {
   res.json(events);
 });
 
-const PayToGiftCardOrder = asyncHandler(async (req, res) => {
-  const giftCards = req.body;
-
-  if (giftCards) {
-    try {
-      const lineItems = giftCards.map((giftCard) => {
-        return {
-          price_data: {
-            currency: 'usd',
-            product_data: {
-              name: `$${giftCard.amount} Gift Card`,
-            },
-            unit_amount: Math.round(giftCard.amount * 100),
-          },
-          quantity: giftCard.quantity,
-        };
-      });
-      const session = await stripeInstance.checkout.sessions.create({
-        payment_method_types: ['card'],
-        line_items: lineItems,
-        mode: 'payment',
-        success_url: `http://localhost:5173/success/giftCardOrder`,
-        cancel_url: `http://localhost:5173/cancel/giftCardOrder`,
-      });
-
-      res.json({ id: session.id });
-    } catch (error) {
-      console.error('Error creating Stripe Checkout session:', error);
-      res.status(500).json({ error: 'Failed to create Stripe Checkout session' });
-    }
-  } else {
-    res.status(404);
-    throw new Error('Gift card not found');
-  }
-});
-
-export { getAllOrders, PayToOrder, updateOrderToDelivered, getOrderById, getMyOrders, createOrder, deleteOrder, getPaymentResults, updateOrderToPaid, PayToGiftCardOrder };
+export { getAllOrders, PayToOrder, updateOrderToDelivered, getOrderById, getMyOrders, createOrder, deleteOrder, getPaymentResults, updateOrderToPaid };
