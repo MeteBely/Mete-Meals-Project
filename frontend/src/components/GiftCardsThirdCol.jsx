@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import { loadStripe } from '@stripe/stripe-js';
-import { useGetStripePublishableKeyQuery, usePayToGiftCardOrderMutation } from '../slices/ordersApiSlice';
+import { useGetStripePublishableKeyQuery } from '../slices/ordersApiSlice';
+import { usePayGiftCardMutation } from '../slices/giftCardApiSlice';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { addToGiftCardItems } from '../slices/giftCardSlice';
 
 const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
-  const [PayToGiftCardOrder, { isLoading: loadingGiftCard }] = usePayToGiftCardOrderMutation();
+  const [payGiftCard, { isLoading: loadingGiftCard }] = usePayGiftCardMutation();
   const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
 
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
       toast.error('error');
     } else {
       const stripe = await loadStripe(stripeId);
-      const res = await PayToGiftCardOrder(cart);
+      const res = await payGiftCard(cart);
       const result = stripe.redirectToCheckout({
         sessionId: res.data.id,
       });

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-const initialState = localStorage.getItem('giftCards') ? JSON.parse(localStorage.getItem('giftCards')) : { giftCardItems: [] };
+const initialState = localStorage.getItem('giftCards') ? JSON.parse(localStorage.getItem('giftCards')) : { giftCardItems: [], giftCardCodes: [] };
 
 const giftCardSlice = createSlice({
   name: 'giftCard',
@@ -7,19 +7,20 @@ const giftCardSlice = createSlice({
   reducers: {
     addToGiftCardItems: (state, action) => {
       state.giftCardItems = action.payload;
-      localStorage.setItem('giftCards', JSON.stringify(action.payload));
-      //   return state;
+      localStorage.setItem('giftCards', JSON.stringify(state));
     },
     clearGiftCardItems: (state, action) => {
       localStorage.removeItem('giftCards');
       state.giftCardItems = [];
     },
+    saveGiftCardCodes: (state, action) => {
+      state.giftCardCodes = action.payload;
+      localStorage.setItem('giftCards', JSON.stringify(state));
+      // kodları localde tutmak güvenlik açığına sebebiyet verebilir, iyi bir yol bulmaya çalış daha sonra.
+    },
   },
 });
 
-export const { addToGiftCardItems, clearGiftCardItems } = giftCardSlice.actions;
+export const { addToGiftCardItems, clearGiftCardItems, saveGiftCardCodes } = giftCardSlice.actions;
 
 export default giftCardSlice.reducer;
-
-//localStorage.setItem('cart', JSON.stringify(state));
-// return state;
