@@ -9,6 +9,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import mealKitsRoutes from './routes/mealKitsRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
+import giftCardRoutes from './routes/giftCardRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -27,6 +28,7 @@ app.use('/api/meals', mealRoutes);
 app.use('/api/mealKits', mealKitsRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/api/giftCards', giftCardRoutes);
 
 app.get('/api/config/stripe', (req, res) => res.json(process.env.STRIPE_PUBLISHABLE_KEY));
 
