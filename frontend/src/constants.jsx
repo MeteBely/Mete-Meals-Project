@@ -6,3 +6,4 @@ export const MEALKITS_URL = '/api/mealKits';
 export const USERS_URL = '/api/users';
 export const ORDERS_URL = '/api/orders';
 export const GIFTCARDS_URL = '/api/giftCards';
+export const USERBALANCE_URL = '/api/balance';
