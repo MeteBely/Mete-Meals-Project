@@ -11,9 +11,9 @@ const getGiftCards = asyncHandler(async (req, res) => {
   res.json(giftCards);
 });
 
-//meal kiti çeker, public. /api/mealKits/:id
-const getGiftCardById = asyncHandler(async (req, res) => {
-  const giftCard = await GiftCard.findById(req.params.id);
+//gift cardı (kod'a)id'ye göre çekeceğiz, sadece giriş yapmış kişiler hediye kartını kullanabilecek. Eğer başarılı çekerse bakiyeyi yükleyip db'den o giftCardı silececeğiz.
+const getGiftCardByIdAndDelete = asyncHandler(async (req, res) => {
+  const giftCard = await GiftCard.findByIdAndDelete(req.params.id);
   if (giftCard) {
     return res.json(giftCard);
   } else {
@@ -68,4 +68,4 @@ const PayToGiftCardOrder = asyncHandler(async (req, res) => {
   }
 });
 
-export { getGiftCards, getGiftCardById, createGiftCard, PayToGiftCardOrder };
+export { getGiftCards, getGiftCardByIdAndDelete, createGiftCard, PayToGiftCardOrder };

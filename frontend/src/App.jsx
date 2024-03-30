@@ -35,6 +35,7 @@ import UserList from './pages/Admin/UserList';
 import UserEdit from './pages/Admin/UserEdit';
 import Cancel from './pages/Cancel';
 import SuccessGiftCardPayment from './pages/SuccessGiftCardPayment';
+import RedeemGiftCardBalance from './pages/RedeemGiftCardBalance';
 function App() {
   return (
     <>
@@ -78,8 +79,10 @@ function App() {
         </Route>
         <Route path="/gifts" element={<GiftCards />} />
         <Route path="/pages">
-          <Route index={true} element={<Outlet />} />
-          <Route path="redeem" element={<Redeem />} />
+          <Route path="redeem">
+            <Route index={true} element={<Redeem />} />
+            <Route path="giftcardkeys" element={<RedeemGiftCardBalance />} />
+          </Route>
           <Route path="corporate-sales" element={<CorporateSales />} />
         </Route>
         <Route path="/users">

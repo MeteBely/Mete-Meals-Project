@@ -71,6 +71,9 @@ const SuccessGiftCardPayment = () => {
                   amount: {code.amount}code: {code.key}
                 </div>
               ))}
+            <div>
+              <p>Bu kodlari kaybetmemeye özen gösteriniz, bu sayfa kodlari görüntüleyebileceğiniz tek yerdir.</p>
+            </div>
           </div>
         </section>
       )}

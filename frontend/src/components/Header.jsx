@@ -6,8 +6,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { clearCredentials } from '../slices/authSlice.jsx';
+import { useGetUserBalanceQuery } from '../slices/balanceApiSlice.jsx';
 
 const Header = () => {
+  const { data: userBalance, isLoading } = useGetUserBalanceQuery();
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
   const { userInfo } = useSelector((state) => state.auth);
   const [logout] = useLogoutMutation();
@@ -16,7 +18,6 @@ const Header = () => {
   const [topPos, setTopPos] = useState('top-[-800px]');
   const [dropDown, setDropDown] = useState(false);
   const bringItems = () => {
-    console.log(topPos);
     if (topPos === 'top-[-800px]') {
       setTopPos('top-[58px]');
     } else {
@@ -106,6 +107,7 @@ const Header = () => {
             ) : (
               <></>
             )}
+            {!isLoading && userBalance && userBalance.balance > 0 && <div className="">Balance: {userBalance.balance}</div>}
           </div>
         </div>
       </nav>
