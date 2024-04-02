@@ -1,13 +1,16 @@
 import { useParams } from 'react-router-dom';
 import Loader from '../pages/Loader.jsx';
 import { useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useDeliveredOrderMutation } from '../slices/ordersApiSlice';
+import { useUpdateToUserBalanceMutation } from '../slices/balanceApiSlice.jsx';
 import { useSelector } from 'react-redux';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-toastify';
 import OrderItem from '../components/OrderItem.jsx';
 import Warning from '../components/Warning.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
+  const navigate = useNavigate();
   const { id: orderId } = useParams();
   const { data: order, refetch, isLoading, error } = useGetOrderByIdQuery(orderId);
   console.log(order);
@@ -16,17 +19,24 @@ const Order = () => {
   const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
   const [deliverOrder, { isLoading: loadingDeliver }] = useDeliveredOrderMutation();
   const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
+  const [updateUserBalance, { isLoading: userBalance }] = useUpdateToUserBalanceMutation();
 
   const makePayment = async () => {
-    const stripe = await loadStripe(stripeId);
-    const res = await payOrder({ orderId, details: order.orderItems });
-    console.log(res);
+    if (order.paymentMethod === 'Stripe') {
+      const stripe = await loadStripe(stripeId);
+      const res = await payOrder({ orderId, details: order.orderItems });
+      console.log(res);
 
-    const result = stripe.redirectToCheckout({
-      sessionId: res.data.id,
-    });
-    if (result.error) {
-      console.log(result.error);
+      const result = stripe.redirectToCheckout({
+        sessionId: res.data.id,
+      });
+      if (result.error) {
+        console.log(result.error);
+      }
+    } else if (order.paymentMethod === 'Balance') {
+      let amount = -order.totalPrice;
+      await updateUserBalance({ amount });
+      navigate(`/success/order/${order._id}`);
     }
   };
 
