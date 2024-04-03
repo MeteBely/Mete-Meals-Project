@@ -36,6 +36,7 @@ import UserEdit from './pages/Admin/UserEdit';
 import Cancel from './pages/Cancel';
 import SuccessGiftCardPayment from './pages/SuccessGiftCardPayment';
 import RedeemGiftCardBalance from './pages/RedeemGiftCardBalance';
+import SelectMeals from './pages/SelectMeals';
 function App() {
   return (
     <>
@@ -43,12 +44,15 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="" element={<PrivateRoute />}>
+          <Route path="/pricing" element={<Pricing />} />
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/placeorder" element={<PlaceOrder />} />
           <Route path="/order/:id" element={<Order />} />
           <Route path="/success/order/:id" element={<Success />} />
           <Route path="/cancel/order/:id" element={<Cancel />} />
+          <Route path="/success/membership/selectmeals" element={<SelectMeals />} />
+          <Route path="/cancel/membership" element={<Cancel />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
 
@@ -67,7 +71,6 @@ function App() {
           <Route index={true} element={<OnTheMenu />} />
           <Route path="meal/:id" element={<MealDetail />} />
         </Route>
-        <Route path="/pricing" element={<Pricing />} />
         <Route path="/market">
           <Route index={true} element={<Market />} />
           <Route path="mealKit/:id" element={<MealKitDetail />} />
