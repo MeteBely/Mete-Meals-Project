@@ -4,11 +4,12 @@ import { apiSlice } from './apiSlice';
 export const mealsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getMeals: builder.query({
-      query: ({ numberOfServing, date }) => ({
+      query: ({ numberOfServing, date, preference }) => ({
         url: MEALS_URL,
         params: {
           numberOfServing,
           date,
+          preference,
         },
       }),
       keepUnusedDataFor: 5,

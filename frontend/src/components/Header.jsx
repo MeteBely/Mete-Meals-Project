@@ -50,7 +50,7 @@ const Header = () => {
               </button>
             </div>
             <div className={`navbarItemsOne transition-all w-36 md:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute ${topPos} left-[-45px] md:static md:flex-row gap-8 text-coolGray text-xs font-normal items-center`}>
-              <a href="" onClick={() => navigate('/pricing')} className="hover:text-[#0f346c]">
+              <a href="" onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="hover:text-[#0f346c]">
                 PLANS
               </a>
               <a href="" onClick={() => navigate('/on-the-menu')} className="hover:text-[#0f346c] min-w-[102px]">
