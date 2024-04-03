@@ -11,6 +11,7 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import giftCardRoutes from './routes/giftCardRoutes.js';
 import balanceRoutes from './routes/balanceRoutes.js';
+import membershipRoutes from './routes/membershipRoutes.js';
 
 const port = process.env.PORT || 5000;
 
@@ -31,6 +32,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/giftCards', giftCardRoutes);
 app.use('/api/balance', balanceRoutes);
+app.use('/api/membership', membershipRoutes);
 
 app.get('/api/config/stripe', (req, res) => res.json(process.env.STRIPE_PUBLISHABLE_KEY));
 
