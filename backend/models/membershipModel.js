@@ -24,19 +24,45 @@ const membershipSchema = new mongoose.Schema(
         type: Number,
         required: true,
       },
-      selectedMeals: [
-        {
-          meal: {
+      selectedMeals: {
+        firstWeek: [
+          {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
             ref: 'Meal',
           },
-        },
-      ],
+        ],
+        secondWeek: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Meal',
+          },
+        ],
+        thirdWeek: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Meal',
+          },
+        ],
+        fourthWeek: [
+          {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Meal',
+          },
+        ],
+      },
     },
     preference: {
       type: String,
       required: true,
+    },
+    shippingAddress: {
+      address: { type: String, required: true },
+      city: { type: String, required: true },
+      postalCode: { type: String, required: true },
     },
   },
   { timestamps: true }

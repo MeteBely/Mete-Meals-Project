@@ -42,4 +42,22 @@ const payToMembership = asyncHandler(async (req, res) => {
   }
 });
 
-export { payToMembership };
+const createMembership = asyncHandler(async (req, res) => {
+  try {
+    const { plan, preference, shippingAddress } = req.body;
+
+    const membership = new Membership({
+      user: req.user._id,
+      plan,
+      preference,
+      shippingAddress,
+    });
+
+    const newMembership = await membership.save();
+    res.status(201).json(newMembership);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export { payToMembership, createMembership };
