@@ -24,7 +24,14 @@ export const membershipApiSlice = apiSlice.injectEndpoints({
         body: totalPrice,
       }),
     }),
+    getUserMembership: builder.query({
+      query: () => ({
+        url: MEMBERSHIP_URL,
+      }),
+      keepUnusedDataFor: 5,
+      providesTags: ['Membership'],
+    }),
   }),
 });
 
-export const { useCreateMembershipMutation, useGetStripePublishableKeyQuery, usePayMembershipMutation } = membershipApiSlice;
+export const { useCreateMembershipMutation, useGetStripePublishableKeyQuery, usePayMembershipMutation, useGetUserMembershipQuery } = membershipApiSlice;
