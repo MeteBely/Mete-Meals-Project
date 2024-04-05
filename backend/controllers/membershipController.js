@@ -60,4 +60,25 @@ const createMembership = asyncHandler(async (req, res) => {
   }
 });
 
-export { payToMembership, createMembership };
+const getUserMembership = asyncHandler(async (req, res) => {
+  try {
+    const userMembership = await Membership.findOne({ user: req.user._id }).populate([
+      { path: 'plan.selectedMeals.firstWeek', select: 'name img' },
+      { path: 'plan.selectedMeals.secondWeek', select: 'name img' },
+      { path: 'plan.selectedMeals.thirdWeek', select: 'name img' },
+      { path: 'plan.selectedMeals.fourthWeek', select: 'name img' },
+      { path: 'user', select: 'name email' },
+    ]);
+
+    if (userMembership) {
+      return res.status(200).json(userMembership);
+    } else {
+      res.status(404);
+      throw new Error('Membership not found in this user!');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+export { payToMembership, createMembership, getUserMembership };
