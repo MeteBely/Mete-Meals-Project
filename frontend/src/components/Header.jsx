@@ -1,7 +1,7 @@
 import '../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { IoMenu } from 'react-icons/io5';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
 import { useLogoutMutation } from '../slices/usersApiSlice';
@@ -9,7 +9,7 @@ import { clearCredentials } from '../slices/authSlice.jsx';
 import { useGetUserBalanceQuery } from '../slices/balanceApiSlice.jsx';
 
 const Header = () => {
-  const { data: userBalance, isLoading } = useGetUserBalanceQuery();
+  const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
   const { userInfo } = useSelector((state) => state.auth);
   const [logout] = useLogoutMutation();
@@ -24,6 +24,13 @@ const Header = () => {
       setTopPos('top-[-800px]');
     }
   };
+
+  useEffect(() => {
+    if (userInfo) {
+      // Kullanıcı oturumu açıldığında veya kullanıcı bilgisi güncellendiğinde userBalance verisini güncelle
+      refetch(); // veya useGetUserBalanceQuery().refetch() gibi bir kullanım, hook'tan dönen refetch fonksiyonunu kullanarak
+    }
+  }, [refetch, userInfo]);
 
   const logoutHandler = async () => {
     try {
@@ -67,24 +74,32 @@ const Header = () => {
 
           <div className="navbarItemsTwo flex flex-row gap-4 items-center text-coolGray tracking-widest">
             {userInfo ? (
-              <div className="relative">
-                <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-32">
-                  {userInfo.name}
-                </div>
-                {dropDown && (
-                  <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-32 text-white fontCera p-2 text-[16px]">
-                    <Link to="/profile">Profile</Link>
-                    {userInfo.isAdmin && (
-                      <>
-                        <Link to="/admin/userlist">User List</Link>
-                        <Link to="/admin/orderlist">Order List</Link>
-                        <Link to="/admin/mealKitList">Meal Kit List</Link>
-                      </>
-                    )}
-                    <button onClick={logoutHandler}>Logout</button>
+              <>
+                <div className="relative">
+                  <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-32 fontCera text-[17px]">
+                    {userInfo.name}
+                  </div>
+                  {dropDown && (
+                    <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-32 text-white fontCera p-2 text-[16px]">
+                      <Link to="/profile">Profile</Link>
+                      <Link to="/membership">Membership</Link>
+                      {userInfo.isAdmin && (
+                        <>
+                          <Link to="/admin/userlist">User List</Link>
+                          <Link to="/admin/orderlist">Order List</Link>
+                          <Link to="/admin/mealKitList">Meal Kit List</Link>
+                        </>
+                      )}
+                      <button onClick={logoutHandler}>Logout</button>
+                    </div>
+                  )}
+                </div>{' '}
+                {!isLoading && userBalance && userBalance.balance > 0 && (
+                  <div className="fontCera">
+                    <span className="mr-1 text-[17px]">Balance:</span>${userBalance.balance}
                   </div>
                 )}
-              </div>
+              </>
             ) : (
               <>
                 <a href="" onClick={() => navigate('/users/sign_in')} className="font-normal w-[60px] text-xs hover:text-[#0f346c]">
@@ -107,7 +122,6 @@ const Header = () => {
             ) : (
               <></>
             )}
-            {!isLoading && userBalance && userBalance.balance > 0 && <div className="">Balance: {userBalance.balance}</div>}
           </div>
         </div>
       </nav>

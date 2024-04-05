@@ -37,6 +37,7 @@ import Cancel from './pages/Cancel';
 import SuccessGiftCardPayment from './pages/SuccessGiftCardPayment';
 import RedeemGiftCardBalance from './pages/RedeemGiftCardBalance';
 import SelectMeals from './pages/SelectMeals';
+import Membership from './pages/Membership';
 function App() {
   return (
     <>
@@ -54,6 +55,7 @@ function App() {
           <Route path="/success/membership/selectmeals" element={<SelectMeals />} />
           <Route path="/cancel/membership" element={<Cancel />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/membership" element={<Membership />} />
         </Route>
 
         <Route path="" element={<AdminRoute />}>
