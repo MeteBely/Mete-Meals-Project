@@ -11,7 +11,7 @@ import { useGetMineMembershipIdQuery } from '../slices/membershipApiSlice.jsx';
 
 const Header = () => {
   const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
-  const { data: myMembershipId } = useGetMineMembershipIdQuery();
+  const { data: myMembershipId, refetch: refetchMembershipId } = useGetMineMembershipIdQuery();
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
   const { userInfo } = useSelector((state) => state.auth);
   const [logout] = useLogoutMutation();
@@ -26,6 +26,10 @@ const Header = () => {
       setTopPos('top-[-800px]');
     }
   };
+
+  useEffect(() => {
+    refetchMembershipId();
+  }, [refetchMembershipId, myMembershipId]);
 
   useEffect(() => {
     if (userInfo) {
