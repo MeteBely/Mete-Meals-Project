@@ -16,7 +16,7 @@ const MarketSlider = () => {
 
   const navigate = useNavigate();
   return (
-    <section className="mb-8 bg-[#AED3E4] h-auto w-[100%]">
+    <section className="mb-8 bg-[#AED3E4] h-auto w-[100%] mt-20">
       <div className="w-[400px] min-[953px]:w-[55%] min-[1240px]:w-[850px] m-auto p-8">
         <Slider {...settings}>
           <div className=" bg-[#E6EFFE] h-auto rounded-[32px]">
