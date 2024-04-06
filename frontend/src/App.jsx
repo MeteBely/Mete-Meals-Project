@@ -7,7 +7,6 @@ import Pricing from './pages/Pricing';
 import Market from './pages/Market';
 import GiftCards from './pages/GiftCards';
 import Redeem from './pages/Redeem';
-import CorporateSales from './pages/CorporateSales';
 import LogIn from './pages/LogIn';
 import ForgotPassword from './pages/ForgotPassword';
 import SignUp from './pages/SignUp';
@@ -83,7 +82,6 @@ function App() {
             <Route index={true} element={<Redeem />} />
             <Route path="giftcardkeys" element={<RedeemGiftCardBalance />} />
           </Route>
-          <Route path="corporate-sales" element={<CorporateSales />} />
         </Route>
         <Route path="/users">
           <Route index={true} element={<Outlet />} />
