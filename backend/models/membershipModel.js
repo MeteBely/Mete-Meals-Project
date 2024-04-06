@@ -64,6 +64,12 @@ const membershipSchema = new mongoose.Schema(
       city: { type: String, required: true },
       postalCode: { type: String, required: true },
     },
+    isDelivered: {
+      FirstWeek: { type: Boolean, default: false, required: true },
+      SecondWeek: { type: Boolean, default: false, required: true },
+      ThirdWeek: { type: Boolean, default: false, required: true },
+      FourthWeek: { type: Boolean, default: false, required: true },
+    },
   },
   { timestamps: true }
 );
