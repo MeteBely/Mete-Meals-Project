@@ -1,10 +1,15 @@
+import { useEffect } from 'react';
 import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
 import Loader from '../Loader';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const OrderList = () => {
-  const { data: orders, isLoading, error } = useGetOrdersQuery();
+  const { data: orders, isLoading, error, refetch } = useGetOrdersQuery();
+
+  useEffect(() => {
+    refetch();
+  }, [orders, refetch]);
 
   return (
     <section className="mt-20">
