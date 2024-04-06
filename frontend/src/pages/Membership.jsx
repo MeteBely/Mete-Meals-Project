@@ -1,10 +1,24 @@
-import { Link } from 'react-router-dom';
-import { useGetUserMembershipQuery } from '../slices/membershipApiSlice';
+import { Link, useParams } from 'react-router-dom';
+import { useGetUserMembershipQuery, useUpdateMembershipMealsDeliverMutation } from '../slices/membershipApiSlice';
 import Loader from './Loader';
+import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const Membership = () => {
-  const { data: userMembership, isLoading } = useGetUserMembershipQuery();
-  console.log(userMembership);
+  const { id: membershipId } = useParams();
+  const { data: userMembership, isLoading, refetch } = useGetUserMembershipQuery(membershipId);
+  const [updateMealsDeliverSituation] = useUpdateMembershipMealsDeliverMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const handleDeliver = async (membershipId) => {
+    try {
+      await updateMealsDeliverSituation(membershipId);
+      toast.success("Membership meal's Week is successfully update to mark as delivered!");
+      refetch();
+    } catch (error) {
+      toast.error(error?.message);
+    }
+  };
 
   return (
     <>
@@ -116,6 +130,14 @@ const Membership = () => {
                   </li>
                 </ul>
               </div>
+              {/* {loadingUpdateDelivered && <Loader />} */}
+              {userInfo.isAdmin && !userMembership.isDelivered.FourthWeek && (
+                <div>
+                  <button onClick={() => handleDeliver(membershipId)} className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4">
+                    Mark as {userMembership.isDelivered.FirstWeek ? (userMembership.isDelivered.SecondWeek ? (userMembership.isDelivered.ThirdWeek ? 'Fourth Week' : 'Third Week') : 'Second Week') : 'First Week'} Delivered
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </section>
