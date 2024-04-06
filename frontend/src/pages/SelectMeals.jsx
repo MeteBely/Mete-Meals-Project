@@ -10,10 +10,10 @@ const SelectMeals = () => {
   const [createMembership, { isLoading }] = useCreateMembershipMutation();
   const membershipDetail = useSelector((state) => state.membershipDetail);
 
-  const { data: twoServingFirstMeals, isLoadingOne } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'March 11th', preference: membershipDetail.preference });
-  const { data: twoServingSecondMeals, isLoadingTwo } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'March 18th', preference: membershipDetail.preference });
-  const { data: twoServingThirdMeals, isLoadingThree } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'March 25th', preference: membershipDetail.preference });
-  const { data: twoServingFourthMeals, isLoadingFour } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'April 1st', preference: membershipDetail.preference });
+  const { data: twoServingFirstMeals, isLoadingOne } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'first week', preference: membershipDetail.preference });
+  const { data: twoServingSecondMeals, isLoadingTwo } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'second week', preference: membershipDetail.preference });
+  const { data: twoServingThirdMeals, isLoadingThree } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'third week', preference: membershipDetail.preference });
+  const { data: twoServingFourthMeals, isLoadingFour } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'fourth week', preference: membershipDetail.preference });
 
   const [selectedFirstWeekMeals, setSelectedFirstWeekMeals] = useState([]);
   const [selectedSecondWeekMeals, setSelectedSecondWeekMeals] = useState([]);

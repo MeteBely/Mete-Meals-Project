@@ -24,36 +24,36 @@ const OnTheMenu = () => {
     setX(data);
   };
 
-  const { data: twoServingFirstMeals, isLoading, error } = useGetMealsQuery({ numberOfServing: '2', date: 'March 11th' });
-  const { data: twoServingSecondMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'March 18th' });
+  const { data: twoServingFirstMeals, isLoading } = useGetMealsQuery({ numberOfServing: '2', date: 'first week' });
+  const { data: twoServingSecondMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'second week' });
 
-  const { data: twoServingThirdMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'March 25th' });
+  const { data: twoServingThirdMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'third week' });
 
-  const { data: twoServingFourthMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'April 1st' });
+  const { data: twoServingFourthMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'fourth week' });
 
-  const { data: fourServingFirstMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'March 11th' });
+  const { data: fourServingFirstMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'first week' });
 
-  const { data: fourServingSecondMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'March 18th' });
+  const { data: fourServingSecondMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'second week' });
 
-  const { data: fourServingThirdMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'March 25th' });
+  const { data: fourServingThirdMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'third week' });
 
-  const { data: fourServingFourthMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'April 1st' });
+  const { data: fourServingFourthMeals } = useGetMealsQuery({ numberOfServing: '4', date: 'fourth week' });
 
-  const { data: fastServingFirstMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'March 11th' });
+  const { data: fastServingFirstMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'first week' });
 
-  const { data: fastServingSecondMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'March 18th' });
+  const { data: fastServingSecondMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'second week' });
 
-  const { data: fastServingThirdMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'March 25th' });
+  const { data: fastServingThirdMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'third week' });
 
-  const { data: fastServingFourthMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'April 1st' });
+  const { data: fastServingFourthMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'fourth week' });
 
-  const { data: flexServingFirstMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'March 11th' });
+  const { data: flexServingFirstMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'first week' });
 
-  const { data: flexServingSecondMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'March 18th' });
+  const { data: flexServingSecondMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'second week' });
 
-  const { data: flexServingThirdMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'March 25th' });
+  const { data: flexServingThirdMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'third week' });
 
-  const { data: flexServingFourthMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'April 1st' });
+  const { data: flexServingFourthMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'fourth week' });
 
   const [activeBtn, setActiveBtn] = useState('btnOne');
   const [activeMenusFirstWeek, setActiveMenusFirstWeek] = useState([]);
