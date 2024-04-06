@@ -1,4 +1,4 @@
-import HomePageMeals from '../data/HomePageMeals.jsx';
+import HomePageMeals from '../componentsdata/HomePageMeals.jsx';
 import WeeklyOptionsMenu from '../components/WeeklyOptionsMenu.jsx';
 
 const HomeSecondSection = () => {

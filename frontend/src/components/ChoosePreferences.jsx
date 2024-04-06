@@ -1,4 +1,4 @@
-import MealPreferences from '../data/MealPreferences.jsx';
+import MealPreferences from '../componentsdata/MealPreferences.jsx';
 import PreferencesBox from '../components/PreferencesBox.jsx';
 import { useState } from 'react';
 

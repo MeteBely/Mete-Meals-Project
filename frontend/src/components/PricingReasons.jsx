@@ -1,4 +1,4 @@
-import WhyChooseMealKit from '../data/WhyChooseMealKit.jsx';
+import WhyChooseMealKit from '../componentsdata/WhyChooseMealKit.jsx';
 
 const PricingReasons = () => {
   return (

@@ -1,4 +1,4 @@
-import WeeklyOptionsImages from '../data/WeeklyOptionsImages.jsx';
+import WeeklyOptionsImages from '../componentsdata/WeeklyOptionsImages.jsx';
 
 const PlusWeeklyOptions = () => {
   return (
