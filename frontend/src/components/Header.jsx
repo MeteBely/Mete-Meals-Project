@@ -7,9 +7,11 @@ import { FaCartShopping } from 'react-icons/fa6';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { clearCredentials } from '../slices/authSlice.jsx';
 import { useGetUserBalanceQuery } from '../slices/balanceApiSlice.jsx';
+import { useGetMineMembershipIdQuery } from '../slices/membershipApiSlice.jsx';
 
 const Header = () => {
   const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
+  const { data: myMembershipId } = useGetMineMembershipIdQuery();
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
   const { userInfo } = useSelector((state) => state.auth);
   const [logout] = useLogoutMutation();
@@ -80,14 +82,15 @@ const Header = () => {
                     {userInfo.name}
                   </div>
                   {dropDown && (
-                    <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-32 text-white fontCera p-2 text-[16px]">
+                    <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-40 text-white fontCera p-2 text-[15px] gap-2">
                       <Link to="/profile">Profile</Link>
-                      <Link to="/membership">Membership</Link>
+                      {myMembershipId && <Link to={`/membership/${myMembershipId._id}`}>Membership</Link>}
                       {userInfo.isAdmin && (
                         <>
                           <Link to="/admin/userlist">User List</Link>
                           <Link to="/admin/orderlist">Order List</Link>
                           <Link to="/admin/mealKitList">Meal Kit List</Link>
+                          <Link to="/admin/membershiplist">Membership List</Link>
                         </>
                       )}
                       <button onClick={logoutHandler}>Logout</button>

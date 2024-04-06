@@ -38,6 +38,7 @@ import SuccessGiftCardPayment from './pages/SuccessGiftCardPayment';
 import RedeemGiftCardBalance from './pages/RedeemGiftCardBalance';
 import SelectMeals from './pages/SelectMeals';
 import Membership from './pages/Membership';
+import MembershipList from './pages/Admin/MembershipList';
 function App() {
   return (
     <>
@@ -55,7 +56,7 @@ function App() {
           <Route path="/success/membership/selectmeals" element={<SelectMeals />} />
           <Route path="/cancel/membership" element={<Cancel />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/membership" element={<Membership />} />
+          <Route path="/membership/:id" element={<Membership />} />
         </Route>
 
         <Route path="" element={<AdminRoute />}>
@@ -64,6 +65,7 @@ function App() {
           <Route path="/admin/mealKit/:id/edit" element={<UpdateMealKit />} />
           <Route path="/admin/userlist" element={<UserList />} />
           <Route path="/admin/user/:id/edit" element={<UserEdit />} />
+          <Route path="/admin/membershiplist" element={<MembershipList />} />
         </Route>
 
         <Route path="/success/giftCardOrder" element={<SuccessGiftCardPayment />} />

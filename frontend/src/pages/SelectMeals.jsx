@@ -2,10 +2,11 @@ import { useSelector } from 'react-redux';
 import { useGetMealsQuery } from '../slices/mealsApiSlice';
 import { useCreateMembershipMutation } from '../slices/membershipApiSlice';
 import Loader from './Loader';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 const SelectMeals = () => {
+  const navigate = useNavigate();
   const [createMembership, { isLoading }] = useCreateMembershipMutation();
   const membershipDetail = useSelector((state) => state.membershipDetail);
 
@@ -43,7 +44,7 @@ const SelectMeals = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    await createMembership({
+    const res = await createMembership({
       plan: {
         numberOfServing: membershipDetail.plan.numberOfServing,
         mealsPerWeek: membershipDetail.plan.mealsPerWeek,
@@ -63,6 +64,7 @@ const SelectMeals = () => {
         postalCode,
       },
     });
+    navigate(`/membership/${res.data._id}`);
   };
 
   return (

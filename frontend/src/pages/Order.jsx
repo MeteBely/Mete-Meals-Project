@@ -44,7 +44,7 @@ const Order = () => {
     try {
       await deliverOrder(orderId);
       refetch(); //anlık olarak sonuç almamızı sağlar.
-      toast.success('Order delivered!');
+      toast.success('Order is successfully update to mark as delivered!');
     } catch (error) {
       toast.error(error?.message);
     }
