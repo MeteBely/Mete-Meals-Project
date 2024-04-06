@@ -25,13 +25,39 @@ export const membershipApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     getUserMembership: builder.query({
+      query: (membershipId) => ({
+        url: `${MEMBERSHIP_URL}/${membershipId}`,
+      }),
+      keepUnusedDataFor: 5,
+      providesTags: ['Memberships'],
+    }),
+    getMemberships: builder.query({
       query: () => ({
         url: MEMBERSHIP_URL,
       }),
-      keepUnusedDataFor: 5,
-      providesTags: ['Membership'],
+      // keepUnusedDataFor: 5,
+      providesTags: ['Memberships'],
+    }),
+    getMineMembershipId: builder.query({
+      query: () => ({
+        url: `${MEMBERSHIP_URL}/myMembershipId`,
+      }),
+      // keepUnusedDataFor: 5,
+      // providesTags: ['Membership'],
+    }),
+    deleteMembership: builder.mutation({
+      query: (membershipId) => ({
+        url: `${MEMBERSHIP_URL}/${membershipId}`,
+        method: 'DELETE',
+      }),
+    }),
+    updateMembershipMealsDeliver: builder.mutation({
+      query: (membershipId) => ({
+        url: `${MEMBERSHIP_URL}/${membershipId}`,
+        method: 'PUT',
+      }),
     }),
   }),
 });
 
-export const { useCreateMembershipMutation, useGetStripePublishableKeyQuery, usePayMembershipMutation, useGetUserMembershipQuery } = membershipApiSlice;
+export const { useCreateMembershipMutation, useGetStripePublishableKeyQuery, usePayMembershipMutation, useGetUserMembershipQuery, useGetMembershipsQuery, useGetMineMembershipIdQuery, useDeleteMembershipMutation, useUpdateMembershipMealsDeliverMutation } = membershipApiSlice;
