@@ -4,10 +4,10 @@ import { IoMenu } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FaCartShopping } from 'react-icons/fa6';
-import { useLogoutMutation } from '../slices/usersApiSlice';
-import { clearCredentials } from '../slices/authSlice.jsx';
-import { useGetUserBalanceQuery } from '../slices/balanceApiSlice.jsx';
-import { useGetMineMembershipIdQuery } from '../slices/membershipApiSlice.jsx';
+import { useLogoutMutation } from '../slices/usersApiSlice.js';
+import { clearCredentials } from '../slices/authSlice.js';
+import { useGetUserBalanceQuery } from '../slices/balanceApiSlice.js';
+import { useGetMineMembershipIdQuery } from '../slices/membershipApiSlice.js';
 
 const Header = () => {
   const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
@@ -103,7 +103,7 @@ const Header = () => {
                 </div>{' '}
                 {!isLoading && userBalance && userBalance.balance > 0 && (
                   <div className="fontCera">
-                    <span className="mr-1 text-[17px]">Balance:</span>${userBalance.balance}
+                    <span className="mr-1 text-[17px]">Balance:</span>${userBalance.balance.toFixed(2)}
                   </div>
                 )}
               </>
