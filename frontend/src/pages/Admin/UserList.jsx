@@ -1,5 +1,5 @@
 import { useGetUsersQuery, useDeleteUserMutation } from '../../slices/usersApiSlice.js';
-import Loader from '../Loader.jsx';
+import Loader from '../../components/common/Loader.jsx';
 import { FaTimes, FaTrash, FaEdit, FaCheck } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';

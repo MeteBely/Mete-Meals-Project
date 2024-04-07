@@ -1,5 +1,5 @@
 import { useGetMembershipsQuery } from '../../slices/membershipApiSlice.js';
-import Loader from '../Loader.jsx';
+import Loader from '../../components/common/Loader.jsx';
 import { Link } from 'react-router-dom';
 import { FaEdit, FaTrash, FaTimes, FaCheck } from 'react-icons/fa';
 import { useDeleteMembershipMutation } from '../../slices/membershipApiSlice.js';

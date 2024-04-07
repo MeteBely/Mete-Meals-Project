@@ -1,10 +1,9 @@
-import '../App.css';
-import HomeFirstSection from '../components/HomeFirstSection.jsx';
-import Meta from '../components/Meta.jsx';
-import HomeSecondSection from '../components/HomeSecondSection.jsx';
-import HomeThirdSection from '../components/HomeThirdSection.jsx';
-import HomeFourthSection from '../components/HomeFourthSection.jsx';
-import PricingQuestions from '../components/PricingQuestions.jsx';
+import HomeFirstSection from '../components/home/HomeFirstSection.jsx';
+import Meta from '../utils/Meta.jsx';
+import HomeSecondSection from '../components/home/HomeSecondSection.jsx';
+import HomeThirdSection from '../components/home/HomeThirdSection.jsx';
+import HomeFourthSection from '../components/home/HomeFourthSection.jsx';
+import PricingQuestions from '../components/home/PricingQuestions.jsx';
 const Home = () => {
   return (
     <main>

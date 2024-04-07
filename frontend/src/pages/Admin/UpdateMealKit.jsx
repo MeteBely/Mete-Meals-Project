@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useGetMealKitDetailsQuery, useUpdateMealKitMutation } from '../../slices/mealKitsApiSlice.js';
-import Loader from '../Loader.jsx';
+import Loader from '../../components/common/Loader.jsx';
 import { toast } from 'react-toastify';
-import UpdateMealKitMeals from '../../components/UpdateMealKitMeals.jsx';
+import UpdateMealKitMeals from '../../components/admin/UpdateMealKitMeals.jsx';
 import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 
 const UpdateMealKit = () => {

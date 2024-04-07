@@ -10,8 +10,8 @@ body {
 
 @font-face {
   font-family: 'Cera Pro';
-  src: url('../src/assets/font/CeraPro-Medium.eot');
-  src: url('../src/assets/font/CeraPro-Medium.eot?#iefix') format('embedded-opentype'), url('../src/assets/font/CeraPro-Medium.woff2') format('woff2'), url('../src/assets/font/CeraPro-Medium.woff') format('woff'), url('../src/assets/font/CeraPro-Medium.ttf') format('truetype'), url('../src/assets/font/CeraPro-Medium.svg#CeraPro-Medium') format('svg');
+  src: url('../src/assets/font/font-cera/CeraPro-Medium.eot');
+  src: url('../src/assets/font/font-cera/CeraPro-Medium.eot?#iefix') format('embedded-opentype'), url('../src/assets/font/font-cera/CeraPro-Medium.woff2') format('woff2'), url('../src/assets/font/font-cera/CeraPro-Medium.woff') format('woff'), url('../src/assets/font/font-cera/CeraPro-Medium.ttf') format('truetype'), url('../src/assets/font/CeraPro-Medium.svg#CeraPro-Medium') format('svg');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,8 +19,8 @@ body {
 
 @font-face {
   font-family: 'Chronicle Display';
-  src: url('../src/assets/font/ChronicleDisplay-Bold.eot');
-  src: url('../src/assets/font/ChronicleDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('../src/assets/font/ChronicleDisplay-Bold.woff2') format('woff2'), url('../src/assets/font/ChronicleDisplay-Bold.woff') format('woff'), url('../src/assets/font/ChronicleDisplay-Bold.ttf') format('truetype'), url('../src/assets/font/ChronicleDisplay-Bold.svg#ChronicleDisplay-Bold') format('svg');
+  src: url('../src/assets/font/font-chronicle/ChronicleDisplay-Bold.eot');
+  src: url('../src/assets/font/font-chronicle/ChronicleDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('../src/assets/font/font-chronicle/ChronicleDisplay-Bold.woff2') format('woff2'), url('../src/assets/font/font-chronicle/ChronicleDisplay-Bold.woff') format('woff'), url('../src/assets/font/font-chronicle/ChronicleDisplay-Bold.ttf') format('truetype'), url('../src/assets/font/font-chronicle/ChronicleDisplay-Bold.svg#ChronicleDisplay-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
@@ -46,20 +46,6 @@ body {
   font-style: normal;
 }
 
-.appStoreLogo {
-  background-image: url('./assets/appStoreLogo.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.playStoreLogo {
-  background-image: url('./assets/playStoreLogo.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .card {
   box-shadow: 0 2px 4px 0 #00000026;
 }
@@ -75,12 +61,6 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-/* @media (max-width: 768px) {
-  .redeemDiv {
-    background-position: center center;
-  }
-} */
 
 .CoSaFormInput {
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.05) inset;
@@ -111,7 +91,6 @@ input[type='checkbox']:checked + label {
 
 .signUpContainerDiv {
   background-image: url('https://media.blueapron.com/assets/signup/landing/background-landing-signup.jpg?quality=80&width=1440');
-
   background-position: 0 -267px;
 }
 
