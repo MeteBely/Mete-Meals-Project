@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { SelectedMealBtn } from '../../utils/SelectedMealBtn.js';
 import { generateMealButtons } from './GenerateMealButtons.jsx';
+import { useNavigate } from 'react-router-dom';
 const BuildYourPlan = () => {
+  const navigate = useNavigate();
   const [activeMealPerWeekBtn, setActiveMealPerWeekBtn] = useState('twoMealBtn');
   const [activeNumberOfServingBtn, setActiveNumberOfServingBtn] = useState('twoServingBtn');
 
@@ -58,7 +60,9 @@ const BuildYourPlan = () => {
           <ul className={`relative flex flex-row h-[38px] rounded-[58px] bg-[#f8f9fa] overflow-visible justify-center items-center ${mealsPerWeekAfterHandling()}`}>{generateMealButtons(setActiveMealPerWeekBtn)}</ul>
         </div>
         <div className="mt-12">
-          <button className="absolute bottom-[12px] right-0 w-[200px] tracking-[2px] min-w-[128px] bg-[#00a0df]  rounded-[30px] text-[15px] h-[46px] fontCera text-center text-white hover:bg-[#5CBFE6]">CONTINUE</button>
+          <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="absolute bottom-[12px] right-0 w-[200px] tracking-[2px] min-w-[128px] bg-[#00a0df]  rounded-[30px] text-[15px] h-[46px] fontCera text-center text-white hover:bg-[#5CBFE6]">
+            CONTINUE
+          </button>
         </div>
       </div>
     </div>

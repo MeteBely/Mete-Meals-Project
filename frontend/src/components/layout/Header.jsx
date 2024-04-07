@@ -39,6 +39,7 @@ const Header = () => {
 
   const logoutHandler = async () => {
     try {
+      setDropDown(!dropDown);
       await logout().unwrap();
       dispatch(clearCredentials());
       navigate('/');
@@ -81,22 +82,38 @@ const Header = () => {
             {userInfo ? (
               <>
                 <div className="relative">
-                  <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-32 fontCera text-[17px]">
+                  <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-40 fontCera text-[17px]">
                     {userInfo.name}
                   </div>
                   {dropDown && (
-                    <div className="absolute flex flex-col items-center justify-start bg-[#0f346c] top-[44px] left-0 w-40 text-white fontCera p-2 text-[15px] gap-2">
-                      <Link to="/profile">Profile</Link>
-                      {myMembershipId && <Link to={`/membership/${myMembershipId._id}`}>Membership</Link>}
+                    <div className="absolute flex flex-col items-center justify-center bg-[#0f346c] top-[44px] left-0 w-40 text-white fontCera p-2 text-[15px] gap-2">
+                      <Link onClick={() => setDropDown(!dropDown)} to="/profile" className="hover:bg-[#F5FDE9] hover:text-[#000] w-full flex justify-center">
+                        Profile
+                      </Link>
+                      {myMembershipId && (
+                        <Link onClick={() => setDropDown(!dropDown)} className="hover:bg-[#F5FDE9] hover:text-[#000] w-full flex justify-center" to={`/membership/${myMembershipId._id}`}>
+                          Membership
+                        </Link>
+                      )}
                       {userInfo.isAdmin && (
                         <>
-                          <Link to="/admin/userlist">User List</Link>
-                          <Link to="/admin/orderlist">Order List</Link>
-                          <Link to="/admin/mealKitList">Meal Kit List</Link>
-                          <Link to="/admin/membershiplist">Membership List</Link>
+                          <Link onClick={() => setDropDown(!dropDown)} className="w-full flex justify-center hover:bg-[#F5FDE9] hover:text-[#000]" to="/admin/userlist">
+                            User List
+                          </Link>
+                          <Link onClick={() => setDropDown(!dropDown)} className="w-full flex justify-center hover:bg-[#F5FDE9] hover:text-[#000]" to="/admin/orderlist">
+                            Order List
+                          </Link>
+                          <Link onClick={() => setDropDown(!dropDown)} className="w-full flex justify-center hover:bg-[#F5FDE9] hover:text-[#000]" to="/admin/mealKitList">
+                            Meal Kit List
+                          </Link>
+                          <Link onClick={() => setDropDown(!dropDown)} className="w-full flex justify-center hover:bg-[#F5FDE9] hover:text-[#000]" to="/admin/membershiplist">
+                            Membership List
+                          </Link>
                         </>
                       )}
-                      <button onClick={logoutHandler}>Logout</button>
+                      <button className="w-full flex justify-center hover:bg-[#F5FDE9] hover:text-[#000]" onClick={logoutHandler}>
+                        Logout
+                      </button>
                     </div>
                   )}
                 </div>{' '}

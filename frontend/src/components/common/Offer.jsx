@@ -2,8 +2,10 @@ import ticketGreen from '../../assets/icons/ticketGreen.png';
 import { Dialog, DialogActions, DialogContentText, DialogContent } from '@mui/material';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Offer = () => {
+  const navigate = useNavigate();
   const [dialogOpen, setDialogOpen] = useState(false);
   const divImagePrice = (price) => {
     const divs = [];
@@ -51,7 +53,9 @@ const Offer = () => {
           <br />
           your first order ships free!
         </p>
-        <button className="bg-[#00a979] hover:bg-[#1EB389] tracking-[1px] text-white text-[12px] fontCera w-[150px] rounded-[30px] h-[35px]">REDEEM OFFER</button>
+        <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="bg-[#00a979] hover:bg-[#1EB389] tracking-[1px] text-white text-[12px] fontCera w-[150px] rounded-[30px] h-[35px]">
+          REDEEM OFFER
+        </button>
         <button className=" text-[#00a979] tracking-[1px] text-[12px] fontCera" onClick={() => setDialogOpen(true)}>
           OFFER DETAILS
         </button>

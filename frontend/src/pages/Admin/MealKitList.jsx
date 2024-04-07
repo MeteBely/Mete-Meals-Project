@@ -35,10 +35,10 @@ const MealKitList = () => {
     <section>
       <div className="flex flex-row justify-around mt-20">
         <div>
-          <h1>Meal Kits</h1>
+          <h1 className="text-[34px] tracking-wide text-[#0F346C] fontCera font-semibold mb-2">Meal Kits</h1>
         </div>
         <div>
-          <button onClick={createProductHandler} className="flex items-center">
+          <button onClick={createProductHandler} className="flex items-center text-[20px] tracking-wide text-[#0F346C] fontCera font-semibold hover:underline">
             <FaEdit /> Create Meal Kits
           </button>
         </div>

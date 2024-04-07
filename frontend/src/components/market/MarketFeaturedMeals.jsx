@@ -4,7 +4,7 @@ import Loader from '../common/Loader.jsx';
 
 const MarketFeaturedMeals = () => {
   const { data: mealKits, isLoading } = useGetMealKitsQuery();
-
+  console.log(mealKits);
   return (
     <>
       {isLoading ? (

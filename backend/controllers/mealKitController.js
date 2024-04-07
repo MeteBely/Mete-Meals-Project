@@ -3,7 +3,7 @@ import MealKit from '../models/mealKitModel.js';
 
 //meal kitleri çeker, public. /api/mealKits
 const getMealKits = asyncHandler(async (req, res) => {
-  const mealKits = await MealKit.find({});
+  const mealKits = await MealKit.find({}).populate([{ path: 'meals.meal', select: 'img' }]);
   res.json(mealKits);
 });
 

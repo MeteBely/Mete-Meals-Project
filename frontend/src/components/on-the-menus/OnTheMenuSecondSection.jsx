@@ -28,7 +28,7 @@ const OnTheMenuSecondSection = ({ activeMenusFirstWeek }) => {
           }
         })}
       </div>
-      <WeekOfMonth date="WEEK OF JANUARY 1ST" />
+      <WeekOfMonth date="SECOND WEEK MEALS" />
     </section>
   );
 };

@@ -10,7 +10,7 @@ const OnTheMenuThirdSection = ({ activeMenusSecondWeek }) => {
           return <MonthlyMenuItem menuId={item._id} menuImg={item.img} menuType={item.frontFeature} menuName={item.name} menuDetail={item.subTxt} menuTime={item.time} key={index} isVegetarian={item.isVegetarian} />;
         })}
       </div>
-      <WeekOfMonth date="WEEK OF JANUARY 8TH" />
+      <WeekOfMonth date="THIRD WEEK MEALS" />
     </section>
   );
 };

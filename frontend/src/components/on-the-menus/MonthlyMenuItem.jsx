@@ -9,7 +9,7 @@ const MonthlyMenuItem = ({ menuImg, menuType, menuName, menuDetail, menuTime, is
       <Link to={`/on-the-menu/meal/${menuId}`}>
         <div className="relative">
           <img className="w-[373px] h-[248.5px]" src={menuImg} alt="" />
-          <span className={`${menuType !== '' ? (menuType === 'Premium' ? 'px-[7px] py-1 bg-[#1eb389]' : 'bg-[#002684] px-[7px] py-1') : ''} absolute bottom-[7px] text-[#fff] text-[13px] tracking-[.11em] mb-[10px] fontCera font-semibold`}>{menuType}</span>
+          <span className={`${menuType !== '' ? (menuType === 'Premium' ? 'px-[7px] py-1 bg-[#1eb389]' : 'bg-[#002684] px-[7px] py-1') : ''} absolute bottom-[7px] text-[#fff] text-[13px] tracking-[.11em] mb-[10px] fontCera font-semibold uppercase`}>{menuType}</span>
         </div>
         <div className="mt-[11px] ml-[12px]">
           <p className="text-[20px] text-[#002c9b] fontChronicle">{menuName}</p>

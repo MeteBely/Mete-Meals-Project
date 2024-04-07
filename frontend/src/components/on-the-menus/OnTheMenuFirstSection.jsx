@@ -16,7 +16,7 @@ const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
             className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnOne' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >
             <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">2 SERVING</span>
-            <span className="pt-[12px]  text-[18px] fontChronicle text-[#002c9b] h-[70px]">Signature</span>
+            <span className="pt-[12px]  text-[18px] fontChronicle text-[#002c9b] h-[70px]">Meals</span>
           </button>
           <button
             onClick={() => {
@@ -25,8 +25,8 @@ const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
             }}
             className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnTwo' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >
-            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">2 SERVING</span>
-            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Vegetarian</span>
+            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">4 SERVING</span>
+            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Meals</span>
           </button>
           <button
             onClick={() => {
@@ -35,8 +35,8 @@ const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
             }}
             className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnThree' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >
-            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">4 SERVING</span>
-            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Signature for Hour</span>
+            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">1 SERVING</span>
+            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Heat & Eat</span>
           </button>
           <button
             onClick={() => {
@@ -45,12 +45,12 @@ const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
             }}
             className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnFour' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >
-            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">WEEKLY OPTIONS</span>
-            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Add-Ons</span>
+            <span className="fontCera text-[15px] font-semibold text-[#002c9b] tracking-[.27em] h-[45px]">ADD-ONS</span>
+            <span className="pt-[12px] text-[18px] fontChronicle text-[#002c9b] h-[70px]">Flexible Meals</span>
           </button>
         </div>
         <p className="text-left min-[940px]:text-center fontCera text-[#002c9b] leading-[28px] w-auto px-8 min-[640px]:px-20 min-[940px]:px-0 min-[940px]:w-[650px] h-[40px] m-auto mt-[20px] mb-[57px]">{subTxt}</p>
-        <WeekOfMonth date="WEEK OF DECEMBER 25TH" />
+        <WeekOfMonth date="FIRST WEEK MEALS" />
       </div>
     </section>
   );

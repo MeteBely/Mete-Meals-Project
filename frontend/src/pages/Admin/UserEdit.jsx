@@ -43,34 +43,50 @@ const UserEdit = () => {
 
   console.log(isAdmin);
   return (
-    <>
-      <Link to="/admin/userlist">Go Back</Link>
-      <h1>Edit User</h1>
-      {loadingUpdate && <Loader />}
-      {isLoading ? (
-        <Loader />
-      ) : error ? (
-        <div>{error}</div>
-      ) : (
-        <form action="" onSubmit={(e) => submitHandler(e)}>
-          <div className="flex flex-col my-2">
-            <label htmlFor="name">Name</label>
-            <input type="text" value={name} placeholder="Enter name" id="name" onChange={(e) => setName(e.target.value)} />
-          </div>
-          <div className="flex flex-col my-2">
-            <label htmlFor="email">Email</label>
-            <input type="email" value={email} placeholder="Enter email" id="email" onChange={(e) => setEmail(e.target.value)} />
-          </div>
-          <div className="flex flex-col my-2">
-            <label htmlFor="isAdmin">Admin</label>
-            <input type="checkbox" checked={isAdmin} id="isAdmin" onChange={(e) => setIsAdmin(e.target.checked)} />
-          </div>
-          <div>
-            <button type="submit">Update</button>
-          </div>
-        </form>
-      )}
-    </>
+    <section>
+      <div className="mt-20 px-2 mb-2">
+        <div className="ml-20 mt-4">
+          <Link className="text-[14px] w-auto px-10 py-2 rounded-sm fontCera tracking-widest bg-orange-500 hover:bg-[#FF8142] text-[#fff] fontCera mt-4" to="/admin/userlist">
+            Go Back
+          </Link>
+        </div>
+        <div className=" w-[800px] m-auto">
+          <h2 className="text-[34px] tracking-wide text-[#0F346C] fontCera font-semibold mb-[10px]">Edit User</h2>
+          {loadingUpdate && <Loader />}
+          {isLoading ? (
+            <Loader />
+          ) : error ? (
+            <div>{error}</div>
+          ) : (
+            <form action="" onSubmit={(e) => submitHandler(e)}>
+              <div className="flex flex-col mb-4">
+                <label htmlFor="name" className="text-[20px]">
+                  Name
+                </label>
+                <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="text" id="name" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
+              </div>
+              <div className="flex flex-col mb-4">
+                <label htmlFor="email" className="text-[20px]">
+                  Email
+                </label>
+                <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="email" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+              </div>
+              <div className="flex flex-row items-center gap-2 mb-4">
+                <label htmlFor="isAdmin" className="text-[20px]">
+                  Admin
+                </label>
+                <input type="checkbox" checked={isAdmin} id="isAdmin" onChange={(e) => setIsAdmin(e.target.checked)} />
+              </div>
+              <div>
+                <button className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4" type="submit">
+                  Update
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </div>
+    </section>
   );
 };
 

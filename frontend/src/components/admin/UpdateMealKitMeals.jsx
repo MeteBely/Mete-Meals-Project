@@ -19,8 +19,8 @@ const UpdateMealKitMeals = ({ mealId, additionableMealsContainer, setAdditionabl
       ) : (
         <div className="w-40">
           <button onClick={(e) => handleClick(e, meal)}>
-            <img src={meal.img} alt="" />
-            <p>{meal.name}</p>
+            <img className="w-40 h-40" src={meal.img} alt="" />
+            <p className="fontCera w-40">{meal.name}</p>
           </button>
         </div>
       )}

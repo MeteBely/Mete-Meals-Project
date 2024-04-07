@@ -23,8 +23,8 @@ const MarketSlider = () => {
             <div className="ml-2">
               <h2 className="text-[#002c9b] fontChronicle text-[24px] min-[953px]:text-[30px] h-[55px] min-[953px]:h-[75px] flex items-center justify-center">Ready to Cook Meal Kit</h2>
               <p className="mb-[10px] text-left text-[#303236] fontCera text-[14px] min-[953px]:text-[18px] leading-6 h-[60px]">Featuring pre-chopped ingredients and a recyclable baking tin, our Ready to Cook recipes make prep and cleaning a breeze.</p>
-              <button onClick={() => navigate('/market/categories/meal-kits')} className="bg-[#002684] text-white mb-2 rounded-[22.5px] text-[10px] min-[953px]:text-[14px] fontCera tracking-widest h-[30px] w-[100px] min-[953px]:h-[45px] min-[953px]:w-[150px]">
-                ORDER NOW
+              <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="bg-[#002684] text-white mb-2 rounded-[22.5px] text-[10px] min-[953px]:text-[14px] fontCera tracking-widest h-[30px] w-[100px] min-[953px]:h-[45px] min-[953px]:w-[170px]">
+                SUBSCRIBE NOW
               </button>
             </div>
             <div className="">
@@ -35,8 +35,8 @@ const MarketSlider = () => {
             <div className="ml-2">
               <h2 className=" text-[#002c9b] fontChronicle font-black text-[24px] min-[953px]:text-[30px] h-[55px] pt-[36px] min-[953px]:h-[75px] flex items-center justify-center">Heat & Eat Makes Meals Even Easier</h2>
               <p className="mb-[10px] text-left text-[#303236] fontCera text-[14px] min-[953px]:text-[18px] leading-6 h-[60px] pt-[36px]">Single-serving meals ready in 5 minutes or less!</p>
-              <button onClick={() => navigate('/market/categories/meal-kits')} className="bg-[#002684] text-white mb-2 rounded-[22.5px] text-[10px] min-[953px]:text-[14px] fontCera tracking-widest h-[30px] w-[100px] min-[953px]:h-[45px] min-[953px]:w-[150px]">
-                ORDER NOW
+              <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="bg-[#002684] text-white mb-2 rounded-[22.5px] text-[10px] min-[953px]:text-[14px] fontCera tracking-widest h-[30px] w-[100px] min-[953px]:h-[45px] min-[953px]:w-[170px]">
+                SUBSCRIBE NOW
               </button>
             </div>
             <div className="">
@@ -47,8 +47,8 @@ const MarketSlider = () => {
             <div className="ml-2">
               <h2 className=" text-[#002c9b] fontChronicle text-[24px] min-[953px]:text-[30px] h-[55px] min-[953px]:h-[75px] flex items-center justify-center">Shop Meal Kits</h2>
               <p className="mb-[10px] text-left text-[#303236] fontCera text-[14px] min-[953px]:text-[18px] leading-6 h-[60px]">No subscription needed.</p>
-              <button onClick={() => navigate('/market/categories/meal-kits')} className="bg-[#002684] text-white mb-2 rounded-[22.5px] text-[10px] min-[953px]:text-[14px] fontCera tracking-widest h-[30px] w-[100px] min-[953px]:h-[45px] min-[953px]:w-[150px]">
-                ORDER NOW
+              <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="bg-[#002684] text-white mb-2 rounded-[22.5px] text-[10px] min-[953px]:text-[14px] fontCera tracking-widest h-[30px] w-[100px] min-[953px]:h-[45px] min-[953px]:w-[170px]">
+                SUBSCRIBE NOW
               </button>
             </div>
             <div className="">
