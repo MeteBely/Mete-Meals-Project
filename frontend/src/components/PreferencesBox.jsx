@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import tick from './../assets/tick.png';
+import tick from './../assets/icons/tick.png';
 import { useDispatch } from 'react-redux';
-import { savePreference } from '../slices/membershipDetailSlice';
+import { savePreference } from '../slices/membershipDetailSlice.js';
 
 // eslint-disable-next-line react/prop-types
 const PreferencesBox = ({ title, description, img, imgBlue, selected, setSelected, filter }) => {

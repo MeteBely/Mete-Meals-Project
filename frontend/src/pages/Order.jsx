@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import Loader from '../pages/Loader.jsx';
-import { useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useDeliveredOrderMutation } from '../slices/ordersApiSlice';
-import { useUpdateToUserBalanceMutation } from '../slices/balanceApiSlice.jsx';
+import { useGetOrderByIdQuery, useGetStripePublishableKeyQuery, usePayOrderMutation, useDeliveredOrderMutation } from '../slices/ordersApiSlice.js';
+import { useUpdateToUserBalanceMutation } from '../slices/balanceApiSlice.js';
 import { useSelector } from 'react-redux';
 import { loadStripe } from '@stripe/stripe-js';
 import { toast } from 'react-toastify';

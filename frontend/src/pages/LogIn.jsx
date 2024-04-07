@@ -7,8 +7,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader.jsx';
 import { useEffect, useState } from 'react';
-import { useLoginMutation } from '../slices/usersApiSlice.jsx';
-import { setCredentials } from '../slices/authSlice.jsx';
+import { useLoginMutation } from '../slices/usersApiSlice.js';
+import { setCredentials } from '../slices/authSlice.js';
 import { toast } from 'react-toastify';
 
 const onSubmit = async (values, actions) => {

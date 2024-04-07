@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from './Loader.jsx';
 import { toast } from 'react-toastify';
-import { useProfileMutation } from '../slices/usersApiSlice.jsx';
-import { setCredentials } from '../slices/authSlice.jsx';
-import { useGetMyOrdersQuery } from '../slices/ordersApiSlice.jsx';
+import { useProfileMutation } from '../slices/usersApiSlice.js';
+import { setCredentials } from '../slices/authSlice.js';
+import { useGetMyOrdersQuery } from '../slices/ordersApiSlice.js';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 

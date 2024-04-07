@@ -317,15 +317,6 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <p className="text-white fontCera mt-[12px] md:mt-[16px] text-[12px] md:text-[14px] mx-auto w-4/5 text-center">
-            If you are using a screen reader and are having problems using this website, please call{' '}
-            <a className="text-[#a1bce6] hover:underline" href="tel:+18444628299">
-              1-844-462-8299
-            </a>{' '}
-            for assistance.
-          </p>
-        </div>
       </section>
     </footer>
   );

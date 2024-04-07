@@ -1,4 +1,4 @@
-import Warning from '../components/Warning';
+import Warning from '../components/Warning.jsx';
 import { useParams } from 'react-router-dom';
 const Cancel = () => {
   const { id: orderId } = useParams();

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useGetUserDetailsQuery, useUpdateUserMutation } from '../../slices/usersApiSlice';
-import Loader from '../Loader';
+import { useGetUserDetailsQuery, useUpdateUserMutation } from '../../slices/usersApiSlice.js';
+import Loader from '../Loader.jsx';
 import { toast } from 'react-toastify';
 
 const UserEdit = () => {

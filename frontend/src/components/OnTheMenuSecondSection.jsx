@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import BuildYourPlan from '../components/BuildYourPlan';
+import BuildYourPlan from '../components/BuildYourPlan.jsx';
 import React from 'react';
-import MonthlyMenuItem from '../components/MonthlyMenuItem';
-import WeekOfMonth from '../components/WeekOfMonth';
+import MonthlyMenuItem from '../components/MonthlyMenuItem.jsx';
+import WeekOfMonth from '../components/WeekOfMonth.jsx';
 
 const OnTheMenuSecondSection = ({ activeMenusFirstWeek }) => {
   return (

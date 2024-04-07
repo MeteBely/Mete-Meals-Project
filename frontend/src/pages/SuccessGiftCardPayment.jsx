@@ -1,11 +1,11 @@
-import { useGetPaymentResultsQuery } from '../slices/ordersApiSlice';
-import { saveGiftCardCodes } from '../slices/giftCardSlice';
+import { useGetPaymentResultsQuery } from '../slices/ordersApiSlice.js';
+import { saveGiftCardCodes } from '../slices/giftCardSlice.js';
 import { useDispatch } from 'react-redux';
-import { useCreateGiftCardCodesMutation } from '../slices/giftCardApiSlice';
-import Loader from './Loader';
-import Warning from '../components/Warning';
+import { useCreateGiftCardCodesMutation } from '../slices/giftCardApiSlice.js';
+import Loader from './Loader.jsx';
+import Warning from '../components/Warning.jsx';
 import { useSelector } from 'react-redux';
-import GiftCardItems from '../components/GiftCardItems';
+import GiftCardItems from '../components/GiftCardItems.jsx';
 
 const SuccessGiftCardPayment = () => {
   const dispatch = useDispatch();

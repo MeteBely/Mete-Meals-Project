@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import MonthlyMenuItem from '../components/MonthlyMenuItem';
+import MonthlyMenuItem from '../components/MonthlyMenuItem.jsx';
 
 const OnTheMenuFifthSection = ({ activeMenusFourthWeek }) => {
   return (

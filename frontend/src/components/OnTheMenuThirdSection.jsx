@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import MonthlyMenuItem from '../components/MonthlyMenuItem';
-import WeekOfMonth from '../components/WeekOfMonth';
+import MonthlyMenuItem from '../components/MonthlyMenuItem.jsx';
+import WeekOfMonth from '../components/WeekOfMonth.jsx';
 
 const OnTheMenuThirdSection = ({ activeMenusSecondWeek }) => {
   return (

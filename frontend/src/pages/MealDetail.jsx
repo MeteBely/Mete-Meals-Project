@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom';
 import { FaRegClock } from 'react-icons/fa';
 import { FaLeaf } from 'react-icons/fa';
 import { FaDollarSign } from 'react-icons/fa';
-import { useGetMealDetailsQuery } from '../slices/mealsApiSlice';
-import Loader from './Loader';
+import { useGetMealDetailsQuery } from '../slices/mealsApiSlice.js';
+import Loader from './Loader.jsx';
 
 const MealDetail = () => {
   const { id: mealId } = useParams();

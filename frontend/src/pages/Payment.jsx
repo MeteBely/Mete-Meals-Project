@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import CheckoutSteps from '../components/CheckoutSteps';
-import { savePaymentMethod } from '../slices/cartSlice';
-import { useGetUserBalanceQuery } from '../slices/balanceApiSlice';
+import CheckoutSteps from '../components/CheckoutSteps.jsx';
+import { savePaymentMethod } from '../slices/cartSlice.js';
+import { useGetUserBalanceQuery } from '../slices/balanceApiSlice.js';
 import { toast } from 'react-toastify';
 
 const Payment = () => {

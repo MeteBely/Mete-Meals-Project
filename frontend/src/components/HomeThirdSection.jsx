@@ -1,4 +1,4 @@
-import WhyUsingThis from '../componentsdata/WhyUsingThis.jsx';
+import WhyUsingThis from '../componentsdata/WhyUsingThis.js';
 import WhyMealKits from '../components/WhyMealKits.jsx';
 
 const HomeThirdSection = () => {

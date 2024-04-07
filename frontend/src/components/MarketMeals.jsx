@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
-import { useGetMealDetailsQuery } from '../slices/mealsApiSlice';
-import Loader from '../pages/Loader';
+import { useGetMealDetailsQuery } from '../slices/mealsApiSlice.js';
+import Loader from '../pages/Loader.jsx';
 const MarketMeals = ({ mealKit }) => {
   const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(mealKit.meals[0].meal);
   return (

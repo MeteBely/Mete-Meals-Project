@@ -1,8 +1,8 @@
-import { useGetMembershipsQuery } from '../../slices/membershipApiSlice';
-import Loader from '../Loader';
+import { useGetMembershipsQuery } from '../../slices/membershipApiSlice.js';
+import Loader from '../Loader.jsx';
 import { Link } from 'react-router-dom';
 import { FaEdit, FaTrash, FaTimes, FaCheck } from 'react-icons/fa';
-import { useDeleteMembershipMutation } from '../../slices/membershipApiSlice';
+import { useDeleteMembershipMutation } from '../../slices/membershipApiSlice.js';
 import { toast } from 'react-toastify';
 import { useEffect } from 'react';
 

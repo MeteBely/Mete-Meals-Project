@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import CartItems from '../components/CartItems';
+import CartItems from '../components/CartItems.jsx';
 
 const CartPage = () => {
   const navigate = useNavigate();

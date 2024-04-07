@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { savePlan } from '../slices/membershipDetailSlice';
+import { savePlan } from '../slices/membershipDetailSlice.js';
 import { loadStripe } from '@stripe/stripe-js';
-import { useGetStripePublishableKeyQuery, usePayMembershipMutation } from '../slices/membershipApiSlice';
+import { useGetStripePublishableKeyQuery, usePayMembershipMutation } from '../slices/membershipApiSlice.js';
 
 const SelectPlan = () => {
   const dispatch = useDispatch();

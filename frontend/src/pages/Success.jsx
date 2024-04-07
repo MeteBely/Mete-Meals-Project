@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useUpdateOrderToPaidMutation } from '../slices/ordersApiSlice';
-import Loader from './Loader';
-import Warning from '../components/Warning';
+import { useUpdateOrderToPaidMutation } from '../slices/ordersApiSlice.js';
+import Loader from './Loader.jsx';
+import Warning from '../components/Warning.jsx';
 import { useParams } from 'react-router-dom';
-import OrderItem from '../components/OrderItem';
+import OrderItem from '../components/OrderItem.jsx';
 const Success = () => {
   const [order, setOrder] = useState();
   const { id: orderId } = useParams();

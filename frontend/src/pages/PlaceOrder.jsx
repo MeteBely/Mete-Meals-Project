@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import CheckoutSteps from '../components/CheckoutSteps.jsx';
 import { toast } from 'react-toastify';
 import Loader from './Loader.jsx';
-import { useCreateOrderMutation } from '../slices/ordersApiSlice.jsx';
-import { clearCartItems } from '../slices/cartSlice.jsx';
+import { useCreateOrderMutation } from '../slices/ordersApiSlice.js';
+import { clearCartItems } from '../slices/cartSlice.js';
 import PlaceOrderItems from '../components/PlaceOrderItems.jsx';
 
 const PlaceOrder = () => {

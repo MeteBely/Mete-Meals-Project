@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { SelectedMealBtn } from '../utils/SelectedMealBtn';
-import { generateMealButtons } from '../utils/GenerateMealButtons';
+import { SelectedMealBtn } from '../utils/SelectedMealBtn.js';
+import { generateMealButtons } from './GenerateMealButtons.jsx';
 const BuildYourPlan = () => {
   const [activeMealPerWeekBtn, setActiveMealPerWeekBtn] = useState('twoMealBtn');
   const [activeNumberOfServingBtn, setActiveNumberOfServingBtn] = useState('twoServingBtn');
@@ -36,13 +36,7 @@ const BuildYourPlan = () => {
       <div className="flex flex-col items-end justify-center w-[50%] gap-4 h-[225px] relative">
         <div className="flex flex-row items-start justify-center gap-[17px] min-[600px]:gap-[34px]">
           <div className="my-auto fontCera text-[15px] min-[600px]:text-[18px] text-[#6a6d75] pb-[5px]">Number of servings</div>
-          <ul
-            className={`relative flex flex-row h-[38px] rounded-[58px] bg-[#f8f9fa] overflow-visible justify-center items-center ${
-              activeNumberOfServingBtn === 'twoServingBtn'
-                ? 'after:absolute after:top-0 after:left-0 after:w-1/2 after:h-full after:bg-[#002684] after:whitespace-nowrap after:rounded-[45%] after:text-white after:fontCera after:text-[18px] after:text-center after:pt-[7px] after:content-["2"] after:transition-[left] after:duration-100 after:ease-linear'
-                : 'after:absolute after:top-0 after:left-1/2 after:w-1/2 after:h-full after:bg-[#002684] after:whitespace-nowrap after:rounded-[45%] after:text-white after:fontCera after:text-[18px] after:text-center after:pt-[7px] after:content-["4"] after:transition-[left] after:duration-100 after:ease-linear'
-            }`}
-          >
+          <ul className={`relative flex flex-row h-[38px] rounded-[58px] bg-[#f8f9fa] overflow-visible justify-center items-center ${activeNumberOfServingBtn === 'twoServingBtn' ? 'after:absolute after:top-0 after:left-0 after:w-1/2 after:h-full after:bg-[#002684] after:whitespace-nowrap after:rounded-[45%] after:text-white after:fontCera after:text-[18px] after:text-center after:pt-[7px] after:content-["2"] after:transition-[left] after:duration-100 after:ease-linear' : 'after:absolute after:top-0 after:left-1/2 after:w-1/2 after:h-full after:bg-[#002684] after:whitespace-nowrap after:rounded-[45%] after:text-white after:fontCera after:text-[18px] after:text-center after:pt-[7px] after:content-["4"] after:transition-[left] after:duration-100 after:ease-linear'}`}>
             <li className="my-auto min-w-[46px] inline-block">
               <button className={`text-[#002684] text-[19px] fontCera my-auto tracking-[2px] whitespace-nowrap w-full`} onClick={() => setActiveNumberOfServingBtn('twoServingBtn')}>
                 2

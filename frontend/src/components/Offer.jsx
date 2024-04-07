@@ -1,5 +1,5 @@
 import '../App.css';
-import ticketGreen from '../assets/ticketGreen.png';
+import ticketGreen from '../assets/icons/ticketGreen.png';
 import { Dialog, DialogActions, DialogContentText, DialogContent } from '@mui/material';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { useState } from 'react';

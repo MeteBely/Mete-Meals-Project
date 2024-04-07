@@ -1,6 +1,6 @@
-import papers from '../assets/papers.png';
-import calendarCheck from '../assets/calendarCheck.png';
-import box from '../assets/box.png';
+import papers from '../assets/icons/papers.png';
+import calendarCheck from '../assets/icons/calendarCheck.png';
+import box from '../assets/icons/box.png';
 
 const SignUpBottomSection = () => {
   return (

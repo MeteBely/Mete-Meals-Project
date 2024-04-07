@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
-import { addToCart, removeFromCart } from '../slices/cartSlice';
-import { useGetMealDetailsQuery } from '../slices/mealsApiSlice';
+import { addToCart, removeFromCart } from '../slices/cartSlice.js';
+import { useGetMealDetailsQuery } from '../slices/mealsApiSlice.js';
 import { useDispatch } from 'react-redux';
-import Loader from '../pages/Loader';
+import Loader from '../pages/Loader.jsx';
 const CartItems = ({ cartItem }) => {
   const dispatch = useDispatch();
   const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(cartItem.meals[0].meal);

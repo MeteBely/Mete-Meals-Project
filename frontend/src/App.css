@@ -10,8 +10,8 @@ body {
 
 @font-face {
   font-family: 'Cera Pro';
-  src: url('../src/font/CeraPro-Medium.eot');
-  src: url('../src/font/CeraPro-Medium.eot?#iefix') format('embedded-opentype'), url('../src/font/CeraPro-Medium.woff2') format('woff2'), url('../src/font/CeraPro-Medium.woff') format('woff'), url('../src/font/CeraPro-Medium.ttf') format('truetype'), url('../src/font/CeraPro-Medium.svg#CeraPro-Medium') format('svg');
+  src: url('../src/assets/font/CeraPro-Medium.eot');
+  src: url('../src/assets/font/CeraPro-Medium.eot?#iefix') format('embedded-opentype'), url('../src/assets/font/CeraPro-Medium.woff2') format('woff2'), url('../src/assets/font/CeraPro-Medium.woff') format('woff'), url('../src/assets/font/CeraPro-Medium.ttf') format('truetype'), url('../src/assets/font/CeraPro-Medium.svg#CeraPro-Medium') format('svg');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -19,8 +19,8 @@ body {
 
 @font-face {
   font-family: 'Chronicle Display';
-  src: url('../src/font/ChronicleDisplay-Bold.eot');
-  src: url('../src/font/ChronicleDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('../src/font/ChronicleDisplay-Bold.woff2') format('woff2'), url('../src/font/ChronicleDisplay-Bold.woff') format('woff'), url('../src/font/ChronicleDisplay-Bold.ttf') format('truetype'), url('../src/font/ChronicleDisplay-Bold.svg#ChronicleDisplay-Bold') format('svg');
+  src: url('../src/assets/font/ChronicleDisplay-Bold.eot');
+  src: url('../src/assets/font/ChronicleDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('../src/assets/font/ChronicleDisplay-Bold.woff2') format('woff2'), url('../src/assets/font/ChronicleDisplay-Bold.woff') format('woff'), url('../src/assets/font/ChronicleDisplay-Bold.ttf') format('truetype'), url('../src/assets/font/ChronicleDisplay-Bold.svg#ChronicleDisplay-Bold') format('svg');
   font-weight: bold;
   font-style: normal;
   font-display: swap;

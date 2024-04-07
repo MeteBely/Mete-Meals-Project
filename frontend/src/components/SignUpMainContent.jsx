@@ -1,7 +1,7 @@
 import { FaApple } from 'react-icons/fa6';
 import { FaFacebook } from 'react-icons/fa';
-import foodBox from '../assets/foodBox.png';
-import foodCard from '../assets/foodCard.png';
+import foodBox from '../assets/icons/foodBox.png';
+import foodCard from '../assets/icons/foodCard.png';
 import { Form, Formik } from 'formik';
 import CustomInput from '../components/FormComponents/CustomInput.jsx';
 import { advancedSchema } from '../Schemas/Index.jsx';

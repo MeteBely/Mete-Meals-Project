@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
-import WeekOfMonth from '../components/WeekOfMonth';
+import WeekOfMonth from '../components/WeekOfMonth.jsx';
 const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
   const [subTxt, setSubTxt] = useState('Choose from an ever-changing mix of meat, fish, and health-conscious offerings.');
   return (

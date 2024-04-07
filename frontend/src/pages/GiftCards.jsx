@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import GiftCardsFirstCol from '../components/GiftCardsFirstCol';
-import GiftCardsTopPanel from '../components/GiftCardsTopPanel';
-import GiftCardsSecondCol from '../components/GiftCardsSecondCol';
-import GiftCardsThirdCol from '../components/GiftCardsThirdCol';
-import GiftCardsBottomSection from '../components/GiftCardsBottomSection';
-import { clearGiftCardItems } from '../slices/giftCardSlice';
+import GiftCardsFirstCol from '../components/GiftCardsFirstCol.jsx';
+import GiftCardsTopPanel from '../components/GiftCardsTopPanel.jsx';
+import GiftCardsSecondCol from '../components/GiftCardsSecondCol.jsx';
+import GiftCardsThirdCol from '../components/GiftCardsThirdCol.jsx';
+import GiftCardsBottomSection from '../components/GiftCardsBottomSection.jsx';
+import { clearGiftCardItems } from '../slices/giftCardSlice.js';
 import { useDispatch } from 'react-redux';
 
 const GiftCards = () => {

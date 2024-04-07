@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { addToCart } from '../slices/cartSlice';
+import { addToCart } from '../slices/cartSlice.js';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { useGetMealKitDetailsQuery, useCreateReviewMutation } from '../slices/mealKitsApiSlice';
-import Loader from './Loader';
-import Meta from '../components/Meta';
+import { useGetMealKitDetailsQuery, useCreateReviewMutation } from '../slices/mealKitsApiSlice.js';
+import Loader from './Loader.jsx';
+import Meta from '../components/Meta.jsx';
 
 const MealKitDetail = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import whiteBlueApronIcon from '../assets/whiteBlueApronIcon.png';
+import whiteBlueApronIcon from '../assets/icons/whiteBlueApronIcon.png';
 
 const GiftCardsFirstCol = ({ amount }) => {
   return (

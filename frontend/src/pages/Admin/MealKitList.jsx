@@ -1,5 +1,5 @@
-import { useGetMealKitsQuery, useCreateMealKitMutation, useDeleteMealKitMutation } from '../../slices/mealKitsApiSlice';
-import Loader from '../Loader';
+import { useGetMealKitsQuery, useCreateMealKitMutation, useDeleteMealKitMutation } from '../../slices/mealKitsApiSlice.js';
+import Loader from '../Loader.jsx';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';

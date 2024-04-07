@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useGetMealDetailsQuery } from '../slices/mealsApiSlice';
-import Loader from '../pages/Loader';
+import { useGetMealDetailsQuery } from '../slices/mealsApiSlice.js';
+import Loader from '../pages/Loader.jsx';
 import { Link } from 'react-router-dom';
 
 const OrderItem = ({ orderItem }) => {

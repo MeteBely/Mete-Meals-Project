@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { loadStripe } from '@stripe/stripe-js';
-import { useGetStripePublishableKeyQuery } from '../slices/ordersApiSlice';
-import { usePayGiftCardMutation } from '../slices/giftCardApiSlice';
+import { useGetStripePublishableKeyQuery } from '../slices/ordersApiSlice.js';
+import { usePayGiftCardMutation } from '../slices/giftCardApiSlice.js';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { addToGiftCardItems } from '../slices/giftCardSlice';
+import { addToGiftCardItems } from '../slices/giftCardSlice.js';
 
 const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
   const [payGiftCard, { isLoading: loadingGiftCard }] = usePayGiftCardMutation();

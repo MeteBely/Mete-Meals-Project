@@ -1,5 +1,5 @@
-import SignUpTopSectionDivider from './SignUpTopSectionDivider';
-import { getDefaultLabel, getDifferentLabel } from '../utils/SignUpLabels';
+import SignUpTopSectionDivider from './SignUpTopSectionDivider.jsx';
+import { getDefaultLabel, getDifferentLabel } from './SignUpLabels.jsx';
 
 const SignUpTopSection = () => {
   return (

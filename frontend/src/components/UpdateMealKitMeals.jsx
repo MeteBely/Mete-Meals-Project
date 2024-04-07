@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
-import Loader from '../pages/Loader';
-import { useGetMealDetailsQuery } from '../slices/mealsApiSlice';
+import Loader from '../pages/Loader.jsx';
+import { useGetMealDetailsQuery } from '../slices/mealsApiSlice.js';
 
 const UpdateMealKitMeals = ({ mealId, additionableMealsContainer, setAdditionableMealsContainer, setMeals, meals }) => {
   const { data: meal, isLoading } = useGetMealDetailsQuery(mealId);

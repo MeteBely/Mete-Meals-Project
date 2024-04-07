@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useGetMealKitDetailsQuery, useUpdateMealKitMutation } from '../../slices/mealKitsApiSlice';
-import Loader from '../Loader';
+import { useGetMealKitDetailsQuery, useUpdateMealKitMutation } from '../../slices/mealKitsApiSlice.js';
+import Loader from '../Loader.jsx';
 import { toast } from 'react-toastify';
-import UpdateMealKitMeals from '../../components/UpdateMealKitMeals';
-import { useGetMealsQuery } from '../../slices/mealsApiSlice';
+import UpdateMealKitMeals from '../../components/UpdateMealKitMeals.jsx';
+import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 
 const UpdateMealKit = () => {
   const { id: mealKitId } = useParams();

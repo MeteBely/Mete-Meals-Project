@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { useGetMealsQuery } from '../slices/mealsApiSlice';
-import { useCreateMembershipMutation } from '../slices/membershipApiSlice';
-import Loader from './Loader';
+import { useGetMealsQuery } from '../slices/mealsApiSlice.js';
+import { useCreateMembershipMutation } from '../slices/membershipApiSlice.js';
+import Loader from './Loader.jsx';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 

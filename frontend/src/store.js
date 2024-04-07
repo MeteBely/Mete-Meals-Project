@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { apiSlice } from './slices/apiSlice.jsx';
-import cartSliceReducer from './slices/cartSlice.jsx';
-import authSliceReducer from './slices/authSlice.jsx';
-import giftCardSliceReducer from './slices/giftCardSlice.jsx';
-import membershipDetailReducer from './slices/membershipDetailSlice.jsx';
+import { apiSlice } from './slices/apiSlice.js';
+import cartSliceReducer from './slices/cartSlice.js';
+import authSliceReducer from './slices/authSlice.js';
+import giftCardSliceReducer from './slices/giftCardSlice.js';
+import membershipDetailReducer from './slices/membershipDetailSlice.js';
 
 const store = configureStore({
   reducer: {

@@ -1,5 +1,5 @@
-import MarketSlider from '../components/MarketSlider';
-import MarketFeaturedMeals from '../components/MarketFeaturedMeals';
+import MarketSlider from '../components/MarketSlider.jsx';
+import MarketFeaturedMeals from '../components/MarketFeaturedMeals.jsx';
 const Market = () => {
   return (
     <>

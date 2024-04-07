@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import '../App.css';
-import Offer from '../components/Offer';
-import OnTheMenuFirstSection from '../components/OnTheMenuFirstSection';
-import OnTheMenuSecondSection from '../components/OnTheMenuSecondSection';
-import OnTheMenuThirdSection from '../components/OnTheMenuThirdSection';
-import OnTheMenuFourthSection from '../components/OnTheMenuFourthSection';
-import OnTheMenuFifthSection from '../components/OnTheMenuFifthSection';
-import OnTheMenuBottomSection from '../components/OnTheMenuBottomSection';
-import OnTheMenuFunc from '../utils/OnTheMenuFunc';
+import Offer from '../components/Offer.jsx';
+import OnTheMenuFirstSection from '../components/OnTheMenuFirstSection.jsx';
+import OnTheMenuSecondSection from '../components/OnTheMenuSecondSection.jsx';
+import OnTheMenuThirdSection from '../components/OnTheMenuThirdSection.jsx';
+import OnTheMenuFourthSection from '../components/OnTheMenuFourthSection.jsx';
+import OnTheMenuFifthSection from '../components/OnTheMenuFifthSection.jsx';
+import OnTheMenuBottomSection from '../components/OnTheMenuBottomSection.jsx';
+import OnTheMenuFunc from '../utils/OnTheMenuFunc.js';
 import axios from 'axios';
-import { useGetMealsQuery } from '../slices/mealsApiSlice';
-import Loader from './Loader';
+import { useGetMealsQuery } from '../slices/mealsApiSlice.js';
+import Loader from './Loader.jsx';
 
 const OnTheMenu = () => {
   const fetchData = async (nmbSrv, dt, setX) => {

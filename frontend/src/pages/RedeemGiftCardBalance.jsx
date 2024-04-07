@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // import CustomInput from '../components/FormComponents/CustomInput';
-import { useGetGiftCardByIdAndDeleteMutation } from '../slices/giftCardApiSlice';
-import { useUpdateToUserBalanceMutation } from '../slices/balanceApiSlice';
+import { useGetGiftCardByIdAndDeleteMutation } from '../slices/giftCardApiSlice.js';
+import { useUpdateToUserBalanceMutation } from '../slices/balanceApiSlice.js';
 
 const RedeemGiftCardBalance = () => {
   const [giftCardId, setGiftCardId] = useState('');

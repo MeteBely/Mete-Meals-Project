@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
-import { useGetUserMembershipQuery, useUpdateMembershipMealsDeliverMutation } from '../slices/membershipApiSlice';
-import Loader from './Loader';
+import { useGetUserMembershipQuery, useUpdateMembershipMealsDeliverMutation } from '../slices/membershipApiSlice.js';
+import Loader from './Loader.jsx';
 import { useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 

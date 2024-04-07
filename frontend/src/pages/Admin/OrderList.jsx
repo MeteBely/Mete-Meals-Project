@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useGetOrdersQuery } from '../../slices/ordersApiSlice';
-import Loader from '../Loader';
+import { useGetOrdersQuery } from '../../slices/ordersApiSlice.js';
+import Loader from '../Loader.jsx';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 

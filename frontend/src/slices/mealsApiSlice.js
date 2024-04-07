@@ -1,5 +1,5 @@
-import { MEALS_URL } from '../constants';
-import { apiSlice } from './apiSlice';
+import { MEALS_URL } from '../constants.js';
+import { apiSlice } from './apiSlice.js';
 
 export const mealsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

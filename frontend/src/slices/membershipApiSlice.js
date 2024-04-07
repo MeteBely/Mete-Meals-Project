@@ -1,5 +1,5 @@
-import { MEMBERSHIP_URL } from '../constants';
-import { apiSlice } from './apiSlice';
+import { MEMBERSHIP_URL } from '../constants.js';
+import { apiSlice } from './apiSlice.js';
 
 export const membershipApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({

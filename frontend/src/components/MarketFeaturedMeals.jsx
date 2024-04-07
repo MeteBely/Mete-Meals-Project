@@ -1,6 +1,6 @@
-import MarketMeals from '../components/MarketMeals';
-import { useGetMealKitsQuery } from '../slices/mealKitsApiSlice';
-import Loader from '../pages/Loader';
+import MarketMeals from '../components/MarketMeals.jsx';
+import { useGetMealKitsQuery } from '../slices/mealKitsApiSlice.js';
+import Loader from '../pages/Loader.jsx';
 
 const MarketFeaturedMeals = () => {
   const { data: mealKits, isLoading } = useGetMealKitsQuery();
