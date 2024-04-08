@@ -39,8 +39,8 @@ const SuccessGiftCardPayment = () => {
         <Loader />
       ) : (
         <section className="">
-          <h1 className="text-[32px] tracking-wide text-green-500 fontCera font-semibold mb-6">Payment successful</h1>
-          <Warning message={`Thank you for your payment! Your gift card code is: ${'DENEME'}`} />
+          <h1 className="text-[32px] tracking-wide text-[#235091] fontCera font-semibold mb-6">Payment successful</h1>
+          <Warning message="Thank you for your payment!" />
           <div className="flex flex-col gap-2 fontCera items-start justify-center">
             <div className="flex flex-row">
               <h4 className="text-[#728285] font-semibold text-[15px] mr-1">Name:</h4>
@@ -60,7 +60,7 @@ const SuccessGiftCardPayment = () => {
               <span className="">${giftCards.reduce((acc, item) => acc + item.amount * item.quantity, 0)}</span>
             </div>
             <div>
-              <button disabled={giftCardCodes.length !== 0} onClick={createGiftCardCodesFunction}>
+              <button className="text-[15px] w-auto px-10 rounded-md h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera" disabled={giftCardCodes.length !== 0} onClick={createGiftCardCodesFunction}>
                 SHOW KEYS
               </button>
             </div>
@@ -68,11 +68,11 @@ const SuccessGiftCardPayment = () => {
               giftCardCodes.length > 0 &&
               giftCardCodes.map((code, index) => (
                 <div key={index}>
-                  amount: {code.amount}code: {code.key}
+                  amount: ${code.amount} / code: {code.key}
                 </div>
               ))}
             <div>
-              <p>Bu kodlari kaybetmemeye özen gösteriniz, bu sayfa kodlari görüntüleyebileceğiniz tek yerdir.</p>
+              <p>Be careful to not lose these codes, this page is the only place where you can view the codes.</p>
             </div>
           </div>
         </section>

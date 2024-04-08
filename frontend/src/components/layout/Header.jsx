@@ -7,10 +7,11 @@ import { useLogoutMutation } from '../../slices/usersApiSlice.js';
 import { clearCredentials } from '../../slices/authSlice.js';
 import { useGetUserBalanceQuery } from '../../slices/balanceApiSlice.js';
 import { useGetMineMembershipIdQuery } from '../../slices/membershipApiSlice.js';
+import { FaArrowDown } from 'react-icons/fa';
 
 const Header = () => {
   const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
-  const { data: myMembershipId, refetch: refetchMembershipId } = useGetMineMembershipIdQuery();
+  const { data: myMembershipId, isLoading: loadingMembershipId, refetch: refetchMembershipId } = useGetMineMembershipIdQuery();
   const { cartItems } = useSelector((state) => state.cart); //reduxdaki belirli state'yi global çektik.
   const { userInfo } = useSelector((state) => state.auth);
   const [logout] = useLogoutMutation();
@@ -27,15 +28,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    refetchMembershipId();
-  }, [refetchMembershipId, myMembershipId]);
-
-  useEffect(() => {
     if (userInfo) {
       // Kullanıcı oturumu açıldığında veya kullanıcı bilgisi güncellendiğinde userBalance verisini güncelle
-      refetch(); // veya useGetUserBalanceQuery().refetch() gibi bir kullanım, hook'tan dönen refetch fonksiyonunu kullanarak
+      refetch();
+      refetchMembershipId();
     }
-  }, [refetch, userInfo]);
+  }, [refetch, refetchMembershipId, userInfo]);
 
   const logoutHandler = async () => {
     try {
@@ -82,15 +80,16 @@ const Header = () => {
             {userInfo ? (
               <>
                 <div className="relative">
-                  <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-40 fontCera text-[17px]">
+                  <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-40 fontCera text-[17px] flex flex-row items-center gap-1">
                     {userInfo.name}
+                    <FaArrowDown color="#0f346c" className={`${dropDown ? 'rotate-180' : 'rotate-0'} transition-all`} />
                   </div>
                   {dropDown && (
                     <div className="absolute flex flex-col items-center justify-center bg-[#0f346c] top-[44px] left-0 w-40 text-white fontCera p-2 text-[15px] gap-2">
                       <Link onClick={() => setDropDown(!dropDown)} to="/profile" className="hover:bg-[#F5FDE9] hover:text-[#000] w-full flex justify-center">
                         Profile
                       </Link>
-                      {myMembershipId && (
+                      {!loadingMembershipId && myMembershipId && (
                         <Link onClick={() => setDropDown(!dropDown)} className="hover:bg-[#F5FDE9] hover:text-[#000] w-full flex justify-center" to={`/membership/${myMembershipId._id}`}>
                           Membership
                         </Link>

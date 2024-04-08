@@ -83,7 +83,11 @@ const getUserMembership = asyncHandler(async (req, res) => {
 
 const MyMembershipId = asyncHandler(async (req, res) => {
   const myMembershipId = await Membership.findOne({ user: req.user._id }).select('_id');
-  res.status(200).json(myMembershipId);
+  if (myMembershipId) {
+    res.status(200).json(myMembershipId);
+  } else {
+    res.status(404).json('NaN');
+  }
 });
 
 const getMemberships = asyncHandler(async (req, res) => {
