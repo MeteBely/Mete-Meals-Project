@@ -2,9 +2,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 import { useCreateMembershipMutation } from '../../slices/membershipApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { clearMembershipDetails } from '../../slices/membershipDetailSlice.js';
 import { useState } from 'react';
+import SelectMealItem from '../../components/membership/SelectMealItem.jsx';
+import { toast } from 'react-toastify';
 
 const SelectMeals = () => {
   const navigate = useNavigate();
@@ -25,49 +27,34 @@ const SelectMeals = () => {
   const [postalCode, setPostalCode] = useState('');
   const [city, setCity] = useState('');
 
-  const clickHandler = (mealId, selectedXWeekMeals, setSelectedXWeekMeals) => {
-    let testArray = selectedXWeekMeals.slice(); // veya [...selectedFirstWeekMeals];
-    let isExist = false;
-    for (let i = 0; i < testArray.length; i++) {
-      if (testArray[i] === mealId) {
-        isExist = true;
-        break;
-      }
-    }
-
-    if (isExist) {
-      testArray = testArray.filter((existMealId) => existMealId !== mealId);
-    } else {
-      testArray.push(mealId);
-    }
-
-    setSelectedXWeekMeals(testArray);
-  };
-
   const submitHandler = async (e) => {
-    e.preventDefault();
-    const res = await createMembership({
-      plan: {
-        numberOfServing: membershipDetail.plan.numberOfServing,
-        mealsPerWeek: membershipDetail.plan.mealsPerWeek,
-        pricePerServing: membershipDetail.plan.pricePerServing,
-        subTotal: membershipDetail.plan.subTotal,
-        selectedMeals: {
-          firstWeek: selectedFirstWeekMeals,
-          secondWeek: selectedSecondWeekMeals,
-          thirdWeek: selectedThirdWeekMeals,
-          fourthWeek: selectedFourthWeekMeals,
+    if (selectedFirstWeekMeals && selectedSecondWeekMeals && selectedThirdWeekMeals && selectedFourthWeekMeals) {
+      e.preventDefault();
+      const res = await createMembership({
+        plan: {
+          numberOfServing: membershipDetail.plan.numberOfServing,
+          mealsPerWeek: membershipDetail.plan.mealsPerWeek,
+          pricePerServing: membershipDetail.plan.pricePerServing,
+          subTotal: membershipDetail.plan.subTotal,
+          selectedMeals: {
+            firstWeek: selectedFirstWeekMeals,
+            secondWeek: selectedSecondWeekMeals,
+            thirdWeek: selectedThirdWeekMeals,
+            fourthWeek: selectedFourthWeekMeals,
+          },
         },
-      },
-      preference: membershipDetail.preference,
-      shippingAddress: {
-        address,
-        city,
-        postalCode,
-      },
-    });
-    dispatch(clearMembershipDetails());
-    navigate(`/membership/${res.data._id}`);
+        preference: membershipDetail.preference,
+        shippingAddress: {
+          address,
+          city,
+          postalCode,
+        },
+      });
+      dispatch(clearMembershipDetails());
+      navigate(`/membership/${res.data._id}`);
+    } else {
+      toast.error('Please select at least one meal for every week!');
+    }
   };
 
   return (
@@ -80,12 +67,7 @@ const SelectMeals = () => {
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">First Week</h2>
             <div className="flex flex-row flex-wrap items-center justify-start gap-20">
               {twoServingFirstMeals.map((meal) => (
-                <div key={meal._id} className="flex flex-col items-center justify-center gap-2 w-[300px]">
-                  <img onClick={() => clickHandler(meal._id, selectedFirstWeekMeals, setSelectedFirstWeekMeals)} className="w-32 h-32 rounded-md cursor-pointer" src={meal.img} alt="" />
-                  <Link to={`/on-the-menu/meal/${meal._id}`} className="underline underline-offset-2">
-                    {meal.name}
-                  </Link>
-                </div>
+                <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedFirstWeekMeals} setSelectedXWeekMeals={setSelectedFirstWeekMeals} />
               ))}
             </div>
           </div>
@@ -93,12 +75,7 @@ const SelectMeals = () => {
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">Second Week</h2>
             <div className="flex flex-row flex-wrap items-center justify-start gap-20">
               {twoServingSecondMeals.map((meal) => (
-                <div key={meal._id} className="flex flex-col items-center justify-center gap-2  w-[300px]">
-                  <img onClick={() => clickHandler(meal._id, selectedSecondWeekMeals, setSelectedSecondWeekMeals)} className="w-32 h-32 rounded-md cursor-pointer" src={meal.img} alt="" />
-                  <Link to={`/on-the-menu/meal/${meal._id}`} className="underline underline-offset-2">
-                    {meal.name}
-                  </Link>
-                </div>
+                <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedSecondWeekMeals} setSelectedXWeekMeals={setSelectedSecondWeekMeals} />
               ))}
             </div>
           </div>
@@ -106,12 +83,7 @@ const SelectMeals = () => {
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">Third Week</h2>
             <div className="flex flex-row flex-wrap items-center justify-start gap-20">
               {twoServingThirdMeals.map((meal) => (
-                <div key={meal._id} className="flex flex-col items-center justify-center gap-2 w-[300px]">
-                  <img onClick={() => clickHandler(meal._id, selectedThirdWeekMeals, setSelectedThirdWeekMeals)} className="w-32 h-32 rounded-md cursor-pointer" src={meal.img} alt="" />
-                  <Link to={`/on-the-menu/meal/${meal._id}`} className="underline underline-offset-2">
-                    {meal.name}
-                  </Link>
-                </div>
+                <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedThirdWeekMeals} setSelectedXWeekMeals={setSelectedThirdWeekMeals} />
               ))}
             </div>
           </div>
@@ -119,12 +91,7 @@ const SelectMeals = () => {
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">Fourth Week</h2>
             <div className="flex flex-row flex-wrap items-center justify-start gap-20">
               {twoServingFourthMeals.map((meal) => (
-                <div key={meal._id} className="flex flex-col items-center justify-center gap-2 w-[300px]">
-                  <img onClick={() => clickHandler(meal._id, selectedFourthWeekMeals, setSelectedFourthWeekMeals)} className="w-32 h-32 rounded-md cursor-pointer" src={meal.img} alt="" />
-                  <Link to={`/on-the-menu/meal/${meal._id}`} className="underline underline-offset-2">
-                    {meal.name}
-                  </Link>
-                </div>
+                <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedFourthWeekMeals} setSelectedXWeekMeals={setSelectedFourthWeekMeals} />
               ))}
             </div>
           </div>
