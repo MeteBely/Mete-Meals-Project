@@ -13,12 +13,14 @@ export const mealsApiSlice = apiSlice.injectEndpoints({
         },
       }),
       keepUnusedDataFor: 5,
+      providesTags: ['Meal'],
     }),
     getMealDetails: builder.query({
       query: (mealId) => ({
         url: `${MEALS_URL}/${mealId}`,
       }),
       keepUnusedDataFor: 5,
+      providesTags: ['Meal'],
     }),
   }),
 });

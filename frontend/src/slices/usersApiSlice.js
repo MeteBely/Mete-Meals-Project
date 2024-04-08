@@ -9,6 +9,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
+      providesTags: ['User'],
     }),
     logout: builder.mutation({
       query: () => ({
@@ -22,6 +23,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
+      invalidatesTags: ['User'],
     }),
     profile: builder.mutation({
       query: (data) => ({
@@ -29,6 +31,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         method: 'PUT',
         body: data,
       }),
+      providesTags: ['User'],
     }),
     getUsers: builder.query({
       query: () => ({
@@ -42,12 +45,14 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         url: `${USERS_URL}/${userId}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['User'],
     }),
     getUserDetails: builder.query({
       query: (userId) => ({
         url: `${USERS_URL}/${userId}`,
       }),
       keepUnusedDataFor: 5,
+      providesTags: ['User'],
     }),
     updateUser: builder.mutation({
       query: ({ userId, ...data }) => ({

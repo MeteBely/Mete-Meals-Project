@@ -10,6 +10,7 @@ export const membershipApiSlice = apiSlice.injectEndpoints({
         body: membershipInfo,
       }),
       keepUnusedDataFor: 5,
+      invalidatesTags: ['Membership'],
     }),
     getStripePublishableKey: builder.query({
       query: () => ({
@@ -23,39 +24,42 @@ export const membershipApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: totalPrice,
       }),
+      invalidatesTags: ['Membership'],
     }),
     getUserMembership: builder.query({
       query: (membershipId) => ({
         url: `${MEMBERSHIP_URL}/${membershipId}`,
       }),
       keepUnusedDataFor: 5,
-      providesTags: ['Memberships'],
+      providesTags: ['Membership'],
     }),
     getMemberships: builder.query({
       query: () => ({
         url: MEMBERSHIP_URL,
       }),
       // keepUnusedDataFor: 5,
-      providesTags: ['Memberships'],
+      providesTags: ['Membership'],
     }),
     getMineMembershipId: builder.query({
       query: () => ({
         url: `${MEMBERSHIP_URL}/myMembershipId`,
       }),
       // keepUnusedDataFor: 5,
-      // providesTags: ['Membership'],
+      providesTags: ['Membership'],
     }),
     deleteMembership: builder.mutation({
       query: (membershipId) => ({
         url: `${MEMBERSHIP_URL}/${membershipId}`,
         method: 'DELETE',
       }),
+      invalidatesTags: ['Membership'],
     }),
     updateMembershipMealsDeliver: builder.mutation({
       query: (membershipId) => ({
         url: `${MEMBERSHIP_URL}/${membershipId}`,
         method: 'PUT',
       }),
+      invalidatesTags: ['Membership'],
     }),
   }),
 });

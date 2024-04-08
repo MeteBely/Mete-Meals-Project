@@ -15,6 +15,7 @@ export const mealKitsApiSlice = apiSlice.injectEndpoints({
         url: `${MEALKITS_URL}/${mealKitId}`,
       }),
       keepUnusedDataFor: 5,
+      providesTags: ['MealKit'],
     }),
     createMealKit: builder.mutation({
       query: () => ({
@@ -44,7 +45,7 @@ export const mealKitsApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: data,
       }),
-      // invalidatesTags: ['MealKit'],
+      invalidatesTags: ['MealKit'],
     }),
   }),
 });

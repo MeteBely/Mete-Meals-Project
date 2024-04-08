@@ -16,6 +16,7 @@ export const giftCardsApiSlice = apiSlice.injectEndpoints({
         method: 'DELETE',
       }),
       keepUnusedDataFor: 5,
+      invalidatesTags: ['GiftCard'],
     }),
     payGiftCard: builder.mutation({
       query: (details) => ({
@@ -23,6 +24,7 @@ export const giftCardsApiSlice = apiSlice.injectEndpoints({
         method: 'POST',
         body: details,
       }),
+      invalidatesTags: ['GiftCard'],
     }),
     createGiftCardCodes: builder.mutation({
       query: (amount) => ({

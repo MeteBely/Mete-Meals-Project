@@ -10,12 +10,14 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         body: { ...order },
       }),
       keepUnusedDataFor: 5,
+      invalidatesTags: ['Order'],
     }),
     getOrderById: builder.query({
       query: (orderId) => ({
         url: `${ORDERS_URL}/${orderId}`,
       }),
       keepUnusedDataFor: 5,
+      providesTags: ['Order'],
     }),
     getStripePublishableKey: builder.query({
       query: () => ({
@@ -29,12 +31,13 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         method: 'PUT',
         body: details,
       }),
+      invalidatesTags: ['Order'],
     }),
     getMyOrders: builder.query({
       query: () => ({
         url: `${ORDERS_URL}/myorders`,
       }),
-      providesTags: ['Orders'],
+      providesTags: ['Order'],
       keepUnusedDataFor: 5,
     }),
     getPaymentResults: builder.query({
@@ -46,18 +49,21 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: ORDERS_URL,
       }),
+      providesTags: ['Order'],
     }),
     deliveredOrder: builder.mutation({
       query: (orderId) => ({
         url: `${ORDERS_URL}/${orderId}/deliver`,
         method: 'PUT',
       }),
+      invalidatesTags: ['Order'],
     }),
     updateOrderToPaid: builder.mutation({
       query: (orderId) => ({
         url: `${ORDERS_URL}/${orderId}/paid`,
         method: 'PUT',
       }),
+      invalidatesTags: ['Order'],
     }),
   }),
 });
