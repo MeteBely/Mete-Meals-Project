@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { savePlan } from '../../slices/membershipDetailSlice.js';
 import { loadStripe } from '@stripe/stripe-js';
-import { useGetStripePublishableKeyQuery, usePayMembershipMutation } from '../../slices/membershipApiSlice.js';
+import { useGetStripePublishableKeyQuery, usePayMembershipMutation, useGetMineMembershipIdQuery } from '../../slices/membershipApiSlice.js';
+import { toast } from 'react-toastify';
 
 const SelectPlan = () => {
+  const membershipDetail = useSelector((state) => state.membershipDetail);
   const dispatch = useDispatch();
   const { data: stripeId, isLoading: loadingStripeId } = useGetStripePublishableKeyQuery();
   const [payMembership, { isLoading: loadingPay }] = usePayMembershipMutation();
+  const { data: membershipId, isLoading: loadingMembershipId } = useGetMineMembershipIdQuery();
   //Bu 4 değişkenide localde tutacağım.
   const [activeMealPerWeek, setActiveMealPerWeek] = useState('twoMeal');
   const [activeNumberOfServing, setActiveNumberOfServing] = useState('twoServing');
@@ -43,23 +46,31 @@ const SelectPlan = () => {
   }, [activeNumberOfServing, activeMealPerWeek, pricePerServing]);
 
   const submitHandler = async () => {
-    dispatch(
-      savePlan({
-        numberOfServing: activeNumberOfServing === 'twoServing' ? '2' : '4',
-        mealsPerWeek: activeMealPerWeek,
-        pricePerServing,
-        subTotal,
-      })
-    );
-    const stripe = await loadStripe(stripeId);
-    const res = await payMembership({
-      subTotal,
-    });
-    const result = stripe.redirectToCheckout({
-      sessionId: res.data.id,
-    });
-    if (result.error) {
-      console.log(result.error);
+    if (!membershipId) {
+      if (membershipDetail.preference === '') {
+        toast.error('Please select a preference!');
+      } else {
+        dispatch(
+          savePlan({
+            numberOfServing: activeNumberOfServing === 'twoServing' ? '2' : '4',
+            mealsPerWeek: activeMealPerWeek,
+            pricePerServing,
+            subTotal,
+          })
+        );
+        const stripe = await loadStripe(stripeId);
+        const res = await payMembership({
+          subTotal,
+        });
+        const result = stripe.redirectToCheckout({
+          sessionId: res.data.id,
+        });
+        if (result.error) {
+          console.log(result.error);
+        }
+      }
+    } else {
+      toast.error('You have already membership! If you have a problem, please contact us.');
     }
   };
 
