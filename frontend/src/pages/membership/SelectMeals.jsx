@@ -1,12 +1,14 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 import { useCreateMembershipMutation } from '../../slices/membershipApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
 import { Link, useNavigate } from 'react-router-dom';
+import { clearMembershipDetails } from '../../slices/membershipDetailSlice.js';
 import { useState } from 'react';
 
 const SelectMeals = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [createMembership, { isLoading }] = useCreateMembershipMutation();
   const membershipDetail = useSelector((state) => state.membershipDetail);
 
@@ -64,6 +66,7 @@ const SelectMeals = () => {
         postalCode,
       },
     });
+    dispatch(clearMembershipDetails());
     navigate(`/membership/${res.data._id}`);
   };
 

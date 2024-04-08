@@ -13,9 +13,14 @@ const membershipDetailSlice = createSlice({
       state.plan = action.payload;
       localStorage.setItem('membershipDetails', JSON.stringify(state));
     },
+    clearMembershipDetails: (state) => {
+      state.plan = {};
+      state.preference = '';
+      localStorage.setItem('membershipDetails', JSON.stringify(state));
+    },
   },
 });
 
-export const { savePreference, savePlan } = membershipDetailSlice.actions;
+export const { savePreference, savePlan, clearMembershipDetails } = membershipDetailSlice.actions;
 
 export default membershipDetailSlice.reducer;
