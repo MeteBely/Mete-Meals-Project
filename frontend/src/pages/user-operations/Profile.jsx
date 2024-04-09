@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/common/Loader.jsx';
 import { toast } from 'react-toastify';
@@ -6,32 +5,22 @@ import { useProfileMutation } from '../../slices/usersApiSlice.js';
 import { setCredentials } from '../../slices/authSlice.js';
 import { useGetMyOrdersQuery } from '../../slices/ordersApiSlice.js';
 import { FaTimes } from 'react-icons/fa';
+import { Form, Formik } from 'formik';
+import { RegisterSchema } from '../../Schemas/RegisterSchema.js';
 import { Link } from 'react-router-dom';
+import CustomInput from '../../components/form-components/CustomInput.jsx';
 
 const Profile = () => {
-  const [name, setName] = useState('');
-  const [password, setPassword] = useState('');
-  const [email, setEmail] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    if (userInfo) {
-      setName(userInfo.name);
-      setEmail(userInfo.email);
-    }
-  }, [userInfo, userInfo.name, userInfo.email]);
 
   const [updateProfile, { isLoading: loadingUpdateProfile }] = useProfileMutation();
   const { data: myOrders, isLoading: loadingMyOrders, error } = useGetMyOrdersQuery();
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    if (password === confirmPassword) {
+  const onSubmit = async (values, actions) => {
+    if (values.password === values.confirmPassword) {
       try {
-        const res = await updateProfile({ _id: userInfo._id, name, email, password }).unwrap();
+        const res = await updateProfile({ _id: userInfo._id, ...values }).unwrap();
         dispatch(setCredentials(res));
         toast.success('Profile updated successfully');
       } catch (error) {
@@ -46,38 +35,25 @@ const Profile = () => {
     <div className="flex flex-row mt-20 justify-evenly">
       <div className="w-[400px] fontCera">
         {/*FİRST COL  */}
-        <form onSubmit={submitHandler}>
-          <div className="flex flex-col mb-4">
-            <label htmlFor="name" className="text-[20px]">
-              Name
-            </label>
-            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="text" id="name" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
-          </div>
-          <div className="flex flex-col mb-4">
-            <label htmlFor="email" className="text-[20px]">
-              Email
-            </label>
-            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="email" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </div>
-          <div className="flex flex-col mb-4">
-            <label className="text-[20px]" htmlFor="password">
-              Password
-            </label>
-            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C] tracking-widest" autoComplete="on" type="password" id="password" placeholder="Enter password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          </div>
-          <div className="flex flex-col mb-4">
-            <label className="text-[20px]" htmlFor="confirmPassword">
-              Confirm Password
-            </label>
-            <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C] tracking-widest" autoComplete="on" type="password" id="confirmPassword" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-          </div>
-          <div className="flex flex-col mb-2">
-            <button type="submit" className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
-              UPDATE
-            </button>
-            {loadingUpdateProfile && <Loader />}
-          </div>
-        </form>
+        <Formik initialValues={{ name: userInfo.name, email: userInfo.email, password: '', confirmPassword: '' }} onSubmit={onSubmit} validationSchema={RegisterSchema}>
+          {({ isSubmitting, values }) => (
+            <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
+              <CustomInput label="Name" name="name" />
+              <CustomInput label="Email" name="email" />
+              <CustomInput type="password" label="Password" name="password" />
+              <CustomInput type="password" label="Password Again" name="confirmPassword" />
+              <div className="w-full text-[#b9b9c5]">
+                <Link to="/users/password/new" href="" className="text-[#0f346c] hover:underline text-[14px] fontCera">
+                  Forgot Password?
+                </Link>
+              </div>
+              <button type="submit" disabled={loadingUpdateProfile} className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
+                UPDATE
+              </button>
+              {loadingUpdateProfile && <Loader />}
+            </Form>
+          )}
+        </Formik>
       </div>
       <div className="fontCera">
         {/*SECOND COL  */}

@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
-import { advancedSchema } from '../../Schemas/Index.jsx';
+import { LoginSchema } from '../../Schemas';
 import { Link } from 'react-router-dom';
 
 const onSubmit = async (values, actions) => {
@@ -16,7 +16,7 @@ const ForgotPassword = () => {
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Forgot Password</h1>
         <p className="mb-[15px] text-[#6a6d75] leading-[24px] text-[15px] ">Enter the email address associated with your account, and we’ll email you a link to reset your password.</p>
-        <Formik initialValues={{ emailAddress: '' }} onSubmit={onSubmit} validationSchema={advancedSchema}>
+        <Formik initialValues={{ emailAddress: '' }} onSubmit={onSubmit} validationSchema={LoginSchema}>
           {({ isSubmitting }) => (
             <Form className="">
               <CustomInput label="EMAIL" name="emailAddress" type="text" placeholder="Kullanici adinizi giriniz" />

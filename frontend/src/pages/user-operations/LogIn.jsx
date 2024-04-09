@@ -1,27 +1,17 @@
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
-import { advancedSchema } from '../../Schemas/Index.jsx';
+import { LoginSchema } from '../../Schemas';
 import { FaApple } from 'react-icons/fa6';
 import { FaFacebook } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/common/Loader.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useLoginMutation } from '../../slices/usersApiSlice.js';
 import { setCredentials } from '../../slices/authSlice.js';
 import { toast } from 'react-toastify';
 
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  }),
-    actions.resetForm();
-};
-
 const LogIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -38,36 +28,26 @@ const LogIn = () => {
     }
   }, [userInfo, redirect, navigate]);
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (values, actions) => {
     try {
-      const res = await login({ email, password }).unwrap(); //promise eder
+      const res = await login(values).unwrap(); //promise eder
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
-      toast.error(err?.data?.message || err?.error);
+      toast.error(err?.data?.message || err?.error || err);
     }
   };
+
   return (
     <section className="bg-[#FAFBFC] mt-[62px] border-t-[1px] border-[#ECEEF2] pb-8">
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Log In</h1>
-        <Formik initialValues={{ emailAddress: '', password: '' }} onSubmit={onSubmit} validationSchema={advancedSchema}>
-          {({ isSubmitting }) => (
-            <Form className="mb-2" onSubmit={(e) => submitHandler(e)}>
-              <CustomInput onChange={(e) => setEmail(e.target.value)} value={email} label="EMAIL" name="emailAddress" type="text" placeholder="Sign your email" />
-              <CustomInput onChange={(e) => setPassword(e.target.value)} value={password} label="PASSWORD" name="password" type="password" placeholder="Sign your password" />
-              <div className="flex flex-row justify-between w-full text-[#b9b9c5]">
-                <div>
-                  <input className="align-middle mr-2 cursor-pointer" type="checkbox" name="" id="rememberAcc" />
-                  <label htmlFor="rememberAcc" className="text-[14px] fontCera cursor-pointer">
-                    Remember Me?
-                  </label>
-                </div>
-                <Link to="/users/password/new" href="" className="text-[#0f346c] hover:underline text-[14px] fontCera">
-                  Forgot Password?
-                </Link>
-              </div>
+        <Formik initialValues={{ email: '', password: '' }} onSubmit={onSubmit} validationSchema={LoginSchema}>
+          {({ values }) => (
+            <Form className="flex flex-col gap-4 border rounded-none  p-4 m-4">
+              <CustomInput label="Email" name="email" />
+              <br />
+              <CustomInput type="password" label="Password" name="password" />
               <button type="submit" disabled={isLoading} className="text-[14px] w-full h-[47.88px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4">
                 LOG IN
               </button>

@@ -1,29 +1,17 @@
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
-import { advancedSchema } from '../../Schemas/Index.jsx';
+import { RegisterSchema } from '../../Schemas';
 import { FaApple } from 'react-icons/fa6';
 import { FaFacebook } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Loader from '../../components/common/Loader.jsx';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useRegisterMutation } from '../../slices/usersApiSlice.js';
 import { setCredentials } from '../../slices/authSlice.js';
 import { toast } from 'react-toastify';
 
-const onSubmit = async (values, actions) => {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1000);
-  }),
-    actions.resetForm();
-};
-
 const Register = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [name, setName] = useState('');
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,11 +28,10 @@ const Register = () => {
     }
   }, [userInfo, redirect, navigate]);
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    if (password === confirmPassword) {
+  const onSubmit = async (values, actions) => {
+    if (values.password === values.confirmPassword) {
       try {
-        const res = await register({ name, email, password }).unwrap(); //promise eder
+        const res = await register(values).unwrap(); //promise eder
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
       } catch (err) {
@@ -55,24 +42,19 @@ const Register = () => {
       return;
     }
   };
+
   return (
     <section className="bg-[#FAFBFC] mt-[62px] border-t-[1px] border-[#ECEEF2] pb-8">
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Register</h1>
-        <Formik initialValues={{ firstName: '', emailAddress: '', password: '' }} onSubmit={onSubmit} validationSchema={advancedSchema}>
-          {({ isSubmitting }) => (
-            <Form className="mb-2" onSubmit={(e) => submitHandler(e)}>
-              <CustomInput onChange={(e) => setName(e.target.value)} value={name} label="NAME" name="firstName" type="text" placeholder="Sign your name" />
-              <CustomInput onChange={(e) => setEmail(e.target.value)} value={email} label="EMAIL" name="emailAddress" type="text" placeholder="Sign your email" />
-              <CustomInput onChange={(e) => setPassword(e.target.value)} value={password} label="PASSWORD" name="password" type="password" placeholder="Sign your password" />
-              <CustomInput onChange={(e) => setConfirmPassword(e.target.value)} value={confirmPassword} label="CONFIRM PASSWORD" name="confirmPassword" type="password" placeholder="Sign your password again" />
-              <div className="flex flex-row justify-between w-full text-[#b9b9c5]">
-                <div>
-                  <input className="align-middle mr-2 cursor-pointer" type="checkbox" name="" id="rememberAcc" />
-                  <label htmlFor="rememberAcc" className="text-[14px] fontCera cursor-pointer">
-                    Remember Me?
-                  </label>
-                </div>
+        <Formik initialValues={{ name: '', email: '', password: '', confirmPassword: '' }} onSubmit={onSubmit} validationSchema={RegisterSchema}>
+          {({ isSubmitting, values }) => (
+            <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
+              <CustomInput label="Name" name="name" />
+              <CustomInput label="Email" name="email" />
+              <CustomInput type="password" label="Password" name="password" />
+              <CustomInput type="password" label="Password Again" name="confirmPassword" />
+              <div className="w-full text-[#b9b9c5]">
                 <Link to="/users/password/new" href="" className="text-[#0f346c] hover:underline text-[14px] fontCera">
                   Forgot Password?
                 </Link>
