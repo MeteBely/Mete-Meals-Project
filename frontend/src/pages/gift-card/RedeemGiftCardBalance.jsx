@@ -9,12 +9,16 @@ const RedeemGiftCardBalance = () => {
   const [updateUserBalance, { isLoading: userBalance }] = useUpdateToUserBalanceMutation();
   const submithandler = async (e) => {
     if (!userBalance && !isLoading) {
-      toast.success('Balance updated successfully!');
       e.preventDefault();
       const res = await getGiftCardAndDelete(giftCardId);
-      let amount = res.data.amount;
-      await updateUserBalance({ amount });
-      setGiftCardId('');
+      if (!res.error) {
+        let amount = res.data.amount;
+        await updateUserBalance({ amount });
+        setGiftCardId('');
+        toast.success('Balance updated successfully!');
+      } else {
+        toast.error('Gift card code not found!');
+      }
     } else {
       toast.error('something went wrong!');
     }

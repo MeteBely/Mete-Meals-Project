@@ -7,12 +7,17 @@ import { clearMembershipDetails } from '../../slices/membershipDetailSlice.js';
 import { useState } from 'react';
 import SelectMealItem from '../../components/membership/SelectMealItem.jsx';
 import { toast } from 'react-toastify';
+import { Form, Formik } from 'formik';
+import { AddressSchema } from '../../Schemas/AddressSchema.js';
+import CustomInput from '../../components/form-components/CustomInput.jsx';
 
 const SelectMeals = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [createMembership, { isLoading }] = useCreateMembershipMutation();
   const membershipDetail = useSelector((state) => state.membershipDetail);
+  const cart = useSelector((state) => state.cart);
+  const { shippingAddress } = cart;
 
   const { data: twoServingFirstMeals, isLoadingOne } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'first week', preference: membershipDetail.preference });
   const { data: twoServingSecondMeals, isLoadingTwo } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'second week', preference: membershipDetail.preference });
@@ -23,13 +28,9 @@ const SelectMeals = () => {
   const [selectedSecondWeekMeals, setSelectedSecondWeekMeals] = useState([]);
   const [selectedThirdWeekMeals, setSelectedThirdWeekMeals] = useState([]);
   const [selectedFourthWeekMeals, setSelectedFourthWeekMeals] = useState([]);
-  const [address, setAddress] = useState('');
-  const [postalCode, setPostalCode] = useState('');
-  const [city, setCity] = useState('');
 
-  const submitHandler = async (e) => {
-    if (selectedFirstWeekMeals && selectedSecondWeekMeals && selectedThirdWeekMeals && selectedFourthWeekMeals) {
-      e.preventDefault();
+  const onSubmit = async (values, actions) => {
+    if (selectedFirstWeekMeals && selectedFirstWeekMeals.length > 0 && selectedSecondWeekMeals && selectedSecondWeekMeals.length > 0 && selectedThirdWeekMeals && selectedThirdWeekMeals.length > 0 && selectedFourthWeekMeals && selectedFourthWeekMeals.length > 0) {
       const res = await createMembership({
         plan: {
           numberOfServing: membershipDetail.plan.numberOfServing,
@@ -44,11 +45,7 @@ const SelectMeals = () => {
           },
         },
         preference: membershipDetail.preference,
-        shippingAddress: {
-          address,
-          city,
-          postalCode,
-        },
+        shippingAddress: values,
       });
       dispatch(clearMembershipDetails());
       navigate(`/membership/${res.data._id}`);
@@ -98,32 +95,20 @@ const SelectMeals = () => {
         </div>
       )}
 
-      <form action="" onSubmit={(e) => submitHandler(e)} className="my-8">
-        <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>
-        <div className="mb-4 flex flex-col items-start justify-center">
-          <label className="text-[18px] font-semibold  text-[#6B6D75]" htmlFor="address">
-            Address
-          </label>
-          <input className="border border-[#06316C] h-[40px] w-[600px] rounded-md placeholder:text-[#728285] pl-2 focus:outline-[#06316C]" type="address" name="" id="address" placeholder="Type address..." value={address} onChange={(e) => setAddress(e.target.value)} />
-        </div>
-        <div className="mb-4 flex flex-col items-start justify-center">
-          <label className=" text-[18px] font-semibold  text-[#6B6D75]" htmlFor="city">
-            City
-          </label>
-          <input className="border border-[#06316C] h-[40px] w-[600px] rounded-md placeholder:text-[#728285] pl-2 focus:outline-[#06316C]" type="city" name="" id="city" placeholder="Type city..." value={city} onChange={(e) => setCity(e.target.value)} />
-        </div>
-        <div className="mb-4 flex flex-col items-start justify-center">
-          <label className="text-[18px] font-semibold  text-[#6B6D75]" htmlFor="postalCode">
-            Postal Code
-          </label>
-          <input className="border border-[#06316C] h-[40px] w-[600px] rounded-md placeholder:text-[#728285] pl-2 focus:outline-[#06316C]" type="postalCode" name="" id="postalCode" placeholder="Type postal code..." value={postalCode} onChange={(e) => setPostalCode(e.target.value)} />
-        </div>
-        <div>
-          <button type="submit" className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
-            Continue
-          </button>
-        </div>
-      </form>
+      <Formik initialValues={{ address: shippingAddress?.address || '', city: shippingAddress?.city || '', postalCode: shippingAddress?.postalCode || '' }} onSubmit={onSubmit} validationSchema={AddressSchema}>
+        {({ isSubmitting, values }) => (
+          <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-[1000px]">
+            <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>
+            <CustomInput label="Address" name="address" />
+            <CustomInput label="City" name="city" />
+            <CustomInput label="Postal Code" name="postalCode" />
+            <button type="submit" disabled={isLoading} className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
+              Continue
+            </button>
+            {isLoading && <Loader />}
+          </Form>
+        )}
+      </Formik>
     </section>
   );
 };
