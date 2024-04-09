@@ -4,6 +4,8 @@ import HomeSecondSection from '../components/home/HomeSecondSection.jsx';
 import HomeThirdSection from '../components/home/HomeThirdSection.jsx';
 import HomeFourthSection from '../components/home/HomeFourthSection.jsx';
 import PricingQuestions from '../components/home/PricingQuestions.jsx';
+import SignUpBottomSection from '../components/user-operations/SignUpBottomSection.jsx';
+
 const Home = () => {
   return (
     <main>
@@ -13,6 +15,7 @@ const Home = () => {
       <HomeThirdSection />
       <HomeFourthSection />
       <PricingQuestions />
+      <SignUpBottomSection />
     </main>
   );
 };
