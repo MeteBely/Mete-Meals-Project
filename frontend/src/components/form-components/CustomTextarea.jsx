@@ -10,7 +10,7 @@ const CustomInput = ({ label, ...props }) => {
         {...props}
         {...field}
         className={classNames({
-          'w-full rounded border-b outline-none px-2 fontCera': true,
+          'w-full rounded border-b outline-none resize-none px-2 fontCera': true,
           'focus:border-black': !meta.error,
           'focus:border-red-600': meta.error,
         })}

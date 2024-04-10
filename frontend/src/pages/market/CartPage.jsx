@@ -17,15 +17,18 @@ const CartPage = () => {
       {cartItems.length === 0 ? (
         <div className="w-[800px] m-auto text-center fontCera bg-[#235091] rounded-md h-[120px] text-white my-10 pt-2">
           <h3 className="text-[2rem]">Your cart is empty </h3>
-          <div className="flex flex-row items-center justify-center gap-8">
-            <Link className="hover:underline hover:text-[#] text-[1.5rem] fontChronicle" to={'/'}>
+          <div className="flex flex-row items-center justify-center gap-8 underline">
+            <Link className="hover:underline hover:text-gray-300 transition-all text-[1.5rem] fontChronicle" to={'/'}>
               HOME
             </Link>
-            <Link className="hover:underline hover:text-[#] text-[1.5rem] fontChronicle" to={'/pricing'}>
+            <Link className="hover:underline hover:text-gray-300 transition-all text-[1.5rem] fontChronicle" to={'/pricing'}>
               PLANS
             </Link>
-            <Link className="hover:underline hover:text-[#] text-[1.5rem] fontChronicle" to={'/market'}>
+            <Link className="hover:underline hover:text-gray-300 transition-all text-[1.5rem] fontChronicle" to={'/market'}>
               MARKET
+            </Link>
+            <Link className="hover:underline hover:text-gray-300 transition-all text-[1.5rem] fontChronicle" to={'/gifts'}>
+              GIFT CARDS
             </Link>
           </div>
         </div>

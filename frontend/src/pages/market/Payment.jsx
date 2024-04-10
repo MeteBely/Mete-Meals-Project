@@ -5,7 +5,7 @@ import CheckoutSteps from '../../components/market/CheckoutSteps.jsx';
 import { savePaymentMethod } from '../../slices/cartSlice.js';
 import { useGetUserBalanceQuery } from '../../slices/balanceApiSlice.js';
 import { toast } from 'react-toastify';
-import { Formik, Form, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import CustomRadio from '../../components/form-components/CustomRadio.jsx';
 import { PaymentMethodSchema } from '../../Schemas/PaymentMethodSchema.js';
 
