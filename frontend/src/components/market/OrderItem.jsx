@@ -4,7 +4,7 @@ import Loader from '../common/Loader.jsx';
 import { Link } from 'react-router-dom';
 
 const OrderItem = ({ orderItem }) => {
-  const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(orderItem.meals[0].meal);
+  const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(orderItem.meals[0].meal._id);
   console.log(orderItem);
   return (
     <>

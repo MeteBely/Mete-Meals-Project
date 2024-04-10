@@ -7,23 +7,12 @@ import OnTheMenuFourthSection from '../../components/on-the-menus/OnTheMenuFourt
 import OnTheMenuFifthSection from '../../components/on-the-menus/OnTheMenuFifthSection.jsx';
 import OnTheMenuBottomSection from '../../components/on-the-menus/OnTheMenuBottomSection.jsx';
 import OnTheMenuFunc from '../../utils/OnTheMenuFunc.js';
-import axios from 'axios';
 import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
 
 const OnTheMenu = () => {
-  const fetchData = async (nmbSrv, dt, setX) => {
-    let { data } = await axios.get('/api/meals', {
-      params: {
-        numberOfServing: nmbSrv,
-        date: dt,
-      },
-    });
-
-    setX(data);
-  };
-
   const { data: twoServingFirstMeals, isLoading } = useGetMealsQuery({ numberOfServing: '2', date: 'first week' });
+
   const { data: twoServingSecondMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'second week' });
 
   const { data: twoServingThirdMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'third week' });
@@ -46,13 +35,13 @@ const OnTheMenu = () => {
 
   const { data: fastServingFourthMeals } = useGetMealsQuery({ numberOfServing: '1', date: 'fourth week' });
 
-  const { data: flexServingFirstMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'first week' });
+  const { data: flexServingFirstMeals } = useGetMealsQuery({ numberOfServing: 'flex', date: 'first week' });
 
-  const { data: flexServingSecondMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'second week' });
+  const { data: flexServingSecondMeals } = useGetMealsQuery({ numberOfServing: 'flex', date: 'second week' });
 
-  const { data: flexServingThirdMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'third week' });
+  const { data: flexServingThirdMeals } = useGetMealsQuery({ numberOfServing: 'flex', date: 'third week' });
 
-  const { data: flexServingFourthMeals } = useGetMealsQuery({ numberOfServing: 'x', date: 'fourth week' });
+  const { data: flexServingFourthMeals } = useGetMealsQuery({ numberOfServing: 'flex', date: 'fourth week' });
 
   const [activeBtn, setActiveBtn] = useState('btnOne');
   const [activeMenusFirstWeek, setActiveMenusFirstWeek] = useState([]);

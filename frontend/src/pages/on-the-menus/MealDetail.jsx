@@ -1,6 +1,4 @@
 import { useParams } from 'react-router-dom';
-// import axios from 'axios';
-// import { useEffect, useState } from 'react';
 import { FaRegClock } from 'react-icons/fa';
 import { FaLeaf } from 'react-icons/fa';
 import { FaDollarSign } from 'react-icons/fa';
@@ -9,17 +7,8 @@ import Loader from '../../components/common/Loader.jsx';
 
 const MealDetail = () => {
   const { id: mealId } = useParams();
-  // const [meal, setMeal] = useState({});
   const { data: meal, isLoading } = useGetMealDetailsQuery(mealId);
-  // useEffect(() => {
-  //   const fetchSingleMail = async () => {
-  //     const { data } = await axios.get(`/api/meals/${mealId}`);
-  //     setMeal(data);
-  //   };
 
-  //   fetchSingleMail();
-  // }, [mealId]);
-  console.log(meal);
   return (
     <>
       {isLoading ? (

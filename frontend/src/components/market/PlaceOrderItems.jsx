@@ -4,7 +4,7 @@ import { useGetMealDetailsQuery } from '../../slices/mealsApiSlice.js';
 import Loader from '../common/Loader.jsx';
 
 const PlaceOrderItems = ({ cartItem }) => {
-  const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(cartItem.meals[0].meal);
+  const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(cartItem.meals[0].meal._id);
 
   return (
     <>

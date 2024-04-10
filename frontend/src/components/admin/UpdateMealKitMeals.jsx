@@ -7,7 +7,7 @@ const UpdateMealKitMeals = ({ mealId, additionableMealsContainer, setAdditionabl
   const handleClick = (e, selectedMeal) => {
     e.preventDefault();
     let newArray = [];
-    newArray = meals.filter((inBoxMeal) => inBoxMeal.meal !== selectedMeal._id);
+    newArray = meals.filter((inBoxMeal) => inBoxMeal.meal._id !== selectedMeal._id);
     setMeals(newArray);
     setAdditionableMealsContainer([...additionableMealsContainer, meal]);
   };

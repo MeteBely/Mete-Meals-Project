@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import Loader from '../common/Loader.jsx';
 const CartItems = ({ cartItem }) => {
   const dispatch = useDispatch();
-  const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(cartItem.meals[0].meal);
+  const { data: firstMealOfKit, isLoading } = useGetMealDetailsQuery(cartItem.meals[0].meal._id);
 
   const addToCartHandler = async (cartItem, qty) => {
     dispatch(addToCart({ ...cartItem, qty }));
@@ -20,7 +20,7 @@ const CartItems = ({ cartItem }) => {
   return (
     <>
       {isLoading ? (
-        <Loader></Loader>
+        <Loader />
       ) : (
         <div className="fontCera w-[800px] mb-[20px] flex flex-row items-center justify-start gap-2 border-b border-[#6B6D75] pb-[20px]">
           <Link to={`/market/mealKit/${cartItem._id}`}>

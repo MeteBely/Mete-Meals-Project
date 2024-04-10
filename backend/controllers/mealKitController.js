@@ -9,7 +9,7 @@ const getMealKits = asyncHandler(async (req, res) => {
 
 //meal kiti çeker, public. /api/mealKits/:id
 const getMealKitById = asyncHandler(async (req, res) => {
-  const mealKit = await MealKit.findById(req.params.id);
+  const mealKit = await MealKit.findById(req.params.id).populate([{ path: 'meals.meal', select: 'img subTxt name' }]);
 
   if (mealKit) {
     return res.json(mealKit);
