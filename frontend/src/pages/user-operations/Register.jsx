@@ -54,11 +54,6 @@ const Register = () => {
               <CustomInput label="Email" name="email" />
               <CustomInput type="password" label="Password" name="password" />
               <CustomInput type="password" label="Password Again" name="confirmPassword" />
-              <div className="w-full text-[#b9b9c5]">
-                <Link to="/users/password/new" href="" className="text-[#0f346c] hover:underline text-[14px] fontCera">
-                  Forgot Password?
-                </Link>
-              </div>
               <button type="submit" disabled={isLoading} className="text-[14px] w-full h-[47.88px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4">
                 REGISTER
               </button>

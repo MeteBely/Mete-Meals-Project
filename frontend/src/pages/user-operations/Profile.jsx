@@ -42,11 +42,6 @@ const Profile = () => {
               <CustomInput label="Email" name="email" />
               <CustomInput type="password" label="Password" name="password" />
               <CustomInput type="password" label="Password Again" name="confirmPassword" />
-              <div className="w-full text-[#b9b9c5]">
-                <Link to="/users/password/new" href="" className="text-[#0f346c] hover:underline text-[14px] fontCera">
-                  Forgot Password?
-                </Link>
-              </div>
               <button type="submit" disabled={loadingUpdateProfile} className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
                 UPDATE
               </button>

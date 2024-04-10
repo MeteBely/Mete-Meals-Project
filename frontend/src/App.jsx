@@ -8,7 +8,6 @@ import Market from './pages/market/Market.jsx';
 import GiftCards from './pages/gift-card/GiftCards.jsx';
 import Redeem from './pages/gift-card/Redeem.jsx';
 import LogIn from './pages/user-operations/LogIn.jsx';
-import ForgotPassword from './pages/user-operations/ForgotPassword.jsx';
 import OnTheMenu from './pages/on-the-menus/OnTheMenu.jsx';
 import MealDetail from './pages/on-the-menus/MealDetail.jsx';
 import MealKitDetail from './pages/market/MealKitDetail.jsx';
@@ -86,10 +85,6 @@ function App() {
           <Route index={true} element={<Outlet />} />
           <Route path="sign_in" element={<LogIn />} />
           <Route path="sign_up" element={<Register />} />
-          <Route path="password">
-            <Route index={true} element={<Outlet />} />
-            <Route path="new" element={<ForgotPassword />} />
-          </Route>
         </Route>
       </Routes>
       <Footer />
