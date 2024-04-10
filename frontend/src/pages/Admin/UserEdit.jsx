@@ -1,47 +1,33 @@
-import { useState, useEffect } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useGetUserDetailsQuery, useUpdateUserMutation } from '../../slices/usersApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
 import { toast } from 'react-toastify';
+import { Formik, Form } from 'formik';
+import CustomInput from '../../components/form-components/CustomInput.jsx';
+import CustomCheckbox from '../../components/form-components/CustomCheckbox.jsx';
+import { UserEditSchema } from '../../Schemas/UserEditSchema.js';
 
 const UserEdit = () => {
   const { id: userId } = useParams();
 
   const navigate = useNavigate();
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
-
   const { data: user, isLoading, error, refetch } = useGetUserDetailsQuery(userId);
   const [updateUser, { isLoading: loadingUpdate }] = useUpdateUserMutation();
 
-  useEffect(() => {
-    if (user) {
-      setName(user.name);
-      setEmail(user.email);
-      setIsAdmin(user.isAdmin);
-    }
-  }, [user]);
-
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (values, actions) => {
     try {
       await updateUser({
         userId,
-        name,
-        email,
-        isAdmin,
+        ...values,
       });
       toast.success('User updated successfully');
       refetch();
       navigate('/admin/userlist');
     } catch (err) {
-      toast.error(err?.message);
+      toast.error(err);
     }
   };
-
-  console.log(isAdmin);
   return (
     <section>
       <div className="mt-20 px-2 mb-2">
@@ -58,31 +44,18 @@ const UserEdit = () => {
           ) : error ? (
             <div>{error}</div>
           ) : (
-            <form action="" onSubmit={(e) => submitHandler(e)}>
-              <div className="flex flex-col mb-4">
-                <label htmlFor="name" className="text-[20px]">
-                  Name
-                </label>
-                <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="text" id="name" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
-              </div>
-              <div className="flex flex-col mb-4">
-                <label htmlFor="email" className="text-[20px]">
-                  Email
-                </label>
-                <input className="h-10 border border-[#06316C] rounded-md px-2 focus:outline-[#06316C]" type="email" id="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
-              </div>
-              <div className="flex flex-row items-center gap-2 mb-4">
-                <label htmlFor="isAdmin" className="text-[20px]">
-                  Admin
-                </label>
-                <input type="checkbox" checked={isAdmin} id="isAdmin" onChange={(e) => setIsAdmin(e.target.checked)} />
-              </div>
-              <div>
-                <button className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4" type="submit">
-                  Update
-                </button>
-              </div>
-            </form>
+            <Formik onSubmit={onSubmit} initialValues={{ name: user.name, email: user.email, isAdmin: user.isAdmin }} validationSchema={UserEditSchema}>
+              {({ values }) => (
+                <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
+                  <CustomInput label="Name" name="name" />
+                  <CustomInput label="Email" name="email" />
+                  <CustomCheckbox label="Admin" name="isAdmin" />
+                  <button className="text-[14px] w-auto px-10 rounded-sm h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4" type="submit">
+                    Update
+                  </button>
+                </Form>
+              )}
+            </Formik>
           )}
         </div>
       </div>

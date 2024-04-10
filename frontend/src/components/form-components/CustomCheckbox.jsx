@@ -5,8 +5,9 @@ import classNames from 'classnames';
 const CustomInput = ({ label, ...props }) => {
   const [field, meta, helpers] = useField(props);
   return (
-    <label className="flex gap-x-2 text-sm cursor-pointer items-center" htmlFor="">
+    <label className="flex gap-x-2 cursor-pointer items-center" htmlFor="">
       <button
+        type="button"
         onClick={() => helpers.setValue(!field.value)}
         className={classNames({
           'w-5 h-5 rounded border transition-all flex items-center justify-center ': true,
@@ -16,7 +17,7 @@ const CustomInput = ({ label, ...props }) => {
       >
         <FiCheck size={16} />
       </button>
-      {label}
+      <span className="fontCera text-[15px]">{label}</span>
     </label>
   );
 };
