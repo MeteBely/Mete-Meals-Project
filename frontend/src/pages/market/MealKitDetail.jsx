@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { addToCart } from '../../slices/cartSlice.js';
 import { toast } from 'react-toastify';
@@ -7,6 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useGetMealKitDetailsQuery, useCreateReviewMutation } from '../../slices/mealKitsApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
 import Meta from '../../utils/Meta.jsx';
+import { Formik, Form } from 'formik';
+import CustomInput from '../../components/form-components/CustomInput.jsx';
+import CustomTextarea from '../../components/form-components/CustomTextarea.jsx';
+import { ReviewSchema } from '../../Schemas/ReviewSchema.js';
+import classNames from 'classnames';
 
 const MealKitDetail = () => {
   const dispatch = useDispatch();
@@ -14,11 +18,6 @@ const MealKitDetail = () => {
   const { id: mealKitId } = useParams();
 
   const [qty, setQty] = useState(1);
-
-  // const [mealKit, setMealKit] = useState({});
-  const [comment, setComment] = useState('');
-  const [rating, setRating] = useState(0);
-  const [singleMeals, setSingleMeals] = useState([]);
   const [activeDesc, setActiveDesc] = useState('itemOne');
   const [activeImage, setActiveImage] = useState('');
 
@@ -28,47 +27,33 @@ const MealKitDetail = () => {
   //İlgili meal kiti url parama göre getirdik.
   const { data: mealKit, refetch, isLoading } = useGetMealKitDetailsQuery(mealKitId);
 
-  //ilgili meal kitteki single mealsleri getirdik.
   useEffect(() => {
-    const fetchSingleMeals = async () => {
-      let meals = [];
-      if (mealKit && mealKit.meals.length > 0) {
-        if (mealKit.meals) {
-          for (let i = 0; i < mealKit.meals.length; i++) {
-            let { data } = await axios.get(`/api/meals/${mealKit.meals[i].meal}`);
-            meals.push(data);
-          }
-          setSingleMeals(meals);
-          setActiveImage(meals[0].img);
-        }
-      }
-    };
-    fetchSingleMeals();
-  }, [mealKit]);
+    if (!isLoading && mealKit) {
+      setActiveImage(mealKit.meals[0].meal.img);
+    }
+  }, [isLoading, mealKit]);
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...mealKit, qty }));
     navigate('/cart');
   };
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (values) => {
     try {
-      await createReview({ mealKitId, comment, rating }).unwrap();
+      await createReview({ mealKitId, ...values }).unwrap();
       refetch();
       toast.success('Review submitted successfully!');
-      setRating(0);
-      setComment('');
+      values.rating = 1;
+      values.comment = '';
     } catch (err) {
-      toast.error(err?.message);
-      console.log(err);
+      toast.error(err.data && 'Meal kit already reviewed!');
     }
   };
 
   return (
     <>
       {isLoading ? (
-        <Loader></Loader>
+        <Loader />
       ) : (
         <section className="mt-20">
           <Meta title={mealKit.name} />
@@ -78,42 +63,52 @@ const MealKitDetail = () => {
                 <img src={activeImage && activeImage} alt="" />
               </div>
               <div className="flex flex-row flex-wrap gap-4 justify-start items-center">
-                {singleMeals.map((singleMeal) => (
-                  <button className="w-[130px] h-[130px] cursor-pointer" key={singleMeal._id} onClick={() => setActiveImage(singleMeal.img)}>
-                    <img src={singleMeal.img}></img>
+                {mealKit.meals.map((singleMeal) => (
+                  <button className="w-[130px] h-[130px] cursor-pointer" key={singleMeal.meal._id} onClick={() => setActiveImage(singleMeal.meal.img)}>
+                    <img src={singleMeal.meal.img}></img>
                   </button>
                 ))}
               </div>
               <div className="mt-10">
-                <h2>Reviews</h2>
+                <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-1">Reviews</h2>
                 {mealKit.reviews && mealKit.reviews.length > 0 ? (
-                  mealKit.reviews.map((review) => (
-                    <div key={review._id}>
-                      <strong>{review.name}</strong>
-                      <span>{review.rating}</span>
-                      <p>{review.createdAt.substring(0, 10)}</p>
-                      <p>{review.comment}</p>
+                  mealKit.reviews.map((review, index) => (
+                    <div
+                      className={classNames({
+                        'fontCera mb-4 pb-4': true,
+                        'border-b-2 border-red-100': index !== mealKit.reviews.length - 1,
+                      })}
+                      key={review._id}
+                    >
+                      <div>
+                        <span className="mr-1 text-lg">Name:</span>
+                        {review.name}
+                      </div>
+                      <div>
+                        <span className="mr-1 text-lg">Rating:</span>
+                        {review.rating}
+                      </div>
+                      <div className="border rounded-md p-2 shadow-md">{review.comment}</div>
+                      <p className="">{review.createdAt.substring(0, 10)}</p>
                     </div>
                   ))
                 ) : (
-                  <div>no reviews</div>
+                  <div className="fontCera mb-8">No Reviews</div>
                 )}
-                <h2>Write customer wreview</h2>
+                <h3 className="text-[22px] tracking-wide text-[#0F346C] fontCera font-semibold">Write Review</h3>
                 {isReviewLoading && <Loader />}
                 {userInfo ? (
-                  <form onSubmit={submitHandler}>
-                    <div className="flex flex-col my-2">
-                      <label htmlFor="rating">rating</label>
-                      <input type="number" value={rating} placeholder="Enter rating" id="rating" onChange={(e) => setRating(e.target.value)} />
-                    </div>
-                    <div className="flex flex-col my-2">
-                      <label htmlFor="comment">comment</label>
-                      <textarea type="text" value={comment} placeholder="Enter comment" id="comment" onChange={(e) => setComment(e.target.value)} />
-                    </div>
-                    <button type="submit" disabled={isReviewLoading}>
-                      Submit
-                    </button>
-                  </form>
+                  <Formik initialValues={{ rating: 1, comment: '' }} onSubmit={onSubmit} validationSchema={ReviewSchema}>
+                    {({ values }) => (
+                      <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-[1000px]">
+                        <CustomTextarea label="Comment" name="comment" />
+                        <CustomInput type="number" label="Rating" name="rating" />
+                        <button type="submit" disabled={isReviewLoading} className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
+                          Submit
+                        </button>
+                      </Form>
+                    )}
+                  </Formik>
                 ) : (
                   <Link to={`/users/sign_in`}> Please login to write review</Link>
                 )}
@@ -151,10 +146,10 @@ const MealKitDetail = () => {
                 <p className={`${activeDesc === 'itemTwo' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>Order by 12:00 pm ET on Friday, March 15th for delivery the week of March 17th. Requests for order cancellation or changes must be received by Friday, March 15th at 1:00 pm ET — reach out to market@blueapron.com for more information.</p>
                 <div className={`${activeDesc === 'itemThree' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>
                   <ul className="list-disc pl-2">
-                    {singleMeals.map((singleMeal) => (
-                      <Link className="cursor-pointer hover:underline inline-block" key={singleMeal._id} to={`/on-the-menu/meal/${singleMeal._id}`}>
+                    {mealKit.meals.map((singleMeal) => (
+                      <Link className="cursor-pointer hover:underline inline-block" key={singleMeal.meal._id} to={`/on-the-menu/meal/${singleMeal.meal._id}`}>
                         <li>
-                          {singleMeal.name} {singleMeal.subTxt}
+                          {singleMeal.meal.name} {singleMeal.meal.subTxt}
                         </li>
                       </Link>
                     ))}

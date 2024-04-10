@@ -4,3 +4,4 @@ export { AddressSchema } from './AddressSchema.js';
 export { MealKitSchema } from './MealKitSchema.js';
 export { UserEditSchema } from './UserEditSchema.js';
 export { PaymentMethodSchema } from './PaymentMethodSchema.js';
+export { ReviewSchema } from './ReviewSchema.js';
