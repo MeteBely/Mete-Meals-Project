@@ -19,8 +19,27 @@ const UpdateMealKit = () => {
   const { data: additionableMeals, isLoading: loadingAdditionableMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'first week' });
   const [additionableMealsContainer, setAdditionableMealsContainer] = useState([]);
 
+  //Meal kitimizin içinde halihazırda bulunan mealler, eğer ekleyebileceğimiz additionableMeals içerlerinde de varsa, additionableMeals içerisinden çıkarılırlar. Çünkü zaten halihazırda selected haldeler. Bu fonksiyonun amacı bu mealleri bulup çıkartmaktır.
   useEffect(() => {
-    setAdditionableMealsContainer(additionableMeals);
+    const seperateMeals = () => {
+      let newArray = [];
+      let flag = true;
+      additionableMeals.map((additionableMeal) => {
+        mealKit.meals.map((mealObj) => {
+          if (additionableMeal._id === mealObj.meal._id) {
+            flag = false;
+          }
+        });
+        console.log(flag);
+        if (flag) {
+          newArray.push(additionableMeal);
+        }
+        flag = true;
+      });
+      return newArray;
+    };
+
+    setAdditionableMealsContainer(mealKit?.meals && additionableMeals && additionableMeals.length > 0 ? seperateMeals : additionableMeals);
     setMeals(mealKit?.meals || []);
     refetch();
   }, [mealKit, additionableMeals, refetch]);
@@ -30,8 +49,8 @@ const UpdateMealKit = () => {
     let newArray = [];
     newArray = additionableMealsContainer.filter((additionableMeal) => additionableMeal._id !== meal._id);
     setAdditionableMealsContainer(newArray);
-    const selectedMealId = meal._id;
-    setMeals([...meals, { meal: selectedMealId }]);
+    const selectedMeal = meal;
+    setMeals([...meals, { meal: selectedMeal }]);
   };
 
   const onSubmit = async (values, actions) => {
@@ -72,13 +91,14 @@ const UpdateMealKit = () => {
                 <CustomTextarea label="Description" name="description" />
                 <CustomInput label="Ingredients" name="subTxt" />
                 <CustomInput type="number" label="Price" name="price" />
-
                 <div className="flex flex-row mb-16 gap-16">
                   <label htmlFor="price" className="text-[26px] tracking-wide text-[#0F346C] fontCera font-semibold">
                     Meals:
                   </label>
                   {meals.map((meal) => (
-                    <UpdateMealKitMeals key={meal.meal} mealId={meal.meal} additionableMealsContainer={additionableMealsContainer} setAdditionableMealsContainer={setAdditionableMealsContainer} setMeals={setMeals} meals={meals} />
+                    <>
+                      <UpdateMealKitMeals key={meal.meal._id} mealId={meal.meal._id} additionableMealsContainer={additionableMealsContainer} setAdditionableMealsContainer={setAdditionableMealsContainer} setMeals={setMeals} meals={meals} />
+                    </>
                   ))}
                 </div>
                 {loadingAdditionableMeals ? (
