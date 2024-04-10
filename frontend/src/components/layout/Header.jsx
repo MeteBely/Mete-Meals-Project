@@ -8,6 +8,7 @@ import { clearCredentials } from '../../slices/authSlice.js';
 import { useGetUserBalanceQuery } from '../../slices/balanceApiSlice.js';
 import { useGetMineMembershipIdQuery } from '../../slices/membershipApiSlice.js';
 import { FaArrowDown } from 'react-icons/fa';
+import classNames from 'classnames';
 
 const Header = () => {
   const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
@@ -17,15 +18,8 @@ const Header = () => {
   const [logout] = useLogoutMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [topPos, setTopPos] = useState('top-[-800px]');
   const [dropDown, setDropDown] = useState(false);
-  const bringItems = () => {
-    if (topPos === 'top-[-800px]') {
-      setTopPos('top-[58px]');
-    } else {
-      setTopPos('top-[-800px]');
-    }
-  };
+  const [menuDropDown, setMenuDropDown] = useState(false);
 
   useEffect(() => {
     if (userInfo) {
@@ -56,11 +50,17 @@ const Header = () => {
           </div>
           <div className="relative">
             <div className="md:hidden">
-              <button onClick={bringItems} className="cursor-pointer">
+              <button onClick={() => setMenuDropDown(!menuDropDown)} className="cursor-pointer">
                 <IoMenu size={50} color={`#06316C`} />
               </button>
             </div>
-            <div className={`navbarItemsOne transition-all w-36 md:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute ${topPos} left-[-45px] md:static md:flex-row gap-8 text-coolGray text-xs font-normal items-center`}>
+            <div
+              className={classNames({
+                'navbarItemsOne transition-all w-36 md:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute left-[-45px] md:static md:flex-row gap-8 text-coolGray text-xs font-normal items-center': true,
+                'top-[58px]': menuDropDown,
+                'top-[-800px]': !menuDropDown,
+              })}
+            >
               <a href="" onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="hover:text-[#0f346c]">
                 PLANS
               </a>
@@ -80,12 +80,14 @@ const Header = () => {
             {userInfo ? (
               <>
                 <div className="relative">
-                  <div onClick={() => setDropDown(!dropDown)} className="cursor-pointer text-center w-40 fontCera text-[17px] flex flex-row items-center gap-1">
-                    {userInfo.name}
-                    <FaArrowDown color="#0f346c" className={`${dropDown ? 'rotate-180' : 'rotate-0'} transition-all`} />
+                  <div onClick={() => setDropDown(!dropDown)} className="h-16 cursor-pointer text-center w-auto fontCera text-[17px]">
+                    <div className="flex flex-row items-center justify-center gap-1 w-full h-full">
+                      {userInfo.name}
+                      <FaArrowDown color="#0f346c" className={`${dropDown ? 'rotate-180' : 'rotate-0'} transition-all`} />
+                    </div>
                   </div>
                   {dropDown && (
-                    <div className="absolute flex flex-col items-center justify-center bg-[#0f346c] top-[44px] left-0 w-40 text-white fontCera p-2 text-[15px] gap-2">
+                    <div className="absolute flex flex-col items-center justify-center bg-[#0f346c] top-16 left-1/2 -translate-x-2/4 w-40 text-white fontCera p-2 text-[15px] gap-2">
                       <Link onClick={() => setDropDown(!dropDown)} to="/profile" className="hover:bg-[#F5FDE9] hover:text-[#000] w-full flex justify-center">
                         Profile
                       </Link>
@@ -117,7 +119,7 @@ const Header = () => {
                   )}
                 </div>{' '}
                 {!isLoading && userBalance && userBalance.balance > 0 && (
-                  <div className="fontCera">
+                  <div className="fontCera ml-4">
                     <span className="mr-1 text-[17px]">Balance:</span>${userBalance.balance.toFixed(2)}
                   </div>
                 )}
