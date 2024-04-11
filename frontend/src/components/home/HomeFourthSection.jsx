@@ -7,6 +7,7 @@ const HomeFourthSection = () => {
   const [userName, setUserName] = useState('');
   const [sayac, setSayac] = useState(0);
 
+  //Her 4 saniyede bir sırayla kullanıcı yorumu(5 adet) gösterilir, sonuncu yorum 8 saniye gösterilir ve tekrar başa sarılır.
   setTimeout(() => {
     if (sayac !== 5) {
       setUserName(CommentBoxDatas[sayac].userName);

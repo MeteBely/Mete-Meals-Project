@@ -12,22 +12,22 @@ import { setCredentials } from '../../slices/authSlice.js';
 import { toast } from 'react-toastify';
 
 const LogIn = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.auth);
-
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get('redirect') || '/';
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  //zaten userInfo varsa buraya yönlendirme yapılan yerde nereye redirect paramı kullanılmışsa oraya yönlendiriyoruz.
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
     }
   }, [userInfo, redirect, navigate]);
 
+  //LOG IN butonuna basılırsa tetiklenir, girilen bilgiler doğru ise setCredentials ile local'e userInfo savelenir(backend endpoint'den dönen veriler ile). Var ise redirect edilir, yoksa home page'e yönlenilir.
   const onSubmit = async (values, actions) => {
     try {
       const res = await login(values).unwrap(); //promise eder

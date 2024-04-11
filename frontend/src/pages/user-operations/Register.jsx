@@ -12,22 +12,23 @@ import { setCredentials } from '../../slices/authSlice.js';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-
   const [register, { isLoading }] = useRegisterMutation();
   const { userInfo } = useSelector((state) => state.auth);
-
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const redirect = sp.get('redirect') || '/';
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  //zaten userInfo varsa buraya yönlendirme yapılan yerde nereye redirect paramı kullanılmışsa oraya yönlendiriyoruz.
   useEffect(() => {
     if (userInfo) {
       navigate(redirect);
     }
   }, [userInfo, redirect, navigate]);
 
+  //password ile password again aynı mı diye kontrol edilir, değil ise kullanıcı bilgilendirilir. Aynı ise;
+  //kullanıcı kayıt edilir. Dönen res ile local'e userInfo save edilir. varsa redirect edilir.
   const onSubmit = async (values, actions) => {
     if (values.password === values.confirmPassword) {
       try {
