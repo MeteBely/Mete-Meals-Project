@@ -8,6 +8,7 @@ const UserList = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
 
+  //delete icon'a basılıp devam edilirse kullanıcıyı silip güncel usersları alıp gösterebilmek için refetch ediyoruz.
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {

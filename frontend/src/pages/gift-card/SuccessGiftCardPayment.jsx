@@ -6,14 +6,15 @@ import Loader from '../../components/common/Loader.jsx';
 import Warning from '../../components/common/Warning.jsx';
 import { useSelector } from 'react-redux';
 import GiftCardItems from '../../components/gift-card/GiftCardItems.jsx';
+import { FaExclamation } from 'react-icons/fa';
 
 const SuccessGiftCardPayment = () => {
-  const dispatch = useDispatch();
-
   const { data: paymentResults, isLoading } = useGetPaymentResultsQuery();
   const [createGiftCardCodes, { isLoading: creatingGiftCard }] = useCreateGiftCardCodesMutation();
   const { giftCardItems: giftCards, giftCardCodes } = useSelector((state) => state.giftCard);
+  const dispatch = useDispatch();
 
+  //show keys butonuna basılınca kişinin satın aldığı gift cardların amount'unu alıp teker teker db'ye kayıt ediyoruz. Ayrıca sayfa yenilendiğinde kodları kaybetmemek için local'e de kayıt ediyoruz.
   const createGiftCardCodesFunction = () => {
     if (!creatingGiftCard && giftCards && giftCards.length > 0) {
       const ids = [];
@@ -34,13 +35,15 @@ const SuccessGiftCardPayment = () => {
   };
 
   return (
-    <div className="mt-20 m-auto w-[800px]">
+    <div className="mt-20 px-2 m-auto min-[840px]:w-[800px] w-auto">
       {isLoading ? (
         <Loader />
       ) : (
         <section className="">
           <h1 className="text-[32px] tracking-wide text-[#235091] fontCera font-semibold mb-6">Payment successful</h1>
-          <Warning message="Thank you for your payment!" />
+          <div className="min-[840px]:w-auto w-[475px] mx-auto">
+            <Warning message="Thank you for your payment!" />
+          </div>
           <div className="flex flex-col gap-2 fontCera items-start justify-center">
             <div className="flex flex-row">
               <h4 className="text-[#728285] font-semibold text-[15px] mr-1">Name:</h4>
@@ -71,8 +74,11 @@ const SuccessGiftCardPayment = () => {
                   amount: ${code.amount} / code: {code.key}
                 </div>
               ))}
-            <div>
-              <p>Be careful to not lose these codes, this page is the only place where you can view the codes.</p>
+            <div className="w-auto">
+              <p className="flex flex-row items-start min-[755px]:items-center">
+                <FaExclamation color="red" size={24} />
+                Be careful to not lose these codes, this page is the only place where you can view the codes.
+              </p>
             </div>
           </div>
         </section>

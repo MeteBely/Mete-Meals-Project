@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 const OrderList = () => {
   const { data: orders, isLoading, error, refetch } = useGetOrdersQuery();
 
+  //orders değişirse refectch ediyoruz güncel verileri alabilmek adına.
   useEffect(() => {
     refetch();
   }, [orders, refetch]);

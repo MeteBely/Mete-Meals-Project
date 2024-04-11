@@ -9,12 +9,11 @@ import { UserEditSchema } from '../../Schemas/UserEditSchema.js';
 
 const UserEdit = () => {
   const { id: userId } = useParams();
-
-  const navigate = useNavigate();
-
   const { data: user, isLoading, error, refetch } = useGetUserDetailsQuery(userId);
   const [updateUser, { isLoading: loadingUpdate }] = useUpdateUserMutation();
+  const navigate = useNavigate();
 
+  //form submit olunca user'i güncelliyoruz, güncel user'i göstermek için refetch ediyoruz ve userlist'e navigate ediyoruz kullanıcıyı.
   const onSubmit = async (values, actions) => {
     try {
       await updateUser({
@@ -28,6 +27,7 @@ const UserEdit = () => {
       toast.error(err);
     }
   };
+
   return (
     <section>
       <div className="mt-20 px-2 mb-2">

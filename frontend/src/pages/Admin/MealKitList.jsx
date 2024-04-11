@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const MealKitList = () => {
+  const { data: mealKits, refetch, isLoading, error } = useGetMealKitsQuery();
   const [createMealKit, { isLoading: loadingCreate }] = useCreateMealKitMutation();
   const [deleteMealKit, { isLoading: loadingDelete }] = useDeleteMealKitMutation();
-  const { data: mealKits, refetch, isLoading, error } = useGetMealKitsQuery();
 
   //Delete icon'a basalırsa ve uyarıya evet denilirse meal kiti siliyoruz.
   const deleteHandler = async (id) => {
@@ -33,6 +33,7 @@ const MealKitList = () => {
       }
     }
   };
+
   return (
     <section>
       <div className="flex flex-row justify-around mt-20">

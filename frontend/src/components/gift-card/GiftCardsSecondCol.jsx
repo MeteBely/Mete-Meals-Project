@@ -3,9 +3,12 @@ import { useState } from 'react';
 
 const GiftCardsSecondCol = ({ setAmount, quantity, setQuantity, cart, amount, setCart }) => {
   const [activeLbl, setActiveLbl] = useState('lblTwoActive');
+
+  //Add to card butonuna basıldığında tetiklenir, eğer cart'ın length'i 0'sa direkt seçili amount ve quantity'i karta ekler, eğer hali hazırda gift cardlar varsa;
+  //eğer cart içerisinde amount'u, eklemek istediğimiz cardın amountuna eşit olan varsa, cart içerisindekinin quantity'sine eklenir(seçtiğimiz gift cardın quantity'si).
+  //eğer cart içerisinde amount'u, eklemek istediğimiz cardın amountuna eşit olan yoksa, cart'a yeni obje olarak eklenir.
   const handleCart = () => {
     let flag = false;
-
     if (cart.length !== 0) {
       cart.map((item, index) => {
         if (item.amount === amount) {
@@ -15,7 +18,6 @@ const GiftCardsSecondCol = ({ setAmount, quantity, setQuantity, cart, amount, se
           flag = true;
         }
       });
-
       if (!flag) {
         setCart([...cart, { amount, quantity }]);
       }
@@ -23,6 +25,7 @@ const GiftCardsSecondCol = ({ setAmount, quantity, setQuantity, cart, amount, se
       setCart([{ amount, quantity }]);
     }
   };
+
   return (
     <div className="secondCol fontCera w-[350px]">
       <fieldset className="mb-8">

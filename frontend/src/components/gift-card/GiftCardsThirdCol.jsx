@@ -7,11 +7,11 @@ import { useDispatch } from 'react-redux';
 import { addToGiftCardItems } from '../../slices/giftCardSlice.js';
 
 const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
-  const [payGiftCard, { isLoading: loadingGiftCard }] = usePayGiftCardMutation();
   const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
-
+  const [payGiftCard, { isLoading: loadingGiftCard }] = usePayGiftCardMutation();
   const dispatch = useDispatch();
 
+  //Cart kutucuğunun içindeki decrease'e basılırsa tetiklenir, eğer quantity'si 1'se cart'dan kaldırılır, eğer daha fazlaysa quantity'si 1 azaltılır.
   const handleRemove = (e, itemQuantity, index) => {
     e.preventDefault();
     if (itemQuantity != 1) {
@@ -24,6 +24,7 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
     }
   };
 
+  //Proceed To Checkout butonuna basılınca tetiklenir, cart içerisindeki itemler bilgileriyle birlikte ödeme işlevine götürülür. Kullanıcı ödeme başarılı olursa SuccessGiftCardPayment değilse cancel sekmesine yönlendirilir.
   const makePayment = async () => {
     if (loadingStripe || loadingGiftCard) {
       toast.error('error');
@@ -39,6 +40,7 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
       dispatch(addToGiftCardItems(cart));
     }
   };
+
   return (
     <div className="thirdCol w-[380px]">
       <div className="border border-[#b2b5bd] relative fontCera bg-white pb-[50px] pt-[30px] px-[30px] ">

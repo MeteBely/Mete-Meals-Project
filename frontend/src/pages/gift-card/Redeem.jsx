@@ -2,8 +2,9 @@ import { useNavigate } from 'react-router-dom';
 
 const Redeem = () => {
   const navigate = useNavigate();
+
   const handleButtonClick = (e) => {
-    //redirect eklenecek, gift reedem sayfana tomatik yönlenecek(eğer kullanıcı zaten giriş yapmışsa.)
+    //redirect eklenecek, gift reedem sayfana otomatik yönlenecek(eğer kullanıcı zaten giriş yapmışsa.)
     e.preventDefault();
     navigate('/users/sign_in?redirect=/pages/redeem/giftcardkeys');
   };

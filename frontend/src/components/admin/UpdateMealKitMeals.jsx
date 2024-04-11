@@ -4,6 +4,8 @@ import { useGetMealDetailsQuery } from '../../slices/mealsApiSlice.js';
 
 const UpdateMealKitMeals = ({ mealId, additionableMealsContainer, setAdditionableMealsContainer, setMeals, meals }) => {
   const { data: meal, isLoading } = useGetMealDetailsQuery(mealId);
+
+  //seçili meallerden birine basılırsa tetiklenir, seçili meal dizisinden çıkarıp eklenebilir(additionableMealsContainer) mealler dizisine ekler.
   const handleClick = (e, selectedMeal) => {
     e.preventDefault();
     let newArray = [];

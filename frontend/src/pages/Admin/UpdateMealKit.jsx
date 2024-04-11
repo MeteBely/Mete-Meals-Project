@@ -12,11 +12,11 @@ import { MealKitSchema } from '../../Schemas/MealKitSchema.js';
 
 const UpdateMealKit = () => {
   const { id: mealKitId } = useParams();
+  const { data: mealKit, isLoading, error, refetch } = useGetMealKitDetailsQuery(mealKitId);
+  const { data: additionableMeals, isLoading: loadingAdditionableMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'first week' });
+  const [updateMealKit, { isLoading: loadingUpdate }] = useUpdateMealKitMutation();
   const navigate = useNavigate();
   const [meals, setMeals] = useState([]);
-  const { data: mealKit, isLoading, error, refetch } = useGetMealKitDetailsQuery(mealKitId);
-  const [updateMealKit, { isLoading: loadingUpdate }] = useUpdateMealKitMutation();
-  const { data: additionableMeals, isLoading: loadingAdditionableMeals } = useGetMealsQuery({ numberOfServing: '2', date: 'first week' });
   const [additionableMealsContainer, setAdditionableMealsContainer] = useState([]);
 
   //Meal kitimizin içinde halihazırda bulunan mealler, eğer ekleyebileceğimiz additionableMeals içerlerinde de varsa, additionableMeals içerisinden çıkarılırlar. Çünkü zaten halihazırda selected haldeler. Bu fonksiyonun amacı bu mealleri bulup çıkartmaktır.
@@ -38,7 +38,6 @@ const UpdateMealKit = () => {
       });
       return newArray;
     };
-
     setAdditionableMealsContainer(mealKit?.meals && additionableMeals && additionableMeals.length > 0 ? seperateMeals : additionableMeals);
     setMeals(mealKit?.meals || []);
     refetch();

@@ -9,6 +9,7 @@ const RedeemGiftCardBalance = () => {
   const [getGiftCardAndDelete, { isLoading }] = useGetGiftCardByIdAndDeleteMutation();
   const [updateUserBalance, { isLoading: userBalance }] = useUpdateToUserBalanceMutation();
 
+  //form submit olunca gift cardı db'den çekip siliyoruz, silinin gift carddaki amount'u kullanıcınını balance'sine ekliyoruz.
   const onSubmit = async (values) => {
     if (!userBalance && !isLoading) {
       const res = await getGiftCardAndDelete(values.giftCardId);

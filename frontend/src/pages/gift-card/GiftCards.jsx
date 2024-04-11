@@ -14,15 +14,18 @@ const GiftCards = () => {
   const [sumQuantity, setSumQuantity] = useState(0);
   const [cart, setCart] = useState([]);
 
+  //önceden localde tutulan gift cardlar varsa temizlenir.
   useEffect(() => {
     dispatch(clearGiftCardItems());
   }, [dispatch]);
 
+  //cart dizisi değiştiğinde(eklenip çıkartma) totalQuantity fonksiyonu çalıştırılır, toplam gift card sayısı güncel kalır.
   useEffect(() => {
     totalQuantity();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart]);
 
+  //toplam kaç tane card'ın sepete eklendiğini buraya hesaplıyoruz.
   const totalQuantity = () => {
     let total = 0;
     if (cart.length != 0) {
