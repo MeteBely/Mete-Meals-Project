@@ -9,6 +9,7 @@ const MealKitList = () => {
   const [deleteMealKit, { isLoading: loadingDelete }] = useDeleteMealKitMutation();
   const { data: mealKits, refetch, isLoading, error } = useGetMealKitsQuery();
 
+  //Delete icon'a basalırsa ve uyarıya evet denilirse meal kiti siliyoruz.
   const deleteHandler = async (id) => {
     if (window.confirm('Are you sure you want to delete')) {
       try {
@@ -21,6 +22,7 @@ const MealKitList = () => {
     }
   };
 
+  //Create meal kits'e basılırsa ve uyarıya evet denilirse sample meal kit oluşturuyoruz.
   const createProductHandler = async () => {
     if (window.confirm('Are you sure you want to create new meal kit?')) {
       try {
@@ -51,19 +53,19 @@ const MealKitList = () => {
         <div>{error}</div>
       ) : (
         <>
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 fontCera">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-6 py-3 text-center hidden min-[1086px]:table-cell">
                   ID
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-3 py-2 text-center min-[535px]:px-6 min-[535px]:py-3">
                   NAME
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-6 py-3 text-center hidden min-[860px]:table-cell">
                   INGREDIENTS
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-3 py-2 min-[535px]:px-6 min-[535px]:py-3 text-center">
                   PRICE
                 </th>
                 <th scope="col" className="px-6 py-3 text-center"></th>
@@ -72,10 +74,10 @@ const MealKitList = () => {
             <tbody>
               {mealKits.map((mealKit) => (
                 <tr key={mealKit._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{mealKit._id}</td>
-                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{mealKit.name}</td>
-                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{mealKit.subTxt}</td>
-                  <td className="px-6 py-4 text-center">${mealKit.price}</td>
+                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white hidden min-[1086px]:table-cell">{mealKit._id}</td>
+                  <td className="px-3 py-2 min-[535px]:px-6 min-[535px]:py-3 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{mealKit.name}</td>
+                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white hidden min-[860px]:table-cell">{mealKit.subTxt}</td>
+                  <td className="px-3 py-2 min-[535px]:px-6 min-[535px]:py-3 text-center">${mealKit.price}</td>
                   <td className="px-6 py-4">
                     <Link to={`/admin/mealKit/${mealKit._id}/edit`}>
                       <FaEdit />

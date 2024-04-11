@@ -36,7 +36,7 @@ const UserEdit = () => {
             Go Back
           </Link>
         </div>
-        <div className=" w-[800px] m-auto">
+        <div className="w-auto min-[825px]:w-[800px] m-auto">
           <h2 className="text-[34px] tracking-wide text-[#0F346C] fontCera font-semibold mb-[10px]">Edit User</h2>
           {loadingUpdate && <Loader />}
           {isLoading ? (

@@ -30,39 +30,39 @@ const UserList = () => {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 fontCera">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-3 py-3 min-[675px]:px-6 text-center hidden min-[900px]:table-cell">
                   ID
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-1 py-3 min-[550px]:px-3  min-[675px]:px-6 text-center">
                   NAME
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-1 py-3 min-[550px]:px-3  min-[675px]:px-6 text-center">
                   EMAIL
                 </th>
-                <th scope="col" className="px-6 py-3 text-center">
+                <th scope="col" className="px-1 py-3 min-[550px]:px-3 min-[675px]:px-6 text-center">
                   ADMIN
                 </th>
-                <th scope="col" className="px-6 py-3 text-center"></th>
+                <th scope="col" className="px-1 py-3 min-[550px]:px-3 min-[675px]:px-6 text-center"></th>
               </tr>
             </thead>
             <tbody>
               {users.map((user) => (
                 <tr key={user._id} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{user._id}</td>
-                  <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{user.name}</td>
-                  <td className="px-6 py-4 text-center">
+                  <td className="px-3 py-3 min-[675px]:px-6 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white hidden min-[900px]:table-cell">{user._id}</td>
+                  <td className="px-1 py-3 min-[550px]:px-3 min-[675px]:px-6 text-center font-medium text-gray-900 whitespace-nowrap dark:text-white">{user.name}</td>
+                  <td className="px-1 py-3 min-[550px]:px-3 min-[675px]:px-6 text-center">
                     <a href={`mailto:${user.email}`}>{user.email}</a>
                   </td>
-                  <td className="px-6 py-4 flex justify-center">{user.isAdmin ? <FaCheck style={{ color: 'green' }} className="mx-auto" /> : <FaTimes className="mx-auto" style={{ color: 'red' }} />}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-1 py-3 min-[550px]:px-3 min-[675px]:px-6 flex justify-center">{user.isAdmin ? <FaCheck style={{ color: 'green' }} className="mx-auto" /> : <FaTimes className="mx-auto" style={{ color: 'red' }} />}</td>
+                  <td className="px-1 py-3 min-[550px]:px-3min-[675px]:px-6">
                     <Link to={`/admin/user/${user._id}/edit`}>
                       <FaEdit />
                     </Link>
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-1 pt-[5px] min-[550px]:px-3 min-[675px]:px-6">
                     <button onClick={() => deleteHandler(user._id)}>
                       <FaTrash />
                     </button>

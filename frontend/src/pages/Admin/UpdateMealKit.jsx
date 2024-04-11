@@ -44,6 +44,7 @@ const UpdateMealKit = () => {
     refetch();
   }, [mealKit, additionableMeals, refetch]);
 
+  //additionableMealsContainer içerisinde bir meale basılırsa bu fonk tetiklenir, amacı meal'i additionableMealsContainer içerisinden silip meals dizisine eklemekdir.
   const clickHandler = (e, meal) => {
     e.preventDefault();
     let newArray = [];
@@ -53,6 +54,7 @@ const UpdateMealKit = () => {
     setMeals([...meals, { meal: selectedMeal }]);
   };
 
+  //form submit olunca tetiklenir, meal kiti günceller.
   const onSubmit = async (values, actions) => {
     refetch();
     const updatedMealKit = {
@@ -91,7 +93,7 @@ const UpdateMealKit = () => {
                 <CustomTextarea label="Description" name="description" />
                 <CustomInput label="Ingredients" name="subTxt" />
                 <CustomInput type="number" label="Price" name="price" />
-                <div className="flex flex-row mb-16 gap-16">
+                <div className="flex flex-wrap mb-16 gap-16">
                   <label htmlFor="price" className="text-[26px] tracking-wide text-[#0F346C] fontCera font-semibold">
                     Meals:
                   </label>
