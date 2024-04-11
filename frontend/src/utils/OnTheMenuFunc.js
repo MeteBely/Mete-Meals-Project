@@ -1,4 +1,4 @@
-const OnTheMenuFunc = (activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondWeek, setActiveMenusThirdWeek, setActiveMenusFourthWeek, twoServingFirstMeals, twoServingSecondMeals, twoServingThirdMeals, twoServingFourthMeals, fourServingFirstMeals, fourServingSecondMeals, fourServingThirdMeals, fourServingFourthMeals, fastServingFirstMeals, fastServingSecondMeals, fastServingThirdMeals, fastServingFourthMeals, flexServingFirstMeals, flexServingSecondMeals, flexServingThirdMeals, flexServingFourthMeals) => {
+const onTheMenuFunc = (activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondWeek, setActiveMenusThirdWeek, setActiveMenusFourthWeek, twoServingFirstMeals, twoServingSecondMeals, twoServingThirdMeals, twoServingFourthMeals, fourServingFirstMeals, fourServingSecondMeals, fourServingThirdMeals, fourServingFourthMeals, fastServingFirstMeals, fastServingSecondMeals, fastServingThirdMeals, fastServingFourthMeals, flexServingFirstMeals, flexServingSecondMeals, flexServingThirdMeals, flexServingFourthMeals) => {
   if (activeBtn === 'btnOne') {
     setActiveMenusFirstWeek(twoServingFirstMeals);
     setActiveMenusSecondWeek(twoServingSecondMeals);
@@ -22,4 +22,4 @@ const OnTheMenuFunc = (activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondW
   }
 };
 
-export default OnTheMenuFunc;
+export default onTheMenuFunc;

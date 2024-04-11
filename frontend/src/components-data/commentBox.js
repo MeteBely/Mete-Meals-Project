@@ -1,4 +1,4 @@
-const CommentBoxDatas = [
+const commentBoxDatas = [
   {
     userName: 'Pam Helpert',
     userComment: "We'd tried many other food delivery services and none of them have compared in quality and variety to Mete Meals.",
@@ -21,4 +21,4 @@ const CommentBoxDatas = [
   },
 ];
 
-export default CommentBoxDatas;
+export default commentBoxDatas;

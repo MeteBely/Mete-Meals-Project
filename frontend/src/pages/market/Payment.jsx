@@ -7,7 +7,7 @@ import { useGetUserBalanceQuery } from '../../slices/balanceApiSlice.js';
 import { toast } from 'react-toastify';
 import { Formik, Form } from 'formik';
 import CustomRadio from '../../components/form-components/CustomRadio.jsx';
-import { PaymentMethodSchema } from '../../Schemas/PaymentMethodSchema.js';
+import { paymentMethodSchema } from '../../schemas/index.js';
 
 const Payment = () => {
   const { data: userBalance, isLoading } = useGetUserBalanceQuery();
@@ -50,7 +50,7 @@ const Payment = () => {
         <CheckoutSteps step1 step2 step3 underline="payment" />
       </div>
       <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Payment Method</h1>
-      <Formik initialValues={{ paymentMethod: '' }} onSubmit={onSubmit} validationSchema={PaymentMethodSchema}>
+      <Formik initialValues={{ paymentMethod: '' }} onSubmit={onSubmit} validationSchema={paymentMethodSchema}>
         {({ values }) => (
           <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
             <legend className="text-[20px] font-semibold  text-[#6B6D75]">Select Method</legend>

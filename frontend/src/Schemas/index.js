@@ -1,7 +1,7 @@
-export { LoginSchema } from './LoginSchema.js';
-export { RegisterSchema } from './RegisterSchema.js';
-export { AddressSchema } from './AddressSchema.js';
-export { MealKitSchema } from './MealKitSchema.js';
-export { UserEditSchema } from './UserEditSchema.js';
-export { PaymentMethodSchema } from './PaymentMethodSchema.js';
-export { ReviewSchema } from './ReviewSchema.js';
+export { loginSchema } from './loginSchema.js';
+export { registerSchema } from './registerSchema.js';
+export { addressSchema } from './addressSchema.js';
+export { mealKitSchema } from './mealKitSchema.js';
+export { userEditSchema } from './userEditSchema.js';
+export { paymentMethodSchema } from './paymentMethodSchema.js';
+export { reviewSchema } from './reviewSchema.js';

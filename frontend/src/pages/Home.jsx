@@ -1,5 +1,5 @@
 import HomeFirstSection from '../components/home/HomeFirstSection.jsx';
-import Meta from '../utils/Meta.jsx';
+import Meta from '.././components/common/Meta.jsx';
 import HomeSecondSection from '../components/home/HomeSecondSection.jsx';
 import HomeThirdSection from '../components/home/HomeThirdSection.jsx';
 import HomeFourthSection from '../components/home/HomeFourthSection.jsx';

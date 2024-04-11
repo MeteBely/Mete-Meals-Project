@@ -1,11 +1,6 @@
 import * as yup from 'yup';
 
-export const MealKitSchema = yup.object().shape({
-  // companyName: yup
-  //   .string()
-  //   .matches(/^[A-Za-z ]*$/, 'Lütfen gecerli bir sirket ismi giriniz, özel karakterler kullanmayiniz')
-  //   .max(80, 'Maksimum 40 karakter girilebilir')
-  //   .required('Şirket adi zorunludur'),
+export const mealKitSchema = yup.object().shape({
   name: yup
     .string()
     .matches(/^[A-Za-z ]*$/, 'Lütfen gecerli bir isim giriniz, özel karakterler kullanmayiniz')

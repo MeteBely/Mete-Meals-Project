@@ -8,7 +8,7 @@ import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
 import CustomTextarea from '../../components/form-components/CustomTextarea.jsx';
-import { MealKitSchema } from '../../Schemas/MealKitSchema.js';
+import { mealKitSchema } from '../../schemas/index.js';
 
 const UpdateMealKit = () => {
   const { id: mealKitId } = useParams();
@@ -85,7 +85,7 @@ const UpdateMealKit = () => {
         ) : error ? (
           <div>{error}</div>
         ) : (
-          <Formik initialValues={{ name: mealKit.name, description: mealKit.description, subTxt: mealKit.subTxt, price: mealKit.price }} onSubmit={onSubmit} validationSchema={MealKitSchema}>
+          <Formik initialValues={{ name: mealKit.name, description: mealKit.description, subTxt: mealKit.subTxt, price: mealKit.price }} onSubmit={onSubmit} validationSchema={mealKitSchema}>
             {({ isSubmitting, values }) => (
               <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
                 <CustomInput label="Name" name="name" />

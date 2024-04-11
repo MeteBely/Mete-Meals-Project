@@ -5,11 +5,11 @@ import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetMealKitDetailsQuery, useCreateReviewMutation } from '../../slices/mealKitsApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
-import Meta from '../../utils/Meta.jsx';
+import Meta from '../../components/common/Meta.jsx';
 import { Formik, Form } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
 import CustomTextarea from '../../components/form-components/CustomTextarea.jsx';
-import { ReviewSchema } from '../../Schemas/ReviewSchema.js';
+import { reviewSchema } from '../../schemas/index.js';
 import classNames from 'classnames';
 
 const MealKitDetail = () => {
@@ -141,7 +141,7 @@ const MealKitDetail = () => {
               <h3 className="text-[22px] tracking-wide text-[#0F346C] fontCera font-semibold">Write Review</h3>
               {isReviewLoading && <Loader />}
               {userInfo ? (
-                <Formik initialValues={{ rating: 1, comment: '' }} onSubmit={onSubmit} validationSchema={ReviewSchema}>
+                <Formik initialValues={{ rating: 1, comment: '' }} onSubmit={onSubmit} validationSchema={reviewSchema}>
                   {({ values }) => (
                     <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-auto min-[1050px]:w-[1000px]">
                       <CustomTextarea label="Comment" name="comment" />

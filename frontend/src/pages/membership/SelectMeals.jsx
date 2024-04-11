@@ -8,7 +8,7 @@ import { useState } from 'react';
 import SelectMealItem from '../../components/membership/SelectMealItem.jsx';
 import { toast } from 'react-toastify';
 import { Form, Formik } from 'formik';
-import { AddressSchema } from '../../Schemas/AddressSchema.js';
+import { addressSchema } from '../../schemas/index.js';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
 
 const SelectMeals = () => {
@@ -94,7 +94,7 @@ const SelectMeals = () => {
           </div>
         </div>
       )}
-      <Formik initialValues={{ address: shippingAddress?.address || '', city: shippingAddress?.city || '', postalCode: shippingAddress?.postalCode || '' }} onSubmit={onSubmit} validationSchema={AddressSchema}>
+      <Formik initialValues={{ address: shippingAddress?.address || '', city: shippingAddress?.city || '', postalCode: shippingAddress?.postalCode || '' }} onSubmit={onSubmit} validationSchema={addressSchema}>
         {({ isSubmitting, values }) => (
           <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 min-[1050px]:w-[1000px] w-auto">
             <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>

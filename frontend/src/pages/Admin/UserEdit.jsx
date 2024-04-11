@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { Formik, Form } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
 import CustomCheckbox from '../../components/form-components/CustomCheckbox.jsx';
-import { UserEditSchema } from '../../Schemas/UserEditSchema.js';
+import { userEditSchema } from '../../schemas/index.js';
 
 const UserEdit = () => {
   const { id: userId } = useParams();
@@ -44,7 +44,7 @@ const UserEdit = () => {
           ) : error ? (
             <div>{error}</div>
           ) : (
-            <Formik onSubmit={onSubmit} initialValues={{ name: user.name, email: user.email, isAdmin: user.isAdmin }} validationSchema={UserEditSchema}>
+            <Formik onSubmit={onSubmit} initialValues={{ name: user.name, email: user.email, isAdmin: user.isAdmin }} validationSchema={userEditSchema}>
               {({ values }) => (
                 <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
                   <CustomInput label="Name" name="name" />

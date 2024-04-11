@@ -1,4 +1,4 @@
-const MealPreferences = [
+const mealPreferences = [
   {
     title: 'Chef Favorites',
     description: "Our test kitchen's top picks",
@@ -36,4 +36,4 @@ const MealPreferences = [
   },
 ];
 
-export default MealPreferences;
+export default mealPreferences;

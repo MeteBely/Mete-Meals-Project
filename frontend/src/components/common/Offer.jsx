@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 const Offer = () => {
   const navigate = useNavigate();
   const [dialogOpen, setDialogOpen] = useState(false);
+
   const divImagePrice = (price) => {
     const divs = [];
-
     for (let i = 0; i < 4; i++) {
       divs.push(
         <div key={i}>
@@ -20,6 +20,7 @@ const Offer = () => {
     }
     return divs;
   };
+
   return (
     <section>
       <Dialog open={dialogOpen} sx={{ backdropFilter: 'blur(1px) sepia(1%)' }} fullWidth maxWidth="sm" onClose={() => setDialogOpen(false)}>

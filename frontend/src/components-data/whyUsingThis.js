@@ -1,4 +1,4 @@
-const WhyUsingThis = [
+const whyUsingThis = [
   {
     src: 'https://media.blueapron.com/assets/registration/homepage/chef-experience.webp?height=374&quality=90',
     title: '5 decades of top restaurant experience',
@@ -16,4 +16,4 @@ const WhyUsingThis = [
   },
 ];
 
-export default WhyUsingThis;
+export default whyUsingThis;

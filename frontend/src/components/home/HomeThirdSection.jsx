@@ -1,4 +1,4 @@
-import WhyUsingThis from '../../componentsdata/WhyUsingThis.js';
+import whyUsingThis from '../../components-data/whyUsingThis.js';
 import WhyMealKits from './WhyMealKits.jsx';
 
 const HomeThirdSection = () => {
@@ -11,7 +11,7 @@ const HomeThirdSection = () => {
         original American meal kit.
       </p>
       <div className="flex flex-row gap-12 justify-center items-center">
-        {WhyUsingThis.map((item, index) => {
+        {whyUsingThis.map((item, index) => {
           return <WhyMealKits kitBox={item} key={index} />;
         })}
       </div>

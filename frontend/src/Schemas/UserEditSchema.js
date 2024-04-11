@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 const emailRegExp = /\w+@\w+\.[a-zA-Z]{2,}/g;
 
-export const UserEditSchema = yup.object().shape({
+export const userEditSchema = yup.object().shape({
   name: yup
     .string()
     .matches(/^[A-Za-z ]*$/, 'Lütfen gecerli bir isim giriniz, özel karakterler kullanmayiniz')

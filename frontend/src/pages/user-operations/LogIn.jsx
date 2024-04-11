@@ -1,6 +1,6 @@
 import { Form, Formik } from 'formik';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
-import { LoginSchema } from '../../Schemas';
+import { loginSchema } from '../../schemas/index.js';
 import { FaApple } from 'react-icons/fa6';
 import { FaFacebook } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -42,7 +42,7 @@ const LogIn = () => {
     <section className="bg-[#FAFBFC] mt-[62px] border-t-[1px] border-[#ECEEF2] pb-8">
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Log In</h1>
-        <Formik initialValues={{ email: '', password: '' }} onSubmit={onSubmit} validationSchema={LoginSchema}>
+        <Formik initialValues={{ email: '', password: '' }} onSubmit={onSubmit} validationSchema={loginSchema}>
           {({ values }) => (
             <Form className="flex flex-col gap-4 border rounded-none  p-4 m-4">
               <CustomInput label="Email" name="email" />

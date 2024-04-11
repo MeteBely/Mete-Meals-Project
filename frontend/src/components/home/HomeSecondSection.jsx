@@ -1,4 +1,4 @@
-import HomePageMeals from '../../componentsdata/HomePageMeals.js';
+import homePageMeals from '../../components-data/homePageMeals.js';
 import WeeklyOptionsMenu from './WeeklyOptionsMenu.jsx';
 
 const HomeSecondSection = () => {
@@ -9,7 +9,7 @@ const HomeSecondSection = () => {
         <h2 className="fontChronicle text-center text-5xl text-[#00a0df] mb-10">70+ weekly options</h2>
         <div className="flexColDiv flex flex-col items-center justify-center">
           <div className="flexrowDiv flex flex-row flex-wrap m-auto gap-8 justify-center items-center">
-            {HomePageMeals.map((mealBox, index) => {
+            {homePageMeals.map((mealBox, index) => {
               return <WeeklyOptionsMenu mealBox={mealBox} key={index} />;
             })}
           </div>

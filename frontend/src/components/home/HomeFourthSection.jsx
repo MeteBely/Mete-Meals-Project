@@ -1,5 +1,5 @@
 import DividerIcon from '../common/DividerIcon.jsx';
-import CommentBoxDatas from '../../componentsdata/CommentBox.js';
+import commentBoxDatas from '../../components-data/commentBox.js';
 import { useState } from 'react';
 
 const HomeFourthSection = () => {
@@ -10,8 +10,8 @@ const HomeFourthSection = () => {
   //Her 4 saniyede bir sırayla kullanıcı yorumu(5 adet) gösterilir, sonuncu yorum 8 saniye gösterilir ve tekrar başa sarılır.
   setTimeout(() => {
     if (sayac !== 5) {
-      setUserName(CommentBoxDatas[sayac].userName);
-      setComment(CommentBoxDatas[sayac].userComment);
+      setUserName(commentBoxDatas[sayac].userName);
+      setComment(commentBoxDatas[sayac].userComment);
       setSayac((prev) => prev + 1);
     } else {
       setSayac(0);

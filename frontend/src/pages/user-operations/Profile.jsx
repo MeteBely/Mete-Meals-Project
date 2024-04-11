@@ -6,7 +6,7 @@ import { setCredentials } from '../../slices/authSlice.js';
 import { useGetMyOrdersQuery } from '../../slices/ordersApiSlice.js';
 import { FaTimes } from 'react-icons/fa';
 import { Form, Formik } from 'formik';
-import { RegisterSchema } from '../../Schemas/RegisterSchema.js';
+import { registerSchema } from '../../schemas/index.js';
 import { Link } from 'react-router-dom';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
 
@@ -36,7 +36,7 @@ const Profile = () => {
     <div className="flex flex-wrap flex-row mt-20 justify-evenly">
       <div className="w-[400px] fontCera">
         {/*FİRST COL  */}
-        <Formik initialValues={{ name: userInfo.name, email: userInfo.email, password: '', confirmPassword: '' }} onSubmit={onSubmit} validationSchema={RegisterSchema}>
+        <Formik initialValues={{ name: userInfo.name, email: userInfo.email, password: '', confirmPassword: '' }} onSubmit={onSubmit} validationSchema={registerSchema}>
           {({ isSubmitting, values }) => (
             <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
               <CustomInput label="Name" name="name" />
