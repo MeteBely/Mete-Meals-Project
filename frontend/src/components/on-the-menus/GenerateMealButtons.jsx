@@ -1,7 +1,6 @@
 export const generateMealButtons = (setActiveMealPerWeekBtn) => {
   const mealButtons = ['twoMealBtn', 'threeMealBtn', 'fourMealBtn', 'fiveMealBtn'];
   const buttons = [];
-
   for (let i = 2; i <= 5; i++) {
     buttons.push(
       <li className="my-auto min-w-[46px] inline-block">

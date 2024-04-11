@@ -1,23 +1,12 @@
 import { useState } from 'react';
-import { SelectedMealBtn } from '../../utils/SelectedMealBtn.js';
 import { generateMealButtons } from './GenerateMealButtons.jsx';
 import { useNavigate } from 'react-router-dom';
+import classNames from 'classnames';
+
 const BuildYourPlan = () => {
   const navigate = useNavigate();
   const [activeMealPerWeekBtn, setActiveMealPerWeekBtn] = useState('twoMealBtn');
   const [activeNumberOfServingBtn, setActiveNumberOfServingBtn] = useState('twoServingBtn');
-
-  const mealsPerWeekAfterHandling = () => {
-    if (activeMealPerWeekBtn === 'twoMealBtn') {
-      return SelectedMealBtn('0', '2');
-    } else if (activeMealPerWeekBtn === 'threeMealBtn') {
-      return SelectedMealBtn('1/4', '3');
-    } else if (activeMealPerWeekBtn === 'fourMealBtn') {
-      return SelectedMealBtn('2/4', '4');
-    } else if (activeMealPerWeekBtn === 'fiveMealBtn') {
-      return SelectedMealBtn('3/4', '5');
-    }
-  };
 
   return (
     <div className="w-auto px-0 min-[600px]:w-[781px] min-[600px]:px-[20px] m-auto border border-[#d3d5db] pb-4 rounded-[8px] flex flex-row items-center justify-between h-[250px] my-12">
@@ -57,7 +46,17 @@ const BuildYourPlan = () => {
             <br />
             week
           </div>
-          <ul className={`relative flex flex-row h-[38px] rounded-[58px] bg-[#f8f9fa] overflow-visible justify-center items-center ${mealsPerWeekAfterHandling()}`}>{generateMealButtons(setActiveMealPerWeekBtn)}</ul>
+          <ul
+            className={classNames({
+              'relative flex flex-row h-[38px] rounded-[58px] bg-[#f8f9fa] overflow-visible justify-center items-center after:absolute after:top-0 after:w-1/4 after:h-full after:bg-[#002684] after:tracking-[2px] after:whitespace-nowrap after:text-[18px] after:text-center after:fontCera after:rounded-[45%] after:text-white after:pt-[7px] after:transition-[left] after:duration-150 after:ease-linear': true,
+              'after:left-0 after:content-["2"]': activeMealPerWeekBtn === 'twoMealBtn',
+              'after:left-1/4 after:content-["3"]': activeMealPerWeekBtn === 'threeMealBtn',
+              'after:left-2/4 after:content-["4"]': activeMealPerWeekBtn === 'fourMealBtn',
+              'after:left-3/4 after:content-["5"]': activeMealPerWeekBtn === 'fiveMealBtn',
+            })}
+          >
+            {generateMealButtons(setActiveMealPerWeekBtn)}
+          </ul>
         </div>
         <div className="mt-12">
           <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="absolute bottom-[12px] right-0 w-[200px] tracking-[2px] min-w-[128px] bg-[#00a0df]  rounded-[30px] text-[15px] h-[46px] fontCera text-center text-white hover:bg-[#5CBFE6]">

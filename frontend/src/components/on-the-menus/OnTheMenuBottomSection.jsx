@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 const OnTheMenuBottomSection = () => {
   const navigate = useNavigate();
+
   return (
     <footer>
       <div className="w-auto m-auto text-center mb-2">

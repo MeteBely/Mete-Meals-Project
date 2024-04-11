@@ -4,6 +4,7 @@ import React from 'react';
 import MonthlyMenuItem from './MonthlyMenuItem.jsx';
 import WeekOfMonth from './WeekOfMonth.jsx';
 
+//build your plan componentini, ilk hafta meallerinin 6.sından sonra yerleştiriyorum.
 const OnTheMenuSecondSection = ({ activeMenusFirstWeek }) => {
   return (
     <section className="mt-[180px]">

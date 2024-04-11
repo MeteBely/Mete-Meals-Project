@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import WeekOfMonth from './WeekOfMonth.jsx';
+
+//active butonu bulup set ettiğim component.
 const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
   const [subTxt, setSubTxt] = useState('Choose from an ever-changing mix of meat, fish, and health-conscious offerings.');
+
   return (
     <section>
       <div className="h-[360px]">
