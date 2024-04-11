@@ -5,9 +5,10 @@ import { savePreference } from '../../slices/membershipDetailSlice.js';
 
 // eslint-disable-next-line react/prop-types
 const PreferencesBox = ({ title, description, img, imgBlue, selected, setSelected, filter }) => {
-  const dispatch = useDispatch();
   const [mouseOnBox, setMouseOnBox] = useState(false);
+  const dispatch = useDispatch();
 
+  //preference seçince tetiklenir, seçilen preferenceyi selected'e set edip localde save ederiz.
   const clickHandler = () => {
     setSelected(filter);
     dispatch(savePreference(filter));

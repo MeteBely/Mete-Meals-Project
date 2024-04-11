@@ -6,6 +6,7 @@ import tick from '../../assets/icons/tick.png';
 const SelectMealItem = ({ meal, selectedXWeekMeals, setSelectedXWeekMeals }) => {
   const [isMealInPlan, setIsMealInPlan] = useState(false);
 
+  //meal'e basınca tetiklenir, eğer basılan meal ilgili haftanın dizisinde yoksa eklenir, eğer varsa filtrelenip çıkartılır.
   const clickHandler = (mealId, selectedXWeekMeals, setSelectedXWeekMeals) => {
     let testArray = selectedXWeekMeals.slice(); // [...selectedFirstWeekMeals]'de olur;
     let isExist = false;
@@ -15,7 +16,6 @@ const SelectMealItem = ({ meal, selectedXWeekMeals, setSelectedXWeekMeals }) => 
         break;
       }
     }
-
     if (isExist) {
       testArray = testArray.filter((existMealId) => existMealId !== mealId);
       setIsMealInPlan(false);
@@ -23,12 +23,11 @@ const SelectMealItem = ({ meal, selectedXWeekMeals, setSelectedXWeekMeals }) => 
       testArray.push(mealId);
       setIsMealInPlan(true);
     }
-
     setSelectedXWeekMeals(testArray);
   };
 
   return (
-    <div key={meal._id} className="flex flex-col items-center justify-center gap-2  w-[300px] relative">
+    <div key={meal._id} className="flex flex-col items-center justify-center gap-2 w-[350px] relative">
       <img onClick={() => clickHandler(meal._id, selectedXWeekMeals, setSelectedXWeekMeals)} className="w-32 h-32 rounded-md cursor-pointer" src={meal.img} alt="" />
       <img src={tick} className={`${isMealInPlan ? 'absolute top-1/4 right-[40px] inline-block w-[30px] h-[30px]' : 'hidden'}`}></img>
       <Link to={`/on-the-menu/meal/${meal._id}`} className="underline underline-offset-2">

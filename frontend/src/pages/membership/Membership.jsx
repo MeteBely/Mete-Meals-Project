@@ -10,6 +10,7 @@ const Membership = () => {
   const [updateMealsDeliverSituation] = useUpdateMembershipMealsDeliverMutation();
   const { userInfo } = useSelector((state) => state.auth);
 
+  //Admin butona bastığında tetiklenir, ilgili membership'in hangi haftasında kaldıysa o haftanın isDelivered'ini true olarak günceller. refetch ederek güncellenen yeni veriyi almamız sağlanır.
   const handleDeliver = async (membershipId) => {
     try {
       await updateMealsDeliverSituation(membershipId);
@@ -26,14 +27,14 @@ const Membership = () => {
         <Loader />
       ) : (
         <section className="mt-20 px-2 fontCera pb-4">
-          <div className="flex flex-row items-start gap-10">
-            <div className=" w-3/4">
+          <div className="flex flex-wrap min-[1430px]:justify-start justify-evenly flex-row items-start gap-[30px]">
+            <div className="min-[1680px]:w-[1300px] min-[1430px]:w-[1000px]  w-auto">
               <h1 className="text-[34px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Membership Details</h1>
               <div className="mb-2 border-b border-[#6B6D75] pb-2">
                 <h2 className="text-[20px] tracking-wide text-[#0F346C] fontCera font-semibold ml-[65px]">First Week</h2>
-                <div className="flex flex-row flex-wrap items-center justify-start gap-2">
+                <div className="flex flex-row flex-wrap items-center justify-start gap-8 min-[1680px]:gap-2">
                   {userMembership.plan.selectedMeals.firstWeek.map((firstWeekMeal) => (
-                    <div key={firstWeekMeal._id} className="flex flex-col items-center justify-center gap-1 w-[300px]">
+                    <div key={firstWeekMeal._id} className="flex flex-col items-center justify-center gap-1 min-[1680px]:w-[300px] w-auto">
                       <img className="w-16 h-16 rounded-md" src={firstWeekMeal.img} alt="" />
                       <Link to={`/on-the-menu/meal/${firstWeekMeal._id}`} className="underline underline-offset-2 text-[14px]">
                         {firstWeekMeal.name}
@@ -44,9 +45,9 @@ const Membership = () => {
               </div>
               <div className="mb-2 border-b border-[#6B6D75] pb-2">
                 <h2 className="text-[20px] tracking-wide text-[#0F346C] fontCera font-semibold ml-[65px]">Second Week</h2>
-                <div className="flex flex-row flex-wrap items-center justify-start gap-2">
+                <div className="flex flex-row flex-wrap items-center justify-start gap-8 min-[1680px]:gap-2">
                   {userMembership.plan.selectedMeals.secondWeek.map((secondWeek) => (
-                    <div key={secondWeek._id} className="flex flex-col items-center justify-center gap-1 w-[300px]">
+                    <div key={secondWeek._id} className="flex flex-col items-center justify-center gap-1 min-[1680px]:w-[300px] w-auto">
                       <img className="w-16 h-16 rounded-md" src={secondWeek.img} alt="" />
                       <Link to={`/on-the-menu/meal/${secondWeek._id}`} className="underline underline-offset-2 text-[14px]">
                         {secondWeek.name}
@@ -57,9 +58,9 @@ const Membership = () => {
               </div>
               <div className="mb-2 border-b border-[#6B6D75] pb-2">
                 <h2 className="text-[20px] tracking-wide text-[#0F346C] fontCera font-semibold ml-[65px]">Third Week</h2>
-                <div className="flex flex-row flex-wrap items-center justify-start gap-2">
+                <div className="flex flex-row flex-wrap items-center justify-start gap-8 min-[1680px]:gap-2">
                   {userMembership.plan.selectedMeals.thirdWeek.map((thirdWeek) => (
-                    <div key={thirdWeek._id} className="flex flex-col items-center justify-center gap-1 w-[300px]">
+                    <div key={thirdWeek._id} className="flex flex-col items-center justify-center gap-1 min-[1680px]:w-[300px] w-auto">
                       <img className="w-16 h-16 rounded-md" src={thirdWeek.img} alt="" />
                       <Link to={`/on-the-menu/meal/${thirdWeek._id}`} className="underline underline-offset-2 text-[14px]">
                         {thirdWeek.name}
@@ -70,9 +71,9 @@ const Membership = () => {
               </div>
               <div className="">
                 <h2 className="text-[20px] tracking-wide text-[#0F346C] fontCera font-semibold ml-[65px]">Fourth Week</h2>
-                <div className="flex flex-row flex-wrap items-center justify-start gap-2">
+                <div className="flex flex-row flex-wrap items-center justify-start gap-8 min-[1680px]:gap-2">
                   {userMembership.plan.selectedMeals.fourthWeek.map((fourthWeek) => (
-                    <div key={fourthWeek._id} className="flex flex-col items-center justify-center gap-1 w-[300px]">
+                    <div key={fourthWeek._id} className="flex flex-col items-center justify-center gap-1 min-[1680px]:w-[300px] w-auto">
                       <img className="w-16 h-16 rounded-md" src={fourthWeek.img} alt="" />
                       <Link to={`/on-the-menu/meal/${fourthWeek._id}`} className="underline underline-offset-2 text-[14px]">
                         {fourthWeek.name}
@@ -82,7 +83,7 @@ const Membership = () => {
                 </div>
               </div>
             </div>
-            <div className=" w-1/4">
+            <div className="w-auto">
               <div className="mb-4">
                 <h2 className="text-[30px] tracking-wide text-[#0F346C] fontCera font-semibold">Shipping</h2>
                 <p className="fontCera">

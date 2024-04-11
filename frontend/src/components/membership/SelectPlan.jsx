@@ -4,31 +4,20 @@ import { savePlan } from '../../slices/membershipDetailSlice.js';
 import { loadStripe } from '@stripe/stripe-js';
 import { useGetStripePublishableKeyQuery, usePayMembershipMutation, useGetMineMembershipIdQuery } from '../../slices/membershipApiSlice.js';
 import { toast } from 'react-toastify';
+import classNames from 'classnames';
 
 const SelectPlan = () => {
+  const { data: membershipId } = useGetMineMembershipIdQuery();
+  const { data: stripeId } = useGetStripePublishableKeyQuery();
+  const [payMembership] = usePayMembershipMutation();
   const membershipDetail = useSelector((state) => state.membershipDetail);
   const dispatch = useDispatch();
-  const { data: stripeId, isLoading: loadingStripeId } = useGetStripePublishableKeyQuery();
-  const [payMembership, { isLoading: loadingPay }] = usePayMembershipMutation();
-  const { data: membershipId, isLoading: loadingMembershipId } = useGetMineMembershipIdQuery();
-  //Bu 4 değişkenide localde tutacağım.
-  const [activeMealPerWeek, setActiveMealPerWeek] = useState('twoMeal');
-  const [activeNumberOfServing, setActiveNumberOfServing] = useState('twoServing');
-  const [pricePerServing, setPricePerServing] = useState(18);
-  const [subTotal, setSubTotal] = useState(0);
+  const [activeMealPerWeek, setActiveMealPerWeek] = useState('twoMeal'); //localde tutulacak
+  const [activeNumberOfServing, setActiveNumberOfServing] = useState('twoServing'); //localde tutulacak
+  const [pricePerServing, setPricePerServing] = useState(18); //localde tutulacak
+  const [subTotal, setSubTotal] = useState(0); //localde tutulacak
 
-  const mealsPerWeekAfterHandling = () => {
-    if (activeMealPerWeek === 'twoMeal') {
-      return 'after:absolute after:top-0 after:left-0 after:w-1/4 after:h-full after:bg-[#002684] after:tracking-[2px] after:whitespace-nowrap after:text-[22px] rounded-sm after:text-center after:fontCera after:text-white after:pt-[2px] after:content-["2"] after:transition-[left] after:duration-150 after:ease-linear';
-    } else if (activeMealPerWeek === 'threeMeal') {
-      return 'after:absolute after:top-0 after:left-1/4 after:w-1/4 after:h-full after:bg-[#002684] after:tracking-[2px] after:whitespace-nowrap after:text-[22px]  rounded-sm after:text-center after:fontCera after:text-white after:pt-[2px] after:content-["3"] after:transition-[left] after:duration-150 after:ease-linear';
-    } else if (activeMealPerWeek === 'fourMeal') {
-      return 'after:absolute after:top-0 after:left-2/4 after:w-1/4 after:h-full after:bg-[#002684] after:tracking-[2px] after:whitespace-nowrap after:text-[22px] rounded-sm after:text-center after:fontCera after:text-white after:pt-[2px] after:content-["4"] after:transition-[left] after:duration-150 after:ease-linear';
-    } else if (activeMealPerWeek === 'fiveMeal') {
-      return 'after:absolute after:top-0 after:left-3/4 after:w-1/4 after:h-full after:bg-[#002684] after:tracking-[2px] after:whitespace-nowrap after:text-[22px] rounded-sm after:text-center after:fontCera after:text-white after:pt-[2px] after:content-["5"] after:transition-[left] after:duration-150 after:ease-linear';
-    }
-  };
-
+  //Hangi activeMealPerWeek ve activeNumberOfServing butonu seçiliyse ona göre SubTotal'ı güncel tutar.
   useEffect(() => {
     if (activeMealPerWeek === 'twoMeal') {
       setPricePerServing(18.5);
@@ -45,6 +34,9 @@ const SelectPlan = () => {
     }
   }, [activeNumberOfServing, activeMealPerWeek, pricePerServing]);
 
+  //CONTINUE butonuna basılınca tetiklenir, membership varsa kullanıcıya bilgilendirme döner. Eğer kullanıcının membership'i yoksa;
+  //membershipDetail.preference'si sorgulanır. Eğer yoksa kullanıcıya bilgilendirme döner. Eğer kullanıcı preference seçmişse;
+  //plan bilgileri local'e kayıt edilir. Kullanıcı ödeme ekranına yönlendirilir. Ödeme başarılı olursa, meals seçmesi için SelectMeals'a yönlendirilir.
   const submitHandler = async () => {
     if (!membershipId) {
       if (membershipDetail.preference === '') {
@@ -75,7 +67,7 @@ const SelectPlan = () => {
   };
 
   return (
-    <div className="colTwoDiv flex flex-col justify-center items-center mt-10 gap-8 min-[1100px]:border-l-[1px] border-[#d3d6cd] pl-[70px] h-5/6  min-[1100px]:pb-16  min-[1100px]:pr-12">
+    <div className="flex flex-col justify-center items-center mt-10 gap-8 min-[1100px]:border-l-[1px] border-[#d3d6cd] pl-[70px] min-[1100px]:pb-16 min-[1100px]:pr-12">
       <h2 className="text-[22px] font-semibold text-[#303236]">2. Select your plan</h2>
       <div className="flex flex-row gap-[40px]">
         <p className="text-[18px] text-[#303235] text-center">Servings per meal</p>
@@ -94,7 +86,15 @@ const SelectPlan = () => {
       </div>
       <div className="flex flex-row gap-[60px]">
         <p className="text-[18px] text-[#303235] text-center">Meals per week</p>
-        <ul className={`relative flex flex-row ${mealsPerWeekAfterHandling()}`}>
+        <ul
+          className={classNames({
+            'relative flex flex-row after:absolute after:transition-[left] after:duration-150 after:ease-linear after:top-0 after:w-1/4 after:h-full after:bg-[#002684] after:tracking-[2px] after:whitespace-nowrap after:text-[22px] rounded-sm after:text-center after:fontCera after:text-white after:pt-[2px]': true,
+            "after:left-0 after:content-['2']": activeMealPerWeek === 'twoMeal',
+            "after:left-1/4 after:content-['3']": activeMealPerWeek === 'threeMeal',
+            "after:left-2/4 after:content-['4']": activeMealPerWeek === 'fourMeal',
+            "after:left-3/4 after:content-['5']": activeMealPerWeek === 'fiveMeal',
+          })}
+        >
           <li>
             <button className="border border-[#d3d6cd] w-[50px] h-[38px] text-[#002684] text-[22px] rounded-sm" onClick={() => setActiveMealPerWeek('twoMeal')}>
               2

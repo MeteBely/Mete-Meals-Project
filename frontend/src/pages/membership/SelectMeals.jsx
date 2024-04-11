@@ -12,23 +12,23 @@ import { AddressSchema } from '../../Schemas/AddressSchema.js';
 import CustomInput from '../../components/form-components/CustomInput.jsx';
 
 const SelectMeals = () => {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const [createMembership, { isLoading }] = useCreateMembershipMutation();
   const membershipDetail = useSelector((state) => state.membershipDetail);
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
-
   const { data: twoServingFirstMeals, isLoadingOne } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'first week', preference: membershipDetail.preference });
   const { data: twoServingSecondMeals, isLoadingTwo } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'second week', preference: membershipDetail.preference });
   const { data: twoServingThirdMeals, isLoadingThree } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'third week', preference: membershipDetail.preference });
   const { data: twoServingFourthMeals, isLoadingFour } = useGetMealsQuery({ numberOfServing: membershipDetail.plan.numberOfServing, date: 'fourth week', preference: membershipDetail.preference });
-
+  const [createMembership, { isLoading }] = useCreateMembershipMutation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [selectedFirstWeekMeals, setSelectedFirstWeekMeals] = useState([]);
   const [selectedSecondWeekMeals, setSelectedSecondWeekMeals] = useState([]);
   const [selectedThirdWeekMeals, setSelectedThirdWeekMeals] = useState([]);
   const [selectedFourthWeekMeals, setSelectedFourthWeekMeals] = useState([]);
 
+  //Kullanıcının her haftada minimum 1 meal seçtiğinden emin olunur. Seçtiği mealler, yazdığı adres ve localdeki plan ve preference bilgilileri ile membership oluşturulur.
+  //Ayrıca localden membership bilgileri temizlenir ve son olarak kullanıcı membership sayfasına yönlendirilir.
   const onSubmit = async (values, actions) => {
     if (selectedFirstWeekMeals && selectedFirstWeekMeals.length > 0 && selectedSecondWeekMeals && selectedSecondWeekMeals.length > 0 && selectedThirdWeekMeals && selectedThirdWeekMeals.length > 0 && selectedFourthWeekMeals && selectedFourthWeekMeals.length > 0) {
       const res = await createMembership({
@@ -62,7 +62,7 @@ const SelectMeals = () => {
         <div className="mt-20 fontCera px-2">
           <div className="mb-8 border-b border-[#6B6D75] pb-8">
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">First Week</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-20">
+            <div className="flex flex-row flex-wrap items-center justify-center min-[1600px]:justify-start gap-20">
               {twoServingFirstMeals.map((meal) => (
                 <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedFirstWeekMeals} setSelectedXWeekMeals={setSelectedFirstWeekMeals} />
               ))}
@@ -70,7 +70,7 @@ const SelectMeals = () => {
           </div>
           <div className="mb-8 border-b border-[#6B6D75] pb-8">
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">Second Week</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-20">
+            <div className="flex flex-row flex-wrap items-center justify-center min-[1600px]:justify-start gap-20">
               {twoServingSecondMeals.map((meal) => (
                 <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedSecondWeekMeals} setSelectedXWeekMeals={setSelectedSecondWeekMeals} />
               ))}
@@ -78,7 +78,7 @@ const SelectMeals = () => {
           </div>
           <div className="mb-8 border-b border-[#6B6D75] pb-8">
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">Third Week</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-20">
+            <div className="flex flex-row flex-wrap items-center justify-center min-[1600px]:justify-start gap-20">
               {twoServingThirdMeals.map((meal) => (
                 <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedThirdWeekMeals} setSelectedXWeekMeals={setSelectedThirdWeekMeals} />
               ))}
@@ -86,7 +86,7 @@ const SelectMeals = () => {
           </div>
           <div className="mb-8 pb-8">
             <h2 className="text-[36px] tracking-wide text-[#0F346C] fontCera font-semibold mb-4 ml-[45px]">Fourth Week</h2>
-            <div className="flex flex-row flex-wrap items-center justify-start gap-20">
+            <div className="flex flex-row flex-wrap items-center justify-center min-[1600px]:justify-start gap-20">
               {twoServingFourthMeals.map((meal) => (
                 <SelectMealItem key={meal._id} meal={meal} selectedXWeekMeals={selectedFourthWeekMeals} setSelectedXWeekMeals={setSelectedFourthWeekMeals} />
               ))}
@@ -94,10 +94,9 @@ const SelectMeals = () => {
           </div>
         </div>
       )}
-
       <Formik initialValues={{ address: shippingAddress?.address || '', city: shippingAddress?.city || '', postalCode: shippingAddress?.postalCode || '' }} onSubmit={onSubmit} validationSchema={AddressSchema}>
         {({ isSubmitting, values }) => (
-          <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-[1000px]">
+          <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 min-[1050px]:w-[1000px] w-auto">
             <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>
             <CustomInput label="Address" name="address" />
             <CustomInput label="City" name="city" />
