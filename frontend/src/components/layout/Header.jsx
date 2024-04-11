@@ -21,14 +21,15 @@ const Header = () => {
   const [dropDown, setDropDown] = useState(false);
   const [menuDropDown, setMenuDropDown] = useState(false);
 
+  // Kullanıcı oturumu açıldığında veya kullanıcı bilgisi güncellendiğinde userBalance verisini güncelle
   useEffect(() => {
     if (userInfo) {
-      // Kullanıcı oturumu açıldığında veya kullanıcı bilgisi güncellendiğinde userBalance verisini güncelle
       refetch();
       refetchMembershipId();
     }
   }, [refetch, refetchMembershipId, userInfo]);
 
+  //Logout'a basılınca tetiklenir, backend logout'a istek atılıp cookiedeki jwt temizlenir, localdeki userInfo'da aynı şekilde temizlenir. Home'a yönlendirilir. Dropdown'da tekrar kapatılır.
   const logoutHandler = async () => {
     try {
       setDropDown(!dropDown);
@@ -39,24 +40,25 @@ const Header = () => {
       console.log(err);
     }
   };
+
   return (
     <header className="w-full h-1">
-      <nav className="w-full fixed z-50 bg-white block">
-        <div className="navbar flex justify-around gap-[40px] md:justify-evenly items-center w-full h-16 tracking-widest">
+      <nav className="w-full fixed z-50 bg-white block px-2">
+        <div className="navbar flex justify-around min-[600px]:gap-1 gap-4 md:justify-evenly items-center w-full h-16 tracking-widest">
           <div className="flex items-center">
             <a href="" className="" onClick={() => navigate('/')}>
               <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Blue_Apron_logo.svg/1280px-Blue_Apron_logo.svg.png" className="w-[102px] h-12" />
             </a>
           </div>
           <div className="relative">
-            <div className="md:hidden">
+            <div className="min-[830px]:hidden">
               <button onClick={() => setMenuDropDown(!menuDropDown)} className="cursor-pointer">
                 <IoMenu size={50} color={`#06316C`} />
               </button>
             </div>
             <div
               className={classNames({
-                'navbarItemsOne transition-all w-36 md:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute left-[-45px] md:static md:flex-row gap-8 text-coolGray text-xs font-normal items-center': true,
+                'navbarItemsOne transition-all w-36 min-[830px]:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute left-[-45px] min-[830px]:static min-[830px]:flex-row gap-8 text-coolGray text-xs font-normal items-center': true,
                 'top-[58px]': menuDropDown,
                 'top-[-800px]': !menuDropDown,
               })}
@@ -75,7 +77,6 @@ const Header = () => {
               </a>
             </div>
           </div>
-
           <div className="navbarItemsTwo flex flex-row gap-4 items-center text-coolGray tracking-widest">
             {userInfo ? (
               <>

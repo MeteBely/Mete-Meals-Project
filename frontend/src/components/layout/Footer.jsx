@@ -5,12 +5,11 @@ import { BsFacebook } from 'react-icons/bs';
 import { BsPinterest } from 'react-icons/bs';
 import { AiFillYoutube } from 'react-icons/ai';
 import { useState } from 'react';
+import classNames from 'classnames';
 
 const Footer = () => {
-  const [iconUp, setIconUp] = useState('');
-  const handleIconUp = (link) => {
-    setIconUp(link);
-  };
+  const [iconUp, setIconUp] = useState(''); //mouse ile üzerine gelinen icon'un değerini alır.
+
   return (
     <footer>
       <section className="bg-[#fafbfc] border-t-[1px] border-[#ECEEF2] pb-8">
@@ -18,29 +17,64 @@ const Footer = () => {
           <div>
             <h3 className="text-[#303236] text-[14px] text-center tracking-widest mt-[30px] mb-4">FOLLOW US</h3>
             <ul className="flex flex-row  min-[700px]:gap-8 min-[530px]:gap-4 gap-2 justify-center items-center">
-              <li onMouseEnter={() => handleIconUp('instagram')} onMouseLeave={() => handleIconUp('')} className="w-[40px] h-[40px]">
+              <li onMouseEnter={() => setIconUp('instagram')} onMouseLeave={() => setIconUp('')} className="w-[40px] h-[40px]">
                 <a href="https://www.instagram.com/blueapron/">
-                  <AiOutlineInstagram className={`text-[#6a6d75] transition-all duration-200 ${iconUp === 'instagram' ? '-translate-y-2' : ' '}`} color={`${iconUp === 'instagram' ? `#D5307A` : ''}`} size={34} />
+                  <AiOutlineInstagram
+                    className={classNames({
+                      'text-[#6a6d75] transition-all duration-200': true,
+                      '-translate-y-2': iconUp === 'instagram',
+                    })}
+                    color={`${iconUp === 'instagram' ? `#D5307A` : ''}`}
+                    size={34}
+                  />
                 </a>
               </li>
-              <li onMouseEnter={() => handleIconUp('tiktok')} onMouseLeave={() => handleIconUp('')} className="w-[34px] h-[34px]">
+              <li onMouseEnter={() => setIconUp('tiktok')} onMouseLeave={() => setIconUp('')} className="w-[34px] h-[34px]">
                 <a href="https://www.tiktok.com/@blueapron?lang=en">
-                  <BsTiktok className={`text-[#6a6d75] transition-all duration-200 ${iconUp === 'tiktok' ? '-translate-y-2' : ' '}`} color={`${iconUp === 'tiktok' ? '#000' : ''}`} size={28} />
+                  <BsTiktok
+                    className={classNames({
+                      'text-[#6a6d75] transition-all duration-200': true,
+                      '-translate-y-2': iconUp === 'tiktok',
+                    })}
+                    color={`${iconUp === 'tiktok' ? '#000' : ''}`}
+                    size={28}
+                  />
                 </a>
               </li>
-              <li onMouseEnter={() => handleIconUp('facebook')} onMouseLeave={() => handleIconUp('')} className="w-[34px] h-[34px]">
+              <li onMouseEnter={() => setIconUp('facebook')} onMouseLeave={() => setIconUp('')} className="w-[34px] h-[34px]">
                 <a href="https://www.facebook.com/BlueApron/">
-                  <BsFacebook className={`text-[#6a6d75] transition-all duration-200 ${iconUp === 'facebook' ? '-translate-y-2' : ' '}`} color={`${iconUp === 'facebook' ? `#257BF2` : ''}`} size={28} />
+                  <BsFacebook
+                    className={classNames({
+                      'text-[#6a6d75] transition-all duration-200': true,
+                      '-translate-y-2': iconUp === 'facebook',
+                    })}
+                    color={`${iconUp === 'facebook' ? `#257BF2` : ''}`}
+                    size={28}
+                  />
                 </a>
               </li>
-              <li onMouseEnter={() => handleIconUp('pinterest')} onMouseLeave={() => handleIconUp('')} className="w-[34px] h-[34px]">
+              <li onMouseEnter={() => setIconUp('pinterest')} onMouseLeave={() => setIconUp('')} className="w-[34px] h-[34px]">
                 <a href="https://tr.pinterest.com/blueapron/">
-                  <BsPinterest className={`text-[#6a6d75] transition-all duration-200 ${iconUp === 'pinterest' ? '-translate-y-2' : ' '}`} color={`${iconUp === 'pinterest' ? `#BE2026` : ''}`} size={28} />
+                  <BsPinterest
+                    className={classNames({
+                      'text-[#6a6d75] transition-all duration-200': true,
+                      '-translate-y-2': iconUp === 'pinterest',
+                    })}
+                    color={`${iconUp === 'pinterest' ? `#BE2026` : ''}`}
+                    size={28}
+                  />
                 </a>
               </li>
-              <li onMouseEnter={() => handleIconUp('youtube')} onMouseLeave={() => handleIconUp('')} className="w-[41px] h-[41px]">
+              <li onMouseEnter={() => setIconUp('youtube')} onMouseLeave={() => setIconUp('')} className="w-[41px] h-[41px]">
                 <a href="https://www.youtube.com/@Blueapron">
-                  <AiFillYoutube className={`text-[#6a6d75] transition-all duration-200 ${iconUp === 'youtube' ? '-translate-y-2' : ' '}`} color={`${iconUp === 'youtube' ? 'red' : ''}`} size={36} />
+                  <AiFillYoutube
+                    className={classNames({
+                      'text-[#6a6d75] transition-all duration-200': true,
+                      '-translate-y-2': iconUp === 'youtube',
+                    })}
+                    color={`${iconUp === 'youtube' ? 'red' : ''}`}
+                    size={36}
+                  />
                 </a>
               </li>
             </ul>
