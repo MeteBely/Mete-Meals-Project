@@ -10,23 +10,21 @@ import Warning from '../../components/common/Warning.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
-  const navigate = useNavigate();
   const { id: orderId } = useParams();
+  const { data: stripeId } = useGetStripePublishableKeyQuery();
   const { data: order, refetch, isLoading, error } = useGetOrderByIdQuery(orderId);
-  console.log(order);
-
-  const { userInfo } = useSelector((state) => state.auth);
-  const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
+  const [payOrder] = usePayOrderMutation();
   const [deliverOrder, { isLoading: loadingDeliver }] = useDeliveredOrderMutation();
-  const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
-  const [updateUserBalance, { isLoading: userBalance }] = useUpdateToUserBalanceMutation();
+  const [updateUserBalance] = useUpdateToUserBalanceMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
 
+  //TEST ÖDEME YAP butonuna basınca tetiklenir, eğer payment method'da balance seçilmişse balanceyi eksiltir, eğer stripe ise ödeme sayfasına gönderir order itemslerle beraber.
+  //Kullanıcı ödeme başarılı ise Success page'ye, başarısız ise Cancel page'ye yönlendirilir.
   const makePayment = async () => {
     if (order.paymentMethod === 'Stripe') {
       const stripe = await loadStripe(stripeId);
       const res = await payOrder({ orderId, details: order.orderItems });
-      console.log(res);
-
       const result = stripe.redirectToCheckout({
         sessionId: res.data.id,
       });
@@ -40,10 +38,11 @@ const Order = () => {
     }
   };
 
+  //Admin, eğer sipariş teslim edilmiş ise butona basarak order'ın isDelivered'i true olur. Order list'te ona göre güncellenir.
   const deliverOrderHandler = async () => {
     try {
       await deliverOrder(orderId);
-      refetch(); //anlık olarak sonuç almamızı sağlar.
+      refetch();
       toast.success('Order is successfully update to mark as delivered!');
     } catch (error) {
       toast.error(error?.message);
@@ -56,7 +55,7 @@ const Order = () => {
     <div>HATA</div>
   ) : (
     <>
-      <div className="flex flex-row justify-evenly mt-20">
+      <div className="flex flex-wrap flex-row justify-evenly mt-20 px-2 gap-2 mb-4">
         <div>
           <h1 className="text-[#6B6D75] fontCera mb-1 text-[18px]">Order id: {order._id}</h1>
           <div className="fontCera mb-4">

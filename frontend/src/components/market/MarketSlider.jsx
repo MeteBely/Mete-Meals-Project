@@ -1,6 +1,10 @@
 import Slider from 'react-slick';
 import { useNavigate } from 'react-router-dom';
+
 const MarketSlider = () => {
+  const navigate = useNavigate();
+
+  //slider ayarları
   const settings = {
     dots: true,
     infinite: true,
@@ -14,7 +18,6 @@ const MarketSlider = () => {
     arrows: false,
   };
 
-  const navigate = useNavigate();
   return (
     <section className="mb-8 bg-[#AED3E4] h-auto w-[100%] mt-20">
       <div className="w-[400px] min-[953px]:w-[55%] min-[1240px]:w-[850px] m-auto p-8">

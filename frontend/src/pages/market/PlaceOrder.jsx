@@ -9,11 +9,12 @@ import { clearCartItems } from '../../slices/cartSlice.js';
 import PlaceOrderItems from '../../components/market/PlaceOrderItems.jsx';
 
 const PlaceOrder = () => {
-  const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
   const [createOrder, { isLoading, error }] = useCreateOrderMutation();
+  const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  //Eğer local'de adres veya payment method bulunmuyorsa, ilgili sayfaya otomatik olarak yönlendirilir.
   useEffect(() => {
     if (!cart.shippingAddress.address) {
       navigate('/shipping');
@@ -22,6 +23,7 @@ const PlaceOrder = () => {
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
+  //localdeki tüm cart bilgileri ile isPaid'i false olacak şekilde order oluşturulur ve localden cart temizlenir. Order page'ye yönlendirilir. Kullanıcı ordan ödeme sayfasına yönlenebilir.
   const placeOrderHandler = async () => {
     try {
       const res = await createOrder({
@@ -40,11 +42,11 @@ const PlaceOrder = () => {
   };
 
   return (
-    <div className="w-1/2 mx-auto mt-20">
+    <div className="mt-20 px-2 mb-4">
       <div className="flex justify-center mb-4">
         <CheckoutSteps step1 step2 step3 step4 underline="placeorder" />
       </div>
-      <div className="flex flex-row justify-between pt-4">
+      <div className="flex flex-wrap flex-row items-start justify-evenly gap-4 pt-4">
         <div>
           <div className="mb-4">
             <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold">Shipping</h2>

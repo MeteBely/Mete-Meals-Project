@@ -11,7 +11,7 @@ const PlaceOrderItems = ({ cartItem }) => {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="flex flex-row items-center justify-between w-[600px] mb-2">
+        <div className="flex flex-row items-center w-auto gap-4 min-[650px]:gap-0 min-[650px]:justify-between min-[650px]:w-[600px] mb-2">
           <div className="flex flex-row items-center justify-start">
             <img className="w-20 rounded-md mr-4" src={firstMealOfKit.img} alt={cartItem.name} />
             <Link className="fontCera underline" to={`/market/mealKit/${cartItem._id}`}>

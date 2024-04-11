@@ -9,10 +9,10 @@ import { AddressSchema } from '../../Schemas/AddressSchema.js';
 const Shipping = () => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  //Continue butonuna basılırsa tetiklenir, Formik'teki adres bilgileri local'de save edilerek payment page'ye yönlendirilir.
   const onSubmit = async (values, actions) => {
     dispatch(saveShippingAddress(values));
     navigate('/payment');
@@ -23,7 +23,7 @@ const Shipping = () => {
       <CheckoutSteps step1 step2 underline="shipping" />
       <Formik initialValues={{ address: shippingAddress?.address || '', city: shippingAddress?.city || '', postalCode: shippingAddress?.postalCode || '' }} onSubmit={onSubmit} validationSchema={AddressSchema}>
         {({ isSubmitting, values }) => (
-          <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-[1000px]">
+          <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 min-[820px]:w-[800px] w-[460px]">
             <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>
             <CustomInput label="Address" name="address" />
             <CustomInput label="City" name="city" />

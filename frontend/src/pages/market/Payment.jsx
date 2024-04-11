@@ -11,17 +11,21 @@ import { PaymentMethodSchema } from '../../Schemas/PaymentMethodSchema.js';
 
 const Payment = () => {
   const { data: userBalance, isLoading } = useGetUserBalanceQuery();
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  //Kullanıcı adres belirtmemişse(localde bulunmuyorsa) adres(shipping) page'ye yönlendiriyoruz.
   useEffect(() => {
     if (!shippingAddress) {
       navigate('/shipping');
     }
   }, [shippingAddress, navigate]);
 
+  //Continue butona bastığında tetiklenir
+  // Eğer balance seçilmişse ve balance yeterli ise locale kaydedilip placeorder'a yönlendirilir, eğer balance yetersiz ise kullanıcı bilgilendirilir.
+  // Eğer stripe seçilmişse local'e kaydedilip devam edilir.
   const onSubmit = async (values, actions) => {
     if (!isLoading) {
       if (values.paymentMethod === 'Balance') {
@@ -41,7 +45,7 @@ const Payment = () => {
   };
 
   return (
-    <div className="w-[800px] mx-auto mt-20 mb-4">
+    <div className="min-[820px]:w-[800px] w-auto mx-auto mt-20 mb-4">
       <div className="flex justify-center mb-4">
         <CheckoutSteps step1 step2 step3 underline="payment" />
       </div>

@@ -13,31 +13,30 @@ import { ReviewSchema } from '../../Schemas/ReviewSchema.js';
 import classNames from 'classnames';
 
 const MealKitDetail = () => {
+  const { id: mealKitId } = useParams();
+  const { data: mealKit, refetch, isLoading } = useGetMealKitDetailsQuery(mealKitId); //İlgili meal kiti url parama göre getirdik.
+  const [createReview, { isLoading: isReviewLoading }] = useCreateReviewMutation();
+  const { userInfo } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { id: mealKitId } = useParams();
-
   const [qty, setQty] = useState(1);
   const [activeDesc, setActiveDesc] = useState('itemOne');
   const [activeImage, setActiveImage] = useState('');
 
-  const [createReview, { isLoading: isReviewLoading }] = useCreateReviewMutation();
-  const { userInfo } = useSelector((state) => state.auth);
-
-  //İlgili meal kiti url parama göre getirdik.
-  const { data: mealKit, refetch, isLoading } = useGetMealKitDetailsQuery(mealKitId);
-
+  //ilk başta ana gösterimde olan img'yi ayarlıyoruz.(meal kitin ilk mealinin img'sini set ettik.)
   useEffect(() => {
     if (!isLoading && mealKit) {
       setActiveImage(mealKit.meals[0].meal.img);
     }
   }, [isLoading, mealKit]);
 
+  //ADD TO BASKET'e basınca meal kiti ve seçili quantity'yi cart'a ekler ve localde saklar.
   const addToCartHandler = () => {
     dispatch(addToCart({ ...mealKit, qty }));
     navigate('/cart');
   };
 
+  //Submit'e basınca(yorum yap butonu) tetiklenir, yorumu oluşturur ve göstermek için refetch eder.
   const onSubmit = async (values) => {
     try {
       await createReview({ mealKitId, ...values }).unwrap();
@@ -55,9 +54,9 @@ const MealKitDetail = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <section className="mt-20">
+        <section className="mt-20 px-2">
           <Meta title={mealKit.name} />
-          <div className="flex flex-row items-start justify-center gap-8 mb-10">
+          <div className="flex flex-wrap flex-row items-start justify-center gap-8 mb-10">
             <div className="w-[570px]">
               <div className="mb-6">
                 <img src={activeImage && activeImage} alt="" />
@@ -68,50 +67,6 @@ const MealKitDetail = () => {
                     <img src={singleMeal.meal.img}></img>
                   </button>
                 ))}
-              </div>
-              <div className="mt-10">
-                <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-1">Reviews</h2>
-                {mealKit.reviews && mealKit.reviews.length > 0 ? (
-                  mealKit.reviews.map((review, index) => (
-                    <div
-                      className={classNames({
-                        'fontCera mb-4 pb-4': true,
-                        'border-b-2 border-red-100': index !== mealKit.reviews.length - 1,
-                      })}
-                      key={review._id}
-                    >
-                      <div>
-                        <span className="mr-1 text-lg">Name:</span>
-                        {review.name}
-                      </div>
-                      <div>
-                        <span className="mr-1 text-lg">Rating:</span>
-                        {review.rating}
-                      </div>
-                      <div className="border rounded-md p-2 shadow-md">{review.comment}</div>
-                      <p className="">{review.createdAt.substring(0, 10)}</p>
-                    </div>
-                  ))
-                ) : (
-                  <div className="fontCera mb-8">No Reviews</div>
-                )}
-                <h3 className="text-[22px] tracking-wide text-[#0F346C] fontCera font-semibold">Write Review</h3>
-                {isReviewLoading && <Loader />}
-                {userInfo ? (
-                  <Formik initialValues={{ rating: 1, comment: '' }} onSubmit={onSubmit} validationSchema={ReviewSchema}>
-                    {({ values }) => (
-                      <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-[1000px]">
-                        <CustomTextarea label="Comment" name="comment" />
-                        <CustomInput type="number" label="Rating" name="rating" />
-                        <button type="submit" disabled={isReviewLoading} className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
-                          Submit
-                        </button>
-                      </Form>
-                    )}
-                  </Formik>
-                ) : (
-                  <Link to={`/users/sign_in`}> Please login to write review</Link>
-                )}
               </div>
             </div>
             <div className="w-[570px]">
@@ -156,6 +111,50 @@ const MealKitDetail = () => {
                   </ul>
                 </div>
               </div>
+            </div>
+            <div className="mt-10">
+              <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-1">Reviews</h2>
+              {mealKit.reviews && mealKit.reviews.length > 0 ? (
+                mealKit.reviews.map((review, index) => (
+                  <div
+                    className={classNames({
+                      'fontCera mb-4 pb-4': true,
+                      'border-b-2 border-red-100': index !== mealKit.reviews.length - 1,
+                    })}
+                    key={review._id}
+                  >
+                    <div>
+                      <span className="mr-1 text-lg">Name:</span>
+                      {review.name}
+                    </div>
+                    <div>
+                      <span className="mr-1 text-lg">Rating:</span>
+                      {review.rating}
+                    </div>
+                    <div className="border rounded-md p-2 shadow-md">{review.comment}</div>
+                    <p className="">{review.createdAt.substring(0, 10)}</p>
+                  </div>
+                ))
+              ) : (
+                <div className="fontCera mb-8">No Reviews</div>
+              )}
+              <h3 className="text-[22px] tracking-wide text-[#0F346C] fontCera font-semibold">Write Review</h3>
+              {isReviewLoading && <Loader />}
+              {userInfo ? (
+                <Formik initialValues={{ rating: 1, comment: '' }} onSubmit={onSubmit} validationSchema={ReviewSchema}>
+                  {({ values }) => (
+                    <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-auto min-[1050px]:w-[1000px]">
+                      <CustomTextarea label="Comment" name="comment" />
+                      <CustomInput type="number" label="Rating" name="rating" />
+                      <button type="submit" disabled={isReviewLoading} className="text-[16px] w-[200px] rounded-md h-[40px] fontCera tracking-wide bg-[#235091] hover:bg-[#0F346C] text-[#fff]">
+                        Submit
+                      </button>
+                    </Form>
+                  )}
+                </Formik>
+              ) : (
+                <Link to={`/users/sign_in`}> Please login to write review</Link>
+              )}
             </div>
           </div>
         </section>
