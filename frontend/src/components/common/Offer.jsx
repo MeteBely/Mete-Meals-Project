@@ -36,7 +36,7 @@ const Offer = () => {
                 </div>
                 {divImagePrice(30)}
               </div>
-              <div className="text-[#303235] text-center fontCera font-bold mb-4 ">Enjoy $200 off across 6 orders—plus, your first order ships free!</div>
+              <div className="text-[#303235] text-center fontCera font-bold mb-4 ">First order shipping is free!</div>
               <p className="text-[#696d75] text-[12px] mt-2">Coupons will be automatically applied to your orders when your credit card is charged. Discount will be taken off of the price of the products and does not apply to shipping or tax, except where otherwise indicated. Redeeming this offer results in the purchase of a continuous subscription for which you will automatically receive weekly deliveries billed to your designated payment method until you cancel.</p>
             </DialogContentText>
             <DialogActions>
@@ -49,11 +49,7 @@ const Offer = () => {
       </Dialog>
       <div className="card w-[480px] min-[690px]:w-[650px] m-auto bg-white rounded-[8px] flex flex-row items-center justify-evenly h-[80px] gap-[16px]">
         <img src={ticketGreen} alt="" className="h-[28px]" />
-        <p className="fontCera font-semibold text-center text-[#303235] text-[14px]">
-          Enjoy $200 off across 6 orders—plus,
-          <br />
-          your first order ships free!
-        </p>
+        <p className="fontCera font-semibold text-center text-[#303235] text-[14px]">First order shipping is free!</p>
         <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="bg-[#00a979] hover:bg-[#1EB389] tracking-[1px] text-white text-[12px] fontCera w-[150px] rounded-[30px] h-[35px]">
           REDEEM OFFER
         </button>

@@ -137,12 +137,6 @@ const SelectPlan = () => {
           CONTINUE
         </button>
       </div>
-      <div>
-        <p className="text-[15px] text-[#6a6d75]">
-          You can update your preferences <br />
-          and skip, pause, or cancel at any time.
-        </p>
-      </div>
     </div>
   );
 };

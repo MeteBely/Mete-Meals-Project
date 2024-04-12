@@ -23,10 +23,10 @@ const MealKitDetail = () => {
   const [activeDesc, setActiveDesc] = useState('itemOne');
   const [activeImage, setActiveImage] = useState('');
 
-  //ilk başta ana gösterimde olan img'yi ayarlıyoruz.(meal kitin ilk mealinin img'sini set ettik.)
+  //ilk başta ana gösterimde olan img'yi ayarlıyoruz.(meal kitin ilk mealinin img'sini set ettik.) Eğer meal kit yeni oluşturulmuşsa ve içine meal konmamışsa hata almamak için mealKit.meals[0] && yapısını kullanıyoruz.
   useEffect(() => {
     if (!isLoading && mealKit) {
-      setActiveImage(mealKit.meals[0].meal.img);
+      setActiveImage(mealKit.meals[0] && mealKit.meals[0].meal.img);
     }
   }, [isLoading, mealKit]);
 
@@ -83,7 +83,6 @@ const MealKitDetail = () => {
               </div>
               <div className="text-[#303236] fontCera leading-[1.8] text-[15px] mb-8">
                 <p>{mealKit.description}</p>
-                <p className="mt-4">Order by 12:00 pm ET on Friday, March 15th for delivery the week of March 17th. Requests for order cancellation or changes must be received by Friday, March 15th at 1:00 pm ET — reach out to market@blueapron.com for more information.</p>
               </div>
               <div className="w-full flex flex-row justify-center items-center gap-8">
                 <button onClick={() => setActiveDesc('itemOne')} className={`${activeDesc === 'itemOne' ? 'font-semibold border-[#012684] text-[#012684] hover:text-[#012684] border-b-2 cursor-pointer  ' : 'text-[#6B6D75] font-normal hover:text-[#012684] cursor-pointer'}w-auto h-[50px]`}>
@@ -97,8 +96,8 @@ const MealKitDetail = () => {
                 </button>
               </div>
               <div className="border border-[#6B6D75] mt-4 rounded-md">
-                <p className={`${activeDesc === 'itemOne' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>All the ingredients you need to create two delicious Blue Apron Wellness recipes with easy-to-follow recipe cards and chef tips!</p>
-                <p className={`${activeDesc === 'itemTwo' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>Order by 12:00 pm ET on Friday, March 15th for delivery the week of March 17th. Requests for order cancellation or changes must be received by Friday, March 15th at 1:00 pm ET — reach out to market@blueapron.com for more information.</p>
+                <p className={`${activeDesc === 'itemOne' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>All the ingredients you need to create two/four delicious Etem Meals Wellness recipes with easy-to-follow recipe cards and chef tips!</p>
+                <p className={`${activeDesc === 'itemTwo' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>Order by 12:00 pm ET on Friday, March 15th for delivery the week of March 17th. Requests for order cancellation or changes must be received by Friday, March 15th at 1:00 pm ET — reach out to market@etemmeals.com for more information.</p>
                 <div className={`${activeDesc === 'itemThree' ? 'block text-[#303236] fontCera leading-[1.4] text-[15px] px-4 py-2' : 'hidden'}`}>
                   <ul className="list-disc pl-2">
                     {mealKit.meals.map((singleMeal) => (
@@ -112,7 +111,7 @@ const MealKitDetail = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 min-[1050px]:w-auto w-[600px]">
               <h2 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-1">Reviews</h2>
               {mealKit.reviews && mealKit.reviews.length > 0 ? (
                 mealKit.reviews.map((review, index) => (
@@ -153,7 +152,9 @@ const MealKitDetail = () => {
                   )}
                 </Formik>
               ) : (
-                <Link to={`/users/sign_in`}> Please login to write review</Link>
+                <Link className="fontCera underline" to={`/users/sign_in?redirect=/market/mealKit/${mealKitId}`}>
+                  Please login to write review
+                </Link>
               )}
             </div>
           </div>

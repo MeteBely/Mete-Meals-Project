@@ -5,7 +5,7 @@ export const userEditSchema = yup.object().shape({
   name: yup
     .string()
     .matches(/^[A-Za-z ]*$/, 'Lütfen gecerli bir isim giriniz, özel karakterler kullanmayiniz')
-    .max(20, 'Maksimum 20 karakter girilebilir')
+    .max(15, 'Maksimum 15 karakter girilebilir')
     .required('İsim zorunludur'),
   email: yup.string().matches(emailRegExp, 'Lutfen geçerli bir email giriniz').email('Lutfen geçerli bir email giriniz').required('Email zorunludur'),
   isAdmin: yup.boolean(),

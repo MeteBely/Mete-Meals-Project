@@ -1,15 +1,15 @@
 const commentBoxDatas = [
   {
     userName: 'Pam Helpert',
-    userComment: "We'd tried many other food delivery services and none of them have compared in quality and variety to Mete Meals.",
+    userComment: "We'd tried many other food delivery services and none of them have compared in quality and variety to Etem Meals.",
   },
   {
     userName: 'Jim Helpert',
-    userComment: 'We changed from HelloFresh to Mete Meals and it was the best choice we made!',
+    userComment: 'We changed from HelloFresh to Etem Meals and it was the best choice we made!',
   },
   {
     userName: 'Dwight Schrute',
-    userComment: 'Before Blue Apron, I tried HelloFresh. Blue Apron beats them on all counts—directions, freshness, packing, and prep.',
+    userComment: 'Before Etem Meals, I tried HelloFresh. Etem Meals beats them on all counts—directions, freshness, packing, and prep.',
   },
   {
     userName: 'Kevin Malone',
@@ -17,7 +17,7 @@ const commentBoxDatas = [
   },
   {
     userName: 'Michael Scott',
-    userComment: "We love Blue Apron! It eliminates a ton of food waste while allowing us to try new things and have tasty meals. Really great quality food, awesome flavors, and things we wouldn't otherwise have any idea how to create.",
+    userComment: "We love Etem Meals! It eliminates a ton of food waste while allowing us to try new things and have tasty meals. Really great quality food, awesome flavors, and things we wouldn't otherwise have any idea how to create.",
   },
 ];
 

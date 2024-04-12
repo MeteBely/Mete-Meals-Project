@@ -14,7 +14,7 @@ const ChoosePreferences = () => {
       {mealPreferences.map((preferences, index) => {
         return <PreferencesBox selected={selected} setSelected={setSelected} key={index} filter={preferences.preference} title={preferences.title} description={preferences.description} img={preferences.img} imgBlue={preferences.imgBlue} />;
       })}
-      <p className="text-[13px] leading-[18px] text-[#6a6d75] w-[400px] text-center">Choose as many as you like. These help us make meal recommendations and personalize your experience.</p>
+      <p className="text-[13px] leading-[18px] text-[#6a6d75] w-[400px] text-center">Choose one. These help us make meal recommendations and personalize your experience in select meals menu.</p>
     </div>
   );
 };

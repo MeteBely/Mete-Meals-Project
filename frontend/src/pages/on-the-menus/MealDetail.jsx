@@ -4,10 +4,12 @@ import { FaLeaf } from 'react-icons/fa';
 import { FaDollarSign } from 'react-icons/fa';
 import { useGetMealDetailsQuery } from '../../slices/mealsApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const MealDetail = () => {
   const { id: mealId } = useParams();
   const { data: meal, isLoading } = useGetMealDetailsQuery(mealId);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -42,17 +44,17 @@ const MealDetail = () => {
                 </div>
                 <div className="mb-10">
                   <h4 className="fontCera text-[#303236] mb-2 text-[20px] font-semibold">From the Test Kitchen</h4>
-                  <p className="mb-4 text-[#595959] leading-8">
-                    <strong className="">WHY WE LOVE THIS DISH </strong>
-                    <br />
+                  <p className="mb-4 text-[#595959] leading-8 fontCera">
+                    <h4 className="font-semibold">WHY WE LOVE THIS DISH</h4>
                     This comforting dish is packed with a medley of savory, sweet, and spicy flavors! Our umami-rich soy and mushroom broth gets spooned over springy ramen noodles, then topped with pulled chicken (tossed in a sesame-honey glaze), tangy kimchi, marinated jalapeño pepper, and crispy fried onions.
                   </p>
-                  <button className="fontCera w-[180px] h-12 bg-orange-500 rounded-sm text-white text-center hover:bg-[#FF8142] tracking-[2px]">SEE PLANS</button>
+                  <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="fontCera w-[180px] h-12 bg-orange-500 rounded-sm text-white text-center hover:bg-[#FF8142] tracking-[2px]">
+                    SEE PLANS
+                  </button>
                 </div>
                 {meal.dietaryInformation && (
                   <div className="mb-12">
                     <h4 className="mb-4 text-[19px] fontCera font-bold text-[303236] ">Dietary Information</h4>
-                    <p className="text-[15px] text-[#595959] mb-2">See nutrition facts for total fat, saturated fat, cholesterol, and sodium information</p>
                     <span className="text-[14px] inline-block text-[#6a6d75] bg-[#f5f6f8] rounded-[4px] fontCera px-[6px] py-[10px]">{meal.dietaryInformation}</span>
                   </div>
                 )}

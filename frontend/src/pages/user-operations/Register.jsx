@@ -78,7 +78,7 @@ const Register = () => {
         <div className="text-center text-[14px] fontCera text-[#6a6d75] mt-6">
           Have a account?{' '}
           <Link to={redirect ? `/users/sign_in?redirect=${redirect}` : '/users/sign_in'} href="" className="text-[#0f346c] underline">
-            Sign Up
+            Sign In
           </Link>
         </div>
       </div>

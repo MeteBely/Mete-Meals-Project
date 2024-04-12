@@ -9,6 +9,7 @@ import { useGetUserBalanceQuery } from '../../slices/balanceApiSlice.js';
 import { useGetMineMembershipIdQuery } from '../../slices/membershipApiSlice.js';
 import { FaArrowDown } from 'react-icons/fa';
 import classNames from 'classnames';
+import apron from '../../assets/icons/apronBlue.png';
 
 const Header = () => {
   const { data: userBalance, isLoading, refetch } = useGetUserBalanceQuery();
@@ -44,40 +45,41 @@ const Header = () => {
   return (
     <header className="w-full h-1">
       <nav className="w-full fixed z-50 bg-white block px-2">
-        <div className="navbar flex justify-around min-[600px]:gap-1 gap-4 md:justify-evenly items-center w-full h-16 tracking-widest">
-          <div className="flex items-center">
-            <a href="" className="" onClick={() => navigate('/')}>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Blue_Apron_logo.svg/1280px-Blue_Apron_logo.svg.png" className="w-[102px] h-12" />
-            </a>
+        <div className="navbar flex justify-around min-[550px]:gap-4 gap-2 md:justify-evenly items-center w-full h-16 tracking-widest">
+          <div className="flex items-center justify-start">
+            <Link to={'/'} className="flex w-[102px] h-12 flex-row items-center gap-1 mr-2">
+              <img src={apron} className="min-[550px]:w-12 min-[550px]:h-12 w-10 h-10" />
+              <div className="fontCera min-[550px]:text-[20px] font-semibold leading-5">ETEM MEALS</div>
+            </Link>
           </div>
           <div className="relative">
-            <div className="min-[830px]:hidden">
+            <div className="min-[875px]:hidden">
               <button onClick={() => setMenuDropDown(!menuDropDown)} className="cursor-pointer">
                 <IoMenu size={50} color={`#06316C`} />
               </button>
             </div>
             <div
               className={classNames({
-                'navbarItemsOne transition-all w-36 min-[830px]:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute left-[-45px] min-[830px]:static min-[830px]:flex-row gap-8 text-coolGray text-xs font-normal items-center': true,
+                'navbarItemsOne transition-all w-36 min-[875px]:w-auto duration-300 flex flex-col rounded-lg bg-white p-4 absolute left-[-45px] min-[875px]:static min-[875px]:flex-row gap-8 text-coolGray text-xs font-normal items-center': true,
                 'top-[58px]': menuDropDown,
                 'top-[-800px]': !menuDropDown,
               })}
             >
-              <a href="" onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="hover:text-[#0f346c]">
+              <Link to={'/users/sign_in?redirect=/pricing'} className="hover:text-[#0f346c]">
                 PLANS
-              </a>
-              <a href="" onClick={() => navigate('/on-the-menu')} className="hover:text-[#0f346c] min-w-[102px]">
+              </Link>
+              <Link to={'/on-the-menu'} className="hover:text-[#0f346c] min-w-[102px]">
                 ON THE MENU
-              </a>
-              <a href="" onClick={() => navigate('/market')} className="hover:text-[#0f346c] ">
+              </Link>
+              <Link to={'/market'} className="hover:text-[#0f346c] ">
                 MARKET
-              </a>
-              <a href="" onClick={() => navigate('/gifts')} className="hover:text-[#0f346c]">
+              </Link>
+              <Link to={'/gifts'} className="hover:text-[#0f346c]">
                 GIFT CARDS
-              </a>
+              </Link>
             </div>
           </div>
-          <div className="navbarItemsTwo flex flex-row gap-4 items-center text-coolGray tracking-widest">
+          <div className="navbarItemsTwo flex flex-row min-[600px]:gap-4 gap-1 items-center text-coolGray tracking-widest">
             {userInfo ? (
               <>
                 <div className="relative">
@@ -120,19 +122,19 @@ const Header = () => {
                   )}
                 </div>{' '}
                 {!isLoading && userBalance && userBalance.balance > 0 && (
-                  <div className="fontCera ml-4">
-                    <span className="mr-1 text-[17px]">Balance:</span>${userBalance.balance.toFixed(2)}
+                  <div className="fontCera ml-4 min-[550px]:text-[17px] text-[15px]">
+                    <span className="mr-1">Balance:</span>${userBalance.balance.toFixed(2)}
                   </div>
                 )}
               </>
             ) : (
               <>
-                <a href="" onClick={() => navigate('/users/sign_in')} className="font-normal w-[60px] text-xs hover:text-[#0f346c]">
+                <Link to={'/users/sign_in'} className="font-normal w-[60px] text-xs hover:text-[#0f346c]">
                   LOG IN
-                </a>
-                <a href="" className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142] mr-4">
+                </Link>
+                <Link to={'/users/sign_up'} className="fontCera text-sm bg-orange-500 text-white w-28 h-10 text-center pt-2.5 rounded hover:bg-[#FF8142] mr-4">
                   SIGN UP
-                </a>
+                </Link>
               </>
             )}
             {cartItems && cartItems.length > 0 ? (

@@ -6,6 +6,7 @@ import { BsPinterest } from 'react-icons/bs';
 import { AiFillYoutube } from 'react-icons/ai';
 import { useState } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [iconUp, setIconUp] = useState(''); //mouse ile üzerine gelinen icon'un değerini alır.
@@ -18,7 +19,7 @@ const Footer = () => {
             <h3 className="text-[#303236] text-[14px] text-center tracking-widest mt-[30px] mb-4">FOLLOW US</h3>
             <ul className="flex flex-row  min-[700px]:gap-8 min-[530px]:gap-4 gap-2 justify-center items-center">
               <li onMouseEnter={() => setIconUp('instagram')} onMouseLeave={() => setIconUp('')} className="w-[40px] h-[40px]">
-                <a href="https://www.instagram.com/blueapron/">
+                <a href="https://www.instagram.com/">
                   <AiOutlineInstagram
                     className={classNames({
                       'text-[#6a6d75] transition-all duration-200': true,
@@ -30,7 +31,7 @@ const Footer = () => {
                 </a>
               </li>
               <li onMouseEnter={() => setIconUp('tiktok')} onMouseLeave={() => setIconUp('')} className="w-[34px] h-[34px]">
-                <a href="https://www.tiktok.com/@blueapron?lang=en">
+                <a href="https://www.tiktok.com/">
                   <BsTiktok
                     className={classNames({
                       'text-[#6a6d75] transition-all duration-200': true,
@@ -42,7 +43,7 @@ const Footer = () => {
                 </a>
               </li>
               <li onMouseEnter={() => setIconUp('facebook')} onMouseLeave={() => setIconUp('')} className="w-[34px] h-[34px]">
-                <a href="https://www.facebook.com/BlueApron/">
+                <a href="https://www.facebook.com/">
                   <BsFacebook
                     className={classNames({
                       'text-[#6a6d75] transition-all duration-200': true,
@@ -54,7 +55,7 @@ const Footer = () => {
                 </a>
               </li>
               <li onMouseEnter={() => setIconUp('pinterest')} onMouseLeave={() => setIconUp('')} className="w-[34px] h-[34px]">
-                <a href="https://tr.pinterest.com/blueapron/">
+                <a href="https://tr.pinterest.com/">
                   <BsPinterest
                     className={classNames({
                       'text-[#6a6d75] transition-all duration-200': true,
@@ -66,7 +67,7 @@ const Footer = () => {
                 </a>
               </li>
               <li onMouseEnter={() => setIconUp('youtube')} onMouseLeave={() => setIconUp('')} className="w-[41px] h-[41px]">
-                <a href="https://www.youtube.com/@Blueapron">
+                <a href="https://www.youtube.com/@metehanmuradoglu3782">
                   <AiFillYoutube
                     className={classNames({
                       'text-[#6a6d75] transition-all duration-200': true,
@@ -86,16 +87,12 @@ const Footer = () => {
             <p className="text-[12px] min-[700px]:text-[14px]">Sign up for offers, recipes, news & more</p>
           </div>
           <div className="hidden min-[1212px]:block">
-            <h3 className="text-[#303236] text-[14px] text-center tracking-widest mt-[34px] mb-4 hover:underline">
-              <a href="">FROM THE BLOG</a>
-            </h3>
+            <h3 className="text-[#303236] text-[14px] text-center tracking-widest mt-[34px] mb-4">FROM THE BLOG</h3>
             <div className="flex flex-row gap-6 text-[#303236]">
-              <a href="">
+              <a>
                 <img className="w-[70px] h-[70px] inline-block rounded-[4px]" src="https://i0.wp.com/blog.blueapron.com/wp-content/uploads/2023/08/Box-Evergreen_Process_2022_200.jpg?resize=100%2C100&ssl=1" />
               </a>
-              <a href="" className="text-[14px] hover:underline">
-                Blue Apron Continues <br /> Environmental, Social <br /> and Governance <br /> Progress{' '}
-              </a>
+              <a className="text-[14px] hover:underline w-40 cursor-pointer">Etem Meals Continues Environmental, Social and Governance Progress</a>
             </div>
           </div>
         </div>
@@ -107,184 +104,124 @@ const Footer = () => {
             <ul className="flex flex-col justify-center items-start gap-3 mr-6">
               <li>
                 {' '}
-                <a href="" className="hover:underline">
+                <a href="/on-the-menu" className="hover:underline">
                   On The Menu
                 </a>
               </li>
               <li>
                 {' '}
-                <a href="" className="hover:underline">
+                <a href="/pricing" className="hover:underline">
                   Pricing
                 </a>
               </li>
               <li>
                 {' '}
-                <a href="" className="hover:underline">
-                  Our Vision
-                </a>
-              </li>
-              <li>
-                {' '}
-                <a href="" className="hover:underline">
+                <a href="/market" className="hover:underline">
                   Market
                 </a>
               </li>
               <li>
                 {' '}
-                <a href="" className="hover:underline">
+                <a href="/gifts" className="hover:underline">
                   Gift Cards
                 </a>
               </li>
               <li>
                 {' '}
-                <a href="" className="hover:underline">
-                  Blog
-                </a>
+                <a className="hover:underline cursor-pointer">Lorem, ipsum.</a>
               </li>
               <li>
                 {' '}
-                <a href="" className="hover:underline">
-                  Cookbook
-                </a>
+                <a className="hover:underline cursor-pointer">Lorem, ipsum.</a>
               </li>
               <ul className="max-[899px]:flex flex-col justify-center items-start gap-3 hidden">
                 <li>
-                  <a className="hover:underline" href="">
-                    Suppliers
-                  </a>
+                  <a className="hover:underline">Suppliers</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="https://signup.cj.com/member/signup/publisher/?cid=5446852">
-                    Affiliates
-                  </a>
+                  <a className="hover:underline cursor-pointer">Affiliates</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="">
-                    Supply Chains Act
-                  </a>
+                  <a className="hover:underline cursor-pointer">Supply Chains Act</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="https://blog.blueapron.com/foodsafety/">
-                    Food Safety
-                  </a>
+                  <a className="hover:underline cursor-pointer">Food Safety</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="">
-                    Careers
-                  </a>
+                  <a className="hover:underline cursor-pointer">Careers</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="">
-                    Press
-                  </a>
+                  <a className="hover:underline cursor-pointer">Press</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="">
-                    Our Team
-                  </a>
+                  <a className="hover:underline cursor-pointer">Our Team</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="https://investors.blueapron.com/">
-                    Investor Relations
-                  </a>
+                  <a className="hover:underline cursor-pointer">Investor Relations</a>
                 </li>
               </ul>
             </ul>
             <ul className="min-[900px]:flex flex-col justify-center items-start gap-3 hidden">
               <li>
-                <a className="hover:underline" href="">
-                  Suppliers
-                </a>
+                <a className="hover:underline cursor-pointer">Suppliers</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://signup.cj.com/member/signup/publisher/?cid=5446852">
-                  Affiliates
-                </a>
+                <a className="hover:underline cursor-pointer">Affiliates</a>
               </li>
               <li>
-                <a className="hover:underline" href="">
-                  Supply Chains Act
-                </a>
+                <a className="hover:underline cursor-pointer">Supply Chains Act</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://blog.blueapron.com/foodsafety/">
-                  Food Safety
-                </a>
+                <a className="hover:underline cursor-pointer">Food Safety</a>
               </li>
               <li>
-                <a className="hover:underline" href="">
-                  Careers
-                </a>
+                <a className="hover:underline cursor-pointer">Careers</a>
               </li>
               <li>
-                <a className="hover:underline" href="">
-                  Press
-                </a>
+                <a className="hover:underline cursor-pointer">Press</a>
               </li>
               <li>
-                <a className="hover:underline" href="">
-                  Our Team
-                </a>
+                <a className="hover:underline cursor-pointer">Our Team</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://investors.blueapron.com/">
-                  Investor Relations
-                </a>
+                <a className="hover:underline cursor-pointer">Investor Relations</a>
               </li>
             </ul>
             <ul className="flex flex-col justify-center items-start gap-3">
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/">
-                  Military & Veterans
-                </a>
+                <a className="hover:underline cursor-pointer">Military & Veterans</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/?utm_content=Students110off">
-                  Students
-                </a>
+                <a className="hover:underline cursor-pointer">Students</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/?utm_content=Graduates110off">
-                  Graduates
-                </a>
+                <a className="hover:underline cursor-pointer">Graduates</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/">
-                  Teachers
-                </a>
+                <a className="hover:underline cursor-pointer">Teachers</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/">
-                  Seniors (+55)
-                </a>
+                <a className="hover:underline cursor-pointer">Seniors (+1)</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/">
-                  Medical Staff
-                </a>
+                <a className="hover:underline cursor-pointer">Medical Staff</a>
               </li>
               <li>
-                <a className="hover:underline" href="https://cook.blueapron.com/heroes/">
-                  First Responders
-                </a>
+                <a className="hover:underline cursor-pointer">First Responders</a>
               </li>
               <ul className="max-[899px]:flex flex-col justify-center items-start gap-3 hidden">
                 <li>
                   <span className="text-white">Customer Support:</span>
                 </li>
                 <li>
-                  <a className="hover:underline" href="https://support.blueapron.com/hc/en-us">
-                    Help Center & FAQ
-                  </a>
+                  <a className="hover:underline cursor-pointer">Help Center & FAQ</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="">
-                    contact@blueapron.com
-                  </a>
+                  <a className="hover:underline cursor-pointer">contact@etemmeals.com</a>
                 </li>
                 <li>
-                  <a className="hover:underline" href="tel:+16468914349">
-                    (646) 891-4349
+                  <a className="hover:underline cursor-pointer" href="tel:+905452629356">
+                    +90 545 262 9356
                   </a>
                 </li>
               </ul>
@@ -294,50 +231,36 @@ const Footer = () => {
                 <span className="text-white">Customer Support:</span>
               </li>
               <li>
-                <a className="hover:underline" href="https://support.blueapron.com/hc/en-us">
-                  Help Center & FAQ
-                </a>
+                <a className="hover:underline cursor-pointer">Help Center & FAQ</a>
               </li>
               <li>
-                <a className="hover:underline" href="">
-                  contact@blueapron.com
-                </a>
+                <a className="hover:underline cursor-pointer">contact@etemmeals.com</a>
               </li>
               <li>
-                <a className="hover:underline" href="tel:+16468914349">
-                  (646) 891-4349
+                <a className="hover:underline cursor-pointer" href="tel:+905452629356">
+                  +90 545 262 9356
                 </a>
               </li>
             </ul>
           </div>
           <ul className="secondCol flex flex-col justify-center items-end gap-3">
             <li>
-              <span className="text-white">© Blue Apron, LLC 2023</span>
+              <span className="text-white">© Etem Meals, LLC 2003</span>
             </li>
             <li className=" text-right">
-              <a className="hover:underline" href="">
-                Do Not Sell or Share My Info
-              </a>
+              <a className="hover:underline cursor-pointer">Do Not Sell or Share My Info</a>
             </li>
             <li className="text-right">
-              <a className="hover:underline" href="">
-                Notice to California Residents
-              </a>
+              <a className="hover:underline cursor-pointer">Notice to California Residents</a>
             </li>
             <li>
-              <a className="hover:underline" href="">
-                Ad Preferences
-              </a>
+              <a className="hover:underline cursor-pointer">Ad Preferences</a>
             </li>
             <li>
-              <a className="hover:underline" href="">
-                Privacy
-              </a>
+              <a className="hover:underline cursor-pointer">Privacy</a>
             </li>
             <li>
-              <a className="hover:underline" href="">
-                Terms
-              </a>
+              <a className="hover:underline cursor-pointer">Terms</a>
             </li>
           </ul>
         </div>

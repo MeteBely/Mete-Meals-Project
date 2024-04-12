@@ -1,7 +1,10 @@
 import homePageMeals from '../../components-data/homePageMeals.js';
 import WeeklyOptionsMenu from './WeeklyOptionsMenu.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const HomeSecondSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section>
       <div className="weeklyOptionsMenus">
@@ -14,7 +17,9 @@ const HomeSecondSection = () => {
             })}
           </div>
         </div>
-        <button className="block w-[260px] h-[50px] rounded-3xl bg-white text-[#002c9b] mx-auto mt-[30px] mb-[46px] border-[#002c9b] border-2 tracking-[2.5px] text-[16px] font-medium fontCera">BROWSE OUR MENUS</button>
+        <button onClick={() => navigate('/on-the-menu')} className="block w-[260px] h-[50px] rounded-3xl bg-white text-[#002c9b] mx-auto mt-[30px] mb-[46px] border-[#002c9b] border-2 tracking-[2.5px] text-[16px] font-medium fontCera">
+          BROWSE OUR MENUS
+        </button>
       </div>
     </section>
   );

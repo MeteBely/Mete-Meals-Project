@@ -12,7 +12,7 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: 'Welcome to Mete Meals',
+  title: 'Welcome to Etem Meals',
   description: 'Sell the best meal kits and so on!',
   keyword: 'deliver meal, meals, cheap meals, healty meals',
 };

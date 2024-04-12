@@ -14,8 +14,8 @@ const Home = () => {
       <HomeSecondSection />
       <HomeThirdSection />
       <HomeFourthSection />
-      <PricingQuestions />
       <SignUpBottomSection />
+      <PricingQuestions />
     </main>
   );
 };
