@@ -6,7 +6,7 @@ import OnTheMenuThirdSection from '../../components/on-the-menus/OnTheMenuThirdS
 import OnTheMenuFourthSection from '../../components/on-the-menus/OnTheMenuFourthSection.jsx';
 import OnTheMenuFifthSection from '../../components/on-the-menus/OnTheMenuFifthSection.jsx';
 import OnTheMenuBottomSection from '../../components/on-the-menus/OnTheMenuBottomSection.jsx';
-import onTheMenuFunc from '../../utils/onTheMenuFunc.js';
+import OnTheMenuFunc from '../../utils/OnTheMenuFunc.js';
 import { useGetMealsQuery } from '../../slices/mealsApiSlice.js';
 import Loader from '../../components/common/Loader.jsx';
 
@@ -36,7 +36,7 @@ const OnTheMenu = () => {
   //Seçilen servis butonuna göre active(gösterilecek) mealleri haftalarına göre sırasıyla activeMenusFirstWeek, activeMenusSecondWeek, activeMenusThirdWeek, activeMenusFourthWeek'e set ediyorum.
   useEffect(() => {
     if (twoServingFirstMeals && twoServingSecondMeals && twoServingThirdMeals && twoServingFourthMeals && twoServingFourthMeals !== null && twoServingThirdMeals !== null && twoServingSecondMeals !== null && twoServingFirstMeals !== null) {
-      onTheMenuFunc(activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondWeek, setActiveMenusThirdWeek, setActiveMenusFourthWeek, twoServingFirstMeals, twoServingSecondMeals, twoServingThirdMeals, twoServingFourthMeals, fourServingFirstMeals, fourServingSecondMeals, fourServingThirdMeals, fourServingFourthMeals, fastServingFirstMeals, fastServingSecondMeals, fastServingThirdMeals, fastServingFourthMeals, flexServingFirstMeals, flexServingSecondMeals, flexServingThirdMeals, flexServingFourthMeals);
+      OnTheMenuFunc(activeBtn, setActiveMenusFirstWeek, setActiveMenusSecondWeek, setActiveMenusThirdWeek, setActiveMenusFourthWeek, twoServingFirstMeals, twoServingSecondMeals, twoServingThirdMeals, twoServingFourthMeals, fourServingFirstMeals, fourServingSecondMeals, fourServingThirdMeals, fourServingFourthMeals, fastServingFirstMeals, fastServingSecondMeals, fastServingThirdMeals, fastServingFourthMeals, flexServingFirstMeals, flexServingSecondMeals, flexServingThirdMeals, flexServingFourthMeals);
     }
   }, [activeBtn, isLoading, twoServingFirstMeals, twoServingSecondMeals, twoServingThirdMeals, twoServingFourthMeals, fourServingFirstMeals, fourServingSecondMeals, fourServingThirdMeals, fourServingFourthMeals, fastServingFirstMeals, fastServingSecondMeals, fastServingThirdMeals, fastServingFourthMeals, flexServingFirstMeals, flexServingSecondMeals, flexServingThirdMeals, flexServingFourthMeals]);
 
