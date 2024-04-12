@@ -1,16 +1,15 @@
 import asyncHandler from '../middleware/asyncHandler.js';
 import MealKit from '../models/mealKitModel.js';
 
-//meal kitleri çeker, public. /api/mealKits
+//meal kitleri çeker, public.
 const getMealKits = asyncHandler(async (req, res) => {
   const mealKits = await MealKit.find({}).populate([{ path: 'meals.meal', select: 'img' }]);
   res.json(mealKits);
 });
 
-//meal kiti çeker, public. /api/mealKits/:id
+//meal kiti çeker id'ye göre çeker. Ekstra olarak içerisindeki meallerin img, subTxt ve name'sini populate eder. public.
 const getMealKitById = asyncHandler(async (req, res) => {
   const mealKit = await MealKit.findById(req.params.id).populate([{ path: 'meals.meal', select: 'img subTxt name' }]);
-
   if (mealKit) {
     return res.json(mealKit);
   } else {
@@ -19,7 +18,7 @@ const getMealKitById = asyncHandler(async (req, res) => {
   }
 });
 
-//admin
+//admin meal kit oluşturabilir. Oluşturduğu meal kit sample'dir. İsterse daha sonra editleyebilir.
 const createMealKit = asyncHandler(async (req, res) => {
   const mealKit = new MealKit({
     name: 'Sample Name',
@@ -28,16 +27,14 @@ const createMealKit = asyncHandler(async (req, res) => {
     description: 'sample description',
     meals: [],
   });
-
   const sampleMealKit = await mealKit.save();
   res.status(201).json(sampleMealKit);
 });
 
-//admin
+//admin meal kiti güncelleyebilir. Id'ye göre meal kiti aldıktan çektikten sonra verileri güncelleyip save edilir.
 const updateMealKit = asyncHandler(async (req, res) => {
   const mealKit = await MealKit.findById(req.params.id);
   const { name, subTxt, price, description, meals } = req.body;
-
   if (mealKit) {
     mealKit.name = name;
     mealKit.subTxt = subTxt;
@@ -52,9 +49,9 @@ const updateMealKit = asyncHandler(async (req, res) => {
   }
 });
 
+//Admin, Id'ye göre meal kiti çekip siler.
 const deleteMealKit = asyncHandler(async (req, res) => {
   const mealKit = await MealKit.findById(req.params.id);
-
   if (mealKit) {
     await MealKit.deleteOne({ _id: req.params.id });
     res.status(201).json({ message: 'MealKit deleted successfully' });
@@ -64,24 +61,22 @@ const deleteMealKit = asyncHandler(async (req, res) => {
   }
 });
 
+//Giriş yapmış kullanıcı meal kite review yazabilir. Bir kişi aynı meal kite birden fazla review yazamaz.
 const createMealKitReview = asyncHandler(async (req, res) => {
   const { rating, comment } = req.body;
   const mealKit = await MealKit.findById(req.params.id);
-
   if (mealKit) {
     const alreadyReviewed = mealKit.reviews.find((review) => review.user.toString() === req.user._id.toString());
     if (alreadyReviewed) {
       res.status(400);
       throw new Error('Meal kit already reviewed!');
     }
-
     const review = {
       user: req.user._id,
       name: req.user.name,
       rating: Number(rating),
       comment: comment,
     };
-
     mealKit.reviews.push(review);
     await mealKit.save();
     res.status(201).json({ message: 'Meal kit reviewed successfully!' });

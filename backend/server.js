@@ -18,9 +18,9 @@ const port = process.env.PORT || 5000;
 connectMongoDB();
 
 //Body Parser
-app.use(express.json()); //req.body --> raw
-app.use(express.urlencoded({ extended: true })); //req.body --> urlencoded
-app.use(cookieParser()); //req.cookie
+app.use(express.json()); //req.body --> raw için
+app.use(express.urlencoded({ extended: true })); //req.body --> urlencoded için.
+app.use(cookieParser()); //req.cookie --> cookie için.
 
 app.get('/', (req, res) => {
   res.send('API is running');

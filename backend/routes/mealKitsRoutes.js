@@ -6,4 +6,5 @@ const router = express.Router();
 router.route('/').get(getMealKits).post(protect, admin, createMealKit);
 router.route('/:id').get(getMealKitById).put(protect, admin, updateMealKit).delete(protect, admin, deleteMealKit);
 router.route('/:id/reviews').post(protect, createMealKitReview);
+
 export default router;

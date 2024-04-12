@@ -5,13 +5,13 @@ dotenv.config();
 import stripe from 'stripe';
 const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
-//meal kitleri çeker, public. /api/mealKits
+//Admin'e özeldir, tüm gift cardları çeker.
 const getGiftCards = asyncHandler(async (req, res) => {
   const giftCards = await GiftCard.find({});
   res.json(giftCards);
 });
 
-//gift cardı (kod'a)id'ye göre çekeceğiz, sadece giriş yapmış kişiler hediye kartını kullanabilecek. Eğer başarılı çekerse bakiyeyi yükleyip db'den o giftCardı silececeğiz.
+//Giriş yapmış kişi gift cardı (kod'a)id'ye göre çekecek. Eğer başarılı çekerse bakiyeyi yükleyip db'den o giftCardı silececeğiz.
 const getGiftCardByIdAndDelete = asyncHandler(async (req, res) => {
   const giftCard = await GiftCard.findByIdAndDelete(req.params.id);
   if (giftCard) {
@@ -22,19 +22,19 @@ const getGiftCardByIdAndDelete = asyncHandler(async (req, res) => {
   }
 });
 
+//public, satın alınma başarılı olursa gift card üretir.
 const createGiftCard = asyncHandler(async (req, res) => {
   const { amount } = req.body;
   const giftCard = new GiftCard({
     amount,
   });
-
   await giftCard.save();
   res.status(201).json(giftCard);
 });
 
+//public, seçilen gift cardları ödeme sayfasına yönlendirir. Kullanıcıyı ödeme başarılı olursa success_url'e, başarısız olursa cancel_url'e yönlendirir.
 const PayToGiftCardOrder = asyncHandler(async (req, res) => {
   const giftCards = req.body;
-
   if (giftCards) {
     try {
       const lineItems = giftCards.map((giftCard) => {
@@ -56,7 +56,6 @@ const PayToGiftCardOrder = asyncHandler(async (req, res) => {
         success_url: `http://localhost:5173/success/giftCardOrder`,
         cancel_url: `http://localhost:5173/cancel/giftCardOrder`,
       });
-
       res.json({ id: session.id });
     } catch (error) {
       console.error('Error creating Stripe Checkout session:', error);

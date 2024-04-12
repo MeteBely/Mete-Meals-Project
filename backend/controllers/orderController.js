@@ -5,6 +5,7 @@ dotenv.config();
 import stripe from 'stripe';
 const stripeInstance = stripe(process.env.STRIPE_SECRET_KEY);
 
+//Giriş yapmış kişi içindir, gelen bilgilere göre order oluşturur.
 const createOrder = asyncHandler(async (req, res) => {
   const { orderItems, shippingAddress, paymentMethod, itemsPrice, shippingPrice, totalPrice } = req.body;
   if (orderItems && orderItems.length === 0) {
@@ -20,14 +21,12 @@ const createOrder = asyncHandler(async (req, res) => {
       totalPrice,
       user: req.user._id,
     });
-
     await newOrder.save();
-
     res.status(201).json(newOrder);
   }
 });
 
-//kullanıcı siparişlerini görebilecke
+//Giriş yapmış kullanıcının siparişlerini görebilmesi içindir.
 const getMyOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({
     user: req.user._id,
@@ -35,7 +34,7 @@ const getMyOrders = asyncHandler(async (req, res) => {
   res.status(200).json(orders);
 });
 
-//admin
+//Giriş yapmış kullanıcının order'ini görüntülemesi içindir, user name ve email'i de populate eder.
 const getOrderById = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate('user', 'name email');
   if (order) {
@@ -45,8 +44,8 @@ const getOrderById = asyncHandler(async (req, res) => {
     throw new Error('Not found order');
   }
 });
-//updateOrderToPaid
 
+//Giriş yapmış kullanıcı order'ın parasını ödediğinde çalıştırdığımız endpointtir. Order'in isPaid'ini true yaparç
 const updateOrderToPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate('user', 'name email');
   if (order) {
@@ -60,20 +59,10 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
   }
 });
 
+//Kullanıcı stripe ödeme yöntemini seçerse ve ödeme yaparsa çalıştırılan endpointtir. Order bilgileri ile ödeme sayfasına yönlendirilir.Ödeme başarılı olursa success_url'e, başarısız olursa cancel_url'e yönlendirilir.
 const PayToOrder = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
-
   if (order) {
-    // order.isPaid = true;
-    // order.paidAt = Date.now();
-    // order.paymentResult = {
-    //   id: req.body.id,
-    //   status: req.body.status,
-    //   update_time: req.body.update_time,
-    //   email_address: req.body.email_address,
-    // };
-    // const updatedOrder = await order.save();
-
     const mealKits = req.body;
     try {
       const lineItems = mealKits.map((mealKit) => {
@@ -107,6 +96,7 @@ const PayToOrder = asyncHandler(async (req, res) => {
   }
 });
 
+//Admin, ilgili order'ı delivered olarak güncelleyebilir.
 const updateOrderToDelivered = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (order) {
@@ -120,13 +110,13 @@ const updateOrderToDelivered = asyncHandler(async (req, res) => {
   }
 });
 
-//admin
+//Admin bütün orderleri listeler. Order'ı veren user'in id ve name'si de populate edilir.
 const getAllOrders = asyncHandler(async (req, res) => {
   const orders = await Order.find({}).populate('user', 'id name');
   res.status(200).json(orders);
 });
 
-//admin
+//Admin, ilgili orderi silebilir.
 const deleteOrder = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id);
   if (order) {
