@@ -81,8 +81,8 @@ const PayToOrder = asyncHandler(async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: `http://localhost:5173/success/order/${order._id}`,
-        cancel_url: `http://localhost:5173/cancel/order/${order._id}`,
+        success_url: `https://etemmeals-6ubc.onrender.com/success/order/${order._id}`,
+        cancel_url: `https://etemmeals-6ubc.onrender.com/cancel/order/${order._id}`,
       });
 
       res.json({ id: session.id });

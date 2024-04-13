@@ -26,8 +26,8 @@ const payToMembership = asyncHandler(async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: `http://localhost:5173/success/membership/selectmeals`,
-        cancel_url: `http://localhost:5173/cancel/membership`,
+        success_url: `https://etemmeals-6ubc.onrender.com/success/membership/selectmeals`,
+        cancel_url: `https://etemmeals-6ubc.onrender.com/cancel/membership`,
       });
       res.json({ id: session.id });
     } catch (error) {
