@@ -1,13 +1,22 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+// import the plugin
+import eslintPlugin from 'vite-plugin-eslint';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    eslintPlugin({
+      // setup the plugin
+      cache: false,
+      include: ['./src/**/*.js', './src/**/*.jsx'],
+      exclude: [],
+    }),
+  ],
   server: {
     proxy: {
-      '/api': 'https://etemmeals-server.onrender.com',
-      '/uploads': 'https://etemmeals-server.onrender.com',
+      '/api': 'http://localhost:5000',
+      '/uploads': 'http://localhost:5000',
     },
   },
 });
