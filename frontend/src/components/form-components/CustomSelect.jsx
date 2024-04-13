@@ -1,6 +1,6 @@
 import { useField } from 'formik';
 
-const CustomInput = ({ label, ...props, options }) => {
+const CustomInput = ({ label, options, ...props }) => {
   //options'u dizi olarka yollayacaksın.
   // options={[
   //   {key: '', value:''}

@@ -86,7 +86,7 @@ const MealKitDetail = () => {
               </div>
               <div className="w-full flex flex-row justify-center items-center gap-8">
                 <button onClick={() => setActiveDesc('itemOne')} className={`${activeDesc === 'itemOne' ? 'font-semibold border-[#012684] text-[#012684] hover:text-[#012684] border-b-2 cursor-pointer  ' : 'text-[#6B6D75] font-normal hover:text-[#012684] cursor-pointer'}w-auto h-[50px]`}>
-                  What's Included
+                  What is Included
                 </button>
                 <button onClick={() => setActiveDesc('itemTwo')} className={`${activeDesc === 'itemTwo' ? 'font-semibold border-[#012684] text-[#012684] hover:text-[#012684] border-b-2 cursor-pointer' : 'text-[#6B6D75] font-normal hover:text-[#012684] cursor-pointer'}w-auto h-[50px]`}>
                   Order & Shipping

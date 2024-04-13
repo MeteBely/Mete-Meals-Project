@@ -81,7 +81,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="min-[1212px]:border-r-[1px] min-[1212px]:border-l-[1px] border-[#e4e6eb] min-[1212px]:px-[120px] text-center text-[#6a6d75] mt-[30px]">
-            <h3 className="text-[#303236] text-[14px] tracking-widest mb-4">DISCOVER WHAT'S COOKIN'</h3>
+            <h3 className="text-[#303236] text-[14px] tracking-widest mb-4">DISCOVER WHAT`S COOKIN`</h3>
             <input type="email" placeholder="Email Address" className="text-[#6a6d75] h-[42px] mb-4 w-[185px] min-[700px]:w-[275px] px-[15px] py-[10px] text-[14px] rounded-l-[4px] border focus:outline-none" />
             <button className="bg-[#245091] pb-[2px] hover:bg-[#0f346c] text-white h-[42px] w-[40px] min-[700px]:w-[50px] rounded-r-[4px]">GO</button>
             <p className="text-[12px] min-[700px]:text-[14px]">Sign up for offers, recipes, news & more</p>

@@ -14,7 +14,7 @@ const HomeFirstSection = () => {
       </div>
       <div className="rating-section flex flex-col items-center justify-center bg-coolGray-200 h-[250px] gap-2 fontCera">
         <span className="text-[32px] font-bold">
-          Our customers think we're <span className="text-[32px] text-[#00a0df] text-center m-auto md:inline block">EXCELLENT</span>
+          Our customers think we`re <span className="text-[32px] text-[#00a0df] text-center m-auto md:inline block">EXCELLENT</span>
         </span>
         <div>
           <img src="https://media.blueapron.com/assets/registration/homepage/appstore_ratings_icon.svg" className="inline-block" /> <span className="font-bold text-4xl text-[#303236] align-middle leading-3">4.7</span>
