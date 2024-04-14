@@ -3,10 +3,10 @@ import * as yup from 'yup';
 export const mealKitSchema = yup.object().shape({
   name: yup
     .string()
-    .matches(/^[A-Za-z ]*$/, 'Lütfen gecerli bir isim giriniz, özel karakterler kullanmayiniz')
-    .max(40, 'Maksimum 40 karakter girilebilir')
-    .required('İsim zorunludur'),
-  description: yup.string().max(500, 'Maksimum 500 karakter girilebilir').required('Aciklama alani zorunludur'),
-  subTxt: yup.string().max(40, 'Maksimum 40 karakter girilebilir').required('subTxt zorunludur'),
-  price: yup.number().min(0, 'Gecerli bir fiyat giriniz.').max(200, 'Abartma.').required('Fiyat bölümü girilmesi zorunludur.'),
+    .matches(/^[A-Za-z ]*$/, 'Please enter a valid name, do not use special characters')
+    .max(40, 'Max character is 40')
+    .required('Name is required'),
+  description: yup.string().max(500, 'Max character is 500').required('Description is required'),
+  subTxt: yup.string().max(40, 'Max character is 40').required('Sub text is required'),
+  price: yup.number().min(0, 'Please enter a valid price amount').max(200, 'Do not exaggerate').required('Price info is required'),
 });
