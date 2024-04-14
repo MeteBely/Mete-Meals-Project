@@ -30,7 +30,7 @@ const RedeemGiftCardBalance = () => {
     <section>
       <div className="w-[400px] m-auto mt-20 mb-2">
         <Formik initialValues={{ giftCardId: '' }} onSubmit={onSubmit}>
-          {({ isSubmitting, values }) => (
+          {() => (
             <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 ">
               <CustomInput label="Sign your gift card key here..." name="giftCardId" />
               <button disabled={isLoading} className="text-[15px] w-auto px-10 rounded-md h-[40px] fontCera tracking-widest bg-[#235091] hover:bg-[#0F346C] text-[#fff] fontCera mt-4" type="submit">

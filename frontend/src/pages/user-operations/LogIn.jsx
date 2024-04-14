@@ -28,13 +28,13 @@ const LogIn = () => {
   }, [userInfo, redirect, navigate]);
 
   //LOG IN butonuna basılırsa tetiklenir, girilen bilgiler doğru ise setCredentials ile local'e userInfo savelenir(backend endpoint'den dönen veriler ile). Var ise redirect edilir, yoksa home page'e yönlenilir.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     try {
       const res = await login(values).unwrap(); //promise eder
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
-      toast.error(err?.data?.message || err?.error || err);
+      toast.error('Username or password is incorrect! Please try again!');
     }
   };
 
@@ -43,7 +43,7 @@ const LogIn = () => {
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Log In</h1>
         <Formik initialValues={{ email: '', password: '' }} onSubmit={onSubmit} validationSchema={loginSchema}>
-          {({ values }) => (
+          {() => (
             <Form className="flex flex-col gap-4 border rounded-none  p-4 m-4">
               <CustomInput label="Email" name="email" />
               <br />
@@ -69,7 +69,7 @@ const LogIn = () => {
           </button>
         </div>
         <div className="text-center text-[14px] fontCera text-[#6a6d75] mt-6">
-          Don`t have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link to={redirect ? `/users/sign_up?redirect=${redirect}` : '/users/sign_up'} href="" className="text-[#0f346c] underline">
             Sign Up
           </Link>

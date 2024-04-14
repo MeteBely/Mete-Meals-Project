@@ -18,7 +18,7 @@ const Profile = () => {
 
   //UPDATE butonuna basınca tetiklenir, password ile password again aynı değil ise kullanıcı bilgilendirilir, aynı ise;
   //kullanıcının profili güncellenir ve dönen res ile local'deki userInfo'da güncellenir. Kullanıcı olumlu bilgilendirilir.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     if (values.password === values.confirmPassword) {
       try {
         const res = await updateProfile({ _id: userInfo._id, ...values }).unwrap();
@@ -37,7 +37,7 @@ const Profile = () => {
       <div className="w-[400px] fontCera">
         {/*FİRST COL  */}
         <Formik initialValues={{ name: userInfo.name, email: userInfo.email, password: '', confirmPassword: '' }} onSubmit={onSubmit} validationSchema={registerSchema}>
-          {({ isSubmitting, values }) => (
+          {() => (
             <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
               <CustomInput label="Name" name="name" />
               <CustomInput label="Email" name="email" />

@@ -29,7 +29,7 @@ const SelectMeals = () => {
 
   //Kullanıcının her haftada minimum 1 meal seçtiğinden emin olunur. Seçtiği mealler, yazdığı adres ve localdeki plan ve preference bilgilileri ile membership oluşturulur.
   //Ayrıca localden membership bilgileri temizlenir ve son olarak kullanıcı membership sayfasına yönlendirilir.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     if (selectedFirstWeekMeals && selectedFirstWeekMeals.length > 0 && selectedSecondWeekMeals && selectedSecondWeekMeals.length > 0 && selectedThirdWeekMeals && selectedThirdWeekMeals.length > 0 && selectedFourthWeekMeals && selectedFourthWeekMeals.length > 0) {
       const res = await createMembership({
         plan: {
@@ -95,7 +95,7 @@ const SelectMeals = () => {
         </div>
       )}
       <Formik initialValues={{ address: shippingAddress?.address || '', city: shippingAddress?.city || '', postalCode: shippingAddress?.postalCode || '' }} onSubmit={onSubmit} validationSchema={addressSchema}>
-        {({ isSubmitting, values }) => (
+        {() => (
           <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 min-[1050px]:w-[1000px] w-auto">
             <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Location</h1>
             <CustomInput label="Address" name="address" />

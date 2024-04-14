@@ -54,7 +54,7 @@ const UpdateMealKit = () => {
   };
 
   //form submit olunca tetiklenir, meal kiti günceller.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     refetch();
     const updatedMealKit = {
       mealKitId,
@@ -86,7 +86,7 @@ const UpdateMealKit = () => {
           <div>{error}</div>
         ) : (
           <Formik initialValues={{ name: mealKit.name, description: mealKit.description, subTxt: mealKit.subTxt, price: mealKit.price }} onSubmit={onSubmit} validationSchema={mealKitSchema}>
-            {({ isSubmitting, values }) => (
+            {() => (
               <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
                 <CustomInput label="Name" name="name" />
                 <CustomTextarea label="Description" name="description" />

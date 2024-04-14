@@ -141,7 +141,7 @@ const MealKitDetail = () => {
               {isReviewLoading && <Loader />}
               {userInfo ? (
                 <Formik initialValues={{ rating: 1, comment: '' }} onSubmit={onSubmit} validationSchema={reviewSchema}>
-                  {({ values }) => (
+                  {() => (
                     <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4 w-auto min-[1050px]:w-[1000px]">
                       <CustomTextarea label="Comment" name="comment" />
                       <CustomInput type="number" label="Rating" name="rating" />

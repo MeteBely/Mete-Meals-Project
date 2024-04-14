@@ -9,7 +9,7 @@ const giftCardSlice = createSlice({
       state.giftCardItems = action.payload;
       localStorage.setItem('giftCards', JSON.stringify(state));
     },
-    clearGiftCardItems: (state, action) => {
+    clearGiftCardItems: (state) => {
       localStorage.removeItem('giftCards');
       state.giftCardItems = [];
     },

@@ -26,7 +26,7 @@ const Payment = () => {
   //Continue butona bastığında tetiklenir
   // Eğer balance seçilmişse ve balance yeterli ise locale kaydedilip placeorder'a yönlendirilir, eğer balance yetersiz ise kullanıcı bilgilendirilir.
   // Eğer stripe seçilmişse local'e kaydedilip devam edilir.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     if (!isLoading) {
       if (values.paymentMethod === 'Balance') {
         if (userBalance && userBalance.balance >= cart.totalPrice) {
@@ -51,7 +51,7 @@ const Payment = () => {
       </div>
       <h1 className="text-[32px] tracking-wide text-[#0F346C] fontCera font-semibold mb-6">Payment Method</h1>
       <Formik initialValues={{ paymentMethod: '' }} onSubmit={onSubmit} validationSchema={paymentMethodSchema}>
-        {({ values }) => (
+        {() => (
           <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
             <legend className="text-[20px] font-semibold  text-[#6B6D75]">Select Method</legend>
             <CustomRadio

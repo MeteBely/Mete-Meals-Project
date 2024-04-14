@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { addToGiftCardItems } from '../../slices/giftCardSlice.js';
 
 const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
-  const { data: stripeId, isLoading: loadingStripe, error: errorStripe } = useGetStripePublishableKeyQuery();
+  const { data: stripeId, isLoading: loadingStripe } = useGetStripePublishableKeyQuery();
   const [payGiftCard, { isLoading: loadingGiftCard }] = usePayGiftCardMutation();
   const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ const GiftCardsThirdCol = ({ sumQuantity, cart, setCart }) => {
         {cart.length == 0 ? (
           <>
             <span className="text-[#303235] text-[12px] font-semibold inline-block text-left ">YOUR CART IS EMPTY</span>
-            <span className="text-[#b2b5bd] text-[12px] pt-4 block text-center ">You haven`t added any gifts yet</span>
+            <span className="text-[#b2b5bd] text-[12px] pt-4 block text-center ">You haven&apos;t added any gifts yet</span>
           </>
         ) : (
           <>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // eslint-disable-next-line react/prop-types
 const MonthlyMenuItem = ({ menuImg, menuType, menuName, menuDetail, menuTime, isVegetarian, menuId }) => {
   return (
-    <div className="h-[415px] max-w-[375px] rounded-[6px] border border-[#e4e6eb] monthlyMenuBox overflow-hidden pb-6 cursor-pointer">
+    <div className="h-[415px] max-w-[375px] rounded-[6px] border border-[#e4e6eb] shadow-[0_0_6px_0_rgba(0,0,0,0.15)] transition-all duration-300 overflow-hidden pb-6 cursor-pointer">
       <Link to={`/on-the-menu/meal/${menuId}`}>
         <div className="relative">
           <img className="w-[373px] h-[248.5px]" src={menuImg} alt="" />

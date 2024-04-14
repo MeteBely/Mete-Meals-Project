@@ -7,7 +7,7 @@ const GiftCardsBottomSection = () => {
       <div className="text-[#0f346c] text-[14px] font-semibold text-center">
         <div className="rounded-md inline-block bg-white m-[10px] w-[300px] h-[60px] pt-[20px]">
           <Link to="/pages/redeem" className="cursor-pointer hover:underline fontCera text-[17px] font-semibold" href="">
-            Redeem your Blue Apron gift.
+            Redeem your Etem Meals gift.
           </Link>
         </div>
       </div>

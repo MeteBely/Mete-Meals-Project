@@ -8,7 +8,7 @@ const SignUpBottomSection = () => {
       <ul className="flex flex-row m-auto w-[50%] min-[515px]:gap-[26px] gap-4 mb-[28px] mt-10 justify-center">
         <li className="w-[280px] border border-[#E3E6ED] rounded-[4px] px-[25px] text-center text-[#6a6d75]">
           <div className="relative">
-            <div className="absolute -top-[8px] left-1/2 positionCenter bg-white z-100 w-[70px]">
+            <div className="absolute -top-[8px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-100 w-[70px]">
               <img src={calendarCheck} alt="" className="w-[44px] h-[44px] mx-auto" />
             </div>
             <h3 className="fontCera mt-[5px] mb-[10px] leading-[1.2] font-semibold text-[#303236] pt-[26px]">No Commitment</h3>
@@ -17,7 +17,7 @@ const SignUpBottomSection = () => {
         </li>
         <li className="w-[280px] border border-[#E3E6ED] rounded-[4px] px-[25px] text-center text-[#6a6d75]">
           <div className="relative">
-            <div className="absolute -top-[8px] left-1/2 positionCenter bg-white z-100 w-[70px]">
+            <div className="absolute -top-[8px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-100 w-[70px]">
               <img src={papers} alt="" className="w-[44px] h-[44px] mx-auto" />
             </div>
             <h3 className="fontCera mt-[5px] mb-[10px] leading-[1.2] font-semibold text-[#303236] pt-[26px]">Personalized Menus</h3>
@@ -26,7 +26,7 @@ const SignUpBottomSection = () => {
         </li>
         <li className="w-[280px] border border-[#E3E6ED] rounded-[4px] px-[25px] text-center text-[#6a6d75]">
           <div className="relative">
-            <div className="absolute -top-[8px] left-1/2 positionCenter bg-white z-100 w-[70px]">
+            <div className="absolute -top-[8px] left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white z-100 w-[70px]">
               <img src={box} alt="" className="w-[44px] h-[44px] mx-auto" />
             </div>
             <h3 className="fontCera mt-[5px] mb-[10px] leading-[1.2] font-semibold text-[#303236] pt-[26px]">Convenient Delivery</h3>

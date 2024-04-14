@@ -44,7 +44,7 @@ const OnTheMenuFirstSection = ({ setActiveBtn, activeBtn }) => {
           <button
             onClick={() => {
               setActiveBtn('btnFour');
-              setSubTxt('Complete your meal with appetizers and sides or add even more Blue Apron to your day with breakfast and dessert options.');
+              setSubTxt('Complete your meal with appetizers and sides or add even more Etem Meals to your day with breakfast and dessert options.');
             }}
             className={`flex flex-col justify-center items-center w-[20%] pb-[20px] ${activeBtn === 'btnFour' ? 'border-[#002c9b] border-b-[3px]' : ''}`}
           >

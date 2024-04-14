@@ -47,7 +47,7 @@ const Offer = () => {
           </DialogContent>
         </div>
       </Dialog>
-      <div className="card w-[480px] min-[690px]:w-[650px] m-auto bg-white rounded-[8px] flex flex-row items-center justify-evenly h-[80px] gap-[16px]">
+      <div className="shadow-[0_2px_4px_0_rgba(0,0,0,0.15)] w-[480px] min-[690px]:w-[650px] m-auto bg-white rounded-[8px] flex flex-row items-center justify-evenly h-[80px] gap-[16px]">
         <img src={ticketGreen} alt="" className="h-[28px]" />
         <p className="fontCera font-semibold text-center text-[#303235] text-[14px]">First order shipping is free!</p>
         <button onClick={() => navigate('/users/sign_in?redirect=/pricing')} className="bg-[#00a979] hover:bg-[#1EB389] tracking-[1px] text-white text-[12px] fontCera w-[150px] rounded-[30px] h-[35px]">

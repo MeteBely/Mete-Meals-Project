@@ -1,13 +1,8 @@
 import { useField } from 'formik';
 
 const CustomInput = ({ label, options, ...props }) => {
-  //options'u dizi olarka yollayacaksın.
-  // options={[
-  //   {key: '', value:''}
-  // ]}
-  // gibi
+  const [field] = useField(props);
 
-  const [field, meta, helpers] = useField(props);
   return (
     <label className="block w-full">
       <div className="text-sm text-gray-600 ">{label}</div>

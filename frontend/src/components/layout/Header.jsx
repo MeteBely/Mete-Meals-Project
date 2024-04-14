@@ -137,7 +137,7 @@ const Header = () => {
                 </Link>
               </>
             )}
-            {cartItems && cartItems.length > 0 ? (
+            {cartItems && cartItems.length > 0 && (
               <>
                 <div className="flex flex-row items-center justify-center w-[120px]">
                   <Link to="/cart">
@@ -146,8 +146,6 @@ const Header = () => {
                   <div className={`bg-[#06316C] ${cartItems.reduce((acc, item) => acc + item.qty, 0) > 9 ? 'w-5 h-5 pr-[1.4px]' : 'w-4 h-4 pr-[0px]'} text-white flex items-center justify-center rounded-[50%] text-[14px] tracking-tighter`}>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</div>
                 </div>
               </>
-            ) : (
-              <></>
             )}
           </div>
         </div>

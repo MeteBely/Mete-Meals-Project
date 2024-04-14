@@ -14,7 +14,7 @@ const UserEdit = () => {
   const navigate = useNavigate();
 
   //form submit olunca user'i güncelliyoruz, güncel user'i göstermek için refetch ediyoruz ve userlist'e navigate ediyoruz kullanıcıyı.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     try {
       await updateUser({
         userId,
@@ -45,7 +45,7 @@ const UserEdit = () => {
             <div>{error}</div>
           ) : (
             <Formik onSubmit={onSubmit} initialValues={{ name: user.name, email: user.email, isAdmin: user.isAdmin }} validationSchema={userEditSchema}>
-              {({ values }) => (
+              {() => (
                 <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
                   <CustomInput label="Name" name="name" />
                   <CustomInput label="Email" name="email" />

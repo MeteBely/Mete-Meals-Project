@@ -2,7 +2,7 @@
 const GiftCardsFirstCol = ({ amount }) => {
   return (
     <div className="firstCol ml-4">
-      <div className="bg-[#0f346c] relative w-[308px] rounded-[20px] h-[200px] fontCera mb-[50px] giftCard">
+      <div className="bg-[#0f346c] relative w-[308px] rounded-[20px] h-[200px] fontCera mb-[50px] shadow-[0_16px_30px_0px_rgba(0,0,0,0.2)]">
         <span className="absolute top-[10px] left-[20px] text-[36px] text-[#fff] font-semibold">${amount}</span>
         <p className="absolute top-[58px] text-[12px] text-[#fff] left-[20px]">MEAL E-GIFT CARD</p>
       </div>

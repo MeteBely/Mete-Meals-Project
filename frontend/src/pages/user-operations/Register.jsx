@@ -29,7 +29,7 @@ const Register = () => {
 
   //password ile password again aynı mı diye kontrol edilir, değil ise kullanıcı bilgilendirilir. Aynı ise;
   //kullanıcı kayıt edilir. Dönen res ile local'e userInfo save edilir. varsa redirect edilir.
-  const onSubmit = async (values, actions) => {
+  const onSubmit = async (values) => {
     if (values.password === values.confirmPassword) {
       try {
         const res = await register(values).unwrap(); //promise eder
@@ -49,7 +49,7 @@ const Register = () => {
       <div className="w-[375px] h-auto pb-6 m-auto bg-white mt-8 pt-2 px-4 card rounded-[4px]">
         <h1 className="text-[#303236] text-[30px] text-center mb-[6px] fontCera font-semibold ">Register</h1>
         <Formik initialValues={{ name: '', email: '', password: '', confirmPassword: '' }} onSubmit={onSubmit} validationSchema={registerSchema}>
-          {({ isSubmitting, values }) => (
+          {() => (
             <Form className="flex flex-col gap-4 border rounded-none shadow-lg p-4 m-4">
               <CustomInput label="Name" name="name" />
               <CustomInput label="Email" name="email" />
