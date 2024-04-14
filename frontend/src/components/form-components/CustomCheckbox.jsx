@@ -3,7 +3,7 @@ import { FiCheck } from 'react-icons/fi';
 import classNames from 'classnames';
 
 const CustomInput = ({ label, ...props }) => {
-  const [field, helpers] = useField(props);
+  const [field, meta, helpers] = useField(props);
   return (
     <label className="flex gap-x-2 cursor-pointer items-center" htmlFor="">
       <button

@@ -1,7 +1,7 @@
 import { useField } from 'formik';
 
 const CustomInput = ({ label, options, ...props }) => {
-  const [field] = useField(props);
+  const [field, meta, helpers] = useField(props);
 
   return (
     <label className="block w-full">

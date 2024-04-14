@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { useField, ErrorMessage } from 'formik';
 
 const CustomInput = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+  const [field, meta, helpers] = useField(props);
   return (
     <label className="block w-full">
       <div className="text-[15px] text-gray-600 fontCera font-semibold">{label}</div>

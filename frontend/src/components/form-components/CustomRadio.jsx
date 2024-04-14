@@ -2,7 +2,7 @@ import { useField, ErrorMessage } from 'formik';
 import classNames from 'classnames';
 
 const CustomInput = ({ label, options, ...props }) => {
-  const [field, helpers] = useField(props);
+  const [field, meta, helpers] = useField(props);
   return (
     <div className="grid gap-y-2">
       <div className="text-sm text-gray-600 block mb-1.5">{label}</div>
