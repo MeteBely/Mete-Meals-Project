@@ -53,8 +53,8 @@ const PayToGiftCardOrder = asyncHandler(async (req, res) => {
         payment_method_types: ['card'],
         line_items: lineItems,
         mode: 'payment',
-        success_url: `https://etemmeals-6ubc.onrender.com//success/giftCardOrder`,
-        cancel_url: `https://etemmeals-6ubc.onrender.com//cancel/giftCardOrder`,
+        success_url: `https://etemmeals-6ubc.onrender.com/success/giftCardOrder`,
+        cancel_url: `https://etemmeals-6ubc.onrender.com/cancel/giftCardOrder`,
       });
       res.json({ id: session.id });
     } catch (error) {
