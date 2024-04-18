@@ -23,9 +23,9 @@ Projeye daha yakından bakmak isterseniz [buradan](https://etemmeals-6ubc.onrend
 Projenin tanıtım videosuna ulaşmak isterseniz [buradan](https://youtu.be/N42sXw0XIP8) ulaşabilirsiniz.
 
 ### Mobil Cihazımdan Birkaç Görsel
-<img src="/readme-images/home.jpg" width="100"/>
-![home image](/readme-images/home.jpg)
-![home second image](/readme-images/homesecond.jpg)
-![mealkit image](/readme-images/mealkit.jpg)
-![membership image](/readme-images/membership.jpg)
-![onthemenus image](/readme-images/onthemenu.jpg)
+<img src="/readme-images/home.jpg" width="200"/>
+<img src="/readme-images/homesecond.jpg" width="200"/>
+<img src="/readme-images/mealkit.jpg" width="200"/>
+<img src="/readme-images/membership.jpg" width="200"/>
+<img src="/readme-images/onthemenu.jpg" width="200"/>
+
