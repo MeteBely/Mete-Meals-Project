@@ -24,9 +24,12 @@ Projenin tanıtım videosuna ulaşmak isterseniz [buradan](https://youtu.be/N42s
 
 ### Mobil Cihazımdan Birkaç Görsel
 <div style="display:flex; flex-direction: row; gap:4px">
-<img src="/readme-images/home.jpg" width="200"/>
-<img src="/readme-images/homesecond.jpg" width="200"/>
-<img src="/readme-images/mealkit.jpg" width="200"/>
-<img src="/readme-images/membership.jpg" width="200"/>
-<img src="/readme-images/onthemenu.jpg" width="200"/>
+   <img src="/readme-images/home.jpg" width="200"/>
+   <img src="/readme-images/homesecond.jpg" width="200"/>
+   <img src="/readme-images/mealkit.jpg" width="200"/>
+   <img src="/readme-images/membership.jpg" width="200"/>
+   <img src="/readme-images/onthemenu.jpg" width="200"/>
+   <img src="/readme-images/order.jpg" width="200"/>
+   <img src="/readme-images/profile.jpg" width="200"/>
+   <img src="/readme-images/giftcard.jpg" width="200"/>
 </div>
