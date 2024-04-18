@@ -21,3 +21,12 @@ Projeye daha yakından bakmak isterseniz [buradan](https://etemmeals-6ubc.onrend
 ### Tanıtım Videosu
 
 Projenin tanıtım videosuna ulaşmak isterseniz [buradan](https://youtu.be/N42sXw0XIP8) ulaşabilirsiniz.
+
+### Mobil Cihazımdan Birkaç Görsel
+<div style="display:flex; flex-direction: row; gap:4px">
+<img src="/readme-images/home.jpg" width="200"/>
+<img src="/readme-images/homesecond.jpg" width="200"/>
+<img src="/readme-images/mealkit.jpg" width="200"/>
+<img src="/readme-images/membership.jpg" width="200"/>
+<img src="/readme-images/onthemenu.jpg" width="200"/>
+</div>
