@@ -21,3 +21,5 @@ Projeye daha yakından bakmak isterseniz [buradan](https://etemmeals-6ubc.onrend
 ### Tanıtım Videosu
 
 Projenin tanıtım videosuna ulaşmak isterseniz [buradan](https://youtu.be/N42sXw0XIP8) ulaşabilirsiniz.
+
+![home image](/readme-images/home.jpg)
